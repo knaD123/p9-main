@@ -1,0 +1,300 @@
+{
+    "network": {
+        "links": [
+            {
+                "bidirectional": true,
+                "from_interface": "in0",
+                "from_router": "New_York",
+                "to_interface": "in0",
+                "to_router": "Chicago"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "New_York",
+                "to_interface": "in0",
+                "to_router": "Washington_DC"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "Chicago",
+                "to_interface": "in0",
+                "to_router": "Indianapolis"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "Washington_DC",
+                "to_interface": "in0",
+                "to_router": "Atlanta"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in0",
+                "from_router": "Seattle",
+                "to_interface": "in0",
+                "to_router": "Sunnyvale"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "Seattle",
+                "to_interface": "in0",
+                "to_router": "Denver"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "Sunnyvale",
+                "to_interface": "in0",
+                "to_router": "Los_Angeles"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in2",
+                "from_router": "Sunnyvale",
+                "to_interface": "in1",
+                "to_router": "Denver"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "Los_Angeles",
+                "to_interface": "in0",
+                "to_router": "Houston"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in2",
+                "from_router": "Denver",
+                "to_interface": "in0",
+                "to_router": "Kansas_City"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in1",
+                "from_router": "Kansas_City",
+                "to_interface": "in1",
+                "to_router": "Houston"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in2",
+                "from_router": "Kansas_City",
+                "to_interface": "in1",
+                "to_router": "Indianapolis"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in2",
+                "from_router": "Houston",
+                "to_interface": "in1",
+                "to_router": "Atlanta"
+            },
+            {
+                "bidirectional": true,
+                "from_interface": "in2",
+                "from_router": "Atlanta",
+                "to_interface": "in2",
+                "to_router": "Indianapolis"
+            }
+        ],
+        "name": "Abilene",
+        "routers": [
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 40.71427,
+                    "longitude": -74.00597
+                },
+                "name": "New_York"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 41.85003,
+                    "longitude": -87.65005
+                },
+                "name": "Chicago"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 38.89511,
+                    "longitude": -77.03637
+                },
+                "name": "Washington_DC"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 47.60621,
+                    "longitude": -122.33207
+                },
+                "name": "Seattle"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1",
+                            "in2"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 37.36883,
+                    "longitude": -122.03635
+                },
+                "name": "Sunnyvale"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 34.05223,
+                    "longitude": -118.24368
+                },
+                "name": "Los_Angeles"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1",
+                            "in2"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 39.73915,
+                    "longitude": -104.9847
+                },
+                "name": "Denver"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1",
+                            "in2"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 39.11417,
+                    "longitude": -94.62746
+                },
+                "name": "Kansas_City"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1",
+                            "in2"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 29.76328,
+                    "longitude": -95.36327
+                },
+                "name": "Houston"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1",
+                            "in2"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 33.749,
+                    "longitude": -84.38798
+                },
+                "name": "Atlanta"
+            },
+            {
+                "interfaces": [
+                    {
+                        "names": [
+                            "eg0",
+                            "in0",
+                            "in1",
+                            "in2"
+                        ],
+                        "routing_table": {}
+                    }
+                ],
+                "location": {
+                    "latitude": 39.76838,
+                    "longitude": -86.15804
+                },
+                "name": "Indianapolis"
+            }
+        ]
+    }
+}

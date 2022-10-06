@@ -1,0 +1,108 @@
+{
+  "network" : {
+    "links" : [
+      {
+        "bidirectional": true,
+        "from_interface": "to2",
+        "from_router": "router1",
+        "to_interface": "to1",
+        "to_router": "router2"
+      },{
+        "bidirectional": true,
+        "from_interface": "to3",
+        "from_router": "router1",
+        "to_interface": "to1",
+        "to_router": "router3"
+      },{
+        "bidirectional": true,
+        "from_interface": "to4",
+        "from_router": "router2",
+        "to_interface": "to2",
+        "to_router": "router4"
+      },{
+        "bidirectional": true,
+        "from_interface": "to4",
+        "from_router": "router3",
+        "to_interface": "to3",
+        "to_router": "router4"
+      },{
+        "bidirectional": true,
+        "from_interface": "to5",
+        "from_router": "router3",
+        "to_interface": "to3",
+        "to_router": "router5"
+      },{
+        "bidirectional": true,
+        "from_interface": "to5",
+        "from_router": "router4",
+        "to_interface": "to4",
+        "to_router": "router5"
+      }
+    ],
+    "name" : "testnet",
+    "routers" : [
+      {
+        "interfaces": [
+          {
+            "names": [
+                "to2",
+                "to3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": { "latitude": 0.0, "longitude": 0.0 },
+        "name": "router1"
+      },{
+        "interfaces": [
+          {
+            "names": [
+                "to1",
+                "to4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": { "latitude": 0.0, "longitude": 0.0 },
+        "name": "router2"
+      },{
+        "interfaces": [
+          {
+            "names": [
+                "to1",
+                "to4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": { "latitude": 0.0, "longitude": 0.0 },
+        "name": "router3"
+      },{
+        "interfaces": [
+          {
+            "names": [
+                "to2",
+                "to3",
+                "to5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": { "latitude": 0.0, "longitude": 0.0 },
+        "name": "router4"
+      },{
+        "interfaces": [
+          {
+            "names": [
+                "to3",
+                "to4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": { "latitude": 0.0, "longitude": 0.0 },
+        "name": "router5"
+      }
+    ]
+  }
+}
