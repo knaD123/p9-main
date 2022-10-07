@@ -1,0 +1,328 @@
+{
+    "nodes": [
+        "0_SEQSUINET,_Rice_University,_Houston",
+        "1_Jon_Von_Neumann_Center,_Princeton,_NJ",
+        "2_SURANET,_Georgia_Tech,_Atlanta",
+        "3_Pittsburgh_Supercomputer_Center",
+        "4_Cornell_Theory_Center,_Ithaca_NY",
+        "5_NorthWestNet,_Seattle",
+        "6_BARRnet,_Palo_Alto",
+        "7_San_Diego_Supercomputer_Center",
+        "8_Westnet,_Salt_Lake_City",
+        "9_NCAR,_Boulder",
+        "10_MIDnet,_Lincoln,_NE",
+        "11_NCSA,_University_of_Illinois,_Champaign",
+        "12_Merit_Univ_of_Michigan,_Ann_Arbor"
+    ],
+    "E": 30,
+    "V": 13,
+    "name": "Nsfnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "0_SEQSUINET,_Rice_University,_Houston",
+            "index": 0,
+            "igp_complete": 858,
+            "dest": "2_SURANET,_Georgia_Tech,_Atlanta",
+            "reverse": 5,
+            "lat": 1882
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "0_SEQSUINET,_Rice_University,_Houston",
+            "index": 1,
+            "igp_complete": 876,
+            "dest": "11_NCSA,_University_of_Illinois,_Champaign",
+            "reverse": 22,
+            "lat": 2204
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "0_SEQSUINET,_Rice_University,_Houston",
+            "index": 2,
+            "igp_complete": 886,
+            "dest": "7_San_Diego_Supercomputer_Center",
+            "reverse": 15,
+            "lat": 3492
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "1_Jon_Von_Neumann_Center,_Princeton,_NJ",
+            "index": 3,
+            "igp_complete": 891,
+            "dest": "2_SURANET,_Georgia_Tech,_Atlanta",
+            "reverse": 6,
+            "lat": 1890
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "1_Jon_Von_Neumann_Center,_Princeton,_NJ",
+            "index": 4,
+            "igp_complete": 900,
+            "dest": "4_Cornell_Theory_Center,_Ithaca_NY",
+            "reverse": 8,
+            "lat": 468
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "2_SURANET,_Georgia_Tech,_Atlanta",
+            "index": 5,
+            "igp_complete": 912,
+            "dest": "0_SEQSUINET,_Rice_University,_Houston",
+            "reverse": 0,
+            "lat": 1882
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "2_SURANET,_Georgia_Tech,_Atlanta",
+            "index": 6,
+            "igp_complete": 922,
+            "dest": "1_Jon_Von_Neumann_Center,_Princeton,_NJ",
+            "reverse": 3,
+            "lat": 1890
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "3_Pittsburgh_Supercomputer_Center",
+            "index": 7,
+            "igp_complete": 926,
+            "dest": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "reverse": 26,
+            "lat": 626
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "4_Cornell_Theory_Center,_Ithaca_NY",
+            "index": 8,
+            "igp_complete": 935,
+            "dest": "1_Jon_Von_Neumann_Center,_Princeton,_NJ",
+            "reverse": 4,
+            "lat": 468
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "4_Cornell_Theory_Center,_Ithaca_NY",
+            "index": 9,
+            "igp_complete": 941,
+            "dest": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "reverse": 27,
+            "lat": 996
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "5_NorthWestNet,_Seattle",
+            "index": 10,
+            "igp_complete": 944,
+            "dest": "9_NCAR,_Boulder",
+            "reverse": 18,
+            "lat": 2674
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "5_NorthWestNet,_Seattle",
+            "index": 11,
+            "igp_complete": 951,
+            "dest": "6_BARRnet,_Palo_Alto",
+            "reverse": 12,
+            "lat": 1887
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "6_BARRnet,_Palo_Alto",
+            "index": 12,
+            "igp_complete": 956,
+            "dest": "5_NorthWestNet,_Seattle",
+            "reverse": 11,
+            "lat": 1887
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "6_BARRnet,_Palo_Alto",
+            "index": 13,
+            "igp_complete": 963,
+            "dest": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "reverse": 28,
+            "lat": 5489
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "6_BARRnet,_Palo_Alto",
+            "index": 14,
+            "igp_complete": 972,
+            "dest": "7_San_Diego_Supercomputer_Center",
+            "reverse": 16,
+            "lat": 1160
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "7_San_Diego_Supercomputer_Center",
+            "index": 15,
+            "igp_complete": 976,
+            "dest": "0_SEQSUINET,_Rice_University,_Houston",
+            "reverse": 2,
+            "lat": 3492
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "7_San_Diego_Supercomputer_Center",
+            "index": 16,
+            "igp_complete": 978,
+            "dest": "6_BARRnet,_Palo_Alto",
+            "reverse": 14,
+            "lat": 1160
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "8_Westnet,_Salt_Lake_City",
+            "index": 17,
+            "igp_complete": 982,
+            "dest": "9_NCAR,_Boulder",
+            "reverse": 19,
+            "lat": 948
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "9_NCAR,_Boulder",
+            "index": 18,
+            "igp_complete": 984,
+            "dest": "5_NorthWestNet,_Seattle",
+            "reverse": 10,
+            "lat": 2674
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "9_NCAR,_Boulder",
+            "index": 19,
+            "igp_complete": 987,
+            "dest": "8_Westnet,_Salt_Lake_City",
+            "reverse": 17,
+            "lat": 948
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "9_NCAR,_Boulder",
+            "index": 20,
+            "igp_complete": 999,
+            "dest": "11_NCSA,_University_of_Illinois,_Champaign",
+            "reverse": 23,
+            "lat": 2414
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "10_MIDnet,_Lincoln,_NE",
+            "index": 21,
+            "igp_complete": 1002,
+            "dest": "11_NCSA,_University_of_Illinois,_Champaign",
+            "reverse": 24,
+            "lat": 1198
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "11_NCSA,_University_of_Illinois,_Champaign",
+            "index": 22,
+            "igp_complete": 1006,
+            "dest": "0_SEQSUINET,_Rice_University,_Houston",
+            "reverse": 1,
+            "lat": 2204
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "11_NCSA,_University_of_Illinois,_Champaign",
+            "index": 23,
+            "igp_complete": 1008,
+            "dest": "9_NCAR,_Boulder",
+            "reverse": 20,
+            "lat": 2414
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "11_NCSA,_University_of_Illinois,_Champaign",
+            "index": 24,
+            "igp_complete": 1015,
+            "dest": "10_MIDnet,_Lincoln,_NE",
+            "reverse": 21,
+            "lat": 1198
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "11_NCSA,_University_of_Illinois,_Champaign",
+            "index": 25,
+            "igp_complete": 1016,
+            "dest": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "reverse": 29,
+            "lat": 749
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "index": 26,
+            "igp_complete": 1020,
+            "dest": "3_Pittsburgh_Supercomputer_Center",
+            "reverse": 7,
+            "lat": 626
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "index": 27,
+            "igp_complete": 1024,
+            "dest": "4_Cornell_Theory_Center,_Ithaca_NY",
+            "reverse": 9,
+            "lat": 996
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "index": 28,
+            "igp_complete": 1026,
+            "dest": "6_BARRnet,_Palo_Alto",
+            "reverse": 13,
+            "lat": 5489
+        },
+        {
+            "igp": 10,
+            "bdw": 1544,
+            "orig": "12_Merit_Univ_of_Michigan,_Ann_Arbor",
+            "index": 29,
+            "igp_complete": 1030,
+            "dest": "11_NCSA,_University_of_Illinois,_Champaign",
+            "reverse": 25,
+            "lat": 749
+        }
+    ]
+}

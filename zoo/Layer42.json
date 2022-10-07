@@ -1,0 +1,161 @@
+{
+    "nodes": [
+        "0_Seattle",
+        "1_San_Francisco",
+        "2_Los_Angeles",
+        "3_Chicago",
+        "4_New_York_City",
+        "5_Washington_DC"
+    ],
+    "E": 14,
+    "V": 6,
+    "name": "Layer42",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Seattle",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "1_San_Francisco",
+            "reverse": 1,
+            "lat": 1825
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_San_Francisco",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "0_Seattle",
+            "reverse": 0,
+            "lat": 1825
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_San_Francisco",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "2_Los_Angeles",
+            "reverse": 5,
+            "lat": 936
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_San_Francisco",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "3_Chicago",
+            "reverse": 6,
+            "lat": 4973
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_San_Francisco",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "5_Washington_DC",
+            "reverse": 11,
+            "lat": 6531
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Los_Angeles",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "1_San_Francisco",
+            "reverse": 2,
+            "lat": 936
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Chicago",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "1_San_Francisco",
+            "reverse": 3,
+            "lat": 4973
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Chicago",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "4_New_York_City",
+            "reverse": 9,
+            "lat": 1913
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Chicago",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "5_Washington_DC",
+            "reverse": 12,
+            "lat": 1597
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_New_York_City",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "3_Chicago",
+            "reverse": 7,
+            "lat": 1913
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_New_York_City",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "5_Washington_DC",
+            "reverse": 13,
+            "lat": 552
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Washington_DC",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "1_San_Francisco",
+            "reverse": 4,
+            "lat": 6531
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Washington_DC",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "3_Chicago",
+            "reverse": 8,
+            "lat": 1597
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Washington_DC",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "4_New_York_City",
+            "reverse": 10,
+            "lat": 552
+        }
+    ]
+}

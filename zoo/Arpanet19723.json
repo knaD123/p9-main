@@ -1,0 +1,600 @@
+{
+    "nodes": [
+        "0_ILLINOIS",
+        "1_MITRE",
+        "2_CARNEGIE",
+        "3_CASE",
+        "4_ETAC",
+        "5_AFGWC",
+        "6_BBN",
+        "7_NBS",
+        "8_Tinker",
+        "9_AMES",
+        "10_RADC",
+        "11_McClellan",
+        "12_RAND",
+        "13_AMES",
+        "14_SDC",
+        "15_BBN",
+        "16_HARVARD",
+        "17_SRI",
+        "18_UCSB",
+        "19_UCLA",
+        "20_Stanford",
+        "21_USC",
+        "22_UTAH",
+        "23_Lincoln",
+        "24_MIT"
+    ],
+    "E": 56,
+    "V": 25,
+    "name": "Arpanet19723",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_ILLINOIS",
+            "index": 0,
+            "igp_complete": 9960,
+            "dest": "24_MIT",
+            "reverse": 53,
+            "lat": 2632
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_ILLINOIS",
+            "index": 1,
+            "igp_complete": 9993,
+            "dest": "22_UTAH",
+            "reverse": 48,
+            "lat": 3144
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_MITRE",
+            "index": 2,
+            "igp_complete": 10087,
+            "dest": "2_CARNEGIE",
+            "reverse": 4,
+            "lat": 1282
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_MITRE",
+            "index": 3,
+            "igp_complete": 10145,
+            "dest": "4_ETAC",
+            "reverse": 9,
+            "lat": 1005
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_CARNEGIE",
+            "index": 4,
+            "igp_complete": 10173,
+            "dest": "1_MITRE",
+            "reverse": 2,
+            "lat": 1282
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_CARNEGIE",
+            "index": 5,
+            "igp_complete": 10252,
+            "dest": "3_CASE",
+            "reverse": 6,
+            "lat": 308
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_CASE",
+            "index": 6,
+            "igp_complete": 10301,
+            "dest": "2_CARNEGIE",
+            "reverse": 5,
+            "lat": 308
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_CASE",
+            "index": 7,
+            "igp_complete": 10371,
+            "dest": "10_RADC",
+            "reverse": 20,
+            "lat": 902
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_CASE",
+            "index": 8,
+            "igp_complete": 10457,
+            "dest": "5_AFGWC",
+            "reverse": 11,
+            "lat": 1296
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_ETAC",
+            "index": 9,
+            "igp_complete": 10498,
+            "dest": "1_MITRE",
+            "reverse": 3,
+            "lat": 1005
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_ETAC",
+            "index": 10,
+            "igp_complete": 10517,
+            "dest": "7_NBS",
+            "reverse": 14,
+            "lat": 56
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_AFGWC",
+            "index": 11,
+            "igp_complete": 10555,
+            "dest": "3_CASE",
+            "reverse": 8,
+            "lat": 1296
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_BBN",
+            "index": 12,
+            "igp_complete": 10574,
+            "dest": "24_MIT",
+            "reverse": 54,
+            "lat": 8
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_BBN",
+            "index": 13,
+            "igp_complete": 10610,
+            "dest": "15_BBN",
+            "reverse": 31,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_NBS",
+            "index": 14,
+            "igp_complete": 10727,
+            "dest": "4_ETAC",
+            "reverse": 10,
+            "lat": 56
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_NBS",
+            "index": 15,
+            "igp_complete": 10758,
+            "dest": "16_HARVARD",
+            "reverse": 34,
+            "lat": 1047
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Tinker",
+            "index": 16,
+            "igp_complete": 10802,
+            "dest": "21_USC",
+            "reverse": 45,
+            "lat": 3183
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Tinker",
+            "index": 17,
+            "igp_complete": 10817,
+            "dest": "15_BBN",
+            "reverse": 32,
+            "lat": 3987
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_AMES",
+            "index": 18,
+            "igp_complete": 10886,
+            "dest": "17_SRI",
+            "reverse": 36,
+            "lat": 24
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_AMES",
+            "index": 19,
+            "igp_complete": 10900,
+            "dest": "13_AMES",
+            "reverse": 27,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_RADC",
+            "index": 20,
+            "igp_complete": 10939,
+            "dest": "3_CASE",
+            "reverse": 7,
+            "lat": 902
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_RADC",
+            "index": 21,
+            "igp_complete": 10976,
+            "dest": "23_Lincoln",
+            "reverse": 51,
+            "lat": 596
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_McClellan",
+            "index": 22,
+            "igp_complete": 11000,
+            "dest": "17_SRI",
+            "reverse": 37,
+            "lat": 261
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_McClellan",
+            "index": 23,
+            "igp_complete": 11036,
+            "dest": "22_UTAH",
+            "reverse": 49,
+            "lat": 1408
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_RAND",
+            "index": 24,
+            "igp_complete": 11070,
+            "dest": "19_UCLA",
+            "reverse": 41,
+            "lat": 43
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_RAND",
+            "index": 25,
+            "igp_complete": 11081,
+            "dest": "20_Stanford",
+            "reverse": 43,
+            "lat": 843
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_RAND",
+            "index": 26,
+            "igp_complete": 11135,
+            "dest": "14_SDC",
+            "reverse": 29,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_AMES",
+            "index": 27,
+            "igp_complete": 11145,
+            "dest": "9_AMES",
+            "reverse": 19,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_AMES",
+            "index": 28,
+            "igp_complete": 11166,
+            "dest": "20_Stanford",
+            "reverse": 44,
+            "lat": 18
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_SDC",
+            "index": 29,
+            "igp_complete": 11176,
+            "dest": "12_RAND",
+            "reverse": 26,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_SDC",
+            "index": 30,
+            "igp_complete": 11234,
+            "dest": "21_USC",
+            "reverse": 46,
+            "lat": 43
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_BBN",
+            "index": 31,
+            "igp_complete": 11290,
+            "dest": "6_BBN",
+            "reverse": 13,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_BBN",
+            "index": 32,
+            "igp_complete": 11307,
+            "dest": "8_Tinker",
+            "reverse": 17,
+            "lat": 3987
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_BBN",
+            "index": 33,
+            "igp_complete": 11316,
+            "dest": "16_HARVARD",
+            "reverse": 35,
+            "lat": 6
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_HARVARD",
+            "index": 34,
+            "igp_complete": 11334,
+            "dest": "7_NBS",
+            "reverse": 15,
+            "lat": 1047
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_HARVARD",
+            "index": 35,
+            "igp_complete": 11359,
+            "dest": "15_BBN",
+            "reverse": 33,
+            "lat": 6
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_SRI",
+            "index": 36,
+            "igp_complete": 11367,
+            "dest": "9_AMES",
+            "reverse": 18,
+            "lat": 24
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_SRI",
+            "index": 37,
+            "igp_complete": 11408,
+            "dest": "11_McClellan",
+            "reverse": 22,
+            "lat": 261
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_SRI",
+            "index": 38,
+            "igp_complete": 11432,
+            "dest": "18_UCSB",
+            "reverse": 39,
+            "lat": 678
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_UCSB",
+            "index": 39,
+            "igp_complete": 11455,
+            "dest": "17_SRI",
+            "reverse": 38,
+            "lat": 678
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_UCSB",
+            "index": 40,
+            "igp_complete": 11477,
+            "dest": "19_UCLA",
+            "reverse": 42,
+            "lat": 237
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_UCLA",
+            "index": 41,
+            "igp_complete": 11485,
+            "dest": "12_RAND",
+            "reverse": 24,
+            "lat": 43
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_UCLA",
+            "index": 42,
+            "igp_complete": 11507,
+            "dest": "18_UCSB",
+            "reverse": 40,
+            "lat": 237
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "20_Stanford",
+            "index": 43,
+            "igp_complete": 11521,
+            "dest": "12_RAND",
+            "reverse": 25,
+            "lat": 843
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "20_Stanford",
+            "index": 44,
+            "igp_complete": 11528,
+            "dest": "13_AMES",
+            "reverse": 28,
+            "lat": 18
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_USC",
+            "index": 45,
+            "igp_complete": 11563,
+            "dest": "8_Tinker",
+            "reverse": 16,
+            "lat": 3183
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_USC",
+            "index": 46,
+            "igp_complete": 11609,
+            "dest": "14_SDC",
+            "reverse": 30,
+            "lat": 43
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_USC",
+            "index": 47,
+            "igp_complete": 11622,
+            "dest": "22_UTAH",
+            "reverse": 50,
+            "lat": 1558
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_UTAH",
+            "index": 48,
+            "igp_complete": 11629,
+            "dest": "0_ILLINOIS",
+            "reverse": 1,
+            "lat": 3144
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_UTAH",
+            "index": 49,
+            "igp_complete": 11641,
+            "dest": "11_McClellan",
+            "reverse": 23,
+            "lat": 1408
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_UTAH",
+            "index": 50,
+            "igp_complete": 11685,
+            "dest": "21_USC",
+            "reverse": 47,
+            "lat": 1558
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "23_Lincoln",
+            "index": 51,
+            "igp_complete": 11703,
+            "dest": "10_RADC",
+            "reverse": 21,
+            "lat": 596
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "23_Lincoln",
+            "index": 52,
+            "igp_complete": 11732,
+            "dest": "24_MIT",
+            "reverse": 55,
+            "lat": 29
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "24_MIT",
+            "index": 53,
+            "igp_complete": 11738,
+            "dest": "0_ILLINOIS",
+            "reverse": 0,
+            "lat": 2632
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "24_MIT",
+            "index": 54,
+            "igp_complete": 11749,
+            "dest": "6_BBN",
+            "reverse": 12,
+            "lat": 8
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "24_MIT",
+            "index": 55,
+            "igp_complete": 11766,
+            "dest": "23_Lincoln",
+            "reverse": 52,
+            "lat": 29
+        }
+    ]
+}

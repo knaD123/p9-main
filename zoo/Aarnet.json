@@ -1,0 +1,514 @@
+{
+    "nodes": [
+        "0_Sydney1",
+        "1_Brisbane2",
+        "2_Canberra1",
+        "3_Sydney2",
+        "4_Townsville",
+        "5_Cairns",
+        "6_Brisbane1",
+        "7_Rockhampton",
+        "8_Armidale",
+        "9_Hobart",
+        "10_Canberra2",
+        "11_Perth1",
+        "12_Perth2",
+        "13_Adelaide1",
+        "14_Adelaide2",
+        "15_Melbourne1",
+        "16_Melbourne2",
+        "17_Alice_Springs",
+        "18_Darwin"
+    ],
+    "E": 48,
+    "V": 19,
+    "name": "Aarnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_Sydney1",
+            "index": 0,
+            "igp_complete": 969,
+            "dest": "10_Canberra2",
+            "reverse": 22,
+            "lat": 416
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_Sydney1",
+            "index": 1,
+            "igp_complete": 979,
+            "dest": "3_Sydney2",
+            "reverse": 7,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_Sydney1",
+            "index": 2,
+            "igp_complete": 983,
+            "dest": "6_Brisbane1",
+            "reverse": 14,
+            "lat": 1225
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "1_Brisbane2",
+            "index": 3,
+            "igp_complete": 992,
+            "dest": "3_Sydney2",
+            "reverse": 8,
+            "lat": 1225
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "1_Brisbane2",
+            "index": 4,
+            "igp_complete": 998,
+            "dest": "6_Brisbane1",
+            "reverse": 15,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "2_Canberra1",
+            "index": 5,
+            "igp_complete": 1001,
+            "dest": "10_Canberra2",
+            "reverse": 23,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "2_Canberra1",
+            "index": 6,
+            "igp_complete": 1008,
+            "dest": "15_Melbourne1",
+            "reverse": 36,
+            "lat": 781
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "3_Sydney2",
+            "index": 7,
+            "igp_complete": 1013,
+            "dest": "0_Sydney1",
+            "reverse": 1,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "3_Sydney2",
+            "index": 8,
+            "igp_complete": 1020,
+            "dest": "1_Brisbane2",
+            "reverse": 3,
+            "lat": 1225
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "3_Sydney2",
+            "index": 9,
+            "igp_complete": 1029,
+            "dest": "8_Armidale",
+            "reverse": 19,
+            "lat": 629
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "3_Sydney2",
+            "index": 10,
+            "igp_complete": 1033,
+            "dest": "16_Melbourne2",
+            "reverse": 40,
+            "lat": 1193
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "4_Townsville",
+            "index": 11,
+            "igp_complete": 1035,
+            "dest": "5_Cairns",
+            "reverse": 13,
+            "lat": 473
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "4_Townsville",
+            "index": 12,
+            "igp_complete": 1039,
+            "dest": "7_Rockhampton",
+            "reverse": 17,
+            "lat": 1001
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "5_Cairns",
+            "index": 13,
+            "igp_complete": 1041,
+            "dest": "4_Townsville",
+            "reverse": 11,
+            "lat": 473
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_Brisbane1",
+            "index": 14,
+            "igp_complete": 1044,
+            "dest": "0_Sydney1",
+            "reverse": 2,
+            "lat": 1225
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_Brisbane1",
+            "index": 15,
+            "igp_complete": 1056,
+            "dest": "1_Brisbane2",
+            "reverse": 4,
+            "lat": 5
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "6_Brisbane1",
+            "index": 16,
+            "igp_complete": 1059,
+            "dest": "7_Rockhampton",
+            "reverse": 18,
+            "lat": 871
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "7_Rockhampton",
+            "index": 17,
+            "igp_complete": 1063,
+            "dest": "4_Townsville",
+            "reverse": 12,
+            "lat": 1001
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "7_Rockhampton",
+            "index": 18,
+            "igp_complete": 1065,
+            "dest": "6_Brisbane1",
+            "reverse": 16,
+            "lat": 871
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "8_Armidale",
+            "index": 19,
+            "igp_complete": 1072,
+            "dest": "3_Sydney2",
+            "reverse": 9,
+            "lat": 629
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_Hobart",
+            "index": 20,
+            "igp_complete": 1073,
+            "dest": "16_Melbourne2",
+            "reverse": 41,
+            "lat": 1000
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_Hobart",
+            "index": 21,
+            "igp_complete": 1077,
+            "dest": "15_Melbourne1",
+            "reverse": 37,
+            "lat": 1000
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Canberra2",
+            "index": 22,
+            "igp_complete": 1081,
+            "dest": "0_Sydney1",
+            "reverse": 0,
+            "lat": 416
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Canberra2",
+            "index": 23,
+            "igp_complete": 1083,
+            "dest": "2_Canberra1",
+            "reverse": 5,
+            "lat": 5
+        },
+        {
+            "igp": 17,
+            "bdw": 5727272,
+            "orig": "11_Perth1",
+            "index": 24,
+            "igp_complete": 1087,
+            "dest": "12_Perth2",
+            "reverse": 26,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "11_Perth1",
+            "index": 25,
+            "igp_complete": 1090,
+            "dest": "13_Adelaide1",
+            "reverse": 28,
+            "lat": 3559
+        },
+        {
+            "igp": 17,
+            "bdw": 5727272,
+            "orig": "12_Perth2",
+            "index": 26,
+            "igp_complete": 1091,
+            "dest": "11_Perth1",
+            "reverse": 24,
+            "lat": 5
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "12_Perth2",
+            "index": 27,
+            "igp_complete": 1097,
+            "dest": "14_Adelaide2",
+            "reverse": 32,
+            "lat": 3559
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "13_Adelaide1",
+            "index": 28,
+            "igp_complete": 1098,
+            "dest": "11_Perth1",
+            "reverse": 25,
+            "lat": 3559
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "13_Adelaide1",
+            "index": 29,
+            "igp_complete": 1100,
+            "dest": "18_Darwin",
+            "reverse": 46,
+            "lat": 4365
+        },
+        {
+            "igp": 17,
+            "bdw": 5727272,
+            "orig": "13_Adelaide1",
+            "index": 30,
+            "igp_complete": 1101,
+            "dest": "14_Adelaide2",
+            "reverse": 33,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "13_Adelaide1",
+            "index": 31,
+            "igp_complete": 1107,
+            "dest": "15_Melbourne1",
+            "reverse": 38,
+            "lat": 1093
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "14_Adelaide2",
+            "index": 32,
+            "igp_complete": 1112,
+            "dest": "12_Perth2",
+            "reverse": 27,
+            "lat": 3559
+        },
+        {
+            "igp": 17,
+            "bdw": 5727272,
+            "orig": "14_Adelaide2",
+            "index": 33,
+            "igp_complete": 1114,
+            "dest": "13_Adelaide1",
+            "reverse": 30,
+            "lat": 5
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "14_Adelaide2",
+            "index": 34,
+            "igp_complete": 1115,
+            "dest": "16_Melbourne2",
+            "reverse": 42,
+            "lat": 1093
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "14_Adelaide2",
+            "index": 35,
+            "igp_complete": 1117,
+            "dest": "17_Alice_Springs",
+            "reverse": 44,
+            "lat": 2219
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Melbourne1",
+            "index": 36,
+            "igp_complete": 1119,
+            "dest": "2_Canberra1",
+            "reverse": 6,
+            "lat": 781
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "15_Melbourne1",
+            "index": 37,
+            "igp_complete": 1120,
+            "dest": "9_Hobart",
+            "reverse": 21,
+            "lat": 1000
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Melbourne1",
+            "index": 38,
+            "igp_complete": 1124,
+            "dest": "13_Adelaide1",
+            "reverse": 31,
+            "lat": 1093
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Melbourne1",
+            "index": 39,
+            "igp_complete": 1126,
+            "dest": "16_Melbourne2",
+            "reverse": 43,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "16_Melbourne2",
+            "index": 40,
+            "igp_complete": 1129,
+            "dest": "3_Sydney2",
+            "reverse": 10,
+            "lat": 1193
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "16_Melbourne2",
+            "index": 41,
+            "igp_complete": 1131,
+            "dest": "9_Hobart",
+            "reverse": 20,
+            "lat": 1000
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "16_Melbourne2",
+            "index": 42,
+            "igp_complete": 1132,
+            "dest": "14_Adelaide2",
+            "reverse": 34,
+            "lat": 1093
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "16_Melbourne2",
+            "index": 43,
+            "igp_complete": 1134,
+            "dest": "15_Melbourne1",
+            "reverse": 39,
+            "lat": 5
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "17_Alice_Springs",
+            "index": 44,
+            "igp_complete": 1135,
+            "dest": "14_Adelaide2",
+            "reverse": 35,
+            "lat": 2219
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "17_Alice_Springs",
+            "index": 45,
+            "igp_complete": 1136,
+            "dest": "18_Darwin",
+            "reverse": 47,
+            "lat": 2153
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "18_Darwin",
+            "index": 46,
+            "igp_complete": 1140,
+            "dest": "13_Adelaide1",
+            "reverse": 29,
+            "lat": 4365
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "18_Darwin",
+            "index": 47,
+            "igp_complete": 1144,
+            "dest": "17_Alice_Springs",
+            "reverse": 45,
+            "lat": 2153
+        }
+    ]
+}

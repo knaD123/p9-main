@@ -1,0 +1,163 @@
+{
+    "nodes": [
+        "0_New_York",
+        "1_London",
+        "2_Stockholm",
+        "3_St_Petersburg",
+        "4_Moscow",
+        "5_Amsterdam",
+        "6_Frankfurt",
+        "7_Paris"
+    ],
+    "E": 14,
+    "V": 8,
+    "name": "Gblnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_New_York",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "5_Amsterdam",
+            "reverse": 7,
+            "lat": 583
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_London",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "5_Amsterdam",
+            "reverse": 8,
+            "lat": 599
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Stockholm",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "3_St_Petersburg",
+            "reverse": 4,
+            "lat": 1150
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Stockholm",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "5_Amsterdam",
+            "reverse": 9,
+            "lat": 1879
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_St_Petersburg",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "2_Stockholm",
+            "reverse": 2,
+            "lat": 1150
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_St_Petersburg",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "4_Moscow",
+            "reverse": 6,
+            "lat": 1059
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Moscow",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "3_St_Petersburg",
+            "reverse": 5,
+            "lat": 1059
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Amsterdam",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "0_New_York",
+            "reverse": 0,
+            "lat": 583
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Amsterdam",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "1_London",
+            "reverse": 1,
+            "lat": 599
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Amsterdam",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "2_Stockholm",
+            "reverse": 3,
+            "lat": 1879
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Amsterdam",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "6_Frankfurt",
+            "reverse": 12,
+            "lat": 611
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Amsterdam",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "7_Paris",
+            "reverse": 13,
+            "lat": 721
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Frankfurt",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "5_Amsterdam",
+            "reverse": 10,
+            "lat": 611
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Paris",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "5_Amsterdam",
+            "reverse": 11,
+            "lat": 721
+        }
+    ]
+}

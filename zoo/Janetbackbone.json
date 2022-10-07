@@ -1,0 +1,944 @@
+{
+    "nodes": [
+        "0_TVN",
+        "1_SWERN",
+        "2_MidMAN",
+        "3_WREN",
+        "4_LMN",
+        "5_EastNet",
+        "6_LeNSE",
+        "7_Kentish_MAN",
+        "8_EMMAN",
+        "9_Dublin",
+        "10_Sco-locate",
+        "11_Reading",
+        "12_Leeds",
+        "13_Warrington",
+        "14_Glasgow",
+        "15_Telehouse",
+        "16_Telecity",
+        "17_London",
+        "18_Bristol",
+        "19_C&NLMAN",
+        "20_NIRAN",
+        "21_UHIMI",
+        "22_AbMAN",
+        "23_FaTMAN",
+        "24_EaStMAN",
+        "25_Clydenet",
+        "26_NorMAN",
+        "27_YHMAN",
+        "28_NNW"
+    ],
+    "E": 90,
+    "V": 29,
+    "name": "Janetbackbone",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_TVN",
+            "index": 0,
+            "igp_complete": 1099,
+            "dest": "11_Reading",
+            "reverse": 22,
+            "lat": 9
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_TVN",
+            "index": 1,
+            "igp_complete": 1103,
+            "dest": "4_LMN",
+            "reverse": 8,
+            "lat": 98
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_SWERN",
+            "index": 2,
+            "igp_complete": 1105,
+            "dest": "18_Bristol",
+            "reverse": 65,
+            "lat": 34
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_SWERN",
+            "index": 3,
+            "igp_complete": 1109,
+            "dest": "3_WREN",
+            "reverse": 6,
+            "lat": 101
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_MidMAN",
+            "index": 4,
+            "igp_complete": 1111,
+            "dest": "12_Leeds",
+            "reverse": 28,
+            "lat": 249
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_MidMAN",
+            "index": 5,
+            "igp_complete": 1114,
+            "dest": "13_Warrington",
+            "reverse": 38,
+            "lat": 183
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_WREN",
+            "index": 6,
+            "igp_complete": 1126,
+            "dest": "1_SWERN",
+            "reverse": 3,
+            "lat": 101
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_WREN",
+            "index": 7,
+            "igp_complete": 1129,
+            "dest": "11_Reading",
+            "reverse": 23,
+            "lat": 259
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_LMN",
+            "index": 8,
+            "igp_complete": 1133,
+            "dest": "0_TVN",
+            "reverse": 1,
+            "lat": 98
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_LMN",
+            "index": 9,
+            "igp_complete": 1135,
+            "dest": "17_London",
+            "reverse": 57,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_EastNet",
+            "index": 10,
+            "igp_complete": 1142,
+            "dest": "17_London",
+            "reverse": 58,
+            "lat": 136
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_EastNet",
+            "index": 11,
+            "igp_complete": 1143,
+            "dest": "12_Leeds",
+            "reverse": 29,
+            "lat": 354
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_LeNSE",
+            "index": 12,
+            "igp_complete": 1147,
+            "dest": "17_London",
+            "reverse": 59,
+            "lat": 190
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_LeNSE",
+            "index": 13,
+            "igp_complete": 1151,
+            "dest": "18_Bristol",
+            "reverse": 66,
+            "lat": 175
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Kentish_MAN",
+            "index": 14,
+            "igp_complete": 1153,
+            "dest": "17_London",
+            "reverse": 60,
+            "lat": 85
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Kentish_MAN",
+            "index": 15,
+            "igp_complete": 1157,
+            "dest": "11_Reading",
+            "reverse": 24,
+            "lat": 180
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_EMMAN",
+            "index": 16,
+            "igp_complete": 1160,
+            "dest": "17_London",
+            "reverse": 61,
+            "lat": 285
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_EMMAN",
+            "index": 17,
+            "igp_complete": 1161,
+            "dest": "12_Leeds",
+            "reverse": 30,
+            "lat": 185
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Dublin",
+            "index": 18,
+            "igp_complete": 1167,
+            "dest": "20_NIRAN",
+            "reverse": 71,
+            "lat": 216
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Dublin",
+            "index": 19,
+            "igp_complete": 1168,
+            "dest": "13_Warrington",
+            "reverse": 39,
+            "lat": 216
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Sco-locate",
+            "index": 20,
+            "igp_complete": 1170,
+            "dest": "12_Leeds",
+            "reverse": 31,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Sco-locate",
+            "index": 21,
+            "igp_complete": 1171,
+            "dest": "14_Glasgow",
+            "reverse": 45,
+            "lat": 115
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Reading",
+            "index": 22,
+            "igp_complete": 1177,
+            "dest": "0_TVN",
+            "reverse": 0,
+            "lat": 9
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Reading",
+            "index": 23,
+            "igp_complete": 1182,
+            "dest": "3_WREN",
+            "reverse": 7,
+            "lat": 259
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Reading",
+            "index": 24,
+            "igp_complete": 1184,
+            "dest": "7_Kentish_MAN",
+            "reverse": 15,
+            "lat": 180
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Reading",
+            "index": 25,
+            "igp_complete": 1185,
+            "dest": "13_Warrington",
+            "reverse": 40,
+            "lat": 406
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Reading",
+            "index": 26,
+            "igp_complete": 1187,
+            "dest": "16_Telecity",
+            "reverse": 55,
+            "lat": 102
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Reading",
+            "index": 27,
+            "igp_complete": 1189,
+            "dest": "18_Bristol",
+            "reverse": 67,
+            "lat": 191
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 28,
+            "igp_complete": 1190,
+            "dest": "2_MidMAN",
+            "reverse": 4,
+            "lat": 249
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 29,
+            "igp_complete": 1194,
+            "dest": "5_EastNet",
+            "reverse": 11,
+            "lat": 354
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 30,
+            "igp_complete": 1196,
+            "dest": "8_EMMAN",
+            "reverse": 17,
+            "lat": 185
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 31,
+            "igp_complete": 1199,
+            "dest": "10_Sco-locate",
+            "reverse": 20,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 32,
+            "igp_complete": 1201,
+            "dest": "13_Warrington",
+            "reverse": 41,
+            "lat": 140
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 33,
+            "igp_complete": 1202,
+            "dest": "17_London",
+            "reverse": 62,
+            "lat": 457
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 34,
+            "igp_complete": 1204,
+            "dest": "23_FaTMAN",
+            "reverse": 77,
+            "lat": 494
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 35,
+            "igp_complete": 1205,
+            "dest": "24_EaStMAN",
+            "reverse": 79,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 36,
+            "igp_complete": 1206,
+            "dest": "26_NorMAN",
+            "reverse": 83,
+            "lat": 223
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Leeds",
+            "index": 37,
+            "igp_complete": 1210,
+            "dest": "27_YHMAN",
+            "reverse": 85,
+            "lat": 158
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 38,
+            "igp_complete": 1214,
+            "dest": "2_MidMAN",
+            "reverse": 5,
+            "lat": 183
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 39,
+            "igp_complete": 1215,
+            "dest": "9_Dublin",
+            "reverse": 19,
+            "lat": 216
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 40,
+            "igp_complete": 1216,
+            "dest": "11_Reading",
+            "reverse": 25,
+            "lat": 406
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 41,
+            "igp_complete": 1217,
+            "dest": "12_Leeds",
+            "reverse": 32,
+            "lat": 140
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 42,
+            "igp_complete": 1222,
+            "dest": "14_Glasgow",
+            "reverse": 46,
+            "lat": 496
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 43,
+            "igp_complete": 1224,
+            "dest": "19_C&NLMAN",
+            "reverse": 69,
+            "lat": 227
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Warrington",
+            "index": 44,
+            "igp_complete": 1226,
+            "dest": "28_NNW",
+            "reverse": 87,
+            "lat": 46
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 45,
+            "igp_complete": 1227,
+            "dest": "10_Sco-locate",
+            "reverse": 21,
+            "lat": 115
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 46,
+            "igp_complete": 1228,
+            "dest": "13_Warrington",
+            "reverse": 42,
+            "lat": 496
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 47,
+            "igp_complete": 1230,
+            "dest": "19_C&NLMAN",
+            "reverse": 70,
+            "lat": 286
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 48,
+            "igp_complete": 1232,
+            "dest": "20_NIRAN",
+            "reverse": 72,
+            "lat": 351
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 49,
+            "igp_complete": 1234,
+            "dest": "21_UHIMI",
+            "reverse": 73,
+            "lat": 241
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 50,
+            "igp_complete": 1235,
+            "dest": "25_Clydenet",
+            "reverse": 81,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 51,
+            "igp_complete": 1236,
+            "dest": "26_NorMAN",
+            "reverse": 84,
+            "lat": 328
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Glasgow",
+            "index": 52,
+            "igp_complete": 1238,
+            "dest": "28_NNW",
+            "reverse": 88,
+            "lat": 496
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Telehouse",
+            "index": 53,
+            "igp_complete": 1240,
+            "dest": "16_Telecity",
+            "reverse": 56,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Telehouse",
+            "index": 54,
+            "igp_complete": 1241,
+            "dest": "17_London",
+            "reverse": 63,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Telecity",
+            "index": 55,
+            "igp_complete": 1243,
+            "dest": "11_Reading",
+            "reverse": 26,
+            "lat": 102
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Telecity",
+            "index": 56,
+            "igp_complete": 1245,
+            "dest": "15_Telehouse",
+            "reverse": 53,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 57,
+            "igp_complete": 1246,
+            "dest": "4_LMN",
+            "reverse": 9,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 58,
+            "igp_complete": 1248,
+            "dest": "5_EastNet",
+            "reverse": 10,
+            "lat": 136
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 59,
+            "igp_complete": 1249,
+            "dest": "6_LeNSE",
+            "reverse": 12,
+            "lat": 190
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 60,
+            "igp_complete": 1250,
+            "dest": "7_Kentish_MAN",
+            "reverse": 14,
+            "lat": 85
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 61,
+            "igp_complete": 1251,
+            "dest": "8_EMMAN",
+            "reverse": 16,
+            "lat": 285
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 62,
+            "igp_complete": 1252,
+            "dest": "12_Leeds",
+            "reverse": 33,
+            "lat": 457
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 63,
+            "igp_complete": 1254,
+            "dest": "15_Telehouse",
+            "reverse": 54,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_London",
+            "index": 64,
+            "igp_complete": 1255,
+            "dest": "18_Bristol",
+            "reverse": 68,
+            "lat": 288
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Bristol",
+            "index": 65,
+            "igp_complete": 1255,
+            "dest": "1_SWERN",
+            "reverse": 2,
+            "lat": 34
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Bristol",
+            "index": 66,
+            "igp_complete": 1256,
+            "dest": "6_LeNSE",
+            "reverse": 13,
+            "lat": 175
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Bristol",
+            "index": 67,
+            "igp_complete": 1259,
+            "dest": "11_Reading",
+            "reverse": 27,
+            "lat": 191
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Bristol",
+            "index": 68,
+            "igp_complete": 1260,
+            "dest": "17_London",
+            "reverse": 64,
+            "lat": 288
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_C&NLMAN",
+            "index": 69,
+            "igp_complete": 1261,
+            "dest": "13_Warrington",
+            "reverse": 43,
+            "lat": 227
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_C&NLMAN",
+            "index": 70,
+            "igp_complete": 1263,
+            "dest": "14_Glasgow",
+            "reverse": 47,
+            "lat": 286
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "20_NIRAN",
+            "index": 71,
+            "igp_complete": 1264,
+            "dest": "9_Dublin",
+            "reverse": 18,
+            "lat": 216
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "20_NIRAN",
+            "index": 72,
+            "igp_complete": 1265,
+            "dest": "14_Glasgow",
+            "reverse": 48,
+            "lat": 351
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_UHIMI",
+            "index": 73,
+            "igp_complete": 1267,
+            "dest": "14_Glasgow",
+            "reverse": 49,
+            "lat": 241
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_UHIMI",
+            "index": 74,
+            "igp_complete": 1267,
+            "dest": "22_AbMAN",
+            "reverse": 75,
+            "lat": 267
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_AbMAN",
+            "index": 75,
+            "igp_complete": 1271,
+            "dest": "21_UHIMI",
+            "reverse": 74,
+            "lat": 267
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_AbMAN",
+            "index": 76,
+            "igp_complete": 1272,
+            "dest": "23_FaTMAN",
+            "reverse": 78,
+            "lat": 170
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "23_FaTMAN",
+            "index": 77,
+            "igp_complete": 1274,
+            "dest": "12_Leeds",
+            "reverse": 34,
+            "lat": 494
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "23_FaTMAN",
+            "index": 78,
+            "igp_complete": 1275,
+            "dest": "22_AbMAN",
+            "reverse": 76,
+            "lat": 170
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "24_EaStMAN",
+            "index": 79,
+            "igp_complete": 1276,
+            "dest": "12_Leeds",
+            "reverse": 35,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "24_EaStMAN",
+            "index": 80,
+            "igp_complete": 1276,
+            "dest": "25_Clydenet",
+            "reverse": 82,
+            "lat": 115
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "25_Clydenet",
+            "index": 81,
+            "igp_complete": 1277,
+            "dest": "14_Glasgow",
+            "reverse": 50,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "25_Clydenet",
+            "index": 82,
+            "igp_complete": 1279,
+            "dest": "24_EaStMAN",
+            "reverse": 80,
+            "lat": 115
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "26_NorMAN",
+            "index": 83,
+            "igp_complete": 1280,
+            "dest": "12_Leeds",
+            "reverse": 36,
+            "lat": 223
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "26_NorMAN",
+            "index": 84,
+            "igp_complete": 1281,
+            "dest": "14_Glasgow",
+            "reverse": 51,
+            "lat": 328
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "27_YHMAN",
+            "index": 85,
+            "igp_complete": 1281,
+            "dest": "12_Leeds",
+            "reverse": 37,
+            "lat": 158
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "27_YHMAN",
+            "index": 86,
+            "igp_complete": 1282,
+            "dest": "28_NNW",
+            "reverse": 89,
+            "lat": 253
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "28_NNW",
+            "index": 87,
+            "igp_complete": 1283,
+            "dest": "13_Warrington",
+            "reverse": 44,
+            "lat": 46
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "28_NNW",
+            "index": 88,
+            "igp_complete": 1284,
+            "dest": "14_Glasgow",
+            "reverse": 52,
+            "lat": 496
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "28_NNW",
+            "index": 89,
+            "igp_complete": 1284,
+            "dest": "27_YHMAN",
+            "reverse": 86,
+            "lat": 253
+        }
+    ]
+}

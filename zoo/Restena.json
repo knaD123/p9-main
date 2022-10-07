@@ -1,0 +1,454 @@
+{
+    "nodes": [
+        "0_Walferdange",
+        "1_CCRN",
+        "2_Ettelbruck",
+        "3_Diekirch",
+        "4_GEANT_Paris_(FR)",
+        "5_Internet_via_Bruxelles_(BE)",
+        "6_ADSL_(via_EPT)",
+        "7_France",
+        "8_GEANT_Frankfurt_(DE)",
+        "9_RESTENA",
+        "10_BCE",
+        "11_ADSL_(via_Tango)",
+        "12_UNI.iu",
+        "13_Rollingergrund",
+        "14_Campus_Geesseknaeppchen",
+        "15_Esch-sur-Alzette",
+        "16_Bettembourg",
+        "17_Luxembourg",
+        "18_Limpertsberg"
+    ],
+    "E": 42,
+    "V": 19,
+    "name": "Restena",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "0_Walferdange",
+            "index": 0,
+            "igp_complete": 92,
+            "dest": "9_RESTENA",
+            "reverse": 11,
+            "lat": 11
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "1_CCRN",
+            "index": 1,
+            "igp_complete": 93,
+            "dest": "9_RESTENA",
+            "reverse": 12,
+            "lat": 8
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "2_Ettelbruck",
+            "index": 2,
+            "igp_complete": 94,
+            "dest": "10_BCE",
+            "reverse": 18,
+            "lat": 46
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "2_Ettelbruck",
+            "index": 3,
+            "igp_complete": 95,
+            "dest": "3_Diekirch",
+            "reverse": 4,
+            "lat": 12
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "3_Diekirch",
+            "index": 4,
+            "igp_complete": 96,
+            "dest": "2_Ettelbruck",
+            "reverse": 3,
+            "lat": 12
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "3_Diekirch",
+            "index": 5,
+            "igp_complete": 97,
+            "dest": "9_RESTENA",
+            "reverse": 13,
+            "lat": 50
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "4_GEANT_Paris_(FR)",
+            "index": 6,
+            "igp_complete": 97,
+            "dest": "10_BCE",
+            "reverse": 19,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "5_Internet_via_Bruxelles_(BE)",
+            "index": 7,
+            "igp_complete": 97,
+            "dest": "10_BCE",
+            "reverse": 20,
+            "lat": 17
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "6_ADSL_(via_EPT)",
+            "index": 8,
+            "igp_complete": 98,
+            "dest": "9_RESTENA",
+            "reverse": 14,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "7_France",
+            "index": 9,
+            "igp_complete": 99,
+            "dest": "15_Esch-sur-Alzette",
+            "reverse": 33,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "8_GEANT_Frankfurt_(DE)",
+            "index": 10,
+            "igp_complete": 99,
+            "dest": "10_BCE",
+            "reverse": 21,
+            "lat": 17
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_RESTENA",
+            "index": 11,
+            "igp_complete": 100,
+            "dest": "0_Walferdange",
+            "reverse": 0,
+            "lat": 11
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_RESTENA",
+            "index": 12,
+            "igp_complete": 101,
+            "dest": "1_CCRN",
+            "reverse": 1,
+            "lat": 8
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_RESTENA",
+            "index": 13,
+            "igp_complete": 101,
+            "dest": "3_Diekirch",
+            "reverse": 5,
+            "lat": 50
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_RESTENA",
+            "index": 14,
+            "igp_complete": 101,
+            "dest": "6_ADSL_(via_EPT)",
+            "reverse": 8,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "9_RESTENA",
+            "index": 15,
+            "igp_complete": 101,
+            "dest": "10_BCE",
+            "reverse": 22,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "9_RESTENA",
+            "index": 16,
+            "igp_complete": 102,
+            "dest": "16_Bettembourg",
+            "reverse": 36,
+            "lat": 25
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "9_RESTENA",
+            "index": 17,
+            "igp_complete": 103,
+            "dest": "17_Luxembourg",
+            "reverse": 38,
+            "lat": 8
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_BCE",
+            "index": 18,
+            "igp_complete": 103,
+            "dest": "2_Ettelbruck",
+            "reverse": 2,
+            "lat": 46
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_BCE",
+            "index": 19,
+            "igp_complete": 104,
+            "dest": "4_GEANT_Paris_(FR)",
+            "reverse": 6,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_BCE",
+            "index": 20,
+            "igp_complete": 104,
+            "dest": "5_Internet_via_Bruxelles_(BE)",
+            "reverse": 7,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_BCE",
+            "index": 21,
+            "igp_complete": 105,
+            "dest": "8_GEANT_Frankfurt_(DE)",
+            "reverse": 10,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_BCE",
+            "index": 22,
+            "igp_complete": 105,
+            "dest": "9_RESTENA",
+            "reverse": 15,
+            "lat": 5
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "10_BCE",
+            "index": 23,
+            "igp_complete": 105,
+            "dest": "11_ADSL_(via_Tango)",
+            "reverse": 25,
+            "lat": 17
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_BCE",
+            "index": 24,
+            "igp_complete": 105,
+            "dest": "18_Limpertsberg",
+            "reverse": 40,
+            "lat": 8
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "11_ADSL_(via_Tango)",
+            "index": 25,
+            "igp_complete": 106,
+            "dest": "10_BCE",
+            "reverse": 23,
+            "lat": 17
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "12_UNI.iu",
+            "index": 26,
+            "igp_complete": 106,
+            "dest": "18_Limpertsberg",
+            "reverse": 41,
+            "lat": 5
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "12_UNI.iu",
+            "index": 27,
+            "igp_complete": 106,
+            "dest": "14_Campus_Geesseknaeppchen",
+            "reverse": 29,
+            "lat": 8
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "13_Rollingergrund",
+            "index": 28,
+            "igp_complete": 106,
+            "dest": "14_Campus_Geesseknaeppchen",
+            "reverse": 30,
+            "lat": 9
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "14_Campus_Geesseknaeppchen",
+            "index": 29,
+            "igp_complete": 107,
+            "dest": "12_UNI.iu",
+            "reverse": 27,
+            "lat": 8
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "14_Campus_Geesseknaeppchen",
+            "index": 30,
+            "igp_complete": 107,
+            "dest": "13_Rollingergrund",
+            "reverse": 28,
+            "lat": 9
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "14_Campus_Geesseknaeppchen",
+            "index": 31,
+            "igp_complete": 107,
+            "dest": "17_Luxembourg",
+            "reverse": 39,
+            "lat": 6
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "14_Campus_Geesseknaeppchen",
+            "index": 32,
+            "igp_complete": 107,
+            "dest": "15_Esch-sur-Alzette",
+            "reverse": 34,
+            "lat": 31
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Esch-sur-Alzette",
+            "index": 33,
+            "igp_complete": 108,
+            "dest": "7_France",
+            "reverse": 9,
+            "lat": 17
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Esch-sur-Alzette",
+            "index": 34,
+            "igp_complete": 109,
+            "dest": "14_Campus_Geesseknaeppchen",
+            "reverse": 32,
+            "lat": 31
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Esch-sur-Alzette",
+            "index": 35,
+            "igp_complete": 109,
+            "dest": "16_Bettembourg",
+            "reverse": 37,
+            "lat": 20
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "16_Bettembourg",
+            "index": 36,
+            "igp_complete": 109,
+            "dest": "9_RESTENA",
+            "reverse": 16,
+            "lat": 25
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "16_Bettembourg",
+            "index": 37,
+            "igp_complete": 109,
+            "dest": "15_Esch-sur-Alzette",
+            "reverse": 35,
+            "lat": 20
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "17_Luxembourg",
+            "index": 38,
+            "igp_complete": 109,
+            "dest": "9_RESTENA",
+            "reverse": 17,
+            "lat": 8
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "17_Luxembourg",
+            "index": 39,
+            "igp_complete": 109,
+            "dest": "14_Campus_Geesseknaeppchen",
+            "reverse": 31,
+            "lat": 6
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "18_Limpertsberg",
+            "index": 40,
+            "igp_complete": 110,
+            "dest": "10_BCE",
+            "reverse": 24,
+            "lat": 8
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "18_Limpertsberg",
+            "index": 41,
+            "igp_complete": 110,
+            "dest": "12_UNI.iu",
+            "reverse": 26,
+            "lat": 5
+        }
+    ]
+}

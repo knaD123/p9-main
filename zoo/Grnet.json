@@ -1,0 +1,992 @@
+{
+    "nodes": [
+        "0_Karditsa",
+        "1_Volos",
+        "2_Larissa",
+        "3_Trikala",
+        "4_Mytilini",
+        "5_Chios",
+        "6_Igoumenitsa",
+        "7_Kerkira",
+        "8_Ermoupoli",
+        "9_Mykonos",
+        "10_Mesologgi",
+        "11_AMSIX",
+        "12_GRIX",
+        "13_GEANT",
+        "14_Chania",
+        "15_Heraklio",
+        "16_Rethymno",
+        "17_Pylos",
+        "18_Kalamata",
+        "19_Halkida",
+        "20_Athens",
+        "21_Rhodos",
+        "22_Karlovassi",
+        "23_Tripoli",
+        "24_Patra",
+        "25_Kalavrita",
+        "26_Korinthos",
+        "27_Limnos",
+        "28_Ioannina",
+        "29_Serres",
+        "30_Thessaloniki",
+        "31_Edessa",
+        "32_Kastoria",
+        "33_Kavala",
+        "34_Xanthi",
+        "35_Komotini",
+        "36_Alexandroupoli"
+    ],
+    "E": 94,
+    "V": 37,
+    "name": "Grnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "0_Karditsa",
+            "index": 0,
+            "igp_complete": 1104,
+            "dest": "2_Larissa",
+            "reverse": 2,
+            "lat": 92
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "1_Volos",
+            "index": 1,
+            "igp_complete": 1108,
+            "dest": "2_Larissa",
+            "reverse": 3,
+            "lat": 95
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "2_Larissa",
+            "index": 2,
+            "igp_complete": 1110,
+            "dest": "0_Karditsa",
+            "reverse": 0,
+            "lat": 92
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "2_Larissa",
+            "index": 3,
+            "igp_complete": 1114,
+            "dest": "1_Volos",
+            "reverse": 1,
+            "lat": 95
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "2_Larissa",
+            "index": 4,
+            "igp_complete": 1116,
+            "dest": "3_Trikala",
+            "reverse": 7,
+            "lat": 99
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "2_Larissa",
+            "index": 5,
+            "igp_complete": 1119,
+            "dest": "20_Athens",
+            "reverse": 42,
+            "lat": 364
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "2_Larissa",
+            "index": 6,
+            "igp_complete": 1131,
+            "dest": "30_Thessaloniki",
+            "reverse": 77,
+            "lat": 204
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "3_Trikala",
+            "index": 7,
+            "igp_complete": 1134,
+            "dest": "2_Larissa",
+            "reverse": 4,
+            "lat": 99
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "4_Mytilini",
+            "index": 8,
+            "igp_complete": 1138,
+            "dest": "27_Limnos",
+            "reverse": 72,
+            "lat": 155
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "4_Mytilini",
+            "index": 9,
+            "igp_complete": 1140,
+            "dest": "5_Chios",
+            "reverse": 10,
+            "lat": 155
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "5_Chios",
+            "index": 10,
+            "igp_complete": 1147,
+            "dest": "4_Mytilini",
+            "reverse": 9,
+            "lat": 155
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "5_Chios",
+            "index": 11,
+            "igp_complete": 1148,
+            "dest": "8_Ermoupoli",
+            "reverse": 15,
+            "lat": 249
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "6_Igoumenitsa",
+            "index": 12,
+            "igp_complete": 1152,
+            "dest": "28_Ioannina",
+            "reverse": 73,
+            "lat": 93
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "6_Igoumenitsa",
+            "index": 13,
+            "igp_complete": 1156,
+            "dest": "7_Kerkira",
+            "reverse": 14,
+            "lat": 58
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "7_Kerkira",
+            "index": 14,
+            "igp_complete": 1158,
+            "dest": "6_Igoumenitsa",
+            "reverse": 13,
+            "lat": 58
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "8_Ermoupoli",
+            "index": 15,
+            "igp_complete": 1162,
+            "dest": "5_Chios",
+            "reverse": 11,
+            "lat": 249
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "8_Ermoupoli",
+            "index": 16,
+            "igp_complete": 1165,
+            "dest": "9_Mykonos",
+            "reverse": 21,
+            "lat": 61
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "8_Ermoupoli",
+            "index": 17,
+            "igp_complete": 1166,
+            "dest": "34_Xanthi",
+            "reverse": 87,
+            "lat": 690
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "8_Ermoupoli",
+            "index": 18,
+            "igp_complete": 1172,
+            "dest": "20_Athens",
+            "reverse": 43,
+            "lat": 210
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "8_Ermoupoli",
+            "index": 19,
+            "igp_complete": 1173,
+            "dest": "15_Heraklio",
+            "reverse": 30,
+            "lat": 397
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "8_Ermoupoli",
+            "index": 20,
+            "igp_complete": 1175,
+            "dest": "15_Heraklio",
+            "reverse": 31,
+            "lat": 397
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "9_Mykonos",
+            "index": 21,
+            "igp_complete": 1176,
+            "dest": "8_Ermoupoli",
+            "reverse": 16,
+            "lat": 61
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "9_Mykonos",
+            "index": 22,
+            "igp_complete": 1182,
+            "dest": "22_Karlovassi",
+            "reverse": 57,
+            "lat": 216
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "9_Mykonos",
+            "index": 23,
+            "igp_complete": 1187,
+            "dest": "22_Karlovassi",
+            "reverse": 58,
+            "lat": 216
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_Mesologgi",
+            "index": 24,
+            "igp_complete": 1189,
+            "dest": "24_Patra",
+            "reverse": 61,
+            "lat": 55
+        },
+        {
+            "igp": 47,
+            "bdw": 2097826,
+            "orig": "11_AMSIX",
+            "index": 25,
+            "igp_complete": 1190,
+            "dest": "20_Athens",
+            "reverse": 44,
+            "lat": 226
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "12_GRIX",
+            "index": 26,
+            "igp_complete": 1192,
+            "dest": "20_Athens",
+            "reverse": 45,
+            "lat": 226
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "13_GEANT",
+            "index": 27,
+            "igp_complete": 1194,
+            "dest": "20_Athens",
+            "reverse": 46,
+            "lat": 226
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "14_Chania",
+            "index": 28,
+            "igp_complete": 1195,
+            "dest": "20_Athens",
+            "reverse": 47,
+            "lat": 464
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "14_Chania",
+            "index": 29,
+            "igp_complete": 1199,
+            "dest": "15_Heraklio",
+            "reverse": 32,
+            "lat": 178
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "15_Heraklio",
+            "index": 30,
+            "igp_complete": 1201,
+            "dest": "8_Ermoupoli",
+            "reverse": 19,
+            "lat": 397
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_Heraklio",
+            "index": 31,
+            "igp_complete": 1204,
+            "dest": "8_Ermoupoli",
+            "reverse": 20,
+            "lat": 397
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_Heraklio",
+            "index": 32,
+            "igp_complete": 1206,
+            "dest": "14_Chania",
+            "reverse": 29,
+            "lat": 178
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_Heraklio",
+            "index": 33,
+            "igp_complete": 1207,
+            "dest": "16_Rethymno",
+            "reverse": 37,
+            "lat": 106
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_Heraklio",
+            "index": 34,
+            "igp_complete": 1209,
+            "dest": "20_Athens",
+            "reverse": 48,
+            "lat": 539
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "15_Heraklio",
+            "index": 35,
+            "igp_complete": 1210,
+            "dest": "20_Athens",
+            "reverse": 49,
+            "lat": 539
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_Heraklio",
+            "index": 36,
+            "igp_complete": 1211,
+            "dest": "21_Rhodos",
+            "reverse": 55,
+            "lat": 510
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "16_Rethymno",
+            "index": 37,
+            "igp_complete": 1215,
+            "dest": "15_Heraklio",
+            "reverse": 33,
+            "lat": 106
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "17_Pylos",
+            "index": 38,
+            "igp_complete": 1219,
+            "dest": "18_Kalamata",
+            "reverse": 39,
+            "lat": 71
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "18_Kalamata",
+            "index": 39,
+            "igp_complete": 1220,
+            "dest": "17_Pylos",
+            "reverse": 38,
+            "lat": 71
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "18_Kalamata",
+            "index": 40,
+            "igp_complete": 1221,
+            "dest": "24_Patra",
+            "reverse": 62,
+            "lat": 235
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "19_Halkida",
+            "index": 41,
+            "igp_complete": 1222,
+            "dest": "20_Athens",
+            "reverse": 50,
+            "lat": 96
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "20_Athens",
+            "index": 42,
+            "igp_complete": 1227,
+            "dest": "2_Larissa",
+            "reverse": 5,
+            "lat": 364
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "20_Athens",
+            "index": 43,
+            "igp_complete": 1229,
+            "dest": "8_Ermoupoli",
+            "reverse": 18,
+            "lat": 210
+        },
+        {
+            "igp": 47,
+            "bdw": 2097826,
+            "orig": "20_Athens",
+            "index": 44,
+            "igp_complete": 1231,
+            "dest": "11_AMSIX",
+            "reverse": 25,
+            "lat": 226
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "20_Athens",
+            "index": 45,
+            "igp_complete": 1232,
+            "dest": "12_GRIX",
+            "reverse": 26,
+            "lat": 226
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "20_Athens",
+            "index": 46,
+            "igp_complete": 1233,
+            "dest": "13_GEANT",
+            "reverse": 27,
+            "lat": 226
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "20_Athens",
+            "index": 47,
+            "igp_complete": 1235,
+            "dest": "14_Chania",
+            "reverse": 28,
+            "lat": 464
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "20_Athens",
+            "index": 48,
+            "igp_complete": 1237,
+            "dest": "15_Heraklio",
+            "reverse": 34,
+            "lat": 539
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "20_Athens",
+            "index": 49,
+            "igp_complete": 1239,
+            "dest": "15_Heraklio",
+            "reverse": 35,
+            "lat": 539
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "20_Athens",
+            "index": 50,
+            "igp_complete": 1240,
+            "dest": "19_Halkida",
+            "reverse": 41,
+            "lat": 96
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "20_Athens",
+            "index": 51,
+            "igp_complete": 1241,
+            "dest": "24_Patra",
+            "reverse": 63,
+            "lat": 297
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "20_Athens",
+            "index": 52,
+            "igp_complete": 1243,
+            "dest": "24_Patra",
+            "reverse": 64,
+            "lat": 297
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "20_Athens",
+            "index": 53,
+            "igp_complete": 1245,
+            "dest": "26_Korinthos",
+            "reverse": 70,
+            "lat": 127
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "20_Athens",
+            "index": 54,
+            "igp_complete": 1246,
+            "dest": "30_Thessaloniki",
+            "reverse": 78,
+            "lat": 510
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Rhodos",
+            "index": 55,
+            "igp_complete": 1248,
+            "dest": "15_Heraklio",
+            "reverse": 36,
+            "lat": 510
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Rhodos",
+            "index": 56,
+            "igp_complete": 1250,
+            "dest": "22_Karlovassi",
+            "reverse": 59,
+            "lat": 340
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "22_Karlovassi",
+            "index": 57,
+            "igp_complete": 1251,
+            "dest": "9_Mykonos",
+            "reverse": 22,
+            "lat": 216
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "22_Karlovassi",
+            "index": 58,
+            "igp_complete": 1253,
+            "dest": "9_Mykonos",
+            "reverse": 23,
+            "lat": 216
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "22_Karlovassi",
+            "index": 59,
+            "igp_complete": 1254,
+            "dest": "21_Rhodos",
+            "reverse": 56,
+            "lat": 340
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "23_Tripoli",
+            "index": 60,
+            "igp_complete": 1255,
+            "dest": "26_Korinthos",
+            "reverse": 71,
+            "lat": 110
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "24_Patra",
+            "index": 61,
+            "igp_complete": 1256,
+            "dest": "10_Mesologgi",
+            "reverse": 24,
+            "lat": 55
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "24_Patra",
+            "index": 62,
+            "igp_complete": 1257,
+            "dest": "18_Kalamata",
+            "reverse": 40,
+            "lat": 235
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "24_Patra",
+            "index": 63,
+            "igp_complete": 1259,
+            "dest": "20_Athens",
+            "reverse": 51,
+            "lat": 297
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "24_Patra",
+            "index": 64,
+            "igp_complete": 1260,
+            "dest": "20_Athens",
+            "reverse": 52,
+            "lat": 297
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "24_Patra",
+            "index": 65,
+            "igp_complete": 1260,
+            "dest": "25_Kalavrita",
+            "reverse": 68,
+            "lat": 72
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "24_Patra",
+            "index": 66,
+            "igp_complete": 1261,
+            "dest": "25_Kalavrita",
+            "reverse": 69,
+            "lat": 72
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "24_Patra",
+            "index": 67,
+            "igp_complete": 1264,
+            "dest": "28_Ioannina",
+            "reverse": 74,
+            "lat": 297
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "25_Kalavrita",
+            "index": 68,
+            "igp_complete": 1265,
+            "dest": "24_Patra",
+            "reverse": 65,
+            "lat": 72
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "25_Kalavrita",
+            "index": 69,
+            "igp_complete": 1266,
+            "dest": "24_Patra",
+            "reverse": 66,
+            "lat": 72
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "26_Korinthos",
+            "index": 70,
+            "igp_complete": 1268,
+            "dest": "20_Athens",
+            "reverse": 53,
+            "lat": 127
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "26_Korinthos",
+            "index": 71,
+            "igp_complete": 1269,
+            "dest": "23_Tripoli",
+            "reverse": 60,
+            "lat": 110
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "27_Limnos",
+            "index": 72,
+            "igp_complete": 1270,
+            "dest": "4_Mytilini",
+            "reverse": 8,
+            "lat": 155
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "28_Ioannina",
+            "index": 73,
+            "igp_complete": 1272,
+            "dest": "6_Igoumenitsa",
+            "reverse": 12,
+            "lat": 93
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "28_Ioannina",
+            "index": 74,
+            "igp_complete": 1272,
+            "dest": "24_Patra",
+            "reverse": 67,
+            "lat": 297
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "28_Ioannina",
+            "index": 75,
+            "igp_complete": 1276,
+            "dest": "30_Thessaloniki",
+            "reverse": 79,
+            "lat": 351
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "29_Serres",
+            "index": 76,
+            "igp_complete": 1277,
+            "dest": "30_Thessaloniki",
+            "reverse": 80,
+            "lat": 123
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "30_Thessaloniki",
+            "index": 77,
+            "igp_complete": 1279,
+            "dest": "2_Larissa",
+            "reverse": 6,
+            "lat": 204
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "30_Thessaloniki",
+            "index": 78,
+            "igp_complete": 1280,
+            "dest": "20_Athens",
+            "reverse": 54,
+            "lat": 510
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "30_Thessaloniki",
+            "index": 79,
+            "igp_complete": 1281,
+            "dest": "28_Ioannina",
+            "reverse": 75,
+            "lat": 351
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "30_Thessaloniki",
+            "index": 80,
+            "igp_complete": 1281,
+            "dest": "29_Serres",
+            "reverse": 76,
+            "lat": 123
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "30_Thessaloniki",
+            "index": 81,
+            "igp_complete": 1282,
+            "dest": "34_Xanthi",
+            "reverse": 88,
+            "lat": 291
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "30_Thessaloniki",
+            "index": 82,
+            "igp_complete": 1284,
+            "dest": "31_Edessa",
+            "reverse": 83,
+            "lat": 134
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "31_Edessa",
+            "index": 83,
+            "igp_complete": 1285,
+            "dest": "30_Thessaloniki",
+            "reverse": 82,
+            "lat": 134
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "31_Edessa",
+            "index": 84,
+            "igp_complete": 1286,
+            "dest": "32_Kastoria",
+            "reverse": 85,
+            "lat": 126
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "32_Kastoria",
+            "index": 85,
+            "igp_complete": 1286,
+            "dest": "31_Edessa",
+            "reverse": 84,
+            "lat": 126
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "33_Kavala",
+            "index": 86,
+            "igp_complete": 1287,
+            "dest": "34_Xanthi",
+            "reverse": 89,
+            "lat": 81
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "34_Xanthi",
+            "index": 87,
+            "igp_complete": 1288,
+            "dest": "8_Ermoupoli",
+            "reverse": 17,
+            "lat": 690
+        },
+        {
+            "igp": 40,
+            "bdw": 2500000,
+            "orig": "34_Xanthi",
+            "index": 88,
+            "igp_complete": 1289,
+            "dest": "30_Thessaloniki",
+            "reverse": 81,
+            "lat": 291
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "34_Xanthi",
+            "index": 89,
+            "igp_complete": 1289,
+            "dest": "33_Kavala",
+            "reverse": 86,
+            "lat": 81
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "34_Xanthi",
+            "index": 90,
+            "igp_complete": 1291,
+            "dest": "35_Komotini",
+            "reverse": 91,
+            "lat": 76
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "35_Komotini",
+            "index": 91,
+            "igp_complete": 1293,
+            "dest": "34_Xanthi",
+            "reverse": 90,
+            "lat": 76
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "35_Komotini",
+            "index": 92,
+            "igp_complete": 1293,
+            "dest": "36_Alexandroupoli",
+            "reverse": 93,
+            "lat": 89
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "36_Alexandroupoli",
+            "index": 93,
+            "igp_complete": 1294,
+            "dest": "35_Komotini",
+            "reverse": 92,
+            "lat": 89
+        }
+    ]
+}

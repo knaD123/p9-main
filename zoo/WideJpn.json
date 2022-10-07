@@ -1,0 +1,705 @@
+{
+    "nodes": [
+        "0_KDDI_Otemachi",
+        "1_Nezu",
+        "2_Yagami",
+        "3_ShinKawasaki",
+        "4_Hachioji",
+        "5_Bangkok",
+        "6_NTT_Otemachi",
+        "7_Tsukuba",
+        "8_NSPIXP-3",
+        "9_JGN2Plus",
+        "10_Dojima",
+        "11_PAIX",
+        "12_TITECH",
+        "13_T-Lex",
+        "14_JGN2Plus",
+        "15_AI3",
+        "16_LAIIX",
+        "17_DIX-IE",
+        "18_KDDI",
+        "19_APAN",
+        "20_Los_Angeles",
+        "21_Fujisawa",
+        "22_Nara",
+        "23_Fukuoka",
+        "24_Hiroshima",
+        "25_Kurashiki",
+        "26_Sakyo",
+        "27_Komatsu",
+        "28_Sendai",
+        "29_San_Francisco"
+    ],
+    "E": 66,
+    "V": 30,
+    "name": "WideJpn",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_KDDI_Otemachi",
+            "index": 0,
+            "igp_complete": 102,
+            "dest": "1_Nezu",
+            "reverse": 8,
+            "lat": 11
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "0_KDDI_Otemachi",
+            "index": 1,
+            "igp_complete": 102,
+            "dest": "4_Hachioji",
+            "reverse": 15,
+            "lat": 71
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_KDDI_Otemachi",
+            "index": 2,
+            "igp_complete": 102,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 17,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_KDDI_Otemachi",
+            "index": 3,
+            "igp_complete": 103,
+            "dest": "12_TITECH",
+            "reverse": 36,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "0_KDDI_Otemachi",
+            "index": 4,
+            "igp_complete": 104,
+            "dest": "17_DIX-IE",
+            "reverse": 41,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "0_KDDI_Otemachi",
+            "index": 5,
+            "igp_complete": 104,
+            "dest": "18_KDDI",
+            "reverse": 42,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "0_KDDI_Otemachi",
+            "index": 6,
+            "igp_complete": 105,
+            "dest": "19_APAN",
+            "reverse": 43,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "0_KDDI_Otemachi",
+            "index": 7,
+            "igp_complete": 106,
+            "dest": "20_Los_Angeles",
+            "reverse": 44,
+            "lat": 14677
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "1_Nezu",
+            "index": 8,
+            "igp_complete": 106,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 0,
+            "lat": 11
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "1_Nezu",
+            "index": 9,
+            "igp_complete": 106,
+            "dest": "2_Yagami",
+            "reverse": 11,
+            "lat": 1603
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "1_Nezu",
+            "index": 10,
+            "igp_complete": 106,
+            "dest": "28_Sendai",
+            "reverse": 63,
+            "lat": 505
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "2_Yagami",
+            "index": 11,
+            "igp_complete": 107,
+            "dest": "1_Nezu",
+            "reverse": 9,
+            "lat": 1603
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "2_Yagami",
+            "index": 12,
+            "igp_complete": 108,
+            "dest": "3_ShinKawasaki",
+            "reverse": 14,
+            "lat": 1580
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "2_Yagami",
+            "index": 13,
+            "igp_complete": 108,
+            "dest": "21_Fujisawa",
+            "reverse": 47,
+            "lat": 1540
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "3_ShinKawasaki",
+            "index": 14,
+            "igp_complete": 109,
+            "dest": "2_Yagami",
+            "reverse": 12,
+            "lat": 1580
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "4_Hachioji",
+            "index": 15,
+            "igp_complete": 109,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 1,
+            "lat": 71
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "5_Bangkok",
+            "index": 16,
+            "igp_complete": 110,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 18,
+            "lat": 7679
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_NTT_Otemachi",
+            "index": 17,
+            "igp_complete": 110,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 2,
+            "lat": 5
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "6_NTT_Otemachi",
+            "index": 18,
+            "igp_complete": 110,
+            "dest": "5_Bangkok",
+            "reverse": 16,
+            "lat": 7679
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "6_NTT_Otemachi",
+            "index": 19,
+            "igp_complete": 110,
+            "dest": "7_Tsukuba",
+            "reverse": 24,
+            "lat": 112
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_NTT_Otemachi",
+            "index": 20,
+            "igp_complete": 111,
+            "dest": "10_Dojima",
+            "reverse": 27,
+            "lat": 679
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_NTT_Otemachi",
+            "index": 21,
+            "igp_complete": 111,
+            "dest": "13_T-Lex",
+            "reverse": 37,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_NTT_Otemachi",
+            "index": 22,
+            "igp_complete": 111,
+            "dest": "14_JGN2Plus",
+            "reverse": 38,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "6_NTT_Otemachi",
+            "index": 23,
+            "igp_complete": 111,
+            "dest": "27_Komatsu",
+            "reverse": 62,
+            "lat": 519
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "7_Tsukuba",
+            "index": 24,
+            "igp_complete": 112,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 19,
+            "lat": 112
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "8_NSPIXP-3",
+            "index": 25,
+            "igp_complete": 112,
+            "dest": "10_Dojima",
+            "reverse": 28,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "9_JGN2Plus",
+            "index": 26,
+            "igp_complete": 112,
+            "dest": "10_Dojima",
+            "reverse": 29,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Dojima",
+            "index": 27,
+            "igp_complete": 112,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 20,
+            "lat": 679
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_Dojima",
+            "index": 28,
+            "igp_complete": 113,
+            "dest": "8_NSPIXP-3",
+            "reverse": 25,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Dojima",
+            "index": 29,
+            "igp_complete": 114,
+            "dest": "9_JGN2Plus",
+            "reverse": 26,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Dojima",
+            "index": 30,
+            "igp_complete": 114,
+            "dest": "22_Nara",
+            "reverse": 50,
+            "lat": 53
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Dojima",
+            "index": 31,
+            "igp_complete": 114,
+            "dest": "23_Fukuoka",
+            "reverse": 53,
+            "lat": 806
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_Dojima",
+            "index": 32,
+            "igp_complete": 114,
+            "dest": "24_Hiroshima",
+            "reverse": 56,
+            "lat": 469
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "10_Dojima",
+            "index": 33,
+            "igp_complete": 114,
+            "dest": "25_Kurashiki",
+            "reverse": 58,
+            "lat": 267
+        },
+        {
+            "igp": 17,
+            "bdw": 5629032,
+            "orig": "10_Dojima",
+            "index": 34,
+            "igp_complete": 114,
+            "dest": "26_Sakyo",
+            "reverse": 60,
+            "lat": 890
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "11_PAIX",
+            "index": 35,
+            "igp_complete": 115,
+            "dest": "29_San_Francisco",
+            "reverse": 64,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "12_TITECH",
+            "index": 36,
+            "igp_complete": 115,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 3,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "13_T-Lex",
+            "index": 37,
+            "igp_complete": 115,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 21,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "14_JGN2Plus",
+            "index": 38,
+            "igp_complete": 115,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 22,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_AI3",
+            "index": 39,
+            "igp_complete": 116,
+            "dest": "21_Fujisawa",
+            "reverse": 48,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "16_LAIIX",
+            "index": 40,
+            "igp_complete": 116,
+            "dest": "20_Los_Angeles",
+            "reverse": 45,
+            "lat": 1582
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "17_DIX-IE",
+            "index": 41,
+            "igp_complete": 116,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 4,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "18_KDDI",
+            "index": 42,
+            "igp_complete": 116,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 5,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "19_APAN",
+            "index": 43,
+            "igp_complete": 116,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 6,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "20_Los_Angeles",
+            "index": 44,
+            "igp_complete": 117,
+            "dest": "0_KDDI_Otemachi",
+            "reverse": 7,
+            "lat": 14677
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "20_Los_Angeles",
+            "index": 45,
+            "igp_complete": 117,
+            "dest": "16_LAIIX",
+            "reverse": 40,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "20_Los_Angeles",
+            "index": 46,
+            "igp_complete": 117,
+            "dest": "29_San_Francisco",
+            "reverse": 65,
+            "lat": 936
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "21_Fujisawa",
+            "index": 47,
+            "igp_complete": 117,
+            "dest": "2_Yagami",
+            "reverse": 13,
+            "lat": 1540
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Fujisawa",
+            "index": 48,
+            "igp_complete": 118,
+            "dest": "15_AI3",
+            "reverse": 39,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Fujisawa",
+            "index": 49,
+            "igp_complete": 118,
+            "dest": "22_Nara",
+            "reverse": 51,
+            "lat": 574
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "22_Nara",
+            "index": 50,
+            "igp_complete": 118,
+            "dest": "10_Dojima",
+            "reverse": 30,
+            "lat": 53
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "22_Nara",
+            "index": 51,
+            "igp_complete": 118,
+            "dest": "21_Fujisawa",
+            "reverse": 49,
+            "lat": 574
+        },
+        {
+            "igp": 17,
+            "bdw": 5629032,
+            "orig": "22_Nara",
+            "index": 52,
+            "igp_complete": 118,
+            "dest": "26_Sakyo",
+            "reverse": 61,
+            "lat": 939
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "23_Fukuoka",
+            "index": 53,
+            "igp_complete": 118,
+            "dest": "10_Dojima",
+            "reverse": 31,
+            "lat": 806
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "23_Fukuoka",
+            "index": 54,
+            "igp_complete": 119,
+            "dest": "24_Hiroshima",
+            "reverse": 57,
+            "lat": 350
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "23_Fukuoka",
+            "index": 55,
+            "igp_complete": 119,
+            "dest": "25_Kurashiki",
+            "reverse": 59,
+            "lat": 549
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "24_Hiroshima",
+            "index": 56,
+            "igp_complete": 119,
+            "dest": "10_Dojima",
+            "reverse": 32,
+            "lat": 469
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "24_Hiroshima",
+            "index": 57,
+            "igp_complete": 119,
+            "dest": "23_Fukuoka",
+            "reverse": 54,
+            "lat": 350
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "25_Kurashiki",
+            "index": 58,
+            "igp_complete": 119,
+            "dest": "10_Dojima",
+            "reverse": 33,
+            "lat": 267
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "25_Kurashiki",
+            "index": 59,
+            "igp_complete": 119,
+            "dest": "23_Fukuoka",
+            "reverse": 55,
+            "lat": 549
+        },
+        {
+            "igp": 17,
+            "bdw": 5629032,
+            "orig": "26_Sakyo",
+            "index": 60,
+            "igp_complete": 119,
+            "dest": "10_Dojima",
+            "reverse": 34,
+            "lat": 890
+        },
+        {
+            "igp": 17,
+            "bdw": 5629032,
+            "orig": "26_Sakyo",
+            "index": 61,
+            "igp_complete": 120,
+            "dest": "22_Nara",
+            "reverse": 52,
+            "lat": 939
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "27_Komatsu",
+            "index": 62,
+            "igp_complete": 120,
+            "dest": "6_NTT_Otemachi",
+            "reverse": 23,
+            "lat": 519
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "28_Sendai",
+            "index": 63,
+            "igp_complete": 120,
+            "dest": "1_Nezu",
+            "reverse": 10,
+            "lat": 505
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "29_San_Francisco",
+            "index": 64,
+            "igp_complete": 120,
+            "dest": "11_PAIX",
+            "reverse": 35,
+            "lat": 1582
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "29_San_Francisco",
+            "index": 65,
+            "igp_complete": 120,
+            "dest": "20_Los_Angeles",
+            "reverse": 46,
+            "lat": 936
+        }
+    ]
+}

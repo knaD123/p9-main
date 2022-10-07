@@ -1,0 +1,205 @@
+{
+    "nodes": [
+        "0_Ostrava",
+        "1_Ebone",
+        "2_Plzen",
+        "3_Praha",
+        "4_Liberec",
+        "5_Ceske_Budejovice",
+        "6_Pardubice",
+        "7_Hradec_Kralove",
+        "8_Olomouc",
+        "9_Brno"
+    ],
+    "E": 18,
+    "V": 10,
+    "name": "Cesnet1993",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "0_Ostrava",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "9_Brno",
+            "reverse": 15,
+            "lat": 238
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "1_Ebone",
+            "index": 1,
+            "igp_complete": 7,
+            "dest": "3_Praha",
+            "reverse": 3,
+            "lat": 189
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "2_Plzen",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "3_Praha",
+            "reverse": 4,
+            "lat": 144
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "3_Praha",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "1_Ebone",
+            "reverse": 1,
+            "lat": 189
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "3_Praha",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "2_Plzen",
+            "reverse": 2,
+            "lat": 144
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "3_Praha",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "4_Liberec",
+            "reverse": 10,
+            "lat": 151
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "3_Praha",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "5_Ceske_Budejovice",
+            "reverse": 11,
+            "lat": 211
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "3_Praha",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "6_Pardubice",
+            "reverse": 12,
+            "lat": 166
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "3_Praha",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "7_Hradec_Kralove",
+            "reverse": 13,
+            "lat": 174
+        },
+        {
+            "igp": 10,
+            "bdw": 6000,
+            "orig": "3_Praha",
+            "index": 9,
+            "igp_complete": 8,
+            "dest": "9_Brno",
+            "reverse": 16,
+            "lat": 315
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "4_Liberec",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "3_Praha",
+            "reverse": 5,
+            "lat": 151
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "5_Ceske_Budejovice",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "3_Praha",
+            "reverse": 6,
+            "lat": 211
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "6_Pardubice",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "3_Praha",
+            "reverse": 7,
+            "lat": 166
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "7_Hradec_Kralove",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "3_Praha",
+            "reverse": 8,
+            "lat": 174
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "8_Olomouc",
+            "index": 14,
+            "igp_complete": 8,
+            "dest": "9_Brno",
+            "reverse": 17,
+            "lat": 112
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "9_Brno",
+            "index": 15,
+            "igp_complete": 8,
+            "dest": "0_Ostrava",
+            "reverse": 0,
+            "lat": 238
+        },
+        {
+            "igp": 10,
+            "bdw": 6000,
+            "orig": "9_Brno",
+            "index": 16,
+            "igp_complete": 8,
+            "dest": "3_Praha",
+            "reverse": 9,
+            "lat": 315
+        },
+        {
+            "igp": 30,
+            "bdw": 2000,
+            "orig": "9_Brno",
+            "index": 17,
+            "igp_complete": 8,
+            "dest": "8_Olomouc",
+            "reverse": 14,
+            "lat": 112
+        }
+    ]
+}

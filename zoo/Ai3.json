@@ -1,0 +1,205 @@
+{
+    "nodes": [
+        "0_UNIBRAW",
+        "1_NAIST",
+        "2_KEIO",
+        "3_IOIT",
+        "4_ASTI",
+        "5_TU",
+        "6_AIT",
+        "7_ITB",
+        "8_TP",
+        "9_USM"
+    ],
+    "E": 18,
+    "V": 10,
+    "name": "Ai3",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_UNIBRAW",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "7_ITB",
+            "reverse": 14,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_NAIST",
+            "index": 1,
+            "igp_complete": 7,
+            "dest": "2_KEIO",
+            "reverse": 2,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "1_NAIST",
+            "reverse": 1,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "3_IOIT",
+            "reverse": 9,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "4_ASTI",
+            "reverse": 10,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "6_AIT",
+            "reverse": 12,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "7_ITB",
+            "reverse": 15,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "8_TP",
+            "reverse": 16,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_KEIO",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "9_USM",
+            "reverse": 17,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_IOIT",
+            "index": 9,
+            "igp_complete": 8,
+            "dest": "2_KEIO",
+            "reverse": 3,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_ASTI",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "2_KEIO",
+            "reverse": 4,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_TU",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "6_AIT",
+            "reverse": 13,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_AIT",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "2_KEIO",
+            "reverse": 5,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_AIT",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "5_TU",
+            "reverse": 11,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_ITB",
+            "index": 14,
+            "igp_complete": 8,
+            "dest": "0_UNIBRAW",
+            "reverse": 0,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_ITB",
+            "index": 15,
+            "igp_complete": 8,
+            "dest": "2_KEIO",
+            "reverse": 6,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_TP",
+            "index": 16,
+            "igp_complete": 8,
+            "dest": "2_KEIO",
+            "reverse": 7,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_USM",
+            "index": 17,
+            "igp_complete": 8,
+            "dest": "2_KEIO",
+            "reverse": 8,
+            "lat": 10
+        }
+    ]
+}

@@ -1,0 +1,347 @@
+{
+    "nodes": [
+        "0_Pacific_NW_Gigapop_(Seattle,_WA)",
+        "1_Future_IEEAF_Asian_Extension",
+        "2_Cat_6500_AS23814",
+        "3_ONS-15454",
+        "4_DR_Data_Reservoir",
+        "5_U-Tokyo_akihabara",
+        "6_JGN2",
+        "7_APAN-JP_AS7660",
+        "8_WIDE_AS2500",
+        "9_ASCC/TW_AS9264",
+        "10_BigIron_15000_AS23814",
+        "11_NetIron_N140G_AS23814"
+    ],
+    "E": 32,
+    "V": 12,
+    "name": "TLex",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 160,
+            "bdw": 622080,
+            "orig": "0_Pacific_NW_Gigapop_(Seattle,_WA)",
+            "index": 0,
+            "igp_complete": 88,
+            "dest": "3_ONS-15454",
+            "reverse": 6,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 9953280,
+            "orig": "0_Pacific_NW_Gigapop_(Seattle,_WA)",
+            "index": 1,
+            "igp_complete": 89,
+            "dest": "3_ONS-15454",
+            "reverse": 7,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 9953280,
+            "orig": "1_Future_IEEAF_Asian_Extension",
+            "index": 2,
+            "igp_complete": 89,
+            "dest": "3_ONS-15454",
+            "reverse": 8,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "2_Cat_6500_AS23814",
+            "index": 3,
+            "igp_complete": 90,
+            "dest": "3_ONS-15454",
+            "reverse": 9,
+            "lat": 10
+        },
+        {
+            "igp": 40,
+            "bdw": 2488320,
+            "orig": "2_Cat_6500_AS23814",
+            "index": 4,
+            "igp_complete": 91,
+            "dest": "3_ONS-15454",
+            "reverse": 10,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "2_Cat_6500_AS23814",
+            "index": 5,
+            "igp_complete": 92,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 24,
+            "lat": 10
+        },
+        {
+            "igp": 160,
+            "bdw": 622080,
+            "orig": "3_ONS-15454",
+            "index": 6,
+            "igp_complete": 93,
+            "dest": "0_Pacific_NW_Gigapop_(Seattle,_WA)",
+            "reverse": 0,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 9953280,
+            "orig": "3_ONS-15454",
+            "index": 7,
+            "igp_complete": 94,
+            "dest": "0_Pacific_NW_Gigapop_(Seattle,_WA)",
+            "reverse": 1,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 9953280,
+            "orig": "3_ONS-15454",
+            "index": 8,
+            "igp_complete": 94,
+            "dest": "1_Future_IEEAF_Asian_Extension",
+            "reverse": 2,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "3_ONS-15454",
+            "index": 9,
+            "igp_complete": 94,
+            "dest": "2_Cat_6500_AS23814",
+            "reverse": 3,
+            "lat": 10
+        },
+        {
+            "igp": 40,
+            "bdw": 2488320,
+            "orig": "3_ONS-15454",
+            "index": 10,
+            "igp_complete": 95,
+            "dest": "2_Cat_6500_AS23814",
+            "reverse": 4,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "3_ONS-15454",
+            "index": 11,
+            "igp_complete": 96,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 25,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "3_ONS-15454",
+            "index": 12,
+            "igp_complete": 96,
+            "dest": "10_BigIron_15000_AS23814",
+            "reverse": 20,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "3_ONS-15454",
+            "index": 13,
+            "igp_complete": 97,
+            "dest": "10_BigIron_15000_AS23814",
+            "reverse": 21,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "4_DR_Data_Reservoir",
+            "index": 14,
+            "igp_complete": 98,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 26,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "5_U-Tokyo_akihabara",
+            "index": 15,
+            "igp_complete": 98,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 27,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "6_JGN2",
+            "index": 16,
+            "igp_complete": 98,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 28,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "7_APAN-JP_AS7660",
+            "index": 17,
+            "igp_complete": 98,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 29,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "8_WIDE_AS2500",
+            "index": 18,
+            "igp_complete": 99,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 30,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "9_ASCC/TW_AS9264",
+            "index": 19,
+            "igp_complete": 100,
+            "dest": "10_BigIron_15000_AS23814",
+            "reverse": 22,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "10_BigIron_15000_AS23814",
+            "index": 20,
+            "igp_complete": 100,
+            "dest": "3_ONS-15454",
+            "reverse": 12,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "10_BigIron_15000_AS23814",
+            "index": 21,
+            "igp_complete": 101,
+            "dest": "3_ONS-15454",
+            "reverse": 13,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "10_BigIron_15000_AS23814",
+            "index": 22,
+            "igp_complete": 101,
+            "dest": "9_ASCC/TW_AS9264",
+            "reverse": 19,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "10_BigIron_15000_AS23814",
+            "index": 23,
+            "igp_complete": 102,
+            "dest": "11_NetIron_N140G_AS23814",
+            "reverse": 31,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 24,
+            "igp_complete": 102,
+            "dest": "2_Cat_6500_AS23814",
+            "reverse": 5,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 25,
+            "igp_complete": 102,
+            "dest": "3_ONS-15454",
+            "reverse": 11,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 26,
+            "igp_complete": 102,
+            "dest": "4_DR_Data_Reservoir",
+            "reverse": 14,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 27,
+            "igp_complete": 103,
+            "dest": "5_U-Tokyo_akihabara",
+            "reverse": 15,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 28,
+            "igp_complete": 103,
+            "dest": "6_JGN2",
+            "reverse": 16,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 29,
+            "igp_complete": 103,
+            "dest": "7_APAN-JP_AS7660",
+            "reverse": 17,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 30,
+            "igp_complete": 103,
+            "dest": "8_WIDE_AS2500",
+            "reverse": 18,
+            "lat": 10
+        },
+        {
+            "igp": 15,
+            "bdw": 6603392,
+            "orig": "11_NetIron_N140G_AS23814",
+            "index": 31,
+            "igp_complete": 104,
+            "dest": "10_BigIron_15000_AS23814",
+            "reverse": 23,
+            "lat": 10
+        }
+    ]
+}

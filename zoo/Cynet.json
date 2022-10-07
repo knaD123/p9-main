@@ -1,0 +1,625 @@
+{
+    "nodes": [
+        "0_Cyprus_Univ._of_Tech.",
+        "1_Intercollege",
+        "2_United_Nations",
+        "3_CyIX_Cypress_ISPs",
+        "4_Users",
+        "5_Grid",
+        "6_Grid-SW",
+        "7_None",
+        "8_KyprosNet",
+        "9_Inst._of_Neurology",
+        "10_Pedagogical_Inst.",
+        "11_Nursing_School",
+        "12_Phillips_College",
+        "13_European_Uni.",
+        "14_Open_Uni._of_Cyprus",
+        "15_Univ._of_Nicosia",
+        "16_Agriculture_Inst.",
+        "17_Cyprus_Inst.",
+        "18_English_School",
+        "19_Uni._of_Frederick",
+        "20_Limassol_PoP",
+        "21_European_Inst._of_Cyprus",
+        "22_Border_Router",
+        "23_EUMED_CONNECT",
+        "24_Syria_NREN",
+        "25_GEANT_Athens",
+        "26_GEANT_Milano",
+        "27_Univ._of_Cyprus",
+        "28_Evagoras",
+        "29_Nicosia_PoP"
+    ],
+    "E": 58,
+    "V": 30,
+    "name": "Cynet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "0_Cyprus_Univ._of_Tech.",
+            "index": 0,
+            "igp_complete": 9,
+            "dest": "20_Limassol_PoP",
+            "reverse": 23,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "1_Intercollege",
+            "index": 1,
+            "igp_complete": 9,
+            "dest": "20_Limassol_PoP",
+            "reverse": 24,
+            "lat": 110
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "2_United_Nations",
+            "index": 2,
+            "igp_complete": 9,
+            "dest": "28_Evagoras",
+            "reverse": 40,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_CyIX_Cypress_ISPs",
+            "index": 3,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 43,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "4_Users",
+            "index": 4,
+            "igp_complete": 9,
+            "dest": "7_None",
+            "reverse": 9,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "5_Grid",
+            "index": 5,
+            "igp_complete": 9,
+            "dest": "6_Grid-SW",
+            "reverse": 6,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "6_Grid-SW",
+            "index": 6,
+            "igp_complete": 9,
+            "dest": "5_Grid",
+            "reverse": 5,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Grid-SW",
+            "index": 7,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 44,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Grid-SW",
+            "index": 8,
+            "igp_complete": 9,
+            "dest": "7_None",
+            "reverse": 10,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "7_None",
+            "index": 9,
+            "igp_complete": 9,
+            "dest": "4_Users",
+            "reverse": 4,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_None",
+            "index": 10,
+            "igp_complete": 9,
+            "dest": "6_Grid-SW",
+            "reverse": 8,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "8_KyprosNet",
+            "index": 11,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 45,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "9_Inst._of_Neurology",
+            "index": 12,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 46,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "10_Pedagogical_Inst.",
+            "index": 13,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 47,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "11_Nursing_School",
+            "index": 14,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 48,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "12_Phillips_College",
+            "index": 15,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 49,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "13_European_Uni.",
+            "index": 16,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 50,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "14_Open_Uni._of_Cyprus",
+            "index": 17,
+            "igp_complete": 9,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 51,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "15_Univ._of_Nicosia",
+            "index": 18,
+            "igp_complete": 10,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 52,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "16_Agriculture_Inst.",
+            "index": 19,
+            "igp_complete": 10,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 53,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "17_Cyprus_Inst.",
+            "index": 20,
+            "igp_complete": 10,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 54,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "18_English_School",
+            "index": 21,
+            "igp_complete": 10,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 55,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "19_Uni._of_Frederick",
+            "index": 22,
+            "igp_complete": 10,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 56,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "20_Limassol_PoP",
+            "index": 23,
+            "igp_complete": 10,
+            "dest": "0_Cyprus_Univ._of_Tech.",
+            "reverse": 0,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "20_Limassol_PoP",
+            "index": 24,
+            "igp_complete": 10,
+            "dest": "1_Intercollege",
+            "reverse": 1,
+            "lat": 110
+        },
+        {
+            "igp": 166,
+            "bdw": 60000,
+            "orig": "20_Limassol_PoP",
+            "index": 25,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 27,
+            "lat": 109
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "21_European_Inst._of_Cyprus",
+            "index": 26,
+            "igp_complete": 10,
+            "dest": "28_Evagoras",
+            "reverse": 41,
+            "lat": 74
+        },
+        {
+            "igp": 166,
+            "bdw": 60000,
+            "orig": "22_Border_Router",
+            "index": 27,
+            "igp_complete": 10,
+            "dest": "20_Limassol_PoP",
+            "reverse": 25,
+            "lat": 109
+        },
+        {
+            "igp": 100,
+            "bdw": 100000,
+            "orig": "22_Border_Router",
+            "index": 28,
+            "igp_complete": 10,
+            "dest": "23_EUMED_CONNECT",
+            "reverse": 34,
+            "lat": 74
+        },
+        {
+            "igp": 64,
+            "bdw": 155000,
+            "orig": "22_Border_Router",
+            "index": 29,
+            "igp_complete": 10,
+            "dest": "25_GEANT_Athens",
+            "reverse": 37,
+            "lat": 74
+        },
+        {
+            "igp": 64,
+            "bdw": 155000,
+            "orig": "22_Border_Router",
+            "index": 30,
+            "igp_complete": 10,
+            "dest": "26_GEANT_Milano",
+            "reverse": 38,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_Border_Router",
+            "index": 31,
+            "igp_complete": 10,
+            "dest": "27_Univ._of_Cyprus",
+            "reverse": 39,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "22_Border_Router",
+            "index": 32,
+            "igp_complete": 10,
+            "dest": "28_Evagoras",
+            "reverse": 42,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "22_Border_Router",
+            "index": 33,
+            "igp_complete": 10,
+            "dest": "29_Nicosia_PoP",
+            "reverse": 57,
+            "lat": 5
+        },
+        {
+            "igp": 100,
+            "bdw": 100000,
+            "orig": "23_EUMED_CONNECT",
+            "index": 34,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 28,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "23_EUMED_CONNECT",
+            "index": 35,
+            "igp_complete": 10,
+            "dest": "24_Syria_NREN",
+            "reverse": 36,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "24_Syria_NREN",
+            "index": 36,
+            "igp_complete": 10,
+            "dest": "23_EUMED_CONNECT",
+            "reverse": 35,
+            "lat": 74
+        },
+        {
+            "igp": 64,
+            "bdw": 155000,
+            "orig": "25_GEANT_Athens",
+            "index": 37,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 29,
+            "lat": 74
+        },
+        {
+            "igp": 64,
+            "bdw": 155000,
+            "orig": "26_GEANT_Milano",
+            "index": 38,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 30,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "27_Univ._of_Cyprus",
+            "index": 39,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 31,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "28_Evagoras",
+            "index": 40,
+            "igp_complete": 10,
+            "dest": "2_United_Nations",
+            "reverse": 2,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "28_Evagoras",
+            "index": 41,
+            "igp_complete": 10,
+            "dest": "21_European_Inst._of_Cyprus",
+            "reverse": 26,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "28_Evagoras",
+            "index": 42,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 32,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "29_Nicosia_PoP",
+            "index": 43,
+            "igp_complete": 10,
+            "dest": "3_CyIX_Cypress_ISPs",
+            "reverse": 3,
+            "lat": 74
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "29_Nicosia_PoP",
+            "index": 44,
+            "igp_complete": 10,
+            "dest": "6_Grid-SW",
+            "reverse": 7,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 45,
+            "igp_complete": 10,
+            "dest": "8_KyprosNet",
+            "reverse": 11,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 46,
+            "igp_complete": 10,
+            "dest": "9_Inst._of_Neurology",
+            "reverse": 12,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 47,
+            "igp_complete": 10,
+            "dest": "10_Pedagogical_Inst.",
+            "reverse": 13,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 48,
+            "igp_complete": 10,
+            "dest": "11_Nursing_School",
+            "reverse": 14,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 49,
+            "igp_complete": 10,
+            "dest": "12_Phillips_College",
+            "reverse": 15,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 50,
+            "igp_complete": 10,
+            "dest": "13_European_Uni.",
+            "reverse": 16,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 51,
+            "igp_complete": 10,
+            "dest": "14_Open_Uni._of_Cyprus",
+            "reverse": 17,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 52,
+            "igp_complete": 10,
+            "dest": "15_Univ._of_Nicosia",
+            "reverse": 18,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 53,
+            "igp_complete": 10,
+            "dest": "16_Agriculture_Inst.",
+            "reverse": 19,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 54,
+            "igp_complete": 10,
+            "dest": "17_Cyprus_Inst.",
+            "reverse": 20,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 55,
+            "igp_complete": 10,
+            "dest": "18_English_School",
+            "reverse": 21,
+            "lat": 74
+        },
+        {
+            "igp": 200,
+            "bdw": 50000,
+            "orig": "29_Nicosia_PoP",
+            "index": 56,
+            "igp_complete": 10,
+            "dest": "19_Uni._of_Frederick",
+            "reverse": 22,
+            "lat": 74
+        },
+        {
+            "igp": 46,
+            "bdw": 212800,
+            "orig": "29_Nicosia_PoP",
+            "index": 57,
+            "igp_complete": 10,
+            "dest": "22_Border_Router",
+            "reverse": 33,
+            "lat": 5
+        }
+    ]
+}

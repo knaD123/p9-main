@@ -1,0 +1,141 @@
+{
+    "nodes": [
+        "0_Novi_Sad",
+        "1_Belgrade",
+        "2_Kragujevac",
+        "3_Nis",
+        "4_Krusevac",
+        "5_Podgorica"
+    ],
+    "E": 12,
+    "V": 6,
+    "name": "Telecomserbia",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "0_Novi_Sad",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "1_Belgrade",
+            "reverse": 2,
+            "lat": 121
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "0_Novi_Sad",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "5_Podgorica",
+            "reverse": 10,
+            "lat": 531
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Belgrade",
+            "index": 2,
+            "igp_complete": 6,
+            "dest": "0_Novi_Sad",
+            "reverse": 0,
+            "lat": 121
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Belgrade",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "2_Kragujevac",
+            "reverse": 4,
+            "lat": 162
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "2_Kragujevac",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "1_Belgrade",
+            "reverse": 3,
+            "lat": 162
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "2_Kragujevac",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "3_Nis",
+            "reverse": 6,
+            "lat": 189
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "3_Nis",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "2_Kragujevac",
+            "reverse": 5,
+            "lat": 189
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "3_Nis",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "4_Krusevac",
+            "reverse": 8,
+            "lat": 94
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "4_Krusevac",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "3_Nis",
+            "reverse": 7,
+            "lat": 94
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "4_Krusevac",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "5_Podgorica",
+            "reverse": 11,
+            "lat": 355
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_Podgorica",
+            "index": 10,
+            "igp_complete": 7,
+            "dest": "0_Novi_Sad",
+            "reverse": 1,
+            "lat": 531
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_Podgorica",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "4_Krusevac",
+            "reverse": 9,
+            "lat": 355
+        }
+    ]
+}

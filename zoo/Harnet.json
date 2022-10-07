@@ -1,0 +1,536 @@
+{
+    "nodes": [
+        "0_ASGCNET",
+        "1_KREPNET2",
+        "2_HKIX",
+        "3_APAN-JP",
+        "4_International",
+        "5_CERNET",
+        "6_ASNET",
+        "7_GOOGLE",
+        "8_TEIN3",
+        "9_Vocational_Training_Council",
+        "10_HKEAA",
+        "11_Open_Uni",
+        "12_Technology_Park",
+        "13_LU",
+        "14_HKIEd",
+        "15_HKU",
+        "16_HKUST",
+        "17_PolyU",
+        "18_CUHK",
+        "19_CityU",
+        "20_HKBU"
+    ],
+    "E": 50,
+    "V": 21,
+    "name": "Harnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "0_ASGCNET",
+            "index": 0,
+            "igp_complete": 971,
+            "dest": "2_HKIX",
+            "reverse": 2,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "1_KREPNET2",
+            "index": 1,
+            "igp_complete": 981,
+            "dest": "2_HKIX",
+            "reverse": 3,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "2_HKIX",
+            "index": 2,
+            "igp_complete": 985,
+            "dest": "0_ASGCNET",
+            "reverse": 0,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "2_HKIX",
+            "index": 3,
+            "igp_complete": 994,
+            "dest": "1_KREPNET2",
+            "reverse": 1,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "2_HKIX",
+            "index": 4,
+            "igp_complete": 1000,
+            "dest": "3_APAN-JP",
+            "reverse": 8,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "2_HKIX",
+            "index": 5,
+            "igp_complete": 1003,
+            "dest": "6_ASNET",
+            "reverse": 11,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "2_HKIX",
+            "index": 6,
+            "igp_complete": 1010,
+            "dest": "7_GOOGLE",
+            "reverse": 12,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2000000,
+            "orig": "2_HKIX",
+            "index": 7,
+            "igp_complete": 1015,
+            "dest": "15_HKU",
+            "reverse": 24,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "3_APAN-JP",
+            "index": 8,
+            "igp_complete": 1022,
+            "dest": "2_HKIX",
+            "reverse": 4,
+            "lat": 10
+        },
+        {
+            "igp": 13,
+            "bdw": 1500000,
+            "orig": "4_International",
+            "index": 9,
+            "igp_complete": 1031,
+            "dest": "14_HKIEd",
+            "reverse": 21,
+            "lat": 10
+        },
+        {
+            "igp": 129,
+            "bdw": 155000,
+            "orig": "5_CERNET",
+            "index": 10,
+            "igp_complete": 1035,
+            "dest": "16_HKUST",
+            "reverse": 30,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "6_ASNET",
+            "index": 11,
+            "igp_complete": 1037,
+            "dest": "2_HKIX",
+            "reverse": 5,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "7_GOOGLE",
+            "index": 12,
+            "igp_complete": 1041,
+            "dest": "2_HKIX",
+            "reverse": 6,
+            "lat": 10
+        },
+        {
+            "igp": 200,
+            "bdw": 100000,
+            "orig": "8_TEIN3",
+            "index": 13,
+            "igp_complete": 1043,
+            "dest": "18_CUHK",
+            "reverse": 39,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "9_Vocational_Training_Council",
+            "index": 14,
+            "igp_complete": 1046,
+            "dest": "18_CUHK",
+            "reverse": 40,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "10_HKEAA",
+            "index": 15,
+            "igp_complete": 1058,
+            "dest": "13_LU",
+            "reverse": 18,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "11_Open_Uni",
+            "index": 16,
+            "igp_complete": 1061,
+            "dest": "15_HKU",
+            "reverse": 25,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "12_Technology_Park",
+            "index": 17,
+            "igp_complete": 1065,
+            "dest": "18_CUHK",
+            "reverse": 41,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "13_LU",
+            "index": 18,
+            "igp_complete": 1067,
+            "dest": "10_HKEAA",
+            "reverse": 15,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "13_LU",
+            "index": 19,
+            "igp_complete": 1074,
+            "dest": "14_HKIEd",
+            "reverse": 22,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "13_LU",
+            "index": 20,
+            "igp_complete": 1075,
+            "dest": "15_HKU",
+            "reverse": 26,
+            "lat": 10
+        },
+        {
+            "igp": 13,
+            "bdw": 1500000,
+            "orig": "14_HKIEd",
+            "index": 21,
+            "igp_complete": 1079,
+            "dest": "4_International",
+            "reverse": 9,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "14_HKIEd",
+            "index": 22,
+            "igp_complete": 1083,
+            "dest": "13_LU",
+            "reverse": 19,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "14_HKIEd",
+            "index": 23,
+            "igp_complete": 1085,
+            "dest": "16_HKUST",
+            "reverse": 31,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2000000,
+            "orig": "15_HKU",
+            "index": 24,
+            "igp_complete": 1089,
+            "dest": "2_HKIX",
+            "reverse": 7,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "15_HKU",
+            "index": 25,
+            "igp_complete": 1092,
+            "dest": "11_Open_Uni",
+            "reverse": 16,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "15_HKU",
+            "index": 26,
+            "igp_complete": 1093,
+            "dest": "13_LU",
+            "reverse": 20,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "15_HKU",
+            "index": 27,
+            "igp_complete": 1099,
+            "dest": "16_HKUST",
+            "reverse": 32,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "15_HKU",
+            "index": 28,
+            "igp_complete": 1100,
+            "dest": "17_PolyU",
+            "reverse": 35,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "15_HKU",
+            "index": 29,
+            "igp_complete": 1102,
+            "dest": "17_PolyU",
+            "reverse": 36,
+            "lat": 10
+        },
+        {
+            "igp": 129,
+            "bdw": 155000,
+            "orig": "16_HKUST",
+            "index": 30,
+            "igp_complete": 1103,
+            "dest": "5_CERNET",
+            "reverse": 10,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "16_HKUST",
+            "index": 31,
+            "igp_complete": 1109,
+            "dest": "14_HKIEd",
+            "reverse": 23,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "16_HKUST",
+            "index": 32,
+            "igp_complete": 1114,
+            "dest": "15_HKU",
+            "reverse": 27,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "16_HKUST",
+            "index": 33,
+            "igp_complete": 1116,
+            "dest": "18_CUHK",
+            "reverse": 42,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "16_HKUST",
+            "index": 34,
+            "igp_complete": 1117,
+            "dest": "18_CUHK",
+            "reverse": 43,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "17_PolyU",
+            "index": 35,
+            "igp_complete": 1119,
+            "dest": "15_HKU",
+            "reverse": 28,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "17_PolyU",
+            "index": 36,
+            "igp_complete": 1121,
+            "dest": "15_HKU",
+            "reverse": 29,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "17_PolyU",
+            "index": 37,
+            "igp_complete": 1122,
+            "dest": "18_CUHK",
+            "reverse": 44,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "17_PolyU",
+            "index": 38,
+            "igp_complete": 1126,
+            "dest": "19_CityU",
+            "reverse": 46,
+            "lat": 10
+        },
+        {
+            "igp": 200,
+            "bdw": 100000,
+            "orig": "18_CUHK",
+            "index": 39,
+            "igp_complete": 1128,
+            "dest": "8_TEIN3",
+            "reverse": 13,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "18_CUHK",
+            "index": 40,
+            "igp_complete": 1131,
+            "dest": "9_Vocational_Training_Council",
+            "reverse": 14,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "18_CUHK",
+            "index": 41,
+            "igp_complete": 1133,
+            "dest": "12_Technology_Park",
+            "reverse": 17,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "18_CUHK",
+            "index": 42,
+            "igp_complete": 1134,
+            "dest": "16_HKUST",
+            "reverse": 33,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "18_CUHK",
+            "index": 43,
+            "igp_complete": 1136,
+            "dest": "16_HKUST",
+            "reverse": 34,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "18_CUHK",
+            "index": 44,
+            "igp_complete": 1137,
+            "dest": "17_PolyU",
+            "reverse": 37,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "18_CUHK",
+            "index": 45,
+            "igp_complete": 1138,
+            "dest": "20_HKBU",
+            "reverse": 48,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "19_CityU",
+            "index": 46,
+            "igp_complete": 1142,
+            "dest": "17_PolyU",
+            "reverse": 38,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "19_CityU",
+            "index": 47,
+            "igp_complete": 1146,
+            "dest": "20_HKBU",
+            "reverse": 49,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "20_HKBU",
+            "index": 48,
+            "igp_complete": 1147,
+            "dest": "18_CUHK",
+            "reverse": 45,
+            "lat": 10
+        },
+        {
+            "igp": 21,
+            "bdw": 938750,
+            "orig": "20_HKBU",
+            "index": 49,
+            "igp_complete": 1148,
+            "dest": "19_CityU",
+            "reverse": 47,
+            "lat": 10
+        }
+    ]
+}

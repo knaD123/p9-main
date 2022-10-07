@@ -1,0 +1,765 @@
+{
+    "nodes": [
+        "0_Bordeaux",
+        "1_Toulouse",
+        "2_Orleans",
+        "3_Limoges",
+        "4_Dijon",
+        "5_Besancon",
+        "6_Montpellier",
+        "7_Clermont-Ferrand",
+        "8_Grenoble",
+        "9_Nice",
+        "10_Connexion_vers_le_Star_Tap",
+        "11_Connexion_Asie_Pacifique",
+        "12_Lyon",
+        "13_Paris",
+        "14_Corte",
+        "15_Marseille",
+        "16_Geant2",
+        "17_SFINX",
+        "18_Martinique,_Guadeloupe,_Guyane,_La_Reunion,_Nouvelle_Caledonie,_Tahiti",
+        "19_Internet_mondial",
+        "20_Nantes",
+        "21_Poiters",
+        "22_Strasbourg",
+        "23_Nancy",
+        "24_Reims",
+        "25_Compiegne",
+        "26_Lille",
+        "27_Rouen",
+        "28_Caen",
+        "29_Rennes"
+    ],
+    "E": 72,
+    "V": 30,
+    "name": "Renater2004",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "0_Bordeaux",
+            "index": 0,
+            "igp_complete": 103,
+            "dest": "1_Toulouse",
+            "reverse": 2,
+            "lat": 355
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "0_Bordeaux",
+            "index": 1,
+            "igp_complete": 104,
+            "dest": "21_Poiters",
+            "reverse": 55,
+            "lat": 349
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Toulouse",
+            "index": 2,
+            "igp_complete": 105,
+            "dest": "0_Bordeaux",
+            "reverse": 0,
+            "lat": 355
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Toulouse",
+            "index": 3,
+            "igp_complete": 105,
+            "dest": "6_Montpellier",
+            "reverse": 10,
+            "lat": 332
+        },
+        {
+            "igp": 40,
+            "bdw": 622000,
+            "orig": "2_Orleans",
+            "index": 4,
+            "igp_complete": 106,
+            "dest": "13_Paris",
+            "reverse": 29,
+            "lat": 187
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "3_Limoges",
+            "index": 5,
+            "igp_complete": 107,
+            "dest": "21_Poiters",
+            "reverse": 56,
+            "lat": 187
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "3_Limoges",
+            "index": 6,
+            "igp_complete": 107,
+            "dest": "7_Clermont-Ferrand",
+            "reverse": 13,
+            "lat": 240
+        },
+        {
+            "igp": 40,
+            "bdw": 622000,
+            "orig": "4_Dijon",
+            "index": 7,
+            "igp_complete": 107,
+            "dest": "13_Paris",
+            "reverse": 30,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_Besancon",
+            "index": 8,
+            "igp_complete": 107,
+            "dest": "12_Lyon",
+            "reverse": 22,
+            "lat": 321
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_Besancon",
+            "index": 9,
+            "igp_complete": 108,
+            "dest": "22_Strasbourg",
+            "reverse": 59,
+            "lat": 331
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "6_Montpellier",
+            "index": 10,
+            "igp_complete": 109,
+            "dest": "1_Toulouse",
+            "reverse": 3,
+            "lat": 332
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "6_Montpellier",
+            "index": 11,
+            "igp_complete": 109,
+            "dest": "12_Lyon",
+            "reverse": 23,
+            "lat": 422
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "6_Montpellier",
+            "index": 12,
+            "igp_complete": 110,
+            "dest": "15_Marseille",
+            "reverse": 45,
+            "lat": 216
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "7_Clermont-Ferrand",
+            "index": 13,
+            "igp_complete": 110,
+            "dest": "3_Limoges",
+            "reverse": 6,
+            "lat": 240
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "7_Clermont-Ferrand",
+            "index": 14,
+            "igp_complete": 111,
+            "dest": "12_Lyon",
+            "reverse": 24,
+            "lat": 233
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "8_Grenoble",
+            "index": 15,
+            "igp_complete": 111,
+            "dest": "9_Nice",
+            "reverse": 17,
+            "lat": 344
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "8_Grenoble",
+            "index": 16,
+            "igp_complete": 111,
+            "dest": "12_Lyon",
+            "reverse": 25,
+            "lat": 161
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "9_Nice",
+            "index": 17,
+            "igp_complete": 111,
+            "dest": "8_Grenoble",
+            "reverse": 15,
+            "lat": 344
+        },
+        {
+            "igp": 161,
+            "bdw": 155000,
+            "orig": "9_Nice",
+            "index": 18,
+            "igp_complete": 112,
+            "dest": "14_Corte",
+            "reverse": 44,
+            "lat": 369
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "9_Nice",
+            "index": 19,
+            "igp_complete": 112,
+            "dest": "15_Marseille",
+            "reverse": 46,
+            "lat": 266
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "10_Connexion_vers_le_Star_Tap",
+            "index": 20,
+            "igp_complete": 112,
+            "dest": "13_Paris",
+            "reverse": 31,
+            "lat": 304
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "11_Connexion_Asie_Pacifique",
+            "index": 21,
+            "igp_complete": 112,
+            "dest": "13_Paris",
+            "reverse": 32,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 22,
+            "igp_complete": 113,
+            "dest": "5_Besancon",
+            "reverse": 8,
+            "lat": 321
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 23,
+            "igp_complete": 113,
+            "dest": "6_Montpellier",
+            "reverse": 11,
+            "lat": 422
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 24,
+            "igp_complete": 113,
+            "dest": "7_Clermont-Ferrand",
+            "reverse": 14,
+            "lat": 233
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 25,
+            "igp_complete": 113,
+            "dest": "8_Grenoble",
+            "reverse": 16,
+            "lat": 161
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 26,
+            "igp_complete": 114,
+            "dest": "13_Paris",
+            "reverse": 33,
+            "lat": 659
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 27,
+            "igp_complete": 115,
+            "dest": "15_Marseille",
+            "reverse": 47,
+            "lat": 464
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "12_Lyon",
+            "index": 28,
+            "igp_complete": 115,
+            "dest": "19_Internet_mondial",
+            "reverse": 51,
+            "lat": 304
+        },
+        {
+            "igp": 40,
+            "bdw": 622000,
+            "orig": "13_Paris",
+            "index": 29,
+            "igp_complete": 115,
+            "dest": "2_Orleans",
+            "reverse": 4,
+            "lat": 187
+        },
+        {
+            "igp": 40,
+            "bdw": 622000,
+            "orig": "13_Paris",
+            "index": 30,
+            "igp_complete": 115,
+            "dest": "4_Dijon",
+            "reverse": 7,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 31,
+            "igp_complete": 115,
+            "dest": "10_Connexion_vers_le_Star_Tap",
+            "reverse": 20,
+            "lat": 304
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "13_Paris",
+            "index": 32,
+            "igp_complete": 115,
+            "dest": "11_Connexion_Asie_Pacifique",
+            "reverse": 21,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 33,
+            "igp_complete": 116,
+            "dest": "12_Lyon",
+            "reverse": 26,
+            "lat": 659
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "13_Paris",
+            "index": 34,
+            "igp_complete": 116,
+            "dest": "16_Geant2",
+            "reverse": 48,
+            "lat": 304
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "13_Paris",
+            "index": 35,
+            "igp_complete": 116,
+            "dest": "17_SFINX",
+            "reverse": 49,
+            "lat": 304
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "13_Paris",
+            "index": 36,
+            "igp_complete": 116,
+            "dest": "18_Martinique,_Guadeloupe,_Guyane,_La_Reunion,_Nouvelle_Caledonie,_Tahiti",
+            "reverse": 50,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 37,
+            "igp_complete": 117,
+            "dest": "19_Internet_mondial",
+            "reverse": 52,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 38,
+            "igp_complete": 117,
+            "dest": "21_Poiters",
+            "reverse": 57,
+            "lat": 494
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 39,
+            "igp_complete": 117,
+            "dest": "23_Nancy",
+            "reverse": 61,
+            "lat": 476
+        },
+        {
+            "igp": 40,
+            "bdw": 622000,
+            "orig": "13_Paris",
+            "index": 40,
+            "igp_complete": 117,
+            "dest": "24_Reims",
+            "reverse": 63,
+            "lat": 222
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 41,
+            "igp_complete": 117,
+            "dest": "25_Compiegne",
+            "reverse": 64,
+            "lat": 124
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 42,
+            "igp_complete": 118,
+            "dest": "26_Lille",
+            "reverse": 65,
+            "lat": 345
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "13_Paris",
+            "index": 43,
+            "igp_complete": 118,
+            "dest": "27_Rouen",
+            "reverse": 66,
+            "lat": 191
+        },
+        {
+            "igp": 161,
+            "bdw": 155000,
+            "orig": "14_Corte",
+            "index": 44,
+            "igp_complete": 118,
+            "dest": "9_Nice",
+            "reverse": 18,
+            "lat": 369
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "15_Marseille",
+            "index": 45,
+            "igp_complete": 118,
+            "dest": "6_Montpellier",
+            "reverse": 12,
+            "lat": 216
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "15_Marseille",
+            "index": 46,
+            "igp_complete": 119,
+            "dest": "9_Nice",
+            "reverse": 19,
+            "lat": 266
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "15_Marseille",
+            "index": 47,
+            "igp_complete": 119,
+            "dest": "12_Lyon",
+            "reverse": 27,
+            "lat": 464
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "16_Geant2",
+            "index": 48,
+            "igp_complete": 119,
+            "dest": "13_Paris",
+            "reverse": 34,
+            "lat": 304
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "17_SFINX",
+            "index": 49,
+            "igp_complete": 119,
+            "dest": "13_Paris",
+            "reverse": 35,
+            "lat": 304
+        },
+        {
+            "igp": 11,
+            "bdw": 2250656,
+            "orig": "18_Martinique,_Guadeloupe,_Guyane,_La_Reunion,_Nouvelle_Caledonie,_Tahiti",
+            "index": 50,
+            "igp_complete": 119,
+            "dest": "13_Paris",
+            "reverse": 36,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "19_Internet_mondial",
+            "index": 51,
+            "igp_complete": 119,
+            "dest": "12_Lyon",
+            "reverse": 28,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "19_Internet_mondial",
+            "index": 52,
+            "igp_complete": 120,
+            "dest": "13_Paris",
+            "reverse": 37,
+            "lat": 304
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "20_Nantes",
+            "index": 53,
+            "igp_complete": 120,
+            "dest": "21_Poiters",
+            "reverse": 58,
+            "lat": 271
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "20_Nantes",
+            "index": 54,
+            "igp_complete": 120,
+            "dest": "29_Rennes",
+            "reverse": 70,
+            "lat": 166
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "21_Poiters",
+            "index": 55,
+            "igp_complete": 120,
+            "dest": "0_Bordeaux",
+            "reverse": 1,
+            "lat": 349
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "21_Poiters",
+            "index": 56,
+            "igp_complete": 120,
+            "dest": "3_Limoges",
+            "reverse": 5,
+            "lat": 187
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "21_Poiters",
+            "index": 57,
+            "igp_complete": 120,
+            "dest": "13_Paris",
+            "reverse": 38,
+            "lat": 494
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "21_Poiters",
+            "index": 58,
+            "igp_complete": 120,
+            "dest": "20_Nantes",
+            "reverse": 53,
+            "lat": 271
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "22_Strasbourg",
+            "index": 59,
+            "igp_complete": 121,
+            "dest": "5_Besancon",
+            "reverse": 9,
+            "lat": 331
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "22_Strasbourg",
+            "index": 60,
+            "igp_complete": 121,
+            "dest": "23_Nancy",
+            "reverse": 62,
+            "lat": 195
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "23_Nancy",
+            "index": 61,
+            "igp_complete": 121,
+            "dest": "13_Paris",
+            "reverse": 39,
+            "lat": 476
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "23_Nancy",
+            "index": 62,
+            "igp_complete": 121,
+            "dest": "22_Strasbourg",
+            "reverse": 60,
+            "lat": 195
+        },
+        {
+            "igp": 40,
+            "bdw": 622000,
+            "orig": "24_Reims",
+            "index": 63,
+            "igp_complete": 121,
+            "dest": "13_Paris",
+            "reverse": 40,
+            "lat": 222
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "25_Compiegne",
+            "index": 64,
+            "igp_complete": 121,
+            "dest": "13_Paris",
+            "reverse": 41,
+            "lat": 124
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "26_Lille",
+            "index": 65,
+            "igp_complete": 121,
+            "dest": "13_Paris",
+            "reverse": 42,
+            "lat": 345
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "27_Rouen",
+            "index": 66,
+            "igp_complete": 122,
+            "dest": "13_Paris",
+            "reverse": 43,
+            "lat": 191
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "27_Rouen",
+            "index": 67,
+            "igp_complete": 122,
+            "dest": "28_Caen",
+            "reverse": 68,
+            "lat": 187
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "28_Caen",
+            "index": 68,
+            "igp_complete": 122,
+            "dest": "27_Rouen",
+            "reverse": 67,
+            "lat": 187
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "28_Caen",
+            "index": 69,
+            "igp_complete": 122,
+            "dest": "29_Rennes",
+            "reverse": 71,
+            "lat": 265
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "29_Rennes",
+            "index": 70,
+            "igp_complete": 122,
+            "dest": "20_Nantes",
+            "reverse": 54,
+            "lat": 166
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "29_Rennes",
+            "index": 71,
+            "igp_complete": 122,
+            "dest": "28_Caen",
+            "reverse": 69,
+            "lat": 265
+        }
+    ]
+}

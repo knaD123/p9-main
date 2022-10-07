@@ -1,0 +1,100 @@
+{
+    "nodes": [
+        "0_Chisinau",
+        "1_Balti",
+        "2________Cahul",
+        "3_StarNet_ISP",
+        "4_RoEduNet"
+    ],
+    "E": 8,
+    "V": 5,
+    "name": "Renam",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 40,
+            "bdw": 8000,
+            "orig": "0_Chisinau",
+            "index": 0,
+            "igp_complete": 5,
+            "dest": "1_Balti",
+            "reverse": 4,
+            "lat": 187
+        },
+        {
+            "igp": 200,
+            "bdw": 1600,
+            "orig": "0_Chisinau",
+            "index": 1,
+            "igp_complete": 5,
+            "dest": "2________Cahul",
+            "reverse": 5,
+            "lat": 225
+        },
+        {
+            "igp": 23,
+            "bdw": 13866,
+            "orig": "0_Chisinau",
+            "index": 2,
+            "igp_complete": 5,
+            "dest": "3_StarNet_ISP",
+            "reverse": 6,
+            "lat": 206
+        },
+        {
+            "igp": 10,
+            "bdw": 32000,
+            "orig": "0_Chisinau",
+            "index": 3,
+            "igp_complete": 5,
+            "dest": "4_RoEduNet",
+            "reverse": 7,
+            "lat": 206
+        },
+        {
+            "igp": 40,
+            "bdw": 8000,
+            "orig": "1_Balti",
+            "index": 4,
+            "igp_complete": 6,
+            "dest": "0_Chisinau",
+            "reverse": 0,
+            "lat": 187
+        },
+        {
+            "igp": 200,
+            "bdw": 1600,
+            "orig": "2________Cahul",
+            "index": 5,
+            "igp_complete": 6,
+            "dest": "0_Chisinau",
+            "reverse": 1,
+            "lat": 225
+        },
+        {
+            "igp": 23,
+            "bdw": 13866,
+            "orig": "3_StarNet_ISP",
+            "index": 6,
+            "igp_complete": 6,
+            "dest": "0_Chisinau",
+            "reverse": 2,
+            "lat": 206
+        },
+        {
+            "igp": 10,
+            "bdw": 32000,
+            "orig": "4_RoEduNet",
+            "index": 7,
+            "igp_complete": 6,
+            "dest": "0_Chisinau",
+            "reverse": 3,
+            "lat": 206
+        }
+    ]
+}

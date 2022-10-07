@@ -1,0 +1,183 @@
+{
+    "nodes": [
+        "0_Dublin",
+        "1_Galway",
+        "2_Limerick",
+        "3_Cork",
+        "4_Waterford",
+        "5_Portlaioise",
+        "6_None",
+        "7_None"
+    ],
+    "E": 16,
+    "V": 8,
+    "name": "HiberniaIreland",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Dublin",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "4_Waterford",
+            "reverse": 10,
+            "lat": 227
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Dublin",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "5_Portlaioise",
+            "reverse": 12,
+            "lat": 133
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Dublin",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "6_None",
+            "reverse": 14,
+            "lat": 163
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Dublin",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "7_None",
+            "reverse": 15,
+            "lat": 163
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Galway",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "2_Limerick",
+            "reverse": 5,
+            "lat": 127
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Limerick",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "1_Galway",
+            "reverse": 4,
+            "lat": 127
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Limerick",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "3_Cork",
+            "reverse": 8,
+            "lat": 147
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Limerick",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "5_Portlaioise",
+            "reverse": 13,
+            "lat": 168
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Cork",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "2_Limerick",
+            "reverse": 6,
+            "lat": 147
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Cork",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "4_Waterford",
+            "reverse": 11,
+            "lat": 176
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Waterford",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "0_Dublin",
+            "reverse": 0,
+            "lat": 227
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Waterford",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "3_Cork",
+            "reverse": 9,
+            "lat": 176
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Portlaioise",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "0_Dublin",
+            "reverse": 1,
+            "lat": 133
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Portlaioise",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "2_Limerick",
+            "reverse": 7,
+            "lat": 168
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_None",
+            "index": 14,
+            "igp_complete": 8,
+            "dest": "0_Dublin",
+            "reverse": 2,
+            "lat": 163
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_None",
+            "index": 15,
+            "igp_complete": 8,
+            "dest": "0_Dublin",
+            "reverse": 3,
+            "lat": 163
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "nodes": [
+        "0_Bijelo_Polje",
+        "1_Niksic",
+        "2_Podgorica",
+        "3_Njegusi",
+        "4_Kotor",
+        "5_Herceg_Novi"
+    ],
+    "E": 10,
+    "V": 6,
+    "name": "Mren",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Bijelo_Polje",
+            "index": 0,
+            "igp_complete": 5,
+            "dest": "2_Podgorica",
+            "reverse": 2,
+            "lat": 133
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Niksic",
+            "index": 1,
+            "igp_complete": 5,
+            "dest": "2_Podgorica",
+            "reverse": 3,
+            "lat": 80
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Podgorica",
+            "index": 2,
+            "igp_complete": 5,
+            "dest": "0_Bijelo_Polje",
+            "reverse": 0,
+            "lat": 133
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Podgorica",
+            "index": 3,
+            "igp_complete": 5,
+            "dest": "1_Niksic",
+            "reverse": 1,
+            "lat": 80
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Podgorica",
+            "index": 4,
+            "igp_complete": 6,
+            "dest": "3_Njegusi",
+            "reverse": 7,
+            "lat": 64
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Podgorica",
+            "index": 5,
+            "igp_complete": 6,
+            "dest": "4_Kotor",
+            "reverse": 8,
+            "lat": 72
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Podgorica",
+            "index": 6,
+            "igp_complete": 6,
+            "dest": "5_Herceg_Novi",
+            "reverse": 9,
+            "lat": 104
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Njegusi",
+            "index": 7,
+            "igp_complete": 6,
+            "dest": "2_Podgorica",
+            "reverse": 4,
+            "lat": 64
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Kotor",
+            "index": 8,
+            "igp_complete": 6,
+            "dest": "2_Podgorica",
+            "reverse": 5,
+            "lat": 72
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Herceg_Novi",
+            "index": 9,
+            "igp_complete": 6,
+            "dest": "2_Podgorica",
+            "reverse": 6,
+            "lat": 104
+        }
+    ]
+}

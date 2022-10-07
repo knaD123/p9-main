@@ -1,0 +1,224 @@
+{
+    "nodes": [
+        "0_NETNOD",
+        "1_Stockholm",
+        "2_Helsinki",
+        "3_Copenhagen",
+        "4_Reykjavik",
+        "5_GEANT",
+        "6_General_Internet",
+        "7_St_Petersburg",
+        "8_Oslo"
+    ],
+    "E": 20,
+    "V": 9,
+    "name": "Nordu2005",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 20,
+            "bdw": 7416666,
+            "orig": "0_NETNOD",
+            "index": 0,
+            "igp_complete": 77,
+            "dest": "1_Stockholm",
+            "reverse": 1,
+            "lat": 1195
+        },
+        {
+            "igp": 20,
+            "bdw": 7416666,
+            "orig": "1_Stockholm",
+            "index": 1,
+            "igp_complete": 79,
+            "dest": "0_NETNOD",
+            "reverse": 0,
+            "lat": 1195
+        },
+        {
+            "igp": 30,
+            "bdw": 5000000,
+            "orig": "1_Stockholm",
+            "index": 2,
+            "igp_complete": 80,
+            "dest": "2_Helsinki",
+            "reverse": 9,
+            "lat": 664
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "1_Stockholm",
+            "index": 3,
+            "igp_complete": 82,
+            "dest": "2_Helsinki",
+            "reverse": 10,
+            "lat": 664
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "1_Stockholm",
+            "index": 4,
+            "igp_complete": 83,
+            "dest": "3_Copenhagen",
+            "reverse": 11,
+            "lat": 874
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "1_Stockholm",
+            "index": 5,
+            "igp_complete": 83,
+            "dest": "5_GEANT",
+            "reverse": 15,
+            "lat": 1195
+        },
+        {
+            "igp": 10,
+            "bdw": 1.5E7,
+            "orig": "1_Stockholm",
+            "index": 6,
+            "igp_complete": 84,
+            "dest": "6_General_Internet",
+            "reverse": 16,
+            "lat": 1195
+        },
+        {
+            "igp": 150,
+            "bdw": 1000000,
+            "orig": "1_Stockholm",
+            "index": 7,
+            "igp_complete": 85,
+            "dest": "7_St_Petersburg",
+            "reverse": 17,
+            "lat": 1150
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "1_Stockholm",
+            "index": 8,
+            "igp_complete": 86,
+            "dest": "8_Oslo",
+            "reverse": 18,
+            "lat": 698
+        },
+        {
+            "igp": 30,
+            "bdw": 5000000,
+            "orig": "2_Helsinki",
+            "index": 9,
+            "igp_complete": 87,
+            "dest": "1_Stockholm",
+            "reverse": 2,
+            "lat": 664
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "2_Helsinki",
+            "index": 10,
+            "igp_complete": 88,
+            "dest": "1_Stockholm",
+            "reverse": 3,
+            "lat": 664
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "3_Copenhagen",
+            "index": 11,
+            "igp_complete": 88,
+            "dest": "1_Stockholm",
+            "reverse": 4,
+            "lat": 874
+        },
+        {
+            "igp": 30,
+            "bdw": 5000000,
+            "orig": "3_Copenhagen",
+            "index": 12,
+            "igp_complete": 88,
+            "dest": "8_Oslo",
+            "reverse": 19,
+            "lat": 809
+        },
+        {
+            "igp": 200,
+            "bdw": 750000,
+            "orig": "3_Copenhagen",
+            "index": 13,
+            "igp_complete": 89,
+            "dest": "4_Reykjavik",
+            "reverse": 14,
+            "lat": 3509
+        },
+        {
+            "igp": 200,
+            "bdw": 750000,
+            "orig": "4_Reykjavik",
+            "index": 14,
+            "igp_complete": 90,
+            "dest": "3_Copenhagen",
+            "reverse": 13,
+            "lat": 3509
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "5_GEANT",
+            "index": 15,
+            "igp_complete": 90,
+            "dest": "1_Stockholm",
+            "reverse": 5,
+            "lat": 1195
+        },
+        {
+            "igp": 10,
+            "bdw": 1.5E7,
+            "orig": "6_General_Internet",
+            "index": 16,
+            "igp_complete": 91,
+            "dest": "1_Stockholm",
+            "reverse": 6,
+            "lat": 1195
+        },
+        {
+            "igp": 150,
+            "bdw": 1000000,
+            "orig": "7_St_Petersburg",
+            "index": 17,
+            "igp_complete": 92,
+            "dest": "1_Stockholm",
+            "reverse": 7,
+            "lat": 1150
+        },
+        {
+            "igp": 15,
+            "bdw": 1.0E7,
+            "orig": "8_Oslo",
+            "index": 18,
+            "igp_complete": 92,
+            "dest": "1_Stockholm",
+            "reverse": 8,
+            "lat": 698
+        },
+        {
+            "igp": 30,
+            "bdw": 5000000,
+            "orig": "8_Oslo",
+            "index": 19,
+            "igp_complete": 92,
+            "dest": "3_Copenhagen",
+            "reverse": 12,
+            "lat": 809
+        }
+    ]
+}

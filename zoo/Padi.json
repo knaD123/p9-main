@@ -1,0 +1,142 @@
+{
+    "nodes": [
+        "3_PPU",
+        "7_GEANT",
+        "10_BZU",
+        "11_PADI2",
+        "12_QOU",
+        "13_AQU",
+        "14_BU"
+    ],
+    "E": 12,
+    "V": 7,
+    "name": "Padi",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 200,
+            "bdw": 5000,
+            "orig": "3_PPU",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "11_PADI2",
+            "reverse": 3,
+            "lat": 10
+        },
+        {
+            "igp": 22,
+            "bdw": 45000,
+            "orig": "7_GEANT",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "11_PADI2",
+            "reverse": 4,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 100000,
+            "orig": "10_BZU",
+            "index": 2,
+            "igp_complete": 6,
+            "dest": "11_PADI2",
+            "reverse": 5,
+            "lat": 10
+        },
+        {
+            "igp": 200,
+            "bdw": 5000,
+            "orig": "11_PADI2",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "3_PPU",
+            "reverse": 0,
+            "lat": 10
+        },
+        {
+            "igp": 22,
+            "bdw": 45000,
+            "orig": "11_PADI2",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "7_GEANT",
+            "reverse": 1,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 100000,
+            "orig": "11_PADI2",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "10_BZU",
+            "reverse": 2,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 100000,
+            "orig": "11_PADI2",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "12_QOU",
+            "reverse": 9,
+            "lat": 10
+        },
+        {
+            "igp": 200,
+            "bdw": 5000,
+            "orig": "11_PADI2",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "13_AQU",
+            "reverse": 10,
+            "lat": 10
+        },
+        {
+            "igp": 19,
+            "bdw": 51000,
+            "orig": "11_PADI2",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "14_BU",
+            "reverse": 11,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 100000,
+            "orig": "12_QOU",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "11_PADI2",
+            "reverse": 6,
+            "lat": 10
+        },
+        {
+            "igp": 200,
+            "bdw": 5000,
+            "orig": "13_AQU",
+            "index": 10,
+            "igp_complete": 7,
+            "dest": "11_PADI2",
+            "reverse": 7,
+            "lat": 10
+        },
+        {
+            "igp": 19,
+            "bdw": 51000,
+            "orig": "14_BU",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "11_PADI2",
+            "reverse": 8,
+            "lat": 10
+        }
+    ]
+}

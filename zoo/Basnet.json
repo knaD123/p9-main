@@ -1,0 +1,142 @@
+{
+    "nodes": [
+        "0_Grodno",
+        "1_Minsk",
+        "2_Vitebsk",
+        "3_Mogilev",
+        "4_Gomel",
+        "5_Brest",
+        "6_Pionier_GEANT_2"
+    ],
+    "E": 12,
+    "V": 7,
+    "name": "Basnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "0_Grodno",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "1_Minsk",
+            "reverse": 1,
+            "lat": 415
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "1_Minsk",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "0_Grodno",
+            "reverse": 0,
+            "lat": 415
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "1_Minsk",
+            "index": 2,
+            "igp_complete": 6,
+            "dest": "2_Vitebsk",
+            "reverse": 7,
+            "lat": 375
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "1_Minsk",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "3_Mogilev",
+            "reverse": 8,
+            "lat": 307
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "1_Minsk",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "4_Gomel",
+            "reverse": 9,
+            "lat": 470
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "1_Minsk",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "5_Brest",
+            "reverse": 10,
+            "lat": 551
+        },
+        {
+            "igp": 10,
+            "bdw": 155000,
+            "orig": "1_Minsk",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "6_Pionier_GEANT_2",
+            "reverse": 11,
+            "lat": 424
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "2_Vitebsk",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "1_Minsk",
+            "reverse": 2,
+            "lat": 375
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "3_Mogilev",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "1_Minsk",
+            "reverse": 3,
+            "lat": 307
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "4_Gomel",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "1_Minsk",
+            "reverse": 4,
+            "lat": 470
+        },
+        {
+            "igp": 200,
+            "bdw": 7750,
+            "orig": "5_Brest",
+            "index": 10,
+            "igp_complete": 7,
+            "dest": "1_Minsk",
+            "reverse": 5,
+            "lat": 551
+        },
+        {
+            "igp": 10,
+            "bdw": 155000,
+            "orig": "6_Pionier_GEANT_2",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "1_Minsk",
+            "reverse": 6,
+            "lat": 424
+        }
+    ]
+}

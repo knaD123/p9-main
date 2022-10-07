@@ -1,0 +1,498 @@
+{
+    "nodes": [
+        "0_Montreal",
+        "1_Quebec",
+        "2_London",
+        "3_internetMCI_T3",
+        "4_Moncton",
+        "5_Halifax",
+        "6_Sherbrooke",
+        "7_Saint_John",
+        "8_Sydney",
+        "9_Yarmouth",
+        "10_ANS_CO+RE_T1",
+        "11_internetMCI_T3",
+        "12_Victoria",
+        "13_Toronto",
+        "14_Hamilton",
+        "15_Vancouver",
+        "16_ANS_CO+RE_T1",
+        "17_Calgary",
+        "18_Edmonton",
+        "19_Lethbridge",
+        "20_Winnipeg",
+        "21_Ottawa",
+        "22_Kitchener"
+    ],
+    "E": 46,
+    "V": 23,
+    "name": "Istar",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Montreal",
+            "index": 0,
+            "igp_complete": 8,
+            "dest": "1_Quebec",
+            "reverse": 5,
+            "lat": 393
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Montreal",
+            "index": 1,
+            "igp_complete": 8,
+            "dest": "4_Moncton",
+            "reverse": 8,
+            "lat": 1144
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Montreal",
+            "index": 2,
+            "igp_complete": 9,
+            "dest": "13_Toronto",
+            "reverse": 21,
+            "lat": 843
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Montreal",
+            "index": 3,
+            "igp_complete": 9,
+            "dest": "6_Sherbrooke",
+            "reverse": 14,
+            "lat": 225
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Montreal",
+            "index": 4,
+            "igp_complete": 9,
+            "dest": "21_Ottawa",
+            "reverse": 41,
+            "lat": 279
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Quebec",
+            "index": 5,
+            "igp_complete": 9,
+            "dest": "0_Montreal",
+            "reverse": 0,
+            "lat": 393
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_London",
+            "index": 6,
+            "igp_complete": 9,
+            "dest": "13_Toronto",
+            "reverse": 22,
+            "lat": 283
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_internetMCI_T3",
+            "index": 7,
+            "igp_complete": 9,
+            "dest": "13_Toronto",
+            "reverse": 23,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Moncton",
+            "index": 8,
+            "igp_complete": 9,
+            "dest": "0_Montreal",
+            "reverse": 1,
+            "lat": 1144
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Moncton",
+            "index": 9,
+            "igp_complete": 9,
+            "dest": "5_Halifax",
+            "reverse": 11,
+            "lat": 320
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Moncton",
+            "index": 10,
+            "igp_complete": 9,
+            "dest": "7_Saint_John",
+            "reverse": 15,
+            "lat": 231
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Halifax",
+            "index": 11,
+            "igp_complete": 9,
+            "dest": "4_Moncton",
+            "reverse": 9,
+            "lat": 320
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Halifax",
+            "index": 12,
+            "igp_complete": 9,
+            "dest": "8_Sydney",
+            "reverse": 16,
+            "lat": 524
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Halifax",
+            "index": 13,
+            "igp_complete": 9,
+            "dest": "9_Yarmouth",
+            "reverse": 17,
+            "lat": 374
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Sherbrooke",
+            "index": 14,
+            "igp_complete": 9,
+            "dest": "0_Montreal",
+            "reverse": 3,
+            "lat": 225
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Saint_John",
+            "index": 15,
+            "igp_complete": 9,
+            "dest": "4_Moncton",
+            "reverse": 10,
+            "lat": 231
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Sydney",
+            "index": 16,
+            "igp_complete": 9,
+            "dest": "5_Halifax",
+            "reverse": 12,
+            "lat": 524
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Yarmouth",
+            "index": 17,
+            "igp_complete": 9,
+            "dest": "5_Halifax",
+            "reverse": 13,
+            "lat": 374
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_ANS_CO+RE_T1",
+            "index": 18,
+            "igp_complete": 9,
+            "dest": "13_Toronto",
+            "reverse": 24,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_internetMCI_T3",
+            "index": 19,
+            "igp_complete": 9,
+            "dest": "15_Vancouver",
+            "reverse": 29,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Victoria",
+            "index": 20,
+            "igp_complete": 10,
+            "dest": "15_Vancouver",
+            "reverse": 30,
+            "lat": 159
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 21,
+            "igp_complete": 10,
+            "dest": "0_Montreal",
+            "reverse": 2,
+            "lat": 843
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 22,
+            "igp_complete": 10,
+            "dest": "2_London",
+            "reverse": 6,
+            "lat": 283
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 23,
+            "igp_complete": 10,
+            "dest": "3_internetMCI_T3",
+            "reverse": 7,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 24,
+            "igp_complete": 10,
+            "dest": "10_ANS_CO+RE_T1",
+            "reverse": 18,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 25,
+            "igp_complete": 10,
+            "dest": "14_Hamilton",
+            "reverse": 28,
+            "lat": 117
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 26,
+            "igp_complete": 10,
+            "dest": "21_Ottawa",
+            "reverse": 42,
+            "lat": 588
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Toronto",
+            "index": 27,
+            "igp_complete": 10,
+            "dest": "22_Kitchener",
+            "reverse": 45,
+            "lat": 155
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Hamilton",
+            "index": 28,
+            "igp_complete": 10,
+            "dest": "13_Toronto",
+            "reverse": 25,
+            "lat": 117
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Vancouver",
+            "index": 29,
+            "igp_complete": 10,
+            "dest": "11_internetMCI_T3",
+            "reverse": 19,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Vancouver",
+            "index": 30,
+            "igp_complete": 10,
+            "dest": "12_Victoria",
+            "reverse": 20,
+            "lat": 159
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Vancouver",
+            "index": 31,
+            "igp_complete": 10,
+            "dest": "16_ANS_CO+RE_T1",
+            "reverse": 34,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Vancouver",
+            "index": 32,
+            "igp_complete": 10,
+            "dest": "17_Calgary",
+            "reverse": 35,
+            "lat": 1126
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Vancouver",
+            "index": 33,
+            "igp_complete": 10,
+            "dest": "21_Ottawa",
+            "reverse": 43,
+            "lat": 5900
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_ANS_CO+RE_T1",
+            "index": 34,
+            "igp_complete": 10,
+            "dest": "15_Vancouver",
+            "reverse": 31,
+            "lat": 854
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_Calgary",
+            "index": 35,
+            "igp_complete": 10,
+            "dest": "15_Vancouver",
+            "reverse": 32,
+            "lat": 1126
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_Calgary",
+            "index": 36,
+            "igp_complete": 10,
+            "dest": "18_Edmonton",
+            "reverse": 38,
+            "lat": 473
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_Calgary",
+            "index": 37,
+            "igp_complete": 10,
+            "dest": "19_Lethbridge",
+            "reverse": 39,
+            "lat": 296
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Edmonton",
+            "index": 38,
+            "igp_complete": 10,
+            "dest": "17_Calgary",
+            "reverse": 36,
+            "lat": 473
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_Lethbridge",
+            "index": 39,
+            "igp_complete": 10,
+            "dest": "17_Calgary",
+            "reverse": 37,
+            "lat": 296
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "20_Winnipeg",
+            "index": 40,
+            "igp_complete": 10,
+            "dest": "21_Ottawa",
+            "reverse": 44,
+            "lat": 2794
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_Ottawa",
+            "index": 41,
+            "igp_complete": 10,
+            "dest": "0_Montreal",
+            "reverse": 4,
+            "lat": 279
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_Ottawa",
+            "index": 42,
+            "igp_complete": 10,
+            "dest": "13_Toronto",
+            "reverse": 26,
+            "lat": 588
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_Ottawa",
+            "index": 43,
+            "igp_complete": 10,
+            "dest": "15_Vancouver",
+            "reverse": 33,
+            "lat": 5900
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_Ottawa",
+            "index": 44,
+            "igp_complete": 10,
+            "dest": "20_Winnipeg",
+            "reverse": 40,
+            "lat": 2794
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "22_Kitchener",
+            "index": 45,
+            "igp_complete": 10,
+            "dest": "13_Toronto",
+            "reverse": 27,
+            "lat": 155
+        }
+    ]
+}

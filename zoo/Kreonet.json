@@ -1,0 +1,268 @@
+{
+    "nodes": [
+        "0_Jeonju",
+        "1_Jeju",
+        "2_Kwangju",
+        "3_Busan",
+        "4_Changwon",
+        "5_Seoul",
+        "6_Incheon",
+        "7_Suwon",
+        "8_Cheonan",
+        "9_Ochang",
+        "10_Daejeon",
+        "11_Pohang",
+        "12_Daegu"
+    ],
+    "E": 24,
+    "V": 13,
+    "name": "Kreonet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "0_Jeonju",
+            "index": 0,
+            "igp_complete": 7,
+            "dest": "10_Daejeon",
+            "reverse": 13,
+            "lat": 105
+        },
+        {
+            "igp": 80,
+            "bdw": 2500000,
+            "orig": "1_Jeju",
+            "index": 1,
+            "igp_complete": 7,
+            "dest": "2_Kwangju",
+            "reverse": 2,
+            "lat": 315
+        },
+        {
+            "igp": 80,
+            "bdw": 2500000,
+            "orig": "2_Kwangju",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "1_Jeju",
+            "reverse": 1,
+            "lat": 315
+        },
+        {
+            "igp": 20,
+            "bdw": 1.0E7,
+            "orig": "2_Kwangju",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "10_Daejeon",
+            "reverse": 14,
+            "lat": 233
+        },
+        {
+            "igp": 20,
+            "bdw": 1.0E7,
+            "orig": "3_Busan",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "10_Daejeon",
+            "reverse": 15,
+            "lat": 337
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "4_Changwon",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "10_Daejeon",
+            "reverse": 16,
+            "lat": 282
+        },
+        {
+            "igp": 10,
+            "bdw": 2.0E7,
+            "orig": "5_Seoul",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "10_Daejeon",
+            "reverse": 17,
+            "lat": 244
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "5_Seoul",
+            "index": 7,
+            "igp_complete": 8,
+            "dest": "6_Incheon",
+            "reverse": 9,
+            "lat": 46
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "5_Seoul",
+            "index": 8,
+            "igp_complete": 8,
+            "dest": "7_Suwon",
+            "reverse": 10,
+            "lat": 56
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "6_Incheon",
+            "index": 9,
+            "igp_complete": 8,
+            "dest": "5_Seoul",
+            "reverse": 7,
+            "lat": 46
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "7_Suwon",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "5_Seoul",
+            "reverse": 8,
+            "lat": 56
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "8_Cheonan",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "10_Daejeon",
+            "reverse": 18,
+            "lat": 103
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "9_Ochang",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "10_Daejeon",
+            "reverse": 19,
+            "lat": 147
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "10_Daejeon",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "0_Jeonju",
+            "reverse": 0,
+            "lat": 105
+        },
+        {
+            "igp": 20,
+            "bdw": 1.0E7,
+            "orig": "10_Daejeon",
+            "index": 14,
+            "igp_complete": 8,
+            "dest": "2_Kwangju",
+            "reverse": 3,
+            "lat": 233
+        },
+        {
+            "igp": 20,
+            "bdw": 1.0E7,
+            "orig": "10_Daejeon",
+            "index": 15,
+            "igp_complete": 8,
+            "dest": "3_Busan",
+            "reverse": 4,
+            "lat": 337
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "10_Daejeon",
+            "index": 16,
+            "igp_complete": 8,
+            "dest": "4_Changwon",
+            "reverse": 5,
+            "lat": 282
+        },
+        {
+            "igp": 10,
+            "bdw": 2.0E7,
+            "orig": "10_Daejeon",
+            "index": 17,
+            "igp_complete": 8,
+            "dest": "5_Seoul",
+            "reverse": 6,
+            "lat": 244
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "10_Daejeon",
+            "index": 18,
+            "igp_complete": 8,
+            "dest": "8_Cheonan",
+            "reverse": 11,
+            "lat": 103
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "10_Daejeon",
+            "index": 19,
+            "igp_complete": 8,
+            "dest": "9_Ochang",
+            "reverse": 12,
+            "lat": 147
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "10_Daejeon",
+            "index": 20,
+            "igp_complete": 8,
+            "dest": "11_Pohang",
+            "reverse": 22,
+            "lat": 300
+        },
+        {
+            "igp": 20,
+            "bdw": 1.0E7,
+            "orig": "10_Daejeon",
+            "index": 21,
+            "igp_complete": 8,
+            "dest": "12_Daegu",
+            "reverse": 23,
+            "lat": 199
+        },
+        {
+            "igp": 40,
+            "bdw": 5000000,
+            "orig": "11_Pohang",
+            "index": 22,
+            "igp_complete": 8,
+            "dest": "10_Daejeon",
+            "reverse": 20,
+            "lat": 300
+        },
+        {
+            "igp": 20,
+            "bdw": 1.0E7,
+            "orig": "12_Daegu",
+            "index": 23,
+            "igp_complete": 8,
+            "dest": "10_Daejeon",
+            "reverse": 21,
+            "lat": 199
+        }
+    ]
+}

@@ -1,0 +1,1372 @@
+{
+    "nodes": [
+        "0_Tokyo_DC1",
+        "1_Tokyo_DC2",
+        "2_Sendai_DC",
+        "3_Saitama_DC",
+        "4_Nerima_DC",
+        "5_Yokohama_DC1",
+        "6_Shibuya_DC",
+        "7_Ikebukuro_DC",
+        "8_Yokohama_DC2",
+        "9_Nagoya_DC",
+        "10_JPNAP_Tokyo_1",
+        "11_China",
+        "12_JPNAP_Osaka",
+        "13_JPNAP_Tokyo_2",
+        "14_NYIIX",
+        "15_PAIX",
+        "16_LAIIX",
+        "17_dix-ie",
+        "18_Equinix_exchange",
+        "19_Newyork_DC",
+        "20_Fukuoka_DC",
+        "21_Shinsaibashi_DC",
+        "22_Kyoto_DC",
+        "23_Ashburn_DC",
+        "24_LA_DC",
+        "25_San_Jose_DC",
+        "26_PaloAlto_DC",
+        "27_Okinawa",
+        "28_Sappora_DC",
+        "29_Chiba",
+        "30_Tokyo",
+        "31_Toyama",
+        "32_Kanazawa",
+        "33_Hamamatsu",
+        "34_Osaka",
+        "35_Okayama",
+        "36_Hiroshima"
+    ],
+    "E": 132,
+    "V": 37,
+    "name": "Iij",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "0_Tokyo_DC1",
+            "index": 0,
+            "igp_complete": 1178,
+            "dest": "30_Tokyo",
+            "reverse": 91,
+            "lat": 5
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "0_Tokyo_DC1",
+            "index": 1,
+            "igp_complete": 1180,
+            "dest": "6_Shibuya_DC",
+            "reverse": 11,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "1_Tokyo_DC2",
+            "index": 2,
+            "igp_complete": 1187,
+            "dest": "30_Tokyo",
+            "reverse": 92,
+            "lat": 5
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "1_Tokyo_DC2",
+            "index": 3,
+            "igp_complete": 1188,
+            "dest": "6_Shibuya_DC",
+            "reverse": 12,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "2_Sendai_DC",
+            "index": 4,
+            "igp_complete": 1192,
+            "dest": "30_Tokyo",
+            "reverse": 93,
+            "lat": 1597
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "2_Sendai_DC",
+            "index": 5,
+            "igp_complete": 1196,
+            "dest": "6_Shibuya_DC",
+            "reverse": 13,
+            "lat": 1617
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "3_Saitama_DC",
+            "index": 6,
+            "igp_complete": 1198,
+            "dest": "30_Tokyo",
+            "reverse": 94,
+            "lat": 60
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "3_Saitama_DC",
+            "index": 7,
+            "igp_complete": 1202,
+            "dest": "6_Shibuya_DC",
+            "reverse": 14,
+            "lat": 51
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "4_Nerima_DC",
+            "index": 8,
+            "igp_complete": 1205,
+            "dest": "6_Shibuya_DC",
+            "reverse": 15,
+            "lat": 21
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "5_Yokohama_DC1",
+            "index": 9,
+            "igp_complete": 1206,
+            "dest": "30_Tokyo",
+            "reverse": 95,
+            "lat": 37
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "5_Yokohama_DC1",
+            "index": 10,
+            "igp_complete": 1212,
+            "dest": "6_Shibuya_DC",
+            "reverse": 16,
+            "lat": 44
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "6_Shibuya_DC",
+            "index": 11,
+            "igp_complete": 1213,
+            "dest": "0_Tokyo_DC1",
+            "reverse": 1,
+            "lat": 25
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "6_Shibuya_DC",
+            "index": 12,
+            "igp_complete": 1215,
+            "dest": "1_Tokyo_DC2",
+            "reverse": 3,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 13,
+            "igp_complete": 1216,
+            "dest": "2_Sendai_DC",
+            "reverse": 5,
+            "lat": 1617
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "6_Shibuya_DC",
+            "index": 14,
+            "igp_complete": 1222,
+            "dest": "3_Saitama_DC",
+            "reverse": 7,
+            "lat": 51
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "6_Shibuya_DC",
+            "index": 15,
+            "igp_complete": 1227,
+            "dest": "4_Nerima_DC",
+            "reverse": 8,
+            "lat": 21
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 16,
+            "igp_complete": 1229,
+            "dest": "5_Yokohama_DC1",
+            "reverse": 10,
+            "lat": 44
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "6_Shibuya_DC",
+            "index": 17,
+            "igp_complete": 1230,
+            "dest": "7_Ikebukuro_DC",
+            "reverse": 27,
+            "lat": 18
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "6_Shibuya_DC",
+            "index": 18,
+            "igp_complete": 1232,
+            "dest": "8_Yokohama_DC2",
+            "reverse": 31,
+            "lat": 44
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 19,
+            "igp_complete": 1234,
+            "dest": "9_Nagoya_DC",
+            "reverse": 33,
+            "lat": 436
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 20,
+            "igp_complete": 1235,
+            "dest": "34_Osaka",
+            "reverse": 116,
+            "lat": 665
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 21,
+            "igp_complete": 1239,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 56,
+            "lat": 666
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 22,
+            "igp_complete": 1241,
+            "dest": "24_LA_DC",
+            "reverse": 70,
+            "lat": 18233
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "6_Shibuya_DC",
+            "index": 23,
+            "igp_complete": 1244,
+            "dest": "28_Sappora_DC",
+            "reverse": 87,
+            "lat": 1396
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "6_Shibuya_DC",
+            "index": 24,
+            "igp_complete": 1246,
+            "dest": "29_Chiba",
+            "reverse": 89,
+            "lat": 68
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "6_Shibuya_DC",
+            "index": 25,
+            "igp_complete": 1247,
+            "dest": "30_Tokyo",
+            "reverse": 96,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "6_Shibuya_DC",
+            "index": 26,
+            "igp_complete": 1249,
+            "dest": "30_Tokyo",
+            "reverse": 97,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "7_Ikebukuro_DC",
+            "index": 27,
+            "igp_complete": 1250,
+            "dest": "6_Shibuya_DC",
+            "reverse": 17,
+            "lat": 18
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "7_Ikebukuro_DC",
+            "index": 28,
+            "igp_complete": 1251,
+            "dest": "34_Osaka",
+            "reverse": 117,
+            "lat": 670
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "7_Ikebukuro_DC",
+            "index": 29,
+            "igp_complete": 1255,
+            "dest": "30_Tokyo",
+            "reverse": 98,
+            "lat": 33
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "7_Ikebukuro_DC",
+            "index": 30,
+            "igp_complete": 1259,
+            "dest": "13_JPNAP_Tokyo_2",
+            "reverse": 40,
+            "lat": 1772
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "8_Yokohama_DC2",
+            "index": 31,
+            "igp_complete": 1260,
+            "dest": "6_Shibuya_DC",
+            "reverse": 18,
+            "lat": 44
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "8_Yokohama_DC2",
+            "index": 32,
+            "igp_complete": 1261,
+            "dest": "30_Tokyo",
+            "reverse": 99,
+            "lat": 37
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "9_Nagoya_DC",
+            "index": 33,
+            "igp_complete": 1262,
+            "dest": "6_Shibuya_DC",
+            "reverse": 19,
+            "lat": 436
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "9_Nagoya_DC",
+            "index": 34,
+            "igp_complete": 1267,
+            "dest": "33_Hamamatsu",
+            "reverse": 114,
+            "lat": 158
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "9_Nagoya_DC",
+            "index": 35,
+            "igp_complete": 1269,
+            "dest": "34_Osaka",
+            "reverse": 118,
+            "lat": 236
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "9_Nagoya_DC",
+            "index": 36,
+            "igp_complete": 1271,
+            "dest": "30_Tokyo",
+            "reverse": 100,
+            "lat": 416
+        },
+        {
+            "igp": 13,
+            "bdw": 3.0E7,
+            "orig": "10_JPNAP_Tokyo_1",
+            "index": 37,
+            "igp_complete": 1272,
+            "dest": "30_Tokyo",
+            "reverse": 101,
+            "lat": 1772
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "11_China",
+            "index": 38,
+            "igp_complete": 1273,
+            "dest": "34_Osaka",
+            "reverse": 119,
+            "lat": 1772
+        },
+        {
+            "igp": 10,
+            "bdw": 4.0E7,
+            "orig": "12_JPNAP_Osaka",
+            "index": 39,
+            "igp_complete": 1275,
+            "dest": "34_Osaka",
+            "reverse": 120,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "13_JPNAP_Tokyo_2",
+            "index": 40,
+            "igp_complete": 1277,
+            "dest": "7_Ikebukuro_DC",
+            "reverse": 30,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "14_NYIIX",
+            "index": 41,
+            "igp_complete": 1279,
+            "dest": "19_Newyork_DC",
+            "reverse": 48,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "15_PAIX",
+            "index": 42,
+            "igp_complete": 1280,
+            "dest": "19_Newyork_DC",
+            "reverse": 49,
+            "lat": 1772
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "16_LAIIX",
+            "index": 43,
+            "igp_complete": 1281,
+            "dest": "24_LA_DC",
+            "reverse": 71,
+            "lat": 1772
+        },
+        {
+            "igp": 36,
+            "bdw": 1.1E7,
+            "orig": "17_dix-ie",
+            "index": 44,
+            "igp_complete": 1283,
+            "dest": "30_Tokyo",
+            "reverse": 102,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "18_Equinix_exchange",
+            "index": 45,
+            "igp_complete": 1285,
+            "dest": "24_LA_DC",
+            "reverse": 72,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "18_Equinix_exchange",
+            "index": 46,
+            "igp_complete": 1286,
+            "dest": "25_San_Jose_DC",
+            "reverse": 78,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "18_Equinix_exchange",
+            "index": 47,
+            "igp_complete": 1288,
+            "dest": "23_Ashburn_DC",
+            "reverse": 66,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "19_Newyork_DC",
+            "index": 48,
+            "igp_complete": 1290,
+            "dest": "14_NYIIX",
+            "reverse": 41,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "19_Newyork_DC",
+            "index": 49,
+            "igp_complete": 1291,
+            "dest": "15_PAIX",
+            "reverse": 42,
+            "lat": 1772
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "19_Newyork_DC",
+            "index": 50,
+            "igp_complete": 1293,
+            "dest": "24_LA_DC",
+            "reverse": 73,
+            "lat": 3201
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "19_Newyork_DC",
+            "index": 51,
+            "igp_complete": 1294,
+            "dest": "25_San_Jose_DC",
+            "reverse": 79,
+            "lat": 6837
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "19_Newyork_DC",
+            "index": 52,
+            "igp_complete": 1295,
+            "dest": "23_Ashburn_DC",
+            "reverse": 67,
+            "lat": 588
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "20_Fukuoka_DC",
+            "index": 53,
+            "igp_complete": 1296,
+            "dest": "34_Osaka",
+            "reverse": 121,
+            "lat": 809
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "20_Fukuoka_DC",
+            "index": 54,
+            "igp_complete": 1297,
+            "dest": "27_Okinawa",
+            "reverse": 86,
+            "lat": 1415
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "20_Fukuoka_DC",
+            "index": 55,
+            "igp_complete": 1299,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 57,
+            "lat": 808
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 56,
+            "igp_complete": 1300,
+            "dest": "6_Shibuya_DC",
+            "reverse": 21,
+            "lat": 666
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 57,
+            "igp_complete": 1300,
+            "dest": "20_Fukuoka_DC",
+            "reverse": 55,
+            "lat": 808
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 58,
+            "igp_complete": 1301,
+            "dest": "32_Kanazawa",
+            "reverse": 112,
+            "lat": 398
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 59,
+            "igp_complete": 1304,
+            "dest": "34_Osaka",
+            "reverse": 122,
+            "lat": 8
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 60,
+            "igp_complete": 1305,
+            "dest": "35_Okayama",
+            "reverse": 128,
+            "lat": 243
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 61,
+            "igp_complete": 1306,
+            "dest": "36_Hiroshima",
+            "reverse": 130,
+            "lat": 471
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 62,
+            "igp_complete": 1308,
+            "dest": "22_Kyoto_DC",
+            "reverse": 64,
+            "lat": 79
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "21_Shinsaibashi_DC",
+            "index": 63,
+            "igp_complete": 1309,
+            "dest": "30_Tokyo",
+            "reverse": 103,
+            "lat": 646
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "22_Kyoto_DC",
+            "index": 64,
+            "igp_complete": 1310,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 62,
+            "lat": 79
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "22_Kyoto_DC",
+            "index": 65,
+            "igp_complete": 1312,
+            "dest": "34_Osaka",
+            "reverse": 123,
+            "lat": 76
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "23_Ashburn_DC",
+            "index": 66,
+            "igp_complete": 1312,
+            "dest": "18_Equinix_exchange",
+            "reverse": 47,
+            "lat": 1772
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "23_Ashburn_DC",
+            "index": 67,
+            "igp_complete": 1316,
+            "dest": "19_Newyork_DC",
+            "reverse": 52,
+            "lat": 588
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "23_Ashburn_DC",
+            "index": 68,
+            "igp_complete": 1317,
+            "dest": "24_LA_DC",
+            "reverse": 74,
+            "lat": 2618
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "23_Ashburn_DC",
+            "index": 69,
+            "igp_complete": 1319,
+            "dest": "25_San_Jose_DC",
+            "reverse": 80,
+            "lat": 6411
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "24_LA_DC",
+            "index": 70,
+            "igp_complete": 1320,
+            "dest": "6_Shibuya_DC",
+            "reverse": 22,
+            "lat": 18233
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "24_LA_DC",
+            "index": 71,
+            "igp_complete": 1321,
+            "dest": "16_LAIIX",
+            "reverse": 43,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "24_LA_DC",
+            "index": 72,
+            "igp_complete": 1321,
+            "dest": "18_Equinix_exchange",
+            "reverse": 45,
+            "lat": 1772
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "24_LA_DC",
+            "index": 73,
+            "igp_complete": 1322,
+            "dest": "19_Newyork_DC",
+            "reverse": 50,
+            "lat": 3201
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "24_LA_DC",
+            "index": 74,
+            "igp_complete": 1324,
+            "dest": "23_Ashburn_DC",
+            "reverse": 68,
+            "lat": 2618
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "24_LA_DC",
+            "index": 75,
+            "igp_complete": 1325,
+            "dest": "34_Osaka",
+            "reverse": 124,
+            "lat": 18786
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "24_LA_DC",
+            "index": 76,
+            "igp_complete": 1326,
+            "dest": "25_San_Jose_DC",
+            "reverse": 81,
+            "lat": 4875
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "24_LA_DC",
+            "index": 77,
+            "igp_complete": 1326,
+            "dest": "26_PaloAlto_DC",
+            "reverse": 84,
+            "lat": 4913
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "25_San_Jose_DC",
+            "index": 78,
+            "igp_complete": 1327,
+            "dest": "18_Equinix_exchange",
+            "reverse": 46,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "25_San_Jose_DC",
+            "index": 79,
+            "igp_complete": 1328,
+            "dest": "19_Newyork_DC",
+            "reverse": 51,
+            "lat": 6837
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "25_San_Jose_DC",
+            "index": 80,
+            "igp_complete": 1329,
+            "dest": "23_Ashburn_DC",
+            "reverse": 69,
+            "lat": 6411
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "25_San_Jose_DC",
+            "index": 81,
+            "igp_complete": 1329,
+            "dest": "24_LA_DC",
+            "reverse": 76,
+            "lat": 4875
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "25_San_Jose_DC",
+            "index": 82,
+            "igp_complete": 1331,
+            "dest": "26_PaloAlto_DC",
+            "reverse": 85,
+            "lat": 46
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "25_San_Jose_DC",
+            "index": 83,
+            "igp_complete": 1333,
+            "dest": "30_Tokyo",
+            "reverse": 104,
+            "lat": 13909
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "26_PaloAlto_DC",
+            "index": 84,
+            "igp_complete": 1333,
+            "dest": "24_LA_DC",
+            "reverse": 77,
+            "lat": 4913
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "26_PaloAlto_DC",
+            "index": 85,
+            "igp_complete": 1334,
+            "dest": "25_San_Jose_DC",
+            "reverse": 82,
+            "lat": 46
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "27_Okinawa",
+            "index": 86,
+            "igp_complete": 1335,
+            "dest": "20_Fukuoka_DC",
+            "reverse": 54,
+            "lat": 1415
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "28_Sappora_DC",
+            "index": 87,
+            "igp_complete": 1336,
+            "dest": "6_Shibuya_DC",
+            "reverse": 23,
+            "lat": 1396
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "28_Sappora_DC",
+            "index": 88,
+            "igp_complete": 1336,
+            "dest": "30_Tokyo",
+            "reverse": 105,
+            "lat": 1407
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "29_Chiba",
+            "index": 89,
+            "igp_complete": 1338,
+            "dest": "6_Shibuya_DC",
+            "reverse": 24,
+            "lat": 68
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "29_Chiba",
+            "index": 90,
+            "igp_complete": 1338,
+            "dest": "30_Tokyo",
+            "reverse": 106,
+            "lat": 86
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "30_Tokyo",
+            "index": 91,
+            "igp_complete": 1339,
+            "dest": "0_Tokyo_DC1",
+            "reverse": 0,
+            "lat": 5
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 92,
+            "igp_complete": 1340,
+            "dest": "1_Tokyo_DC2",
+            "reverse": 2,
+            "lat": 5
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 93,
+            "igp_complete": 1342,
+            "dest": "2_Sendai_DC",
+            "reverse": 4,
+            "lat": 1597
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 94,
+            "igp_complete": 1343,
+            "dest": "3_Saitama_DC",
+            "reverse": 6,
+            "lat": 60
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 95,
+            "igp_complete": 1344,
+            "dest": "5_Yokohama_DC1",
+            "reverse": 9,
+            "lat": 37
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "30_Tokyo",
+            "index": 96,
+            "igp_complete": 1345,
+            "dest": "6_Shibuya_DC",
+            "reverse": 25,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "30_Tokyo",
+            "index": 97,
+            "igp_complete": 1346,
+            "dest": "6_Shibuya_DC",
+            "reverse": 26,
+            "lat": 25
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "30_Tokyo",
+            "index": 98,
+            "igp_complete": 1347,
+            "dest": "7_Ikebukuro_DC",
+            "reverse": 29,
+            "lat": 33
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "30_Tokyo",
+            "index": 99,
+            "igp_complete": 1348,
+            "dest": "8_Yokohama_DC2",
+            "reverse": 32,
+            "lat": 37
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 100,
+            "igp_complete": 1349,
+            "dest": "9_Nagoya_DC",
+            "reverse": 36,
+            "lat": 416
+        },
+        {
+            "igp": 13,
+            "bdw": 3.0E7,
+            "orig": "30_Tokyo",
+            "index": 101,
+            "igp_complete": 1349,
+            "dest": "10_JPNAP_Tokyo_1",
+            "reverse": 37,
+            "lat": 1772
+        },
+        {
+            "igp": 36,
+            "bdw": 1.1E7,
+            "orig": "30_Tokyo",
+            "index": 102,
+            "igp_complete": 1350,
+            "dest": "17_dix-ie",
+            "reverse": 44,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 103,
+            "igp_complete": 1351,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 63,
+            "lat": 646
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 104,
+            "igp_complete": 1352,
+            "dest": "25_San_Jose_DC",
+            "reverse": 83,
+            "lat": 13909
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 105,
+            "igp_complete": 1353,
+            "dest": "28_Sappora_DC",
+            "reverse": 88,
+            "lat": 1407
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "30_Tokyo",
+            "index": 106,
+            "igp_complete": 1355,
+            "dest": "29_Chiba",
+            "reverse": 90,
+            "lat": 86
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "30_Tokyo",
+            "index": 107,
+            "igp_complete": 1356,
+            "dest": "34_Osaka",
+            "reverse": 125,
+            "lat": 645
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "30_Tokyo",
+            "index": 108,
+            "igp_complete": 1356,
+            "dest": "33_Hamamatsu",
+            "reverse": 115,
+            "lat": 332
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "30_Tokyo",
+            "index": 109,
+            "igp_complete": 1358,
+            "dest": "31_Toyama",
+            "reverse": 110,
+            "lat": 411
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "31_Toyama",
+            "index": 110,
+            "igp_complete": 1358,
+            "dest": "30_Tokyo",
+            "reverse": 109,
+            "lat": 411
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "31_Toyama",
+            "index": 111,
+            "igp_complete": 1358,
+            "dest": "32_Kanazawa",
+            "reverse": 113,
+            "lat": 94
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "32_Kanazawa",
+            "index": 112,
+            "igp_complete": 1359,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 58,
+            "lat": 398
+        },
+        {
+            "igp": 160,
+            "bdw": 2488320,
+            "orig": "32_Kanazawa",
+            "index": 113,
+            "igp_complete": 1360,
+            "dest": "31_Toyama",
+            "reverse": 111,
+            "lat": 94
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "33_Hamamatsu",
+            "index": 114,
+            "igp_complete": 1361,
+            "dest": "9_Nagoya_DC",
+            "reverse": 34,
+            "lat": 158
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "33_Hamamatsu",
+            "index": 115,
+            "igp_complete": 1362,
+            "dest": "30_Tokyo",
+            "reverse": 108,
+            "lat": 332
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 116,
+            "igp_complete": 1362,
+            "dest": "6_Shibuya_DC",
+            "reverse": 20,
+            "lat": 665
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 117,
+            "igp_complete": 1363,
+            "dest": "7_Ikebukuro_DC",
+            "reverse": 28,
+            "lat": 670
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 118,
+            "igp_complete": 1364,
+            "dest": "9_Nagoya_DC",
+            "reverse": 35,
+            "lat": 236
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "34_Osaka",
+            "index": 119,
+            "igp_complete": 1365,
+            "dest": "11_China",
+            "reverse": 38,
+            "lat": 1772
+        },
+        {
+            "igp": 10,
+            "bdw": 4.0E7,
+            "orig": "34_Osaka",
+            "index": 120,
+            "igp_complete": 1365,
+            "dest": "12_JPNAP_Osaka",
+            "reverse": 39,
+            "lat": 1772
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 121,
+            "igp_complete": 1365,
+            "dest": "20_Fukuoka_DC",
+            "reverse": 53,
+            "lat": 809
+        },
+        {
+            "igp": 40,
+            "bdw": 1.0E7,
+            "orig": "34_Osaka",
+            "index": 122,
+            "igp_complete": 1368,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 59,
+            "lat": 8
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "34_Osaka",
+            "index": 123,
+            "igp_complete": 1368,
+            "dest": "22_Kyoto_DC",
+            "reverse": 65,
+            "lat": 76
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 124,
+            "igp_complete": 1369,
+            "dest": "24_LA_DC",
+            "reverse": 75,
+            "lat": 18786
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 125,
+            "igp_complete": 1370,
+            "dest": "30_Tokyo",
+            "reverse": 107,
+            "lat": 645
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "34_Osaka",
+            "index": 126,
+            "igp_complete": 1371,
+            "dest": "35_Okayama",
+            "reverse": 129,
+            "lat": 243
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "34_Osaka",
+            "index": 127,
+            "igp_complete": 1371,
+            "dest": "36_Hiroshima",
+            "reverse": 131,
+            "lat": 472
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "35_Okayama",
+            "index": 128,
+            "igp_complete": 1372,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 60,
+            "lat": 243
+        },
+        {
+            "igp": 200,
+            "bdw": 2000000,
+            "orig": "35_Okayama",
+            "index": 129,
+            "igp_complete": 1372,
+            "dest": "34_Osaka",
+            "reverse": 126,
+            "lat": 243
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "36_Hiroshima",
+            "index": 130,
+            "igp_complete": 1374,
+            "dest": "21_Shinsaibashi_DC",
+            "reverse": 61,
+            "lat": 471
+        },
+        {
+            "igp": 40,
+            "bdw": 9953280,
+            "orig": "36_Hiroshima",
+            "index": 131,
+            "igp_complete": 1374,
+            "dest": "34_Osaka",
+            "reverse": 127,
+            "lat": 472
+        }
+    ]
+}

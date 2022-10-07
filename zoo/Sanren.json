@@ -1,0 +1,162 @@
+{
+    "nodes": [
+        "0_Johannesburg",
+        "1_Pretoria",
+        "2_Durban",
+        "3_Bloemfontein",
+        "4_East_London",
+        "5_Port_Elizabeth",
+        "6_Cape_Town"
+    ],
+    "E": 14,
+    "V": 7,
+    "name": "Sanren",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Johannesburg",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "1_Pretoria",
+            "reverse": 2,
+            "lat": 93
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Johannesburg",
+            "index": 1,
+            "igp_complete": 6,
+            "dest": "3_Bloemfontein",
+            "reverse": 6,
+            "lat": 626
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Pretoria",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "0_Johannesburg",
+            "reverse": 0,
+            "lat": 93
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Pretoria",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "2_Durban",
+            "reverse": 4,
+            "lat": 895
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Durban",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "1_Pretoria",
+            "reverse": 3,
+            "lat": 895
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Durban",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "4_East_London",
+            "reverse": 8,
+            "lat": 769
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Bloemfontein",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "0_Johannesburg",
+            "reverse": 1,
+            "lat": 626
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Bloemfontein",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "6_Cape_Town",
+            "reverse": 12,
+            "lat": 1518
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_East_London",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "2_Durban",
+            "reverse": 5,
+            "lat": 769
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_East_London",
+            "index": 9,
+            "igp_complete": 7,
+            "dest": "5_Port_Elizabeth",
+            "reverse": 10,
+            "lat": 405
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Port_Elizabeth",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "4_East_London",
+            "reverse": 9,
+            "lat": 405
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Port_Elizabeth",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "6_Cape_Town",
+            "reverse": 13,
+            "lat": 1105
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Cape_Town",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "3_Bloemfontein",
+            "reverse": 7,
+            "lat": 1518
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Cape_Town",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "5_Port_Elizabeth",
+            "reverse": 11,
+            "lat": 1105
+        }
+    ]
+}

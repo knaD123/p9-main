@@ -1,0 +1,182 @@
+{
+    "nodes": [
+        "0_Seattle",
+        "1_Santa_Clara",
+        "2_Phoenix",
+        "3_Tucson",
+        "4_Washington,_DC",
+        "5_Baltimore",
+        "6_Pittsburgh"
+    ],
+    "E": 16,
+    "V": 7,
+    "name": "Getnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "0_Seattle",
+            "index": 0,
+            "igp_complete": 71,
+            "dest": "1_Santa_Clara",
+            "reverse": 1,
+            "lat": 1904
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "1_Santa_Clara",
+            "index": 1,
+            "igp_complete": 72,
+            "dest": "0_Seattle",
+            "reverse": 0,
+            "lat": 1904
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "1_Santa_Clara",
+            "index": 2,
+            "igp_complete": 74,
+            "dest": "2_Phoenix",
+            "reverse": 5,
+            "lat": 1661
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "1_Santa_Clara",
+            "index": 3,
+            "igp_complete": 76,
+            "dest": "4_Washington,_DC",
+            "reverse": 9,
+            "lat": 6488
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "1_Santa_Clara",
+            "index": 4,
+            "igp_complete": 77,
+            "dest": "6_Pittsburgh",
+            "reverse": 14,
+            "lat": 6022
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "2_Phoenix",
+            "index": 5,
+            "igp_complete": 79,
+            "dest": "1_Santa_Clara",
+            "reverse": 2,
+            "lat": 1661
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "2_Phoenix",
+            "index": 6,
+            "igp_complete": 80,
+            "dest": "3_Tucson",
+            "reverse": 8,
+            "lat": 293
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "2_Phoenix",
+            "index": 7,
+            "igp_complete": 80,
+            "dest": "4_Washington,_DC",
+            "reverse": 10,
+            "lat": 5305
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "3_Tucson",
+            "index": 8,
+            "igp_complete": 81,
+            "dest": "2_Phoenix",
+            "reverse": 6,
+            "lat": 293
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "4_Washington,_DC",
+            "index": 9,
+            "igp_complete": 82,
+            "dest": "1_Santa_Clara",
+            "reverse": 3,
+            "lat": 6488
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "4_Washington,_DC",
+            "index": 10,
+            "igp_complete": 83,
+            "dest": "2_Phoenix",
+            "reverse": 7,
+            "lat": 5305
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "4_Washington,_DC",
+            "index": 11,
+            "igp_complete": 84,
+            "dest": "5_Baltimore",
+            "reverse": 12,
+            "lat": 100
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "5_Baltimore",
+            "index": 12,
+            "igp_complete": 85,
+            "dest": "4_Washington,_DC",
+            "reverse": 11,
+            "lat": 100
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "5_Baltimore",
+            "index": 13,
+            "igp_complete": 85,
+            "dest": "6_Pittsburgh",
+            "reverse": 15,
+            "lat": 530
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "6_Pittsburgh",
+            "index": 14,
+            "igp_complete": 85,
+            "dest": "1_Santa_Clara",
+            "reverse": 4,
+            "lat": 6022
+        },
+        {
+            "igp": 10,
+            "bdw": 45000,
+            "orig": "6_Pittsburgh",
+            "index": 15,
+            "igp_complete": 86,
+            "dest": "5_Baltimore",
+            "reverse": 13,
+            "lat": 530
+        }
+    ]
+}

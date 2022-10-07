@@ -1,0 +1,99 @@
+{
+    "nodes": [
+        "0_SRI",
+        "1_USCB",
+        "2_UCLA",
+        "3_UTAH"
+    ],
+    "E": 8,
+    "V": 4,
+    "name": "Arpanet196912",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_SRI",
+            "index": 0,
+            "igp_complete": 5,
+            "dest": "1_USCB",
+            "reverse": 3,
+            "lat": 678
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_SRI",
+            "index": 1,
+            "igp_complete": 5,
+            "dest": "2_UCLA",
+            "reverse": 5,
+            "lat": 869
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_SRI",
+            "index": 2,
+            "igp_complete": 5,
+            "dest": "3_UTAH",
+            "reverse": 7,
+            "lat": 1604
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_USCB",
+            "index": 3,
+            "igp_complete": 5,
+            "dest": "0_SRI",
+            "reverse": 0,
+            "lat": 678
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_USCB",
+            "index": 4,
+            "igp_complete": 6,
+            "dest": "2_UCLA",
+            "reverse": 6,
+            "lat": 237
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_UCLA",
+            "index": 5,
+            "igp_complete": 6,
+            "dest": "0_SRI",
+            "reverse": 1,
+            "lat": 869
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_UCLA",
+            "index": 6,
+            "igp_complete": 6,
+            "dest": "1_USCB",
+            "reverse": 4,
+            "lat": 237
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_UTAH",
+            "index": 7,
+            "igp_complete": 6,
+            "dest": "0_SRI",
+            "reverse": 2,
+            "lat": 1604
+        }
+    ]
+}

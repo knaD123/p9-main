@@ -1,0 +1,519 @@
+{
+    "nodes": [
+        "0_Kherson",
+        "1_Mykolaiv",
+        "2_Sevastopol",
+        "3_Simferopol",
+        "4_Vinnitsa",
+        "5_Khmelnitsky",
+        "6_Odessa",
+        "7_Kamianets-Podilsky",
+        "8_Frankfurt_(Internet)",
+        "9_Poznan_(GEANT_&_Internet)",
+        "10_Cherkassy",
+        "11_Odessa-IX",
+        "12_Kharkiv-IX",
+        "13_UA-IX",
+        "14_Zaporizhia",
+        "15_Dnipropetrovsk",
+        "16_Lviv",
+        "17_Lutsk",
+        "18_Zhitomir",
+        "19_Kiev",
+        "20_Pereyaslav",
+        "21_Poltava",
+        "22_Kharkiv",
+        "23_Donetsk"
+    ],
+    "E": 48,
+    "V": 24,
+    "name": "Uran",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "0_Kherson",
+            "index": 0,
+            "igp_complete": 8,
+            "dest": "1_Mykolaiv",
+            "reverse": 2,
+            "lat": 102
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "0_Kherson",
+            "index": 1,
+            "igp_complete": 9,
+            "dest": "3_Simferopol",
+            "reverse": 6,
+            "lat": 371
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "1_Mykolaiv",
+            "index": 2,
+            "igp_complete": 9,
+            "dest": "0_Kherson",
+            "reverse": 0,
+            "lat": 102
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "1_Mykolaiv",
+            "index": 3,
+            "igp_complete": 9,
+            "dest": "10_Cherkassy",
+            "reverse": 17,
+            "lat": 461
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "1_Mykolaiv",
+            "index": 4,
+            "igp_complete": 9,
+            "dest": "6_Odessa",
+            "reverse": 12,
+            "lat": 189
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "2_Sevastopol",
+            "index": 5,
+            "igp_complete": 9,
+            "dest": "3_Simferopol",
+            "reverse": 7,
+            "lat": 107
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "3_Simferopol",
+            "index": 6,
+            "igp_complete": 9,
+            "dest": "0_Kherson",
+            "reverse": 1,
+            "lat": 371
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "3_Simferopol",
+            "index": 7,
+            "igp_complete": 9,
+            "dest": "2_Sevastopol",
+            "reverse": 5,
+            "lat": 107
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "4_Vinnitsa",
+            "index": 8,
+            "igp_complete": 9,
+            "dest": "19_Kiev",
+            "reverse": 32,
+            "lat": 337
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "4_Vinnitsa",
+            "index": 9,
+            "igp_complete": 9,
+            "dest": "5_Khmelnitsky",
+            "reverse": 10,
+            "lat": 187
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "5_Khmelnitsky",
+            "index": 10,
+            "igp_complete": 9,
+            "dest": "4_Vinnitsa",
+            "reverse": 9,
+            "lat": 187
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "5_Khmelnitsky",
+            "index": 11,
+            "igp_complete": 9,
+            "dest": "16_Lviv",
+            "reverse": 26,
+            "lat": 370
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "6_Odessa",
+            "index": 12,
+            "igp_complete": 9,
+            "dest": "1_Mykolaiv",
+            "reverse": 4,
+            "lat": 189
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "6_Odessa",
+            "index": 13,
+            "igp_complete": 9,
+            "dest": "11_Odessa-IX",
+            "reverse": 19,
+            "lat": 314
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "7_Kamianets-Podilsky",
+            "index": 14,
+            "igp_complete": 9,
+            "dest": "19_Kiev",
+            "reverse": 33,
+            "lat": 584
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "8_Frankfurt_(Internet)",
+            "index": 15,
+            "igp_complete": 9,
+            "dest": "19_Kiev",
+            "reverse": 34,
+            "lat": 314
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "9_Poznan_(GEANT_&_Internet)",
+            "index": 16,
+            "igp_complete": 9,
+            "dest": "16_Lviv",
+            "reverse": 27,
+            "lat": 314
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_Cherkassy",
+            "index": 17,
+            "igp_complete": 9,
+            "dest": "1_Mykolaiv",
+            "reverse": 3,
+            "lat": 461
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "10_Cherkassy",
+            "index": 18,
+            "igp_complete": 9,
+            "dest": "19_Kiev",
+            "reverse": 35,
+            "lat": 268
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "11_Odessa-IX",
+            "index": 19,
+            "igp_complete": 10,
+            "dest": "6_Odessa",
+            "reverse": 13,
+            "lat": 314
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "12_Kharkiv-IX",
+            "index": 20,
+            "igp_complete": 10,
+            "dest": "22_Kharkiv",
+            "reverse": 45,
+            "lat": 314
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "13_UA-IX",
+            "index": 21,
+            "igp_complete": 10,
+            "dest": "19_Kiev",
+            "reverse": 36,
+            "lat": 314
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "14_Zaporizhia",
+            "index": 22,
+            "igp_complete": 10,
+            "dest": "15_Dnipropetrovsk",
+            "reverse": 23,
+            "lat": 124
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "15_Dnipropetrovsk",
+            "index": 23,
+            "igp_complete": 10,
+            "dest": "14_Zaporizhia",
+            "reverse": 22,
+            "lat": 124
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "15_Dnipropetrovsk",
+            "index": 24,
+            "igp_complete": 10,
+            "dest": "21_Poltava",
+            "reverse": 42,
+            "lat": 220
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "15_Dnipropetrovsk",
+            "index": 25,
+            "igp_complete": 10,
+            "dest": "23_Donetsk",
+            "reverse": 47,
+            "lat": 362
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "16_Lviv",
+            "index": 26,
+            "igp_complete": 10,
+            "dest": "5_Khmelnitsky",
+            "reverse": 11,
+            "lat": 370
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "16_Lviv",
+            "index": 27,
+            "igp_complete": 10,
+            "dest": "9_Poznan_(GEANT_&_Internet)",
+            "reverse": 16,
+            "lat": 314
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "16_Lviv",
+            "index": 28,
+            "igp_complete": 10,
+            "dest": "19_Kiev",
+            "reverse": 37,
+            "lat": 784
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "17_Lutsk",
+            "index": 29,
+            "igp_complete": 10,
+            "dest": "18_Zhitomir",
+            "reverse": 30,
+            "lat": 408
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "18_Zhitomir",
+            "index": 30,
+            "igp_complete": 10,
+            "dest": "17_Lutsk",
+            "reverse": 29,
+            "lat": 408
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "18_Zhitomir",
+            "index": 31,
+            "igp_complete": 10,
+            "dest": "19_Kiev",
+            "reverse": 38,
+            "lat": 227
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "19_Kiev",
+            "index": 32,
+            "igp_complete": 10,
+            "dest": "4_Vinnitsa",
+            "reverse": 8,
+            "lat": 337
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "19_Kiev",
+            "index": 33,
+            "igp_complete": 10,
+            "dest": "7_Kamianets-Podilsky",
+            "reverse": 14,
+            "lat": 584
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "19_Kiev",
+            "index": 34,
+            "igp_complete": 10,
+            "dest": "8_Frankfurt_(Internet)",
+            "reverse": 15,
+            "lat": 314
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "19_Kiev",
+            "index": 35,
+            "igp_complete": 10,
+            "dest": "10_Cherkassy",
+            "reverse": 18,
+            "lat": 268
+        },
+        {
+            "igp": 10,
+            "bdw": 1.0E7,
+            "orig": "19_Kiev",
+            "index": 36,
+            "igp_complete": 10,
+            "dest": "13_UA-IX",
+            "reverse": 21,
+            "lat": 314
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "19_Kiev",
+            "index": 37,
+            "igp_complete": 10,
+            "dest": "16_Lviv",
+            "reverse": 28,
+            "lat": 784
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "19_Kiev",
+            "index": 38,
+            "igp_complete": 10,
+            "dest": "18_Zhitomir",
+            "reverse": 31,
+            "lat": 227
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "19_Kiev",
+            "index": 39,
+            "igp_complete": 10,
+            "dest": "20_Pereyaslav",
+            "reverse": 41,
+            "lat": 136
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "19_Kiev",
+            "index": 40,
+            "igp_complete": 10,
+            "dest": "21_Poltava",
+            "reverse": 43,
+            "lat": 512
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "20_Pereyaslav",
+            "index": 41,
+            "igp_complete": 10,
+            "dest": "19_Kiev",
+            "reverse": 39,
+            "lat": 136
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Poltava",
+            "index": 42,
+            "igp_complete": 10,
+            "dest": "15_Dnipropetrovsk",
+            "reverse": 24,
+            "lat": 220
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Poltava",
+            "index": 43,
+            "igp_complete": 10,
+            "dest": "19_Kiev",
+            "reverse": 40,
+            "lat": 512
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "21_Poltava",
+            "index": 44,
+            "igp_complete": 10,
+            "dest": "22_Kharkiv",
+            "reverse": 46,
+            "lat": 220
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "22_Kharkiv",
+            "index": 45,
+            "igp_complete": 10,
+            "dest": "12_Kharkiv-IX",
+            "reverse": 20,
+            "lat": 314
+        },
+        {
+            "igp": 100,
+            "bdw": 1000000,
+            "orig": "22_Kharkiv",
+            "index": 46,
+            "igp_complete": 10,
+            "dest": "21_Poltava",
+            "reverse": 44,
+            "lat": 220
+        },
+        {
+            "igp": 200,
+            "bdw": 500000,
+            "orig": "23_Donetsk",
+            "index": 47,
+            "igp_complete": 10,
+            "dest": "15_Dnipropetrovsk",
+            "reverse": 25,
+            "lat": 362
+        }
+    ]
+}

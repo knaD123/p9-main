@@ -1,0 +1,391 @@
+{
+    "nodes": [
+        "0_Solborg-Akureyri",
+        "1_Fjarski",
+        "2_FSA-Akureyri",
+        "3_DST-Akureyri",
+        "4_RIX",
+        "5_NORDUnet",
+        "6_Hvanneyri",
+        "7_Bifrost",
+        "8_Grensas",
+        "9_Skulagata",
+        "10_Taeknigarour",
+        "11_Sturlugata",
+        "12_Hringbraut",
+        "13_Bustaoavegur",
+        "14_Ofanleiti",
+        "15_Keldhaholt"
+    ],
+    "E": 36,
+    "V": 16,
+    "name": "Rhnet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Solborg-Akureyri",
+            "index": 0,
+            "igp_complete": 8961,
+            "dest": "2_FSA-Akureyri",
+            "reverse": 4,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Solborg-Akureyri",
+            "index": 1,
+            "igp_complete": 9064,
+            "dest": "3_DST-Akureyri",
+            "reverse": 6,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Fjarski",
+            "index": 2,
+            "igp_complete": 9112,
+            "dest": "10_Taeknigarour",
+            "reverse": 19,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Fjarski",
+            "index": 3,
+            "igp_complete": 9201,
+            "dest": "3_DST-Akureyri",
+            "reverse": 7,
+            "lat": 419
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_FSA-Akureyri",
+            "index": 4,
+            "igp_complete": 9321,
+            "dest": "0_Solborg-Akureyri",
+            "reverse": 0,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_FSA-Akureyri",
+            "index": 5,
+            "igp_complete": 9428,
+            "dest": "3_DST-Akureyri",
+            "reverse": 8,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_DST-Akureyri",
+            "index": 6,
+            "igp_complete": 9461,
+            "dest": "0_Solborg-Akureyri",
+            "reverse": 1,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_DST-Akureyri",
+            "index": 7,
+            "igp_complete": 9555,
+            "dest": "1_Fjarski",
+            "reverse": 3,
+            "lat": 419
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_DST-Akureyri",
+            "index": 8,
+            "igp_complete": 9613,
+            "dest": "2_FSA-Akureyri",
+            "reverse": 5,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_RIX",
+            "index": 9,
+            "igp_complete": 9641,
+            "dest": "10_Taeknigarour",
+            "reverse": 20,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_NORDUnet",
+            "index": 10,
+            "igp_complete": 9720,
+            "dest": "10_Taeknigarour",
+            "reverse": 21,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_NORDUnet",
+            "index": 11,
+            "igp_complete": 9769,
+            "dest": "11_Sturlugata",
+            "reverse": 24,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Hvanneyri",
+            "index": 12,
+            "igp_complete": 9839,
+            "dest": "15_Keldhaholt",
+            "reverse": 33,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Hvanneyri",
+            "index": 13,
+            "igp_complete": 9925,
+            "dest": "7_Bifrost",
+            "reverse": 14,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Bifrost",
+            "index": 14,
+            "igp_complete": 9966,
+            "dest": "6_Hvanneyri",
+            "reverse": 13,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Grensas",
+            "index": 15,
+            "igp_complete": 9985,
+            "dest": "9_Skulagata",
+            "reverse": 17,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Grensas",
+            "index": 16,
+            "igp_complete": 10023,
+            "dest": "15_Keldhaholt",
+            "reverse": 34,
+            "lat": 444
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Skulagata",
+            "index": 17,
+            "igp_complete": 10042,
+            "dest": "8_Grensas",
+            "reverse": 15,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Skulagata",
+            "index": 18,
+            "igp_complete": 10078,
+            "dest": "10_Taeknigarour",
+            "reverse": 22,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Taeknigarour",
+            "index": 19,
+            "igp_complete": 10195,
+            "dest": "1_Fjarski",
+            "reverse": 2,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Taeknigarour",
+            "index": 20,
+            "igp_complete": 10226,
+            "dest": "4_RIX",
+            "reverse": 9,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Taeknigarour",
+            "index": 21,
+            "igp_complete": 10270,
+            "dest": "5_NORDUnet",
+            "reverse": 10,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Taeknigarour",
+            "index": 22,
+            "igp_complete": 10285,
+            "dest": "9_Skulagata",
+            "reverse": 18,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Taeknigarour",
+            "index": 23,
+            "igp_complete": 10354,
+            "dest": "11_Sturlugata",
+            "reverse": 25,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Sturlugata",
+            "index": 24,
+            "igp_complete": 10368,
+            "dest": "5_NORDUnet",
+            "reverse": 11,
+            "lat": 116
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Sturlugata",
+            "index": 25,
+            "igp_complete": 10407,
+            "dest": "10_Taeknigarour",
+            "reverse": 23,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Sturlugata",
+            "index": 26,
+            "igp_complete": 10444,
+            "dest": "12_Hringbraut",
+            "reverse": 27,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Hringbraut",
+            "index": 27,
+            "igp_complete": 10468,
+            "dest": "11_Sturlugata",
+            "reverse": 26,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Hringbraut",
+            "index": 28,
+            "igp_complete": 10504,
+            "dest": "13_Bustaoavegur",
+            "reverse": 29,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Bustaoavegur",
+            "index": 29,
+            "igp_complete": 10538,
+            "dest": "12_Hringbraut",
+            "reverse": 28,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Bustaoavegur",
+            "index": 30,
+            "igp_complete": 10549,
+            "dest": "14_Ofanleiti",
+            "reverse": 31,
+            "lat": 191
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Ofanleiti",
+            "index": 31,
+            "igp_complete": 10603,
+            "dest": "13_Bustaoavegur",
+            "reverse": 30,
+            "lat": 191
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Ofanleiti",
+            "index": 32,
+            "igp_complete": 10613,
+            "dest": "15_Keldhaholt",
+            "reverse": 35,
+            "lat": 522
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Keldhaholt",
+            "index": 33,
+            "igp_complete": 10634,
+            "dest": "6_Hvanneyri",
+            "reverse": 12,
+            "lat": 5
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Keldhaholt",
+            "index": 34,
+            "igp_complete": 10644,
+            "dest": "8_Grensas",
+            "reverse": 16,
+            "lat": 444
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Keldhaholt",
+            "index": 35,
+            "igp_complete": 10702,
+            "dest": "14_Ofanleiti",
+            "reverse": 32,
+            "lat": 522
+        }
+    ]
+}

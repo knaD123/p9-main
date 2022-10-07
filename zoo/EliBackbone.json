@@ -1,0 +1,635 @@
+{
+    "nodes": [
+        "0_Las_Vegas",
+        "1_Los_Angeles",
+        "2_Dallas",
+        "3_Phoenix",
+        "4_Santa_Clara",
+        "5_Portland",
+        "6_Sacramento",
+        "7_Palo_Alto",
+        "8_Tacoma",
+        "9_Seattle",
+        "10_Atlanta",
+        "11_Houston",
+        "12_Spokane",
+        "13_Boise",
+        "14_Salt_Lake_City",
+        "15_Minneapolis",
+        "16_Chicago",
+        "17_Rochester",
+        "18_Newark",
+        "19_Washington_DC"
+    ],
+    "E": 60,
+    "V": 20,
+    "name": "EliBackbone",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Las_Vegas",
+            "index": 0,
+            "igp_complete": 10073,
+            "dest": "1_Los_Angeles",
+            "reverse": 3,
+            "lat": 618
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Las_Vegas",
+            "index": 1,
+            "igp_complete": 10167,
+            "dest": "3_Phoenix",
+            "reverse": 10,
+            "lat": 691
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Las_Vegas",
+            "index": 2,
+            "igp_complete": 10225,
+            "dest": "14_Salt_Lake_City",
+            "reverse": 42,
+            "lat": 975
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Los_Angeles",
+            "index": 3,
+            "igp_complete": 10253,
+            "dest": "0_Las_Vegas",
+            "reverse": 0,
+            "lat": 618
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Los_Angeles",
+            "index": 4,
+            "igp_complete": 10332,
+            "dest": "3_Phoenix",
+            "reverse": 11,
+            "lat": 961
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Los_Angeles",
+            "index": 5,
+            "igp_complete": 10381,
+            "dest": "4_Santa_Clara",
+            "reverse": 13,
+            "lat": 832
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Dallas",
+            "index": 6,
+            "igp_complete": 10451,
+            "dest": "16_Chicago",
+            "reverse": 49,
+            "lat": 2155
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Dallas",
+            "index": 7,
+            "igp_complete": 10537,
+            "dest": "3_Phoenix",
+            "reverse": 12,
+            "lat": 2374
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Dallas",
+            "index": 8,
+            "igp_complete": 10578,
+            "dest": "11_Houston",
+            "reverse": 35,
+            "lat": 609
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Dallas",
+            "index": 9,
+            "igp_complete": 10597,
+            "dest": "19_Washington_DC",
+            "reverse": 57,
+            "lat": 3173
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Phoenix",
+            "index": 10,
+            "igp_complete": 10635,
+            "dest": "0_Las_Vegas",
+            "reverse": 1,
+            "lat": 691
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Phoenix",
+            "index": 11,
+            "igp_complete": 10654,
+            "dest": "1_Los_Angeles",
+            "reverse": 4,
+            "lat": 961
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Phoenix",
+            "index": 12,
+            "igp_complete": 10690,
+            "dest": "2_Dallas",
+            "reverse": 7,
+            "lat": 2374
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Santa_Clara",
+            "index": 13,
+            "igp_complete": 10807,
+            "dest": "1_Los_Angeles",
+            "reverse": 5,
+            "lat": 832
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Santa_Clara",
+            "index": 14,
+            "igp_complete": 10838,
+            "dest": "7_Palo_Alto",
+            "reverse": 21,
+            "lat": 37
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Portland",
+            "index": 15,
+            "igp_complete": 10882,
+            "dest": "8_Tacoma",
+            "reverse": 24,
+            "lat": 326
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Portland",
+            "index": 16,
+            "igp_complete": 10897,
+            "dest": "6_Sacramento",
+            "reverse": 17,
+            "lat": 1300
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Sacramento",
+            "index": 17,
+            "igp_complete": 10966,
+            "dest": "5_Portland",
+            "reverse": 16,
+            "lat": 1300
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Sacramento",
+            "index": 18,
+            "igp_complete": 10980,
+            "dest": "8_Tacoma",
+            "reverse": 25,
+            "lat": 1615
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Sacramento",
+            "index": 19,
+            "igp_complete": 11019,
+            "dest": "14_Salt_Lake_City",
+            "reverse": 43,
+            "lat": 1431
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_Sacramento",
+            "index": 20,
+            "igp_complete": 11056,
+            "dest": "7_Palo_Alto",
+            "reverse": 22,
+            "lat": 236
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Palo_Alto",
+            "index": 21,
+            "igp_complete": 11080,
+            "dest": "4_Santa_Clara",
+            "reverse": 14,
+            "lat": 37
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Palo_Alto",
+            "index": 22,
+            "igp_complete": 11116,
+            "dest": "6_Sacramento",
+            "reverse": 20,
+            "lat": 236
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Palo_Alto",
+            "index": 23,
+            "igp_complete": 11150,
+            "dest": "9_Seattle",
+            "reverse": 27,
+            "lat": 1887
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Tacoma",
+            "index": 24,
+            "igp_complete": 11161,
+            "dest": "5_Portland",
+            "reverse": 15,
+            "lat": 326
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Tacoma",
+            "index": 25,
+            "igp_complete": 11215,
+            "dest": "6_Sacramento",
+            "reverse": 18,
+            "lat": 1615
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Tacoma",
+            "index": 26,
+            "igp_complete": 11225,
+            "dest": "9_Seattle",
+            "reverse": 28,
+            "lat": 71
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Seattle",
+            "index": 27,
+            "igp_complete": 11246,
+            "dest": "7_Palo_Alto",
+            "reverse": 23,
+            "lat": 1887
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Seattle",
+            "index": 28,
+            "igp_complete": 11256,
+            "dest": "8_Tacoma",
+            "reverse": 26,
+            "lat": 71
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Seattle",
+            "index": 29,
+            "igp_complete": 11314,
+            "dest": "12_Spokane",
+            "reverse": 37,
+            "lat": 617
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Seattle",
+            "index": 30,
+            "igp_complete": 11370,
+            "dest": "13_Boise",
+            "reverse": 39,
+            "lat": 1089
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Seattle",
+            "index": 31,
+            "igp_complete": 11387,
+            "dest": "14_Salt_Lake_City",
+            "reverse": 44,
+            "lat": 1880
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Seattle",
+            "index": 32,
+            "igp_complete": 11396,
+            "dest": "15_Minneapolis",
+            "reverse": 47,
+            "lat": 3733
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Atlanta",
+            "index": 33,
+            "igp_complete": 11414,
+            "dest": "19_Washington_DC",
+            "reverse": 58,
+            "lat": 1457
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Atlanta",
+            "index": 34,
+            "igp_complete": 11439,
+            "dest": "11_Houston",
+            "reverse": 36,
+            "lat": 1882
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Houston",
+            "index": 35,
+            "igp_complete": 11447,
+            "dest": "2_Dallas",
+            "reverse": 8,
+            "lat": 609
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Houston",
+            "index": 36,
+            "igp_complete": 11488,
+            "dest": "10_Atlanta",
+            "reverse": 34,
+            "lat": 1882
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Spokane",
+            "index": 37,
+            "igp_complete": 11512,
+            "dest": "9_Seattle",
+            "reverse": 29,
+            "lat": 617
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Spokane",
+            "index": 38,
+            "igp_complete": 11535,
+            "dest": "13_Boise",
+            "reverse": 40,
+            "lat": 770
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Boise",
+            "index": 39,
+            "igp_complete": 11557,
+            "dest": "9_Seattle",
+            "reverse": 30,
+            "lat": 1089
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Boise",
+            "index": 40,
+            "igp_complete": 11565,
+            "dest": "12_Spokane",
+            "reverse": 38,
+            "lat": 770
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Boise",
+            "index": 41,
+            "igp_complete": 11587,
+            "dest": "14_Salt_Lake_City",
+            "reverse": 45,
+            "lat": 798
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Salt_Lake_City",
+            "index": 42,
+            "igp_complete": 11601,
+            "dest": "0_Las_Vegas",
+            "reverse": 2,
+            "lat": 975
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Salt_Lake_City",
+            "index": 43,
+            "igp_complete": 11608,
+            "dest": "6_Sacramento",
+            "reverse": 19,
+            "lat": 1431
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Salt_Lake_City",
+            "index": 44,
+            "igp_complete": 11643,
+            "dest": "9_Seattle",
+            "reverse": 31,
+            "lat": 1880
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Salt_Lake_City",
+            "index": 45,
+            "igp_complete": 11689,
+            "dest": "13_Boise",
+            "reverse": 41,
+            "lat": 798
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Salt_Lake_City",
+            "index": 46,
+            "igp_complete": 11702,
+            "dest": "16_Chicago",
+            "reverse": 50,
+            "lat": 3372
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Minneapolis",
+            "index": 47,
+            "igp_complete": 11709,
+            "dest": "9_Seattle",
+            "reverse": 32,
+            "lat": 3733
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Minneapolis",
+            "index": 48,
+            "igp_complete": 11721,
+            "dest": "16_Chicago",
+            "reverse": 51,
+            "lat": 956
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Chicago",
+            "index": 49,
+            "igp_complete": 11765,
+            "dest": "2_Dallas",
+            "reverse": 6,
+            "lat": 2155
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Chicago",
+            "index": 50,
+            "igp_complete": 11783,
+            "dest": "14_Salt_Lake_City",
+            "reverse": 46,
+            "lat": 3372
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Chicago",
+            "index": 51,
+            "igp_complete": 11812,
+            "dest": "15_Minneapolis",
+            "reverse": 48,
+            "lat": 956
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Chicago",
+            "index": 52,
+            "igp_complete": 11818,
+            "dest": "17_Rochester",
+            "reverse": 53,
+            "lat": 1395
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_Rochester",
+            "index": 53,
+            "igp_complete": 11829,
+            "dest": "16_Chicago",
+            "reverse": 52,
+            "lat": 1395
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_Rochester",
+            "index": 54,
+            "igp_complete": 11846,
+            "dest": "18_Newark",
+            "reverse": 55,
+            "lat": 657
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Newark",
+            "index": 55,
+            "igp_complete": 11868,
+            "dest": "17_Rochester",
+            "reverse": 54,
+            "lat": 657
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Newark",
+            "index": 56,
+            "igp_complete": 11884,
+            "dest": "19_Washington_DC",
+            "reverse": 59,
+            "lat": 536
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_Washington_DC",
+            "index": 57,
+            "igp_complete": 11900,
+            "dest": "2_Dallas",
+            "reverse": 9,
+            "lat": 3173
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_Washington_DC",
+            "index": 58,
+            "igp_complete": 11911,
+            "dest": "10_Atlanta",
+            "reverse": 33,
+            "lat": 1457
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_Washington_DC",
+            "index": 59,
+            "igp_complete": 11926,
+            "dest": "18_Newark",
+            "reverse": 56,
+            "lat": 536
+        }
+    ]
+}

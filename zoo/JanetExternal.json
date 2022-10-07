@@ -1,0 +1,205 @@
+{
+    "nodes": [
+        "1_Europe_(GEANT2)",
+        "2_People's_Republic_of_China",
+        "3_Japan_(NII)",
+        "5_JANET",
+        "6_US_Research_Networks_ESnet",
+        "7_US_Research_Networks_Abilene",
+        "8_LINX",
+        "9_UK_ISPs",
+        "10_Private_Peering_with_ISPs",
+        "11_Global_Transit_to_the_World"
+    ],
+    "E": 18,
+    "V": 10,
+    "name": "JanetExternal",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Europe_(GEANT2)",
+            "index": 0,
+            "igp_complete": 6,
+            "dest": "2_People's_Republic_of_China",
+            "reverse": 5,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Europe_(GEANT2)",
+            "index": 1,
+            "igp_complete": 7,
+            "dest": "3_Japan_(NII)",
+            "reverse": 6,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Europe_(GEANT2)",
+            "index": 2,
+            "igp_complete": 7,
+            "dest": "5_JANET",
+            "reverse": 7,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Europe_(GEANT2)",
+            "index": 3,
+            "igp_complete": 7,
+            "dest": "6_US_Research_Networks_ESnet",
+            "reverse": 11,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "1_Europe_(GEANT2)",
+            "index": 4,
+            "igp_complete": 7,
+            "dest": "7_US_Research_Networks_Abilene",
+            "reverse": 12,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "2_People's_Republic_of_China",
+            "index": 5,
+            "igp_complete": 7,
+            "dest": "1_Europe_(GEANT2)",
+            "reverse": 0,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "3_Japan_(NII)",
+            "index": 6,
+            "igp_complete": 7,
+            "dest": "1_Europe_(GEANT2)",
+            "reverse": 1,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_JANET",
+            "index": 7,
+            "igp_complete": 7,
+            "dest": "1_Europe_(GEANT2)",
+            "reverse": 2,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_JANET",
+            "index": 8,
+            "igp_complete": 7,
+            "dest": "8_LINX",
+            "reverse": 13,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_JANET",
+            "index": 9,
+            "igp_complete": 8,
+            "dest": "10_Private_Peering_with_ISPs",
+            "reverse": 16,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "5_JANET",
+            "index": 10,
+            "igp_complete": 8,
+            "dest": "11_Global_Transit_to_the_World",
+            "reverse": 17,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "6_US_Research_Networks_ESnet",
+            "index": 11,
+            "igp_complete": 8,
+            "dest": "1_Europe_(GEANT2)",
+            "reverse": 3,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "7_US_Research_Networks_Abilene",
+            "index": 12,
+            "igp_complete": 8,
+            "dest": "1_Europe_(GEANT2)",
+            "reverse": 4,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "8_LINX",
+            "index": 13,
+            "igp_complete": 8,
+            "dest": "5_JANET",
+            "reverse": 8,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "8_LINX",
+            "index": 14,
+            "igp_complete": 8,
+            "dest": "9_UK_ISPs",
+            "reverse": 15,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "9_UK_ISPs",
+            "index": 15,
+            "igp_complete": 8,
+            "dest": "8_LINX",
+            "reverse": 14,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "10_Private_Peering_with_ISPs",
+            "index": 16,
+            "igp_complete": 8,
+            "dest": "5_JANET",
+            "reverse": 9,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 2500000,
+            "orig": "11_Global_Transit_to_the_World",
+            "index": 17,
+            "igp_complete": 8,
+            "dest": "5_JANET",
+            "reverse": 10,
+            "lat": 10
+        }
+    ]
+}

@@ -1,0 +1,390 @@
+{
+    "nodes": [
+        "0_Faro",
+        "1_Madrid",
+        "2_Porto",
+        "3_Lisbon",
+        "4_Barcelona",
+        "5_Manchester",
+        "6_New_York",
+        "7_Amsterdam",
+        "8_Eindhoven",
+        "9_Berlin",
+        "10_Frankfurt",
+        "11_Munich",
+        "12_Paris",
+        "13_Rennes",
+        "14_London"
+    ],
+    "E": 36,
+    "V": 15,
+    "name": "Claranet",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_Faro",
+            "index": 0,
+            "igp_complete": 89,
+            "dest": "3_Lisbon",
+            "reverse": 4,
+            "lat": 365
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Madrid",
+            "index": 1,
+            "igp_complete": 90,
+            "dest": "3_Lisbon",
+            "reverse": 5,
+            "lat": 841
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Madrid",
+            "index": 2,
+            "igp_complete": 90,
+            "dest": "4_Barcelona",
+            "reverse": 8,
+            "lat": 844
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Porto",
+            "index": 3,
+            "igp_complete": 91,
+            "dest": "3_Lisbon",
+            "reverse": 6,
+            "lat": 461
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Lisbon",
+            "index": 4,
+            "igp_complete": 92,
+            "dest": "0_Faro",
+            "reverse": 0,
+            "lat": 365
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Lisbon",
+            "index": 5,
+            "igp_complete": 93,
+            "dest": "1_Madrid",
+            "reverse": 1,
+            "lat": 841
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Lisbon",
+            "index": 6,
+            "igp_complete": 94,
+            "dest": "2_Porto",
+            "reverse": 3,
+            "lat": 461
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Lisbon",
+            "index": 7,
+            "igp_complete": 95,
+            "dest": "14_London",
+            "reverse": 30,
+            "lat": 2645
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Barcelona",
+            "index": 8,
+            "igp_complete": 95,
+            "dest": "1_Madrid",
+            "reverse": 2,
+            "lat": 844
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Barcelona",
+            "index": 9,
+            "igp_complete": 95,
+            "dest": "12_Paris",
+            "reverse": 25,
+            "lat": 1387
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Manchester",
+            "index": 10,
+            "igp_complete": 96,
+            "dest": "14_London",
+            "reverse": 31,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_New_York",
+            "index": 11,
+            "igp_complete": 97,
+            "dest": "14_London",
+            "reverse": 32,
+            "lat": 295
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Amsterdam",
+            "index": 12,
+            "igp_complete": 97,
+            "dest": "8_Eindhoven",
+            "reverse": 15,
+            "lat": 190
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Amsterdam",
+            "index": 13,
+            "igp_complete": 98,
+            "dest": "10_Frankfurt",
+            "reverse": 18,
+            "lat": 611
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Amsterdam",
+            "index": 14,
+            "igp_complete": 99,
+            "dest": "14_London",
+            "reverse": 33,
+            "lat": 599
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Eindhoven",
+            "index": 15,
+            "igp_complete": 99,
+            "dest": "7_Amsterdam",
+            "reverse": 12,
+            "lat": 190
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Berlin",
+            "index": 16,
+            "igp_complete": 99,
+            "dest": "10_Frankfurt",
+            "reverse": 19,
+            "lat": 710
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Berlin",
+            "index": 17,
+            "igp_complete": 99,
+            "dest": "11_Munich",
+            "reverse": 23,
+            "lat": 845
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Frankfurt",
+            "index": 18,
+            "igp_complete": 100,
+            "dest": "7_Amsterdam",
+            "reverse": 13,
+            "lat": 611
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Frankfurt",
+            "index": 19,
+            "igp_complete": 101,
+            "dest": "9_Berlin",
+            "reverse": 16,
+            "lat": 710
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Frankfurt",
+            "index": 20,
+            "igp_complete": 101,
+            "dest": "11_Munich",
+            "reverse": 24,
+            "lat": 512
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Frankfurt",
+            "index": 21,
+            "igp_complete": 102,
+            "dest": "12_Paris",
+            "reverse": 26,
+            "lat": 801
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Frankfurt",
+            "index": 22,
+            "igp_complete": 102,
+            "dest": "14_London",
+            "reverse": 34,
+            "lat": 1066
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Munich",
+            "index": 23,
+            "igp_complete": 103,
+            "dest": "9_Berlin",
+            "reverse": 17,
+            "lat": 845
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Munich",
+            "index": 24,
+            "igp_complete": 103,
+            "dest": "10_Frankfurt",
+            "reverse": 20,
+            "lat": 512
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Paris",
+            "index": 25,
+            "igp_complete": 103,
+            "dest": "4_Barcelona",
+            "reverse": 9,
+            "lat": 1387
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Paris",
+            "index": 26,
+            "igp_complete": 103,
+            "dest": "10_Frankfurt",
+            "reverse": 21,
+            "lat": 801
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Paris",
+            "index": 27,
+            "igp_complete": 104,
+            "dest": "13_Rennes",
+            "reverse": 29,
+            "lat": 520
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Paris",
+            "index": 28,
+            "igp_complete": 104,
+            "dest": "14_London",
+            "reverse": 35,
+            "lat": 577
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_Rennes",
+            "index": 29,
+            "igp_complete": 104,
+            "dest": "12_Paris",
+            "reverse": 27,
+            "lat": 520
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_London",
+            "index": 30,
+            "igp_complete": 104,
+            "dest": "3_Lisbon",
+            "reverse": 7,
+            "lat": 2645
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_London",
+            "index": 31,
+            "igp_complete": 105,
+            "dest": "5_Manchester",
+            "reverse": 10,
+            "lat": 440
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_London",
+            "index": 32,
+            "igp_complete": 105,
+            "dest": "6_New_York",
+            "reverse": 11,
+            "lat": 295
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_London",
+            "index": 33,
+            "igp_complete": 105,
+            "dest": "7_Amsterdam",
+            "reverse": 14,
+            "lat": 599
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_London",
+            "index": 34,
+            "igp_complete": 105,
+            "dest": "10_Frankfurt",
+            "reverse": 22,
+            "lat": 1066
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_London",
+            "index": 35,
+            "igp_complete": 106,
+            "dest": "12_Paris",
+            "reverse": 28,
+            "lat": 577
+        }
+    ]
+}

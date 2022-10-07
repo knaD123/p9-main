@@ -1,0 +1,537 @@
+{
+    "nodes": [
+        "0_None",
+        "1_Dialup_server",
+        "2_Wireless_server",
+        "3_Wireless_router",
+        "4_Geology",
+        "5_Physics",
+        "6_ANAS_users",
+        "7_Distribution_switch",
+        "8_Information_Tech.",
+        "9_Baku_Uni",
+        "10_Shamsa_Obs.",
+        "11_Cybenetics",
+        "12_Khazar_Uni",
+        "13_NOC",
+        "14_Economical_Uni",
+        "15_Local_ISP",
+        "16_Silk_Highway",
+        "17_VSAT_Station",
+        "18_Technical_Uni",
+        "19_RENASCENE",
+        "20_Architecture-Building_Uni",
+        "21_Foreign_Language_Uni."
+    ],
+    "E": 50,
+    "V": 22,
+    "name": "Azrena",
+    "wlbl": [
+        "igp",
+        "bdw",
+        "igp_complete",
+        "lat"
+    ],
+    "edges": [
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_None",
+            "index": 0,
+            "igp_complete": 971,
+            "dest": "1_Dialup_server",
+            "reverse": 5,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_None",
+            "index": 1,
+            "igp_complete": 981,
+            "dest": "2_Wireless_server",
+            "reverse": 9,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_None",
+            "index": 2,
+            "igp_complete": 985,
+            "dest": "3_Wireless_router",
+            "reverse": 13,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_None",
+            "index": 3,
+            "igp_complete": 994,
+            "dest": "13_NOC",
+            "reverse": 33,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "0_None",
+            "index": 4,
+            "igp_complete": 1000,
+            "dest": "7_Distribution_switch",
+            "reverse": 21,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Dialup_server",
+            "index": 5,
+            "igp_complete": 1003,
+            "dest": "0_None",
+            "reverse": 0,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Dialup_server",
+            "index": 6,
+            "igp_complete": 1010,
+            "dest": "6_ANAS_users",
+            "reverse": 18,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Dialup_server",
+            "index": 7,
+            "igp_complete": 1015,
+            "dest": "6_ANAS_users",
+            "reverse": 19,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "1_Dialup_server",
+            "index": 8,
+            "igp_complete": 1022,
+            "dest": "6_ANAS_users",
+            "reverse": 20,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Wireless_server",
+            "index": 9,
+            "igp_complete": 1031,
+            "dest": "0_None",
+            "reverse": 1,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Wireless_server",
+            "index": 10,
+            "igp_complete": 1035,
+            "dest": "18_Technical_Uni",
+            "reverse": 46,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Wireless_server",
+            "index": 11,
+            "igp_complete": 1037,
+            "dest": "19_RENASCENE",
+            "reverse": 47,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "2_Wireless_server",
+            "index": 12,
+            "igp_complete": 1041,
+            "dest": "20_Architecture-Building_Uni",
+            "reverse": 48,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Wireless_router",
+            "index": 13,
+            "igp_complete": 1043,
+            "dest": "0_None",
+            "reverse": 2,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Wireless_router",
+            "index": 14,
+            "igp_complete": 1046,
+            "dest": "12_Khazar_Uni",
+            "reverse": 32,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "3_Wireless_router",
+            "index": 15,
+            "igp_complete": 1058,
+            "dest": "21_Foreign_Language_Uni.",
+            "reverse": 49,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "4_Geology",
+            "index": 16,
+            "igp_complete": 1061,
+            "dest": "7_Distribution_switch",
+            "reverse": 22,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "5_Physics",
+            "index": 17,
+            "igp_complete": 1065,
+            "dest": "7_Distribution_switch",
+            "reverse": 23,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_ANAS_users",
+            "index": 18,
+            "igp_complete": 1067,
+            "dest": "1_Dialup_server",
+            "reverse": 6,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_ANAS_users",
+            "index": 19,
+            "igp_complete": 1074,
+            "dest": "1_Dialup_server",
+            "reverse": 7,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "6_ANAS_users",
+            "index": 20,
+            "igp_complete": 1075,
+            "dest": "1_Dialup_server",
+            "reverse": 8,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Distribution_switch",
+            "index": 21,
+            "igp_complete": 1079,
+            "dest": "0_None",
+            "reverse": 4,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Distribution_switch",
+            "index": 22,
+            "igp_complete": 1083,
+            "dest": "4_Geology",
+            "reverse": 16,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Distribution_switch",
+            "index": 23,
+            "igp_complete": 1085,
+            "dest": "5_Physics",
+            "reverse": 17,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "7_Distribution_switch",
+            "index": 24,
+            "igp_complete": 1089,
+            "dest": "8_Information_Tech.",
+            "reverse": 25,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Information_Tech.",
+            "index": 25,
+            "igp_complete": 1092,
+            "dest": "7_Distribution_switch",
+            "reverse": 24,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Information_Tech.",
+            "index": 26,
+            "igp_complete": 1093,
+            "dest": "9_Baku_Uni",
+            "reverse": 29,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Information_Tech.",
+            "index": 27,
+            "igp_complete": 1099,
+            "dest": "10_Shamsa_Obs.",
+            "reverse": 30,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "8_Information_Tech.",
+            "index": 28,
+            "igp_complete": 1100,
+            "dest": "11_Cybenetics",
+            "reverse": 31,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "9_Baku_Uni",
+            "index": 29,
+            "igp_complete": 1102,
+            "dest": "8_Information_Tech.",
+            "reverse": 26,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "10_Shamsa_Obs.",
+            "index": 30,
+            "igp_complete": 1103,
+            "dest": "8_Information_Tech.",
+            "reverse": 27,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "11_Cybenetics",
+            "index": 31,
+            "igp_complete": 1109,
+            "dest": "8_Information_Tech.",
+            "reverse": 28,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "12_Khazar_Uni",
+            "index": 32,
+            "igp_complete": 1114,
+            "dest": "3_Wireless_router",
+            "reverse": 14,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_NOC",
+            "index": 33,
+            "igp_complete": 1116,
+            "dest": "0_None",
+            "reverse": 3,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_NOC",
+            "index": 34,
+            "igp_complete": 1117,
+            "dest": "17_VSAT_Station",
+            "reverse": 44,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_NOC",
+            "index": 35,
+            "igp_complete": 1119,
+            "dest": "14_Economical_Uni",
+            "reverse": 39,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_NOC",
+            "index": 36,
+            "igp_complete": 1121,
+            "dest": "15_Local_ISP",
+            "reverse": 40,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_NOC",
+            "index": 37,
+            "igp_complete": 1122,
+            "dest": "15_Local_ISP",
+            "reverse": 41,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "13_NOC",
+            "index": 38,
+            "igp_complete": 1126,
+            "dest": "15_Local_ISP",
+            "reverse": 42,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "14_Economical_Uni",
+            "index": 39,
+            "igp_complete": 1128,
+            "dest": "13_NOC",
+            "reverse": 35,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Local_ISP",
+            "index": 40,
+            "igp_complete": 1131,
+            "dest": "13_NOC",
+            "reverse": 36,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Local_ISP",
+            "index": 41,
+            "igp_complete": 1133,
+            "dest": "13_NOC",
+            "reverse": 37,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "15_Local_ISP",
+            "index": 42,
+            "igp_complete": 1134,
+            "dest": "13_NOC",
+            "reverse": 38,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "16_Silk_Highway",
+            "index": 43,
+            "igp_complete": 1136,
+            "dest": "17_VSAT_Station",
+            "reverse": 45,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_VSAT_Station",
+            "index": 44,
+            "igp_complete": 1137,
+            "dest": "13_NOC",
+            "reverse": 34,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "17_VSAT_Station",
+            "index": 45,
+            "igp_complete": 1138,
+            "dest": "16_Silk_Highway",
+            "reverse": 43,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "18_Technical_Uni",
+            "index": 46,
+            "igp_complete": 1142,
+            "dest": "2_Wireless_server",
+            "reverse": 10,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "19_RENASCENE",
+            "index": 47,
+            "igp_complete": 1146,
+            "dest": "2_Wireless_server",
+            "reverse": 11,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "20_Architecture-Building_Uni",
+            "index": 48,
+            "igp_complete": 1147,
+            "dest": "2_Wireless_server",
+            "reverse": 12,
+            "lat": 10
+        },
+        {
+            "igp": 10,
+            "bdw": 1000000,
+            "orig": "21_Foreign_Language_Uni.",
+            "index": 49,
+            "igp_complete": 1148,
+            "dest": "3_Wireless_router",
+            "reverse": 15,
+            "lat": 10
+        }
+    ]
+}
