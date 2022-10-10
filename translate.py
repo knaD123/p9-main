@@ -62,4 +62,3 @@ for topo in os.listdir("zoo"):
 
             with open("demands/" + filename, "a") as file:
                 yaml.dump(finallst, file, default_flow_style=True, Dumper=NoAliasDumper)
-    break
