@@ -1,15 +1,20 @@
 import json
 import os
 import re
+import shutil
 
 import yaml
+
 
 class NoAliasDumper(yaml.SafeDumper):
     def ignore_aliases(self, data):
         return True
 
-if not os.path.exists("demands"):
-    os.mkdir("demands")
+
+if os.path.exists("demands"):
+    shutil.rmtree("demands")
+
+os.mkdir("demands")
 
 for topo in os.listdir("zoo"):
     f = open("zoo/" + topo, "r")
@@ -27,7 +32,7 @@ for topo in os.listdir("zoo"):
     for i in filtered_list_sliced:
         result = re.sub(r'[^_A-Za-z0-9]', '', i)
         result = result.split("_")
-        #result = re.sub(r'[0-9]*[^A-Za-z0-9]', '', result)
+        # result = re.sub(r'[0-9]*[^A-Za-z0-9]', '', result)
         result = result[1:]
         result = '_'.join(result)
         templist.append(result)
@@ -46,9 +51,9 @@ for topo in os.listdir("zoo"):
 
             for line in file:
                 temptriple = []
-                line = re.sub(r'[A-Za-z]*','', line)
+                line = re.sub(r'[A-Za-z]*', '', line)
                 line = re.sub(r'\n', '', line)
-                line = re.split(" ",line)
+                line = re.split(" ", line)
                 line = line[1:]
                 line = [int(i) for i in line]
 
