@@ -2,6 +2,12 @@ import json
 import os
 import re
 
+import yaml
+
+class NoAliasDumper(yaml.SafeDumper):
+    def ignore_aliases(self, data):
+        return True
+
 if not os.path.exists("demands"):
     os.mkdir("demands")
 
@@ -47,10 +53,8 @@ for topo in os.listdir("zoo"):
                 temptriple.append(line[2])
                 finallst.append(temptriple)
 
-            stringlst = str(finallst).replace("'", "")
             demandsplit = demand.split(".")
-            filename = demandsplit[0] + demandsplit[1] + ".yml"
+            filename = demandsplit[0] + "_" + demandsplit[1] + ".yml"
 
-            newfile = open("demands/" + filename, "a")
-            newfile.write(stringlst)
-            newfile.close()
+            with open("demands/" + filename, "a") as file:
+                yaml.dump(finallst, file, default_flow_style=True, Dumper=NoAliasDumper)
