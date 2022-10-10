@@ -26,7 +26,10 @@ for topo in os.listdir("zoo"):
     templist = []
     for i in filtered_list_sliced:
         result = re.sub(r'[^_A-Za-z0-9]', '', i)
-        result = re.sub(r'[0-9_]*[^A-Za-z0-9]', '', result)
+        result = result.split("_")
+        #result = re.sub(r'[0-9]*[^A-Za-z0-9]', '', result)
+        result = result[1:]
+        result = '_'.join(result)
         templist.append(result)
 
     kvplaces = {}
@@ -48,6 +51,7 @@ for topo in os.listdir("zoo"):
                 line = re.split(" ",line)
                 line = line[1:]
                 line = [int(i) for i in line]
+
                 temptriple.append(kvplaces.get(line[0]))
                 temptriple.append(kvplaces.get(line[1]))
                 temptriple.append(line[2])
@@ -58,3 +62,4 @@ for topo in os.listdir("zoo"):
 
             with open("demands/" + filename, "a") as file:
                 yaml.dump(finallst, file, default_flow_style=True, Dumper=NoAliasDumper)
+    break
