@@ -18,6 +18,7 @@ implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 """
 #Load required libraries
 import random
+import shutil
 import time
 import json, yaml
 import math
@@ -109,7 +110,7 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         "vpn": False,
         "random_seed": random_seed,
         "result_folder": os.path.join(conf["result_folder"], conf_name, topofile.split('/')[-1].split('.')[0]),
-        "flows_file": os.path.join(folder, "flows.yml")
+        #"flows": [os.path.join(folder, toponame.split("_")[1] + f"_000{x}.yml") for x in range(0,4)]
     }
     if per_flow_memory is not None:
         base_config['per_flow_memory'] = per_flow_memory
@@ -169,6 +170,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description='Command line utility to generate MPLS simulation specifications.')
 
     p.add_argument("--topology", type=str, help="File with existing topology to be loaded.")
+
     p.add_argument("--conf", type=str, help="where to store created configurations. Must not exists.")
 
     p.add_argument("--K", type=int, default = 4, help="Maximum number of failed links.")
@@ -181,6 +183,8 @@ if __name__ == "__main__":
 
     p.add_argument("--keep_failure_chunks", action="store_true", default=False, help="Do not generate failure chunks if they already exist")
 
+    p.add_argument("--keep_flows", action="store_true", default=False, help="Do not generate flows if they already exist")
+
     p.add_argument("--result_folder", type=str, default='results', help="Folder to store results in")
 
     args = p.parse_args()
@@ -189,7 +193,7 @@ if __name__ == "__main__":
     topofile = conf["topology"]
     configs_dir = conf["conf"]
     K = conf["K"]
-#    L = conf["L"]
+    #L = conf["L"]
     random_seed = conf["random_seed"]
     division = conf["division"]
     threshold = conf["threshold"]
@@ -215,15 +219,14 @@ if __name__ == "__main__":
     G = gen(topofile)
     n = G.number_of_nodes() * G.number_of_nodes()    #tentative number of LSPs
 
+    #Generate flows
+    #flows = []
+    #for src in list(G.nodes):
+    #    tgt = random.choice(list(set(G.nodes) - {src}))
+    #    flows.append((src, tgt))
 
-    # Generate flows
-    flows = []
-    for src in list(G.nodes):
-        tgt = random.choice(list(set(G.nodes) - {src}))
-        flows.append((src, tgt))
-
-    with open(os.path.join(folder, "flows.yml"), "w") as file:
-        yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
+    #with open(os.path.join(folder, "flows.yml"), "w") as file:
+    #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
     def create(conf_type, max_memory = None):
         dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory)
@@ -268,3 +271,12 @@ if __name__ == "__main__":
             i+=1
             with open(pathf, "w") as file:
                 documents = yaml.dump(F_chunk, file, default_flow_style=True, Dumper=NoAliasDumper)
+
+    #move demands
+    if not (args.keep_flows and os.path.exists(os.path.join(folder, "flows"))):
+        flows_folder = os.path.join(folder, "flows")
+        os.makedirs(flows_folder, exist_ok = True)
+
+        for demandfile in os.listdir("demands"):
+            if toponame.split("_")[1] == demandfile.split("_")[0]:
+                shutil.copy("demands/" + demandfile, flows_folder)
