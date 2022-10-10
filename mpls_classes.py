@@ -665,7 +665,7 @@ class Network(object):
 
         return net_dict
 
-    def build_flow_table(self, flows: List[Tuple[str, str]], verbose = False):
+    def build_flow_table(self, flows: List[Tuple[str, str, int]], verbose = False):
         # Build dict of flows for each routable FEC the routers know, in the sense
         # of only initiating packets that could actually be generated from the router.
 
@@ -674,7 +674,7 @@ class Network(object):
 
         labeled_flows = dict()
 
-        for src_router, tgt_router in flows:
+        for src_router, tgt_router, load in flows:
             if src_router not in labeled_flows:
                 labeled_flows[src_router] = dict()
             if verbose:
@@ -759,7 +759,7 @@ class Network(object):
                     continue
 
                 # I have good_sources and good_targets in memory currently...
-                labeled_flows[src_router][in_label] = ([src_router],[tgt_router])
+                labeled_flows[src_router][in_label] = ([src_router],[tgt_router], load)
                 break # Successfully found flow
             else:
                 print(f"ERROR: Could not find flow from {src_router} to {tgt_router}", file=sys.stderr)
@@ -3004,6 +3004,9 @@ class Simulator(object):
 
         self.network = network
         self.traces = dict()
+        # Map from load to list of switches
+        self.trace_routes = dict()
+        self.loads = dict()
         self.trace_mode= trace_mode
         self.random_seed = random_seed
         self.count_connected = 0
@@ -3043,14 +3046,15 @@ class Simulator(object):
             self.traces[router_name] = dict()
 
             for in_label, tup in lbl_items.items():
-                good_sources, good_targets = tup
-
+                good_sources, good_targets, load= tup
                 if verbose:
                     print(f"\n processing router {router_name} with flow {good_sources} to {good_targets}")
 
                 p = MPLS_packet(self.network, init_router = router_name, targets = good_targets, init_stack = [in_label],
                                 verbose = verbose, restricted_topology = self.topology)
                 res = p.fwd()
+                self.trace_routes[(good_sources[0], good_targets[0], load)] = [router.name for router in p.traceroute]
+                 
 
                 last_router_name = p.traceroute[-1].name
 

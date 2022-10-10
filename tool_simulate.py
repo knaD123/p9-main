@@ -57,8 +57,36 @@ def main(conf):
         print("*****************************")
         print(G.graph["name"])
 
+    # Load flows
     with open(conf["flows_file"],"r") as file:
-        flows = yaml.safe_load(file)
+        flows_with_load = yaml.safe_load(file)
+    flows = [flow[:2] for flow in flows_with_load]
+    # Load link capacities
+
+    # Flow to load dictionary
+    # Dict(Src) -> Dict(Tgt) -> Load
+    loads = {}
+    for src, tgt, load in flows_with_load:
+        prev_load = loads.get(src, {}).get(tgt, 0)
+        new_load = prev_load + load
+        new_dict = loads.get(src, {})
+        new_dict[tgt] = new_load
+        loads[src] = new_dict
+        pass
+
+
+    link_cap = dict()
+    with open(conf["topology"]) as f:
+        topo_data = json.load(f)
+
+    link_caps = {}
+    for f in topo_data["network"]["links"]:
+        src = f["from_router"]
+        tgt = f["to_router"]
+        if src != tgt:
+            link_caps[(src,tgt)] = f.get("bandwidth", 0)
+            if f["bidirectional"]:
+                link_caps[(src,tgt)] = f.get("bandwidth", 0)
 
     before_fwd_gen = time.time_ns()
 
@@ -95,7 +123,7 @@ def main(conf):
         queries = []
         for router_name, lbl_items in flows.items():
             for in_label, tup in lbl_items.items():
-                good_sources, good_targets = tup
+                good_sources, good_targets, flow_size = tup
                 q_targets = ",.#".join(good_targets)
                 queries.append(f"<{in_label}> [.#{router_name}] .* [.#{q_targets}] < > 0 OVER\n")
 
@@ -121,12 +149,12 @@ def main(conf):
 
     i = 0
 
-    with open(result_file, 'w') as f:
+    with open(result_file, 'w') as f, open(f"{result_file}2", 'w') as f2:
         for failed_set in failed_set_chunk:
-            simulation(network, failed_set, f, flows)
+            simulation(network, failed_set, f, f2, flows_with_load, link_caps)
 
 
-def simulation(network, failed_set, f, flows: List[Tuple[str, str]]):
+def simulation(network, failed_set, f, f2, flows: List[Tuple[str, str, int]], link_caps):
     print("STARTING SIMULATION")
     print(failed_set)
 
@@ -160,8 +188,24 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str]]):
     from statistics import median_low as median
     hops = str(list(s.num_hops.values())).replace(' ', '')
 
+    # Compute link absolute utilization
+    util_dict_abs = {}
+    for (src, tgt, load), trace in s.trace_routes.items():
+        for u, v, in zip(trace, trace[1:]):
+            util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
+
+    # Compute relative link utilization
+    util_dict_rel = {}
+    for link, cap in link_caps.items():
+        util_abs = util_dict_abs.get(link, 0)
+        util_rel = util_abs / cap
+        util_dict_rel[link] = util_rel
+
     #f.write("attempted: {0}; succeses: {1}; loops: {2}; failed_links: {3}; connectivity: {4}\n".format(total, success, loops, len(F), success/total))
     f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} hops:{hops}\n")
+    for link, util in util_dict_rel.items():
+        f2.write(f"Link: {link} utilization: {util}\n")
+    f2.write("\n")
 
     if len(F) == 0:
         common = open(os.path.join(os.path.dirname(f.name), "common"), "w")
@@ -237,11 +281,11 @@ if __name__ == "__main__":
                    help="Path of the output file, to store forwarding configuration. Defaults to print on screen.")
 
     # Simulator options
+    p.add_argument("--flows_file", type=str, default="", help="File containing the flows with loads ")
     p.add_argument("--failure_chunk_file", type=str, default="", help="Failure set, encoded as json readable list. ")
     p.add_argument("--result_folder", type=str, default="", help="Path to the folder of simulation result files. Defaults to print on screen.")
     p.add_argument("--print_flows", action="store_true", help="Print flows instead of running simulation. Defaults False.")
     p.add_argument("--verbose", action="store_true", help="Remove verbosity")
-    p.add_argument("--flows_file", type=str, default="", help="")
 
     args = p.parse_args()
 
