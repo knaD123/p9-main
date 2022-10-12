@@ -33,6 +33,7 @@ from itertools import chain, count
 import argparse
 import sys, os
 from typing import Union, Set, List, Dict, Tuple
+import statistics
 
 from networkx import has_path
 
@@ -147,14 +148,12 @@ def main(conf):
             chunk_name = conf['failure_chunk_file'].split('/')[-1].split(".")[0]
             result_file = os.path.join(result_folder, chunk_name)
 
-    i = 0
-
-    with open(result_file, 'w') as f, open(f"{result_file}2", 'w') as f2:
+    with open(result_file, 'w') as f:
         for failed_set in failed_set_chunk:
-            simulation(network, failed_set, f, f2, flows_with_load, link_caps)
+            simulation(network, failed_set, f, flows_with_load, link_caps)
 
 
-def simulation(network, failed_set, f, f2, flows: List[Tuple[str, str, int]], link_caps):
+def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_caps):
     print("STARTING SIMULATION")
     print(failed_set)
 
@@ -201,11 +200,15 @@ def simulation(network, failed_set, f, f2, flows: List[Tuple[str, str, int]], li
         util_rel = util_abs / cap
         util_dict_rel[link] = util_rel
 
+    median_cong = median(util_dict_rel.values())
+    max_cong = max(util_dict_rel.values())
     #f.write("attempted: {0}; succeses: {1}; loops: {2}; failed_links: {3}; connectivity: {4}\n".format(total, success, loops, len(F), success/total))
-    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} hops:{hops}\n")
+    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} hops:{hops}\n")
+
+    """f2.write(f"Failure scenario: {F}\n")
     for link, util in util_dict_rel.items():
         f2.write(f"Link: {link} utilization: {util}\n")
-    f2.write("\n")
+    f2.write("\n")"""
 
     if len(F) == 0:
         common = open(os.path.join(os.path.dirname(f.name), "common"), "w")
