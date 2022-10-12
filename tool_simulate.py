@@ -61,10 +61,10 @@ def main(conf):
     # Load flows
     with open(conf["flows_file"],"r") as file:
         flows_with_load = yaml.safe_load(file)
-    flows_with_load = flows_with_load[:int(len(flows_with_load) * conf["take_percent"])]
 
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
+    flows_with_load = flows_with_load[:int(len(flows_with_load) * conf["take_percent"])]
 
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
