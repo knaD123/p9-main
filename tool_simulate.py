@@ -61,6 +61,12 @@ def main(conf):
     # Load flows
     with open(conf["flows_file"],"r") as file:
         flows_with_load = yaml.safe_load(file)
+    flows_with_load = flows_with_load[:int(len(flows_with_load) * conf["take_percent"])]
+
+    #Sort the flows
+    flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
+
+    #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
     # Load link capacities
 
@@ -289,6 +295,7 @@ if __name__ == "__main__":
     p.add_argument("--result_folder", type=str, default="", help="Path to the folder of simulation result files. Defaults to print on screen.")
     p.add_argument("--print_flows", action="store_true", help="Print flows instead of running simulation. Defaults False.")
     p.add_argument("--verbose", action="store_true", help="Remove verbosity")
+    p.add_argument("--take_percent", type=float, default=0.20, help="What percentage of biggest flows to take")
 
     args = p.parse_args()
 
