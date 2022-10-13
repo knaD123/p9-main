@@ -58,9 +58,17 @@ def main(conf):
         print("*****************************")
         print(G.graph["name"])
 
-    # Load flows
-    with open(conf["flows_file"],"r") as file:
-        flows_with_load = yaml.safe_load(file)
+    # Load
+    flows_with_load = []
+    if conf["flows_file"]:
+        with open(conf["flows_file"],"r") as file:
+            flows_with_load += yaml.safe_load(file)
+    elif conf["flows_folder"]:
+        for flow_file in os.listdir(conf["flows_folder"]):
+            flow_file_path = os.path.join(conf["flows_folder"], flow_file)
+            with open(flow_file_path, "r") as file:
+                flows_with_load += yaml.safe_load(file)
+
 
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
@@ -70,16 +78,6 @@ def main(conf):
     flows = [flow[:2] for flow in flows_with_load]
     # Load link capacities
 
-    # Flow to load dictionary
-    # Dict(Src) -> Dict(Tgt) -> Load
-    loads = {}
-    for src, tgt, load in flows_with_load:
-        prev_load = loads.get(src, {}).get(tgt, 0)
-        new_load = prev_load + load
-        new_dict = loads.get(src, {})
-        new_dict[tgt] = new_load
-        loads[src] = new_dict
-        pass
 
 
     link_cap = dict()
@@ -147,12 +145,13 @@ def main(conf):
     os.makedirs(result_folder, exist_ok=True)
     result_file = os.path.join(result_folder, "default")
 
-    failed_set_chunk = [[]]
     if conf['failure_chunk_file']:
         with open(conf['failure_chunk_file'], 'r') as f:
             failed_set_chunk = yaml.safe_load(f)
             chunk_name = conf['failure_chunk_file'].split('/')[-1].split(".")[0]
             result_file = os.path.join(result_folder, chunk_name)
+    else:
+        failed_set_chunk = [[]]
 
     with open(result_file, 'w') as f:
         for failed_set in failed_set_chunk:
@@ -291,6 +290,8 @@ if __name__ == "__main__":
 
     # Simulator options
     p.add_argument("--flows_file", type=str, default="", help="File containing the flows with loads ")
+    p.add_argument("--flows_folder", type=str, default="", help="Directory of flow files ")
+
     p.add_argument("--failure_chunk_file", type=str, default="", help="Failure set, encoded as json readable list. ")
     p.add_argument("--result_folder", type=str, default="", help="Path to the folder of simulation result files. Defaults to print on screen.")
     p.add_argument("--print_flows", action="store_true", help="Print flows instead of running simulation. Defaults False.")
