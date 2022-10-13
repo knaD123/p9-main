@@ -12,4 +12,4 @@ source ${PD}/venv/bin/activate
 
 TOPO="${1}"
 
-python3 create_confs.py --keep_failure_chunks --topology ${TOPO} --conf confs --result_folder results
+python3 create_confs.py --keep_failure_chunks --topology ${TOPO} --conf confs --result_folder results --threshold 0
