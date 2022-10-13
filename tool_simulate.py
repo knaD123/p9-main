@@ -145,13 +145,10 @@ def main(conf):
     os.makedirs(result_folder, exist_ok=True)
     result_file = os.path.join(result_folder, "default")
 
-    if conf['failure_chunk_file']:
-        with open(conf['failure_chunk_file'], 'r') as f:
-            failed_set_chunk = yaml.safe_load(f)
-            chunk_name = conf['failure_chunk_file'].split('/')[-1].split(".")[0]
-            result_file = os.path.join(result_folder, chunk_name)
-    else:
-        failed_set_chunk = [[]]
+    with open(conf['failure_chunk_file'], 'r') as f:
+        failed_set_chunk = yaml.safe_load(f)
+        chunk_name = conf['failure_chunk_file'].split('/')[-1].split(".")[0]
+        result_file = os.path.join(result_folder, chunk_name)
 
     with open(result_file, 'w') as f:
         for failed_set in failed_set_chunk:
