@@ -59,11 +59,11 @@ def main(conf):
         print(G.graph["name"])
 
     # Load
-    flows_with_load = []
     if conf["flows_file"]:
         with open(conf["flows_file"],"r") as file:
-            flows_with_load += yaml.safe_load(file)
+            flows_with_load = yaml.safe_load(file)
     elif conf["flows_folder"]:
+        flows_with_load = []
         for flow_file in os.listdir(conf["flows_folder"]):
             flow_file_path = os.path.join(conf["flows_folder"], flow_file)
             with open(flow_file_path, "r") as file:
@@ -202,10 +202,24 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
         util_rel = util_abs / cap
         util_dict_rel[link] = util_rel
 
+    def fortz_and_thorup(c: float):
+        if c < 1/3:
+            return 1
+        if c < 2/3:
+            return 3
+        if c < 9/10:
+            return 10
+        if c < 11/10:
+            return 500
+        else:
+            return 5000
+
+
     median_cong = median(util_dict_rel.values())
     max_cong = max(util_dict_rel.values())
-    #f.write("attempted: {0}; succeses: {1}; loops: {2}; failed_links: {3}; connectivity: {4}\n".format(total, success, loops, len(F), success/total))
-    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} hops:{hops}\n")
+    fortz_thorup_sum = sum([fortz_and_thorup(val) for val in util_dict_rel.values()])
+
+    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} fortz_thorup_sum:{fortz_thorup_sum} hops:{hops}\n")
 
     """f2.write(f"Failure scenario: {F}\n")
     for link, util in util_dict_rel.items():

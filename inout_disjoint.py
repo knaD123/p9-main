@@ -23,12 +23,82 @@ def label(ingress, egress, path_index: int):
     return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
                 {"ingress": ingress, "egress": [egress], "path_index": path_index})
 
+def create_label_generator(f):
+    return (label(f[0], f[1], i) for i, _ in enumerate(iter(int, 1)))
+
+def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+                                     path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
+    Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
+
+    def compute_memory_usage(_flow_to_paths_dict) -> Dict:
+        memory_usage = {r: 0 for r in network.routers}
+
+        ft = ForwardingTable()
+        for f in flows:
+            ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
+
+        for (router, _), rules in ft.table.items():
+            memory_usage[router] += len(rules)
+
+        return memory_usage
+
+    forwarding_table = ForwardingTable()
+    flow_to_paths_dict = {f: [] for f in flows}
+    weighted_graph = network.topology.copy().to_directed()
+
+    reset_weights(weighted_graph, 0)
+
+    unfinished_flows = flows.copy()
+    flow_to_misses = {f: 0 for f in flows}  # Number of consecutive times path was not added for flow
+    i = 0
+    total_paths_used = 0
+
+    while len(unfinished_flows) > 0:
+        # select the next ingress router to even out memory usage
+        flow = unfinished_flows[i % len(unfinished_flows)]
+        ingress_router, egress_router = flow
+
+        path = nx.dijkstra_path(weighted_graph, ingress_router, egress_router, weight="weight")
+
+        try_paths = {}
+        for f, paths in flow_to_paths_dict.items():
+            try_paths[f] = paths.copy()
+            if f == flow:
+                if path not in try_paths[f]:
+                    try_paths[f].append(path)
+
+        # see if adding this path surpasses the memory limit
+        router_memory_usage = compute_memory_usage(try_paths)
+        max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
+
+        # update weights in the network to change the shortest path
+        update_weights(weighted_graph, path)
+
+        i += 1
+        if not max_memory_reached and path not in flow_to_paths_dict[flow]:
+            flow_to_paths_dict[flow].append(path)
+            flow_to_misses[flow] = 0
+            total_paths_used += 1
+        else:
+            flow_to_misses[flow] += 1
+            if flow_to_misses[flow] > epochs:
+                unfinished_flows.remove(flow)
+                i -= 1  # Undo increment
+
+    global crap_var
+    crap_var = True
+
+    for f in flows:
+        # remove duplicate labels
+        encoded_path = path_encoder(flow_to_paths_dict[f], create_label_generator(f))
+        # encoded_path.to_graphviz(f'ft {f[0]} -> {f[1]}', network.topology)
+        forwarding_table.extend(encoded_path)
+
+    return forwarding_table.table
 
 def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
-    def create_label_generator(f):
-        return (label(f[0], f[1], i) for i, _ in enumerate(iter(int, 1)))
 
     def compute_memory_usage(_flow_to_paths_dict) -> Dict:
         memory_usage = {r: 0 for r in network.routers}
@@ -88,6 +158,8 @@ def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, st
 
     global crap_var
     crap_var = True
+
+    flow_to_paths_dict[("Sydney2", "Sydney1")] = [["Sydney2", "Brisbane2", "Brisbane1", "Sydney1"]]
     for f in flows:
         # remove duplicate labels
         encoded_path = path_encoder(flow_to_paths_dict[f], create_label_generator(f))
