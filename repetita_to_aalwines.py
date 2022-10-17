@@ -1,6 +1,7 @@
 import json
 import argparse
 import os
+import re
 from collections import defaultdict
 
 parser = argparse.ArgumentParser()
@@ -21,7 +22,9 @@ def __main__():
 
 def repetita_to_aalwines(file):
     with open(file, "r") as i:
-        input_dict = json.load(i)
+
+        x = re.sub("\?", "unknown", i.read())
+        input_dict = json.loads(x)
 
         output_dict = dict()
         net_dict = dict()
@@ -84,7 +87,7 @@ def repetita_to_aalwines(file):
         net_dict["routers"] = aal_routers
         output_dict["network"] = net_dict
         json_object = json.dumps(output_dict, indent=2)
-        output_file = os.path.join(args.output_dir, f"{input_dict['name']}.json")
+        output_file = os.path.join(args.output_dir, f"zoo_{input_dict['name']}.json")
         with open(output_file, "w") as o:
             o.write(json_object)
 __main__()
