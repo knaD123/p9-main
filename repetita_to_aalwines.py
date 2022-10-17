@@ -24,7 +24,20 @@ def repetita_to_aalwines(file):
     with open(file, "r") as i:
 
         x = re.sub("\?", "unknown", i.read())
+
         input_dict = json.loads(x)
+
+        for index, value in enumerate(input_dict["nodes"]):
+            new_string = re.sub(",", "", value)
+            input_dict["nodes"][index] = new_string
+
+        for index, value in enumerate(input_dict["edges"]):
+            new_string = re.sub(",", "", value["orig"])
+            input_dict["edges"][index]["orig"] = new_string
+
+            new_string = re.sub(",", "", value["dest"])
+            input_dict["edges"][index]["dest"] = new_string
+
 
         output_dict = dict()
         net_dict = dict()

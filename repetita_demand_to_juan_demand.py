@@ -10,6 +10,18 @@ for f in os.listdir("zoo_demands"):
     with open(f"zoo/{top}.json", "r") as t,open(f"zoo_demands/{f}", "r") as i:
         x = re.sub("\?", "unknown", t.read())
         top = json.loads(x)
+
+        for index, value in enumerate(top["nodes"]):
+            new_string = re.sub(",", "", value)
+            top["nodes"][index] = new_string
+
+        for index, value in enumerate(top["edges"]):
+            new_string = re.sub(",", "", value["orig"])
+            top["edges"][index]["orig"] = new_string
+
+            new_string = re.sub(",", "", value["dest"])
+            top["edges"][index]["dest"] = new_string
+
         lines = i.readlines()
 
     flow_id_to_router_dict = dict()
