@@ -3053,7 +3053,9 @@ class Simulator(object):
                 p = MPLS_packet(self.network, init_router = router_name, targets = good_targets, init_stack = [in_label],
                                 verbose = verbose, restricted_topology = self.topology)
                 res = p.fwd()
-                self.trace_routes[(good_sources[0], good_targets[0], load)] = [router.name for router in p.traceroute]
+
+                # Traces, and whether the destination was reached.
+                self.trace_routes[(good_sources[0], good_targets[0], load)] = ([router.name for router in p.traceroute], res)
                  
 
                 last_router_name = p.traceroute[-1].name
