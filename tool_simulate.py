@@ -72,7 +72,7 @@ def main(conf):
 
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
-    flows_with_load = flows_with_load[:int(len(flows_with_load) * conf["take_percent"])]
+    flows_with_load = flows_with_load[:math.ceil(len(flows_with_load) * conf["take_percent"])]1
 
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
@@ -202,6 +202,8 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
         util_rel = util_abs / cap
         util_dict_rel[link] = util_rel
 
+    # Compute Fortz and Thorup score
+
     def fortz_and_thorup(c: float):
         if c < 1/3:
             return 1
@@ -219,12 +221,11 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
     max_cong = max(util_dict_rel.values())
     fortz_thorup_sum = sum([fortz_and_thorup(val) for val in util_dict_rel.values()])
 
-    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} fortz_thorup_sum:{fortz_thorup_sum} hops:{hops}\n")
+    # Compute path stretch
+    # Path stretch weighted by demand load
 
-    """f2.write(f"Failure scenario: {F}\n")
-    for link, util in util_dict_rel.items():
-        f2.write(f"Link: {link} utilization: {util}\n")
-    f2.write("\n")"""
+
+    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} fortz_thorup_sum:{fortz_thorup_sum} hops:{hops}\n")
 
     if len(F) == 0:
         common = open(os.path.join(os.path.dirname(f.name), "common"), "w")
