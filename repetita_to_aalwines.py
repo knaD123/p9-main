@@ -34,12 +34,15 @@ def repetita_to_aalwines(file):
         i_edges = input_dict["edges"]
         o_edges = []
 
-        router_to_degree_dict = {router : (0, 0) for router in input_dict["nodes"]}
+        router_to_interface_dict = {router : -1 for router in input_dict["nodes"]}
 
         for i_edge in i_edges:
-            prev_degree, curr_index = router_to_degree_dict[i_edge["orig"]]
-            new_degree = prev_degree + 1
-            router_to_degree_dict[i_edge["orig"]] = (new_degree, 0)
+            if i_edge["reverse"] is not None:
+                if i_edge["reverse"] < i_edge["index"]:
+                    continue
+
+            router_to_interface_dict[i_edge["orig"]] += 1
+            router_to_interface_dict[i_edge['dest']] += 1
 
             o_edge = dict()
             o_edge["bandwidth"] = i_edge["bdw"]
@@ -47,27 +50,19 @@ def repetita_to_aalwines(file):
             o_edge["to_router"] = i_edge["dest"]
             o_edge["latency"] = i_edge["lat"]
             o_edge["weight"] = i_edge["igp"]
-            from_interface = f"i{router_to_degree_dict[i_edge['orig']][1]}"
-            to_interface = f"i{router_to_degree_dict[i_edge['dest']][1]}"
+            from_interface = f"i{router_to_interface_dict[i_edge['orig']]}"
+            to_interface = f"i{router_to_interface_dict[i_edge['dest']]}"
 
             o_edge["from_interface"] = from_interface
             o_edge["to_interface"] = to_interface
             is_bi = False
-            for e in o_edges:
-                if o_edge["bandwidth"] == e["bandwidth"] and o_edge["from_router"] == e["to_router"] and o_edge[
-                    "to_router"] == e["from_router"] and o_edge["latency"] == e["latency"]:
-                    e["bidirectional"] = True
-                    is_bi = True
-                    break
-            if is_bi:
-                continue
+            if i_edge["reverse"] is not None:
+                o_edge["bidirectional"] = True
+            else:
+                o_edge["bidirectional"] = False
 
-            degree, prev_index = router_to_degree_dict[i_edge["orig"]]
-            new_index = prev_index + 1
-            router_to_degree_dict[i_edge['orig']] = (degree, new_index)
-            degree, prev_index = router_to_degree_dict[i_edge["dest"]]
-            new_index = prev_index + 1
-            router_to_degree_dict[i_edge['dest']] = (degree, new_index)
+
+
             o_edges.append(o_edge)
 
         net_dict["links"] = o_edges
@@ -79,7 +74,7 @@ def repetita_to_aalwines(file):
         for router in i_routers:
             aal_router = dict()
             aal_router["interfaces"] = [
-                {"names": [f"i{i}" for i in range(router_to_degree_dict[router][0])], "routing_table": {}}]
+                {"names": [f"i{i}" for i in range(router_to_interface_dict[router] + 1)], "routing_table": {}}]
             aal_router["location"] = {"latitude": 0.0, "longitude": 0.0}
             aal_router["name"] = router
             aal_routers.append(aal_router)
