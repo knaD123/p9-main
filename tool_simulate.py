@@ -61,14 +61,13 @@ def main(conf):
     # Load
     if conf["flows_file"]:
         with open(conf["flows_file"],"r") as file:
-            flows_with_load = yaml.load(file, Loader=yaml.BaseLoader)
+            flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
     elif conf["flows_folder"]:
         flows_with_load = []
         for flow_file in os.listdir(conf["flows_folder"]):
             flow_file_path = os.path.join(conf["flows_folder"], flow_file)
             with open(flow_file_path, "r") as file:
-                flows_with_load = yaml.load(file, Loader=yaml.BaseLoader)
-
+                flows_with_load += [[x, y, int(z)] for [x, y, z] in yaml.load(file, Loader=yaml.BaseLoader)]
 
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
