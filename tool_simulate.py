@@ -189,11 +189,25 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
     from statistics import median_low as median
     hops = str(list(s.num_hops.values())).replace(' ', '')
 
-    # Compute link absolute utilization
+    # Compute link absolute utilization and avg path stretch (weighted by demand size)
+    path_stretch = 0
+    normalization_factor = 0
     util_dict_abs = {}
-    for (src, tgt, load), trace in s.trace_routes.items():
-        for u, v, in zip(trace, trace[1:]):
+    for (src, tgt, load), (trace, res) in s.trace_routes.items():
+        trace_fixed = zip(trace, trace[1:])
+        for u, v, in trace_fixed:
+            # utilization
             util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
+
+        # path stretch
+        if res and nx.has_path(view, source=src, target=tgt):
+            shortest_path = nx.shortest_path_length(view, source=src, target=tgt)
+            normalization_factor += load
+            path_stretch += (len(trace) - 1) / shortest_path * load
+            pass
+
+
+    path_stretch = path_stretch / normalization_factor
 
     # Compute relative link utilization
     util_dict_rel = {}
@@ -221,11 +235,7 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
     max_cong = max(util_dict_rel.values())
     fortz_thorup_sum = sum([fortz_and_thorup(val) for val in util_dict_rel.values()])
 
-    # Compute path stretch
-    # Path stretch weighted by demand load
-
-
-    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} fortz_thorup_sum:{fortz_thorup_sum} hops:{hops}\n")
+    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} fortz_thorup_sum:{fortz_thorup_sum} path_stretch: {path_stretch}\n")
 
     if len(F) == 0:
         common = open(os.path.join(os.path.dirname(f.name), "common"), "w")
