@@ -72,7 +72,7 @@ def main(conf):
 
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
-    flows_with_load = flows_with_load[:math.ceil(len(flows_with_load) * conf["take_percent"])]1
+    flows_with_load = flows_with_load[:math.ceil(len(flows_with_load) * conf["take_percent"])]
 
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
