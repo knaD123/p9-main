@@ -7,41 +7,41 @@ def valuation(demand, link):
     return (demand.load + link.usage)/link.capacity
 
 def initializenetwork():
-    ns = nd.Node(1)
-    n1 = nd.Node(2)
-    n2 = nd.Node(3)
-    n3 = nd.Node(4)
-    n4 = nd.Node(5)
-    n5 = nd.Node(6)
-    n6 = nd.Node(7)
-    n7 = nd.Node(8)
-    n8 = nd.Node(9)
-    n9 = nd.Node(10)
-    n10 = nd.Node(11)
-    nt = nd.Node(12)
+    n1 = nd.Node(1)
+    n2 = nd.Node(2)
+    n3 = nd.Node(3)
+    n4 = nd.Node(4)
+    n5 = nd.Node(5)
+    n6 = nd.Node(6)
+    n7 = nd.Node(7)
+    n8 = nd.Node(8)
+    n9 = nd.Node(9)
+    n10 = nd.Node(10)
+    n11 = nd.Node(11)
+    n12 = nd.Node(12)
 
-    ns.newLink(n1, 1000)
-    ns.newLink(n2, 200)
-    n1.newLink(n3, 1000)
-    n1.newLink(n4, 1000)
-    n2.newLink(n4, 500)
-    n4.newLink(n5, 370)
-    n4.newLink(n6, 1120)
-    n2.newLink(n6, 120)
-    n6.newLink(n7, 880)
-    n7.newLink(n8, 560)
-    n8.newLink(nt, 1000)
-    n9.newLink(nt, 420)
-    n10.newLink(nt, 720)
-    n4.newLink(n8, 1000)
-    n6.newLink(n9, 600)
-    n8.newLink(n9, 660)
-    ns.newLink(n10, 1000)
+    n1.newLink(n2, 1000)
+    n1.newLink(n3, 200)
+    n2.newLink(n4, 1000)
+    n2.newLink(n5, 1000)
+    n3.newLink(n5, 500)
+    n5.newLink(n6, 370)
+    n5.newLink(n7, 1120)
+    n3.newLink(n7, 120)
+    n7.newLink(n8, 880)
+    n8.newLink(n9, 560)
+    n9.newLink(n12, 1000)
+    n10.newLink(n12, 420)
+    n11.newLink(n12, 720)
+    n5.newLink(n9, 1000)
+    n7.newLink(n10, 600)
+    n9.newLink(n10, 660)
+    n12.newLink(n11, 1000)
 
     d = []
-    d.append(nd.Demand(ns, nt, 50))
-    d.append(nd.Demand(n6, n2, 42))
-    return ns, d
+    d.append(nd.Demand(n1, n12, 500))
+    d.append(nd.Demand(n7, n3, 420))
+    return n1, d
 
 def pathfind(d):
 
@@ -70,9 +70,9 @@ def pathfind(d):
         removed2 += tempRemoved
         bestpaths.append(bestpath.copy())
         pathy = pathfindrecursion(d.source, d.target, removed2)
-    for pop in bestpaths:
-        for pip in pop:
-            pip.usage += d.load
+
+    for pip in bestpaths[0]:
+        pip.usage += d.load
     return bestpaths
 
 def pathfindrecursion(n, t, f =[], p=[]):
@@ -93,11 +93,12 @@ def pathfindrecursion(n, t, f =[], p=[]):
                 else:
                     paths += pathfindrecursion(link.node1, t, f1, p1)
     return paths
-
-def printtestvalues(test):
+#todo: fix paranthesis values such that they don't affect the first path
+def printtestvalues(test, demand):
     counter = 0
     for t in test:
         highestutilization = 0.0
+        highestutilizationS = 0.0
         counter +=1
         print("route "+ str(counter))
         print()
@@ -105,12 +106,14 @@ def printtestvalues(test):
 
             print("from "+str(p.node1.identity) + " to "+ str(p.node2.identity))
             print("Link capacity of " +str(p.capacity))
-            print("Link usage of "+str(p.usage))
-            print("Link utilization of "+str(p.usage/p.capacity))
+            print("Link usage of "+str(p.usage)+ "("+str(p.usage+demand.load)+")")
+            print("Link utilization of "+str(p.usage/p.capacity)+ "("+str((demand.load+p.usage)/p.capacity)+")")
             if p.usage/p.capacity > highestutilization:
                 highestutilization = p.usage/p.capacity
+            if (p.usage+demand.load)/p.capacity > highestutilizationS:
+                highestutilizationS = (p.usage+demand.load)/p.capacity
             print()
-        print("max utilization of this route is "+str(highestutilization))
+        print("max utilization of this route is "+str(highestutilization)+ "("+str(highestutilizationS)+")")
         print("/cut1")
         print()
 
@@ -122,6 +125,7 @@ if __name__ == '__main__':
     test =pathfind(demands[0])
     test2 =pathfind(demands[1])
 
-    printtestvalues(test)
-    printtestvalues(test2)
+    printtestvalues(test, demands[0])
+    printtestvalues(test2, demands[1])
+    #printtestvalues(test2)
 
