@@ -94,23 +94,34 @@ def pathfindrecursion(n, t, f =[], p=[]):
                     paths += pathfindrecursion(link.node1, t, f1, p1)
     return paths
 
+def printtestvalues(test):
+    counter = 0
+    for t in test:
+        highestutilization = 0.0
+        counter +=1
+        print("route "+ str(counter))
+        print()
+        for p in t:
+
+            print("from "+str(p.node1.identity) + " to "+ str(p.node2.identity))
+            print("Link capacity of " +str(p.capacity))
+            print("Link usage of "+str(p.usage))
+            print("Link utilization of "+str(p.usage/p.capacity))
+            if p.usage/p.capacity > highestutilization:
+                highestutilization = p.usage/p.capacity
+            print()
+        print("max utilization of this route is "+str(highestutilization))
+        print("/cut1")
+        print()
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     network, demands = initializenetwork()
 
     test =pathfind(demands[0])
     test2 =pathfind(demands[1])
-    print(test)
-    for t in test:
-        for p in t:
-            print(p.capacity)
-            #print(p.usage)
-            #print(p.usage/p.capacity)
-        print("/cut1")
-    for t in test2:
-        for p in t:
-            #print(p.capacity)
-            #print(p.usage)
-            print(p.usage / p.capacity)
-        print("/cut2")
+
+    printtestvalues(test)
+    printtestvalues(test2)
 
