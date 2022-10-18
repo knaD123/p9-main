@@ -97,8 +97,8 @@ def generate_failures_all(G, division = None, random_seed = 1):
     return [all_of_em]
 
 
-def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None):
-    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "")
+def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None):
+    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "")
     base_config = {
     #we need extra configuration here!!!!
         "topology": topofile,
@@ -148,10 +148,12 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['method'] = 'inout-disjoint'
         base_config['epochs'] = 3
         base_config['backtrack'] = 'partial'
+        base_config['path_heuristic'] = path_heuristic
     elif conf_type == 'inout-disjoint-full':
         base_config['method'] = 'inout-disjoint'
         base_config['epochs'] = 3
         base_config['backtrack'] = 'full'
+        base_config['path_heuristic'] = path_heuristic
     elif conf_type == 'rmpls':
         base_config['enable_RMPLS'] = True
         base_config['protection'] = None
@@ -228,17 +230,16 @@ if __name__ == "__main__":
     #with open(os.path.join(folder, "flows.yml"), "w") as file:
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
-    def create(conf_type, max_memory = None):
-        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory)
-        if max_memory is not None:
-            conf_name = f"conf_{conf_type}_max-mem={max_memory}.yml"
-        else:
-            conf_name = f"conf_{conf_type}.yml"
+    def create(conf_type, max_memory = None, path_heuristic=None):
+        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic)
+        conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
+            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
         with open(path, "w") as file:
             documents = yaml.dump(dict_conf, file, Dumper=NoAliasDumper)
+            pass
 
     create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
     create('tba-simple')
@@ -251,10 +252,12 @@ if __name__ == "__main__":
     create('plinko4')
 
     per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    heuristics = ["semi_disjoint_paths", "global_weights"]
     for mem in per_flow_memory:
-        create('inout-disjoint', mem)
-        create('inout-disjoint-full', mem)
         create('tba-complex', mem)
+        for h in heuristics:
+            create('inout-disjoint', mem, h)
+            create('inout-disjoint-full', mem, h)
 
     if not (args.keep_failure_chunks and os.path.exists(os.path.join(folder, "failure_chunks"))):
         # Generate failures
