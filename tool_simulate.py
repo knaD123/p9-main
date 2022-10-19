@@ -72,7 +72,7 @@ def main(conf):
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
     flows_with_load = flows_with_load[:math.ceil(len(flows_with_load) * conf["take_percent"])]
-
+    conf["loads"] = flows_with_load
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
     # Load link capacities
@@ -90,7 +90,9 @@ def main(conf):
         if src != tgt:
             link_caps[(src,tgt)] = f.get("bandwidth", 0)
             if f["bidirectional"]:
-                link_caps[(src,tgt)] = f.get("bandwidth", 0)
+                link_caps[(tgt, src)] = f.get("bandwidth", 0)
+
+    conf["link_caps"] = link_caps
 
     before_fwd_gen = time.time_ns()
 

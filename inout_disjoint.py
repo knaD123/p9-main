@@ -6,7 +6,7 @@ from mpls_classes import *
 from functools import *
 from networkx import shortest_path
 import networkx as nx
-
+from collections import defaultdict
 import os
 
 from itertools import islice
@@ -34,12 +34,30 @@ def compute_memory_usage(network, flows, path_encoder, _flow_to_paths_dict) -> D
 
     return memory_usage
 
-def lasses_heuristic(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+def lasses_heuristic(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
-    pass
 
-def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+    # Absolute link utilization under current path set
+    link_to_util = {e: 0 for e in self.link_caps.keys()}
+
+    for src, tgt, load in self.loads:
+        # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
+        imposed_util_abs = dict()
+        for (u, v), util in link_to_util.items():
+            imposed_util_abs[(u, v)] = util + load
+
+        imposed_util_rel= dict()
+        for (u, v), util_abs in imposed_util_abs.items():
+            link_cap = self.link_caps[(u,v)]
+            imposed_util_rel[(u, v)] = util_abs / link_cap
+
+        # We order links by how much relative utilization it has were the flow to go through it
+        ordered_by_util = list(imposed_util_rel.keys())
+        ordered_by_util.sort(key=lambda x: imposed_util_rel[x])
+        print("")
+
+def global_weights_heuristic(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
 
@@ -53,7 +71,6 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
     flow_to_misses = {f: 0 for f in flows}  # Number of consecutive times path was not added for flow
     i = 0
     total_paths_used = 0
-
     while len(unfinished_flows) > 0:
         # select the next ingress router to even out memory usage
         flow = unfinished_flows[i % len(unfinished_flows)]
@@ -97,7 +114,7 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
 def test_heuristic():
     pass
 
-def semi_disjoint_paths(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+def semi_disjoint_paths(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
 
@@ -297,10 +314,13 @@ class InOutDisjoint(MPLS_Client):
 
         path_heuristics = {
             'global_weights': global_weights_heuristic,
-            'semi_disjoint_paths': semi_disjoint_paths
+            'semi_disjoint_paths': semi_disjoint_paths,
+            'lasses_heuristic': lasses_heuristic,
         }
 
         self.path_heuristic = semi_disjoint_paths
+        self.loads = kwargs["loads"]
+        self.link_caps = kwargs["link_caps"]
         if "path_heuristic" in kwargs:
             self.path_heuristic = path_heuristics[kwargs["path_heuristic"]]
 
@@ -332,7 +352,7 @@ class InOutDisjoint(MPLS_Client):
         flows = [(headend, tailend) for tailend in network.routers for headend in
                  map(lambda x: x[0], network.routers[tailend].clients[self.protocol].demands.values())]
 
-        ft = self.path_heuristic(self.router.network, flows, self.epochs,
+        ft = self.path_heuristic(self, self.router.network, flows, self.epochs,
                                               self.per_flow_memory * len(flows), self.backtracking_method)
 
         for (src, fec), entries in ft.items():
