@@ -15,10 +15,6 @@ from ForwardingTable import ForwardingTable
 
 from typing import Dict, Tuple, List, Callable
 
-global crap_var
-crap_var = False
-
-
 def label(ingress, egress, path_index: int):
     return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
                 {"ingress": ingress, "egress": [egress], "path_index": path_index})
@@ -26,21 +22,26 @@ def label(ingress, egress, path_index: int):
 def create_label_generator(f):
     return (label(f[0], f[1], i) for i, _ in enumerate(iter(int, 1)))
 
+def compute_memory_usage(network, flows, path_encoder, _flow_to_paths_dict) -> Dict:
+    memory_usage = {r: 0 for r in network.routers}
+
+    ft = ForwardingTable()
+    for f in flows:
+        ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
+
+    for (router, _), rules in ft.table.items():
+        memory_usage[router] += len(rules)
+
+    return memory_usage
+
+def lasses_heuristic(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+                                     path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
+    Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
+    pass
+
 def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
-
-    def compute_memory_usage(_flow_to_paths_dict) -> Dict:
-        memory_usage = {r: 0 for r in network.routers}
-
-        ft = ForwardingTable()
-        for f in flows:
-            ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
-
-        for (router, _), rules in ft.table.items():
-            memory_usage[router] += len(rules)
-
-        return memory_usage
 
     forwarding_table = ForwardingTable()
     flow_to_paths_dict = {f: [] for f in flows}
@@ -68,7 +69,7 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
                     try_paths[f].append(path)
 
         # see if adding this path surpasses the memory limit
-        router_memory_usage = compute_memory_usage(try_paths)
+        router_memory_usage = compute_memory_usage(network, flows, path_encoder, try_paths)
         max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
 
         # update weights in the network to change the shortest path
@@ -85,9 +86,6 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
                 unfinished_flows.remove(flow)
                 i -= 1  # Undo increment
 
-    global crap_var
-    crap_var = True
-
     for f in flows:
         # remove duplicate labels
         encoded_path = path_encoder(flow_to_paths_dict[f], create_label_generator(f))
@@ -96,21 +94,12 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
 
     return forwarding_table.table
 
-def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+def test_heuristic():
+    pass
+
+def semi_disjoint_paths(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
-
-    def compute_memory_usage(_flow_to_paths_dict) -> Dict:
-        memory_usage = {r: 0 for r in network.routers}
-
-        ft = ForwardingTable()
-        for f in flows:
-            ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
-
-        for (router, _), rules in ft.table.items():
-            memory_usage[router] += len(rules)
-
-        return memory_usage
 
     forwarding_table = ForwardingTable()
     flow_to_paths_dict = {f: [] for f in flows}
@@ -139,7 +128,7 @@ def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, st
                     try_paths[f].append(path)
 
         # see if adding this path surpasses the memory limit
-        router_memory_usage = compute_memory_usage(try_paths)
+        router_memory_usage = compute_memory_usage(network, flows, path_encoder, try_paths)
         max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
 
         # update weights in the network to change the shortest path
@@ -156,10 +145,6 @@ def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, st
                 unfinished_flows.remove(flow)
                 i -= 1  # Undo increment
 
-    global crap_var
-    crap_var = True
-
-    flow_to_paths_dict[("Sydney2", "Sydney1")] = [["Sydney2", "Brisbane2", "Brisbane1", "Sydney1"]]
     for f in flows:
         # remove duplicate labels
         encoded_path = path_encoder(flow_to_paths_dict[f], create_label_generator(f))
@@ -303,10 +288,21 @@ class InOutDisjoint(MPLS_Client):
 
         self.epochs = kwargs['epochs']
         self.per_flow_memory = kwargs['per_flow_memory']
-        self.backtracking_method = {
+
+        back_tracking_methods = {
             'full': encode_paths_full_backtrack,
             'partial': encode_paths_quick_next_path
-        }[kwargs['backtrack']]
+        }
+        self.backtracking_method = back_tracking_methods[kwargs["backtrack"]]
+
+        path_heuristics = {
+            'global_weights': global_weights_heuristic,
+            'semi_disjoint_paths': semi_disjoint_paths
+        }
+
+        self.path_heuristic = semi_disjoint_paths
+        if "path_heuristic" in kwargs:
+            self.path_heuristic = path_heuristics[kwargs["path_heuristic"]]
 
     def LFIB_compute_entry(self, fec: oFEC, single=False):
         for priority, next_hop, swap_fec in self.partial_forwarding_table[(self.router.name, fec)]:
@@ -336,7 +332,7 @@ class InOutDisjoint(MPLS_Client):
         flows = [(headend, tailend) for tailend in network.routers for headend in
                  map(lambda x: x[0], network.routers[tailend].clients[self.protocol].demands.values())]
 
-        ft = generate_pseudo_forwarding_table(self.router.network, flows, self.epochs,
+        ft = self.path_heuristic(self.router.network, flows, self.epochs,
                                               self.per_flow_memory * len(flows), self.backtracking_method)
 
         for (src, fec), entries in ft.items():
@@ -359,3 +355,5 @@ class InOutDisjoint(MPLS_Client):
 
     def self_sourced(self, fec: oFEC):
         return 'inout-disjoint' in fec.fec_type and fec.value["egress"][0] == self.router.name
+
+
