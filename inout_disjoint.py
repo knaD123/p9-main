@@ -72,8 +72,8 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
         router_memory_usage = compute_memory_usage(network, flows, path_encoder, try_paths)
         max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
 
-        # update weights in the network to change the shortest path
-        update_weights(weighted_graph, path)
+        # update weights in the network to change the shortest path'
+        update_weights(weighted_graph, path, lambda x: x)
 
         i += 1
         if not max_memory_reached and path not in flow_to_paths_dict[flow]:
@@ -132,7 +132,7 @@ def semi_disjoint_paths(network: Network, flows: List[Tuple[str, str]], epochs: 
         max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
 
         # update weights in the network to change the shortest path
-        update_weights(flow_to_weight_graph_dict[flow], path)
+        update_weights(flow_to_weight_graph_dict[flow], path, lambda x: x * 2 + 1)
 
         i += 1
         if not max_memory_reached and path not in flow_to_paths_dict[flow]:
@@ -159,14 +159,14 @@ def reset_weights(G: Graph, value):
         d["weight"] = value
 
 
-def update_weights(G: Graph, path):
+def update_weights(G: Graph, path, update_func):
     for v1, v2 in zip(path[:-1], path[1:]):
         # weight = G[v1][v2]["weight"]
 
         # if weight <= 0:
         #     G[v1][v2]["weight"] = 1
         # else:
-        G[v1][v2]["weight"] = G[v1][v2]["weight"] * 2 + 1
+        G[v1][v2]["weight"] = update_func(G[v1][v2]["weight"])
 
 
 def encode_paths_full_backtrack(paths: List[str], label_generator: Iterator[oFEC]):
