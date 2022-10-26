@@ -239,7 +239,6 @@ if __name__ == "__main__":
        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
         with open(path, "w") as file:
             documents = yaml.dump(dict_conf, file, Dumper=NoAliasDumper)
-            pass
 
     create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
     create('tba-simple')
@@ -252,7 +251,7 @@ if __name__ == "__main__":
     create('plinko4')
 
     per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-    heuristics = ["semi_disjoint_paths", "global_weights"]
+    heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path"]
     for mem in per_flow_memory:
         create('tba-complex', mem)
         for h in heuristics:
