@@ -173,14 +173,17 @@ def main(conf):
         simulation(network, failed_set, flows_with_load, link_caps, results)
 
     with open(os.path.join(result_folder, "flows.yml"), "w") as f:
-        f.write("[")
-        for flow in flows_with_load:
-            f.write(f"[{flow[0]}, {flow[1]}, {flow[2]}], ")
-        f.write("]")
-
-    with open(os.path.join(result_folder, "flows.yml"), "w") as f:
         fl = [f"[{', '.join(map(str, flow))}]" for flow in flows_with_load]
         f.write(f"[{', '.join(fl)}]")
+
+    with open(os.path.join(result_folder, "failure_scenarios.yml"), "w") as f:
+        fs_strings = list()
+        for fs in failed_set_chunk:
+            mapped_links = [f"[{l[0]}, {l[1]}]" for l in fs]
+            fs_strings.append("[" + ", ".join(mapped_links) + "]")
+
+        dump = "[" + ", ".join(fs_strings) + "]"
+        f.write(dump)
 
     with open(os.path.join(result_folder, "results.json"), "w") as f:
         json.dump(results, f, indent=4)
@@ -328,6 +331,7 @@ if __name__ == "__main__":
     inout_disjoint_parser = method_parser.add_parser("inout-disjoint")
     inout_disjoint_parser.add_argument('--epochs', default=1000, help="Epochs")
     inout_disjoint_parser.add_argument('--max_memory', default=0, help="Max memory allowed on any router")
+
 
     cfor_parser = method_parser.add_parser("cfor")
     cfor_parser.add_argument('--path', choices=['shortest', 'arborescence', 'disjoint'], default='shortest', help='Method for generating paths between switches on same layer')

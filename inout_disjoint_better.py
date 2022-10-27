@@ -134,28 +134,22 @@ def encode_paths_quick_next_path(paths: List[str], label_generator: Iterator[oFE
     return ft
 
 def semi_disjoint_paths(client):
+
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
         for edge in graph.edges:
             graph[edge[0]][edge[1]]["weight"] = 1
 
-    path_gens = {(src,tgt): nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight") for src, tgt in client.flows}
-    for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
-        if len(path_gens) < 1:
-            break
-        if (src, tgt) in path_gens:
-            try:
-                path = next(path_gens[(src, tgt)])
-                for v1, v2 in zip(path[:-1], path[1:]):
-                    w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
-                    w = w * 2 + 1
-                    flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
-                yield ((src, tgt), path)
+    # We hardcode number of iterations for the time being
+    iterations = 3
 
-            except StopIteration:
-                # No more paths
-                path_gens.pop((src, tgt))
-                continue
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * iterations:
+        path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
+            w = w * 2 + 1
+            flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
+        yield ((src, tgt), path)
 
 def greedy_min_congestion(client):
     G = client.router.network.topology.to_directed()
@@ -163,42 +157,31 @@ def greedy_min_congestion(client):
     # Absolute link utilization under current path set
     link_to_util = {e: 0 for e in client.link_caps.keys()}
 
-    path_gens = {(src,tgt): nx.shortest_simple_paths(G, src, tgt, weight="weight") for src, tgt in client.flows}
     for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
-        if len(path_gens) < 1:
-            break
-        if (src, tgt) in path_gens:
-            # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
-            imposed_util =  dict()
-            for (u, v), util in link_to_util.items():
-                imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
+        # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
+        imposed_util =  dict()
+        for (u, v), util in link_to_util.items():
+            imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
 
-            # We or der links by how much relative utilization it has were the flow to go through it
-            ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
+        # We or der links by how much relative utilization it has were the flow to go through it
+        ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
 
-            # We set the weights. Link weight > sum of link weights for all links with less utilization
-            weight = 0
-            weight_sum = 0
-            prev_util = 0
+        # We set the weights. Link weight > sum of link weights for all links with less utilization
+        weight = 0
+        weight_sum = 0
+        prev_util = 0
 
-            for (u, v), curr_util in ordered_links:
-                if curr_util > prev_util:
-                    weight = weight_sum + 1
-                G[u][v]["weight"] = weight
-                weight_sum += weight
-                prev_util = curr_util
+        for (u, v), curr_util in ordered_links:
+            if curr_util > prev_util:
+                weight = weight_sum + 1
+            G[u][v]["weight"] = weight
+            weight_sum += weight
+            prev_util = curr_util
 
-            try:
-                path = next(path_gens[(src, tgt)])
-                for v1, v2 in zip(path[:-1], path[1:]):
-                    link_to_util[(v1, v2)] += load
-                yield ((src, tgt), path)
-                # Update util use
-
-            except StopIteration:
-                # No more paths
-                path_gens.pop((src, tgt))
-                continue
+        path = nx.shortest_path(G, src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            link_to_util[(v1, v2)] += load
+        yield ((src, tgt), path)
 
 def shortest_paths(client):
     loads = sorted(client.loads, key=lambda x: x[2], reverse=True)
@@ -208,8 +191,7 @@ def shortest_paths(client):
 
     path_gens = {(src,tgt): nx.shortest_simple_paths(G, src, tgt, weight="weight") for src, tgt in client.flows}
 
-
-    for src, tgt, load in cycle(loads):
+    for src, tgt, _ in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
         if len(path_gens) < 1:
             break
         if (src,tgt) in path_gens:
@@ -234,7 +216,6 @@ class InOutDisjoint(MPLS_Client):
 
         self.mem_limit_per_router_per_flow = kwargs['per_flow_memory']
 
-        self.epochs = kwargs['epochs']
         back_tracking_methods = {
             'full': encode_paths_full_backtrack,
             'partial': encode_paths_quick_next_path

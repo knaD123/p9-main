@@ -146,12 +146,10 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['method'] = 'kf'
     elif conf_type == 'inout-disjoint':
         base_config['method'] = 'inout-disjoint'
-        base_config['epochs'] = 3
         base_config['backtrack'] = 'partial'
         base_config['path_heuristic'] = path_heuristic
     elif conf_type == 'inout-disjoint-full':
         base_config['method'] = 'inout-disjoint'
-        base_config['epochs'] = 3
         base_config['backtrack'] = 'full'
         base_config['path_heuristic'] = path_heuristic
     elif conf_type == 'rmpls':
