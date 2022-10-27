@@ -133,6 +133,30 @@ def encode_paths_quick_next_path(paths: List[str], label_generator: Iterator[oFE
 
     return ft
 
+def semi_disjoint_paths(client):
+    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    for graph in flow_to_graph.values():
+        for edge in graph.edges:
+            graph[edge[0]][edge[1]]["weight"] = 1
+
+    path_gens = {(src,tgt): nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight") for src, tgt in client.flows}
+    for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
+        if len(path_gens) < 1:
+            break
+        if (src, tgt) in path_gens:
+            try:
+                path = next(path_gens[(src, tgt)])
+                for v1, v2 in zip(path[:-1], path[1:]):
+                    w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
+                    w = w * 2 + 1
+                    flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
+                yield ((src, tgt), path)
+
+            except StopIteration:
+                # No more paths
+                path_gens.pop((src, tgt))
+                continue
+
 def greedy_min_congestion(client):
     G = client.router.network.topology.to_directed()
 
@@ -149,7 +173,7 @@ def greedy_min_congestion(client):
             for (u, v), util in link_to_util.items():
                 imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
 
-            # We order links by how much relative utilization it has were the flow to go through it
+            # We or der links by how much relative utilization it has were the flow to go through it
             ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
 
             # We set the weights. Link weight > sum of link weights for all links with less utilization
@@ -219,7 +243,8 @@ class InOutDisjoint(MPLS_Client):
 
         path_heuristics = {
             'shortest_path': shortest_paths,
-            'greedy_min_congestion': greedy_min_congestion
+            'greedy_min_congestion': greedy_min_congestion,
+            'semi_disjoint_paths': semi_disjoint_paths,
         }
 
         "self.path_heuristic = semi_disjoint_paths"
@@ -250,7 +275,6 @@ class InOutDisjoint(MPLS_Client):
             try:
                 # Generate next path
                 flow, path = next(path_heuristic)
-                print(path)
                 yields += 1
             except:
                 # No more paths can be generated

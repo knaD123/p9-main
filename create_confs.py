@@ -189,6 +189,13 @@ if __name__ == "__main__":
 
     p.add_argument("--result_folder", type=str, default='results', help="Folder to store results in")
 
+    p.add_argument("--algorithm", required=True, choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor", "rsvp-fn", "all"])
+
+    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths"])
+
+    p.add_argument("--max_memory", type=int, default=3)
+
+
     args = p.parse_args()
     conf = vars(args)
 
@@ -240,23 +247,31 @@ if __name__ == "__main__":
         with open(path, "w") as file:
             documents = yaml.dump(dict_conf, file, Dumper=NoAliasDumper)
 
-    create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
-    create('tba-simple')
-#    create('hd')
-#    create('cfor-short')
-#    create('cfor-arb')
-    create('gft')
-    create('kf')
-    create('rmpls')
-    create('plinko4')
+    algorithm = conf["algorithm"]
+    if algorithm == "all":
+        create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
+        create('tba-simple')
+        #    create('hd')
+        #    create('cfor-short')
+        #    create('cfor-arb')
+        create('gft')
+        create('kf')
+        create('rmpls')
+        create('plinko4')
 
-    per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-    heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path"]
-    for mem in per_flow_memory:
-        create('tba-complex', mem)
-        for h in heuristics:
-            create('inout-disjoint', mem, h)
-            create('inout-disjoint-full', mem, h)
+        per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path"]
+        for mem in per_flow_memory:
+            create('tba-complex', mem)
+            for h in heuristics:
+                create('inout-disjoint', mem, h)
+                create('inout-disjoint-full', mem, h)
+    elif algorithm in ['inout-disjoint', 'inout-disjoint-full']:
+        create(algorithm, conf["max_memory"], conf["path_heuristic"])
+    elif algorithm == "tba-complex":
+        create(algorithm, conf["max_memory"])
+    else:
+        create(algorithm)
 
     if not (args.keep_failure_chunks and os.path.exists(os.path.join(folder, "failure_chunks"))):
         # Generate failures
