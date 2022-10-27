@@ -1,1 +1,113 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"SRI","latency":678,"to_interface":"i0","to_router":"USCB","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"SRI","latency":869,"to_interface":"i0","to_router":"UCLA","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"SRI","latency":1604,"to_interface":"i0","to_router":"UTAH","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"USCB","latency":237,"to_interface":"i1","to_router":"UCLA","weight":10}],"name":"Arpanet196912","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.45383,"longitude":-122.18219},"name":"SRI"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":34.42083,"longitude":-119.69819},"name":"USCB"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"UCLA"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":40.76078,"longitude":-111.89105},"name":"UTAH"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_SRI",
+        "to_router": "1_USCB",
+        "latency": 678,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_SRI",
+        "to_router": "2_UCLA",
+        "latency": 869,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_SRI",
+        "to_router": "3_UTAH",
+        "latency": 1604,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_USCB",
+        "to_router": "2_UCLA",
+        "latency": 237,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Arpanet196912",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_SRI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_USCB"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_UCLA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_UTAH"
+      }
+    ]
+  }
+}

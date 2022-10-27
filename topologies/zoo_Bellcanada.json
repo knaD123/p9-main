@@ -1,1 +1,1461 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Cold_Lake","latency":397,"to_interface":"i0","to_router":"Edmonton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Grande_Prairie","latency":653,"to_interface":"i1","to_router":"Edmonton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Grande_Prairie","latency":192,"to_interface":"i0","to_router":"Dawson_Creek","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Edmonton","latency":634,"to_interface":"i0","to_router":"Fort_McMurray","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Edmonton","latency":948,"to_interface":"i0","to_router":"Kamloops","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Edmonton","latency":245,"to_interface":"i0","to_router":"Red_Deer","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Edmonton","latency":813,"to_interface":"i0","to_router":"Saskatoon","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Kamloops","latency":429,"to_interface":"i0","to_router":"Vancouver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Kamloops","latency":6160,"to_interface":"i0","to_router":"Vernon","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Kamloops","latency":666,"to_interface":"i0","to_router":"Prince_George","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Vernon","latency":6066,"to_interface":"i0","to_router":"Kelowna","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Dawson_Creek","latency":440,"to_interface":"i1","to_router":"Prince_George","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Kelowna","latency":80,"to_interface":"i0","to_router":"Penticton?","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Kelowna","latency":677,"to_interface":"i0","to_router":"Calgary","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Kelowna","latency":456,"to_interface":"i1","to_router":"Vancouver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Sept_-Iles","latency":284,"to_interface":"i0","to_router":"Baie-Comeau","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Charlottetown","latency":167,"to_interface":"i0","to_router":"Onslow","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Charlottetown","latency":220,"to_interface":"i0","to_router":"Moncton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"New_York","latency":552,"to_interface":"i0","to_router":"Washington","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"New_York","latency":788,"to_interface":"i0","to_router":"Buffalo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"New_York","latency":894,"to_interface":"i0","to_router":"Montreal","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Ottawa","latency":588,"to_interface":"i0","to_router":"Toronto","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Ottawa","latency":279,"to_interface":"i1","to_router":"Montreal","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Montreal","latency":393,"to_interface":"i0","to_router":"Quebec_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Montreal","latency":225,"to_interface":"i0","to_router":"Sherbrooke","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sherbrooke","latency":280,"to_interface":"i1","to_router":"Quebec_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Sherbrooke","latency":280,"to_interface":"i2","to_router":"Quebec_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Quebec_City","latency":304,"to_interface":"i0","to_router":"Chicoutimi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Quebec_City","latency":607,"to_interface":"i0","to_router":"Fredericton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Quebec_City","latency":832,"to_interface":"i1","to_router":"Moncton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Chicoutimi","latency":317,"to_interface":"i0","to_router":"Rimouski","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Rimouski","latency":154,"to_interface":"i1","to_router":"Baie-Comeau","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Saint_John","latency":231,"to_interface":"i2","to_router":"Moncton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Saint_John","latency":351,"to_interface":"i0","to_router":"Halifax","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Saint_John","latency":151,"to_interface":"i1","to_router":"Fredericton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Moncton","latency":245,"to_interface":"i1","to_router":"Onslow","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Halifax","latency":1499,"to_interface":"i0","to_router":"St_John's","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Halifax","latency":143,"to_interface":"i2","to_router":"Onslow","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"St_John's","latency":1412,"to_interface":"i3","to_router":"Onslow","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Lethbridge","latency":296,"to_interface":"i1","to_router":"Calgary","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Calgary","latency":1126,"to_interface":"i2","to_router":"Vancouver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Calgary","latency":447,"to_interface":"i0","to_router":"Medicine_Hat","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Calgary","latency":232,"to_interface":"i1","to_router":"Red_Deer","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Buffalo","latency":172,"to_interface":"i1","to_router":"Toronto","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Toronto","latency":1174,"to_interface":"i0","to_router":"Chicago","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Toronto","latency":561,"to_interface":"i0","to_router":"Sudbury","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Victoria","latency":309,"to_interface":"i0","to_router":"Courtenay","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Victoria","latency":159,"to_interface":"i3","to_router":"Vancouver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Victoria","latency":204,"to_interface":"i0","to_router":"Seattle","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Seattle","latency":324,"to_interface":"i4","to_router":"Vancouver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Seattle","latency":2578,"to_interface":"i0","to_router":"Los_Angeles","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Seattle","latency":1887,"to_interface":"i0","to_router":"Palo_Alto","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Seattle","latency":1825,"to_interface":"i0","to_router":"San_Francisco","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Chicago","latency":2155,"to_interface":"i0","to_router":"Dallas","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Chicago","latency":1928,"to_interface":"i0","to_router":"Winnipeg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Los_Angeles","latency":6153,"to_interface":"i1","to_router":"Washington","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Los_Angeles","latency":863,"to_interface":"i1","to_router":"Palo_Alto","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Palo_Alto","latency":78,"to_interface":"i1","to_router":"San_Francisco","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Medicine_Hat","latency":725,"to_interface":"i0","to_router":"Regina","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Washington","latency":1457,"to_interface":"i0","to_router":"Atlanta","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Atlanta","latency":1935,"to_interface":"i1","to_router":"Dallas","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sudbury","latency":1105,"to_interface":"i0","to_router":"Thunder_Bay","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Thunder_Bay","latency":992,"to_interface":"i1","to_router":"Winnipeg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Winnipeg","latency":1184,"to_interface":"i1","to_router":"Saskatoon","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Winnipeg","latency":896,"to_interface":"i1","to_router":"Regina","weight":10}],"name":"Bellcanada","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":54.45018,"longitude":-110.2017},"name":"Cold_Lake"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":55.16667,"longitude":-118.80271},"name":"Grande_Prairie"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":53.55014,"longitude":-113.46871},"name":"Edmonton"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":56.7335,"longitude":-111.38519},"name":"Fort_McMurray"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":50.66648,"longitude":-120.3192},"name":"Kamloops"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.9126,"longitude":-73.83708},"name":"Vernon"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":55.7666,"longitude":-120.23616},"name":"Dawson_Creek"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.9166,"longitude":-122.75301},"name":"Prince_George"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":49.88307,"longitude":-119.48568},"name":"Kelowna"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":49.48062,"longitude":-119.58584},"name":"Penticton?"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":50.20011,"longitude":-66.38208},"name":"Sept_-Iles"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.23525,"longitude":-63.12671},"name":"Charlottetown"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":40.71427,"longitude":-74.00597},"name":"New_York"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.41117,"longitude":-75.69812},"name":"Ottawa"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":45.50884,"longitude":-73.58781},"name":"Montreal"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":45.40008,"longitude":-71.89908},"name":"Sherbrooke"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":46.81228,"longitude":-71.21454},"name":"Quebec_City"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":48.42749,"longitude":-71.06352},"name":"Chicoutimi"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":48.44879,"longitude":-68.52396},"name":"Rimouski"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":49.21679,"longitude":-68.14894},"name":"Baie-Comeau"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":45.27271,"longitude":-66.06766},"name":"Saint_John"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":46.11594,"longitude":-64.80186},"name":"Moncton"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":44.646,"longitude":-63.57333},"name":"Halifax"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.94541,"longitude":-66.66558},"name":"Fredericton"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.56494,"longitude":-52.70931},"name":"St_John's"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":45.36685,"longitude":-63.28198},"name":"Onslow"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":49.69999,"longitude":-112.81856},"name":"Lethbridge"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":51.05011,"longitude":-114.08529},"name":"Calgary"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.88645,"longitude":-78.87837},"name":"Buffalo"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":43.70011,"longitude":-79.4163},"name":"Toronto"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":48.43294,"longitude":-123.3693},"name":"Victoria"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":47.60621,"longitude":-122.33207},"name":"Seattle"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":49.68657,"longitude":-124.9936},"name":"Courtenay"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":49.24966,"longitude":-123.11934},"name":"Vancouver"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.85003,"longitude":-87.65005},"name":"Chicago"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"Los_Angeles"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.44188,"longitude":-122.14302},"name":"Palo_Alto"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":37.77493,"longitude":-122.41942},"name":"San_Francisco"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.05006,"longitude":-110.66834},"name":"Medicine_Hat"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":52.26682,"longitude":-113.802},"name":"Red_Deer"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":38.89511,"longitude":-77.03637},"name":"Washington"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":33.749,"longitude":-84.38798},"name":"Atlanta"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":32.78306,"longitude":-96.80667},"name":"Dallas"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.49,"longitude":-80.99001},"name":"Sudbury"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":48.4001,"longitude":-89.31683},"name":"Thunder_Bay"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":49.8844,"longitude":-97.14704},"name":"Winnipeg"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":52.11679,"longitude":-106.63452},"name":"Saskatoon"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.45008,"longitude":-104.6178},"name":"Regina"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Cold_Lake",
+        "to_router": "2_Edmonton",
+        "latency": 397,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Grande_Prairie",
+        "to_router": "2_Edmonton",
+        "latency": 653,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Grande_Prairie",
+        "to_router": "6_Dawson_Creek",
+        "latency": 192,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Edmonton",
+        "to_router": "3_Fort_McMurray",
+        "latency": 634,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Edmonton",
+        "to_router": "4_Kamloops",
+        "latency": 948,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Edmonton",
+        "to_router": "39_Red_Deer",
+        "latency": 245,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Edmonton",
+        "to_router": "46_Saskatoon",
+        "latency": 813,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Kamloops",
+        "to_router": "33_Vancouver",
+        "latency": 429,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Kamloops",
+        "to_router": "5_Vernon",
+        "latency": 6160,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Kamloops",
+        "to_router": "7_Prince_George",
+        "latency": 666,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Vernon",
+        "to_router": "8_Kelowna",
+        "latency": 6066,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Dawson_Creek",
+        "to_router": "7_Prince_George",
+        "latency": 440,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Kelowna",
+        "to_router": "9_Pentictonunknown",
+        "latency": 80,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Kelowna",
+        "to_router": "27_Calgary",
+        "latency": 677,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Kelowna",
+        "to_router": "33_Vancouver",
+        "latency": 456,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Sept_-Iles",
+        "to_router": "19_Baie-Comeau",
+        "latency": 284,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Charlottetown",
+        "to_router": "25_Onslow",
+        "latency": 167,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Charlottetown",
+        "to_router": "21_Moncton",
+        "latency": 220,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_New_York",
+        "to_router": "40_Washington",
+        "latency": 552,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_New_York",
+        "to_router": "28_Buffalo",
+        "latency": 788,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_New_York",
+        "to_router": "14_Montreal",
+        "latency": 894,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Ottawa",
+        "to_router": "29_Toronto",
+        "latency": 588,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Ottawa",
+        "to_router": "14_Montreal",
+        "latency": 279,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Montreal",
+        "to_router": "16_Quebec_City",
+        "latency": 393,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Montreal",
+        "to_router": "15_Sherbrooke",
+        "latency": 225,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Sherbrooke",
+        "to_router": "16_Quebec_City",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Sherbrooke",
+        "to_router": "16_Quebec_City",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Quebec_City",
+        "to_router": "17_Chicoutimi",
+        "latency": 304,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Quebec_City",
+        "to_router": "23_Fredericton",
+        "latency": 607,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Quebec_City",
+        "to_router": "21_Moncton",
+        "latency": 832,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Chicoutimi",
+        "to_router": "18_Rimouski",
+        "latency": 317,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Rimouski",
+        "to_router": "19_Baie-Comeau",
+        "latency": 154,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Saint_John",
+        "to_router": "21_Moncton",
+        "latency": 231,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Saint_John",
+        "to_router": "22_Halifax",
+        "latency": 351,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Saint_John",
+        "to_router": "23_Fredericton",
+        "latency": 151,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Moncton",
+        "to_router": "25_Onslow",
+        "latency": 245,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Halifax",
+        "to_router": "24_St_John's",
+        "latency": 1499,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Halifax",
+        "to_router": "25_Onslow",
+        "latency": 143,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "24_St_John's",
+        "to_router": "25_Onslow",
+        "latency": 1412,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "26_Lethbridge",
+        "to_router": "27_Calgary",
+        "latency": 296,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "27_Calgary",
+        "to_router": "33_Vancouver",
+        "latency": 1126,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "27_Calgary",
+        "to_router": "38_Medicine_Hat",
+        "latency": 447,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "27_Calgary",
+        "to_router": "39_Red_Deer",
+        "latency": 232,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "28_Buffalo",
+        "to_router": "29_Toronto",
+        "latency": 172,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "29_Toronto",
+        "to_router": "34_Chicago",
+        "latency": 1174,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "29_Toronto",
+        "to_router": "43_Sudbury",
+        "latency": 561,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "30_Victoria",
+        "to_router": "32_Courtenay",
+        "latency": 309,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "30_Victoria",
+        "to_router": "33_Vancouver",
+        "latency": 159,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "30_Victoria",
+        "to_router": "31_Seattle",
+        "latency": 204,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "31_Seattle",
+        "to_router": "33_Vancouver",
+        "latency": 324,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "31_Seattle",
+        "to_router": "35_Los_Angeles",
+        "latency": 2578,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "31_Seattle",
+        "to_router": "36_Palo_Alto",
+        "latency": 1887,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "31_Seattle",
+        "to_router": "37_San_Francisco",
+        "latency": 1825,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "34_Chicago",
+        "to_router": "42_Dallas",
+        "latency": 2155,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "34_Chicago",
+        "to_router": "45_Winnipeg",
+        "latency": 1928,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "35_Los_Angeles",
+        "to_router": "40_Washington",
+        "latency": 6153,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "35_Los_Angeles",
+        "to_router": "36_Palo_Alto",
+        "latency": 863,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "36_Palo_Alto",
+        "to_router": "37_San_Francisco",
+        "latency": 78,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "38_Medicine_Hat",
+        "to_router": "47_Regina",
+        "latency": 725,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "40_Washington",
+        "to_router": "41_Atlanta",
+        "latency": 1457,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "41_Atlanta",
+        "to_router": "42_Dallas",
+        "latency": 1935,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "43_Sudbury",
+        "to_router": "44_Thunder_Bay",
+        "latency": 1105,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "44_Thunder_Bay",
+        "to_router": "45_Winnipeg",
+        "latency": 992,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "45_Winnipeg",
+        "to_router": "46_Saskatoon",
+        "latency": 1184,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "45_Winnipeg",
+        "to_router": "47_Regina",
+        "latency": 896,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Bellcanada",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Cold_Lake"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Grande_Prairie"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Edmonton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Fort_McMurray"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Kamloops"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Vernon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Dawson_Creek"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Prince_George"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Kelowna"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Pentictonunknown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Sept_-Iles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Charlottetown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_New_York"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Ottawa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Montreal"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Sherbrooke"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Quebec_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Chicoutimi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Rimouski"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Baie-Comeau"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Saint_John"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Moncton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Halifax"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Fredericton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_St_John's"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_Onslow"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_Lethbridge"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "27_Calgary"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "28_Buffalo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "29_Toronto"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "30_Victoria"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "31_Seattle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "32_Courtenay"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "33_Vancouver"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "34_Chicago"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "35_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "36_Palo_Alto"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "37_San_Francisco"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "38_Medicine_Hat"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "39_Red_Deer"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "40_Washington"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "41_Atlanta"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "42_Dallas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "43_Sudbury"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "44_Thunder_Bay"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "45_Winnipeg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "46_Saskatoon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "47_Regina"
+      }
+    ]
+  }
+}

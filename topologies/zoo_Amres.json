@@ -1,1 +1,647 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Bor","latency":146,"to_interface":"i0","to_router":"Nis","weight":10},{"bandwidth":50000,"bidirectional":true,"from_interface":"i0","from_router":"Kosovska_Mitrovica","latency":94,"to_interface":"i0","to_router":"Beograd","weight":200},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Novi_Pazar","latency":36,"to_interface":"i0","to_router":"Raska","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Krustevac","latency":94,"to_interface":"i1","to_router":"Nis","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Krustevac","latency":95,"to_interface":"i0","to_router":"Kraljevo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Vranje","latency":87,"to_interface":"i0","to_router":"Leskovac","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Nis","latency":102,"to_interface":"i0","to_router":"Pirot","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Nis","latency":65,"to_interface":"i1","to_router":"Leskovac","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Kragujevac","latency":66,"to_interface":"i0","to_router":"Velika_Plana","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Kragujevac","latency":66,"to_interface":"i1","to_router":"Kraljevo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Novi_Sad","latency":163,"to_interface":"i0","to_router":"Subotica","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Novi_Sad","latency":139,"to_interface":"i0","to_router":"Sombor","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Novi_Sad","latency":80,"to_interface":"i0","to_router":"Zrenjanin","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Novi_Sad","latency":121,"to_interface":"i1","to_router":"Beograd","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Bosnia_and_Herzegovina","latency":94,"to_interface":"i0","to_router":"Sabac","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"HUNGARNET","latency":94,"to_interface":"i1","to_router":"Subotica","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Beograd","latency":31,"to_interface":"i0","to_router":"Pancevo","weight":10},{"bandwidth":50000,"bidirectional":true,"from_interface":"i3","from_router":"Beograd","latency":94,"to_interface":"i0","to_router":"Telekom_Serbia","weight":200},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Beograd","latency":107,"to_interface":"i1","to_router":"Sabac","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Beograd","latency":128,"to_interface":"i0","to_router":"Valjevo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Beograd","latency":120,"to_interface":"i1","to_router":"Velika_Plana","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Kraljevo","latency":86,"to_interface":"i1","to_router":"Raska","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Valjevo","latency":82,"to_interface":"i0","to_router":"Uzice","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Uzice","latency":72,"to_interface":"i0","to_router":"Cacak","weight":10}],"name":"Amres","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.07833,"longitude":22.09528},"name":"Bor"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Kosovska_Mitrovica"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.13667,"longitude":20.51222},"name":"Novi_Pazar"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.58,"longitude":21.33389},"name":"Krustevac"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":42.55139,"longitude":21.90028},"name":"Vranje"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":43.32472,"longitude":21.90333},"name":"Nis"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.15306,"longitude":22.58611},"name":"Pirot"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.99806,"longitude":21.94611},"name":"Leskovac"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.01667,"longitude":20.91667},"name":"Kragujevac"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":45.25167,"longitude":19.83694},"name":"Novi_Sad"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Bosnia_and_Herzegovina"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"HUNGARNET"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6"],"routing_table":{}}],"location":{"latitude":44.80401,"longitude":20.46513},"name":"Beograd"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.87083,"longitude":20.64028},"name":"Pancevo"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Telekom_Serbia"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":43.72583,"longitude":20.68944},"name":"Kraljevo"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.28722,"longitude":20.61528},"name":"Raska"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.1,"longitude":19.66667},"name":"Subotica"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.77417,"longitude":19.11222},"name":"Sombor"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.38361,"longitude":20.38194},"name":"Zrenjanin"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.74667,"longitude":19.69},"name":"Sabac"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.27513,"longitude":19.89821},"name":"Valjevo"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.85861,"longitude":19.84878},"name":"Uzice"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.89139,"longitude":20.34972},"name":"Cacak"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.33778,"longitude":21.04556},"name":"Velika_Plana"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Bor",
+        "to_router": "5_Nis",
+        "latency": 146,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 50000,
+        "from_router": "1_Kosovska_Mitrovica",
+        "to_router": "12_Beograd",
+        "latency": 94,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Novi_Pazar",
+        "to_router": "16_Raska",
+        "latency": 36,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Krustevac",
+        "to_router": "5_Nis",
+        "latency": 94,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Krustevac",
+        "to_router": "15_Kraljevo",
+        "latency": 95,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Vranje",
+        "to_router": "7_Leskovac",
+        "latency": 87,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Nis",
+        "to_router": "6_Pirot",
+        "latency": 102,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Nis",
+        "to_router": "7_Leskovac",
+        "latency": 65,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Kragujevac",
+        "to_router": "24_Velika_Plana",
+        "latency": 66,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Kragujevac",
+        "to_router": "15_Kraljevo",
+        "latency": 66,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Novi_Sad",
+        "to_router": "17_Subotica",
+        "latency": 163,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Novi_Sad",
+        "to_router": "18_Sombor",
+        "latency": 139,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Novi_Sad",
+        "to_router": "19_Zrenjanin",
+        "latency": 80,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Novi_Sad",
+        "to_router": "12_Beograd",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Bosnia_and_Herzegovina",
+        "to_router": "20_Sabac",
+        "latency": 94,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_HUNGARNET",
+        "to_router": "17_Subotica",
+        "latency": 94,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Beograd",
+        "to_router": "13_Pancevo",
+        "latency": 31,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 50000,
+        "from_router": "12_Beograd",
+        "to_router": "14_Telekom_Serbia",
+        "latency": 94,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Beograd",
+        "to_router": "20_Sabac",
+        "latency": 107,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Beograd",
+        "to_router": "21_Valjevo",
+        "latency": 128,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Beograd",
+        "to_router": "24_Velika_Plana",
+        "latency": 120,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Kraljevo",
+        "to_router": "16_Raska",
+        "latency": 86,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Valjevo",
+        "to_router": "22_Uzice",
+        "latency": 82,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Uzice",
+        "to_router": "23_Cacak",
+        "latency": 72,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Amres",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Bor"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Kosovska_Mitrovica"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Novi_Pazar"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Krustevac"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Vranje"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Nis"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Pirot"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Leskovac"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Kragujevac"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Novi_Sad"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Bosnia_and_Herzegovina"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_HUNGARNET"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Beograd"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Pancevo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Telekom_Serbia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Kraljevo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Raska"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Subotica"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Sombor"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Zrenjanin"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Sabac"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Valjevo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Uzice"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Cacak"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_Velika_Plana"
+      }
+    ]
+  }
+}

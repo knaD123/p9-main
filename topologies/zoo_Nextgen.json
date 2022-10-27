@@ -1,1 +1,487 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Dubbo","latency":556,"to_interface":"i0","to_router":"Moree","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Dubbo","latency":181,"to_interface":"i0","to_router":"Parkes","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Moree","latency":641,"to_interface":"i0","to_router":"Brisbane","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None","latency":817,"to_interface":"i0","to_router":"Shepparton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"None","latency":817,"to_interface":"i1","to_router":"Parkes","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"None","latency":817,"to_interface":"i0","to_router":"Canberra","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Albury","latency":436,"to_interface":"i0","to_router":"Melbourne","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Albury","latency":369,"to_interface":"i1","to_router":"Canberra","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Newcastle","latency":200,"to_interface":"i0","to_router":"Sydney","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Newcastle","latency":536,"to_interface":"i0","to_router":"Coff's_Harbour","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Coff's_Harbour","latency":529,"to_interface":"i1","to_router":"Brisbane","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Geelong","latency":1048,"to_interface":"i0","to_router":"Adelaide","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Geelong","latency":1048,"to_interface":"i1","to_router":"Adelaide","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Geelong","latency":112,"to_interface":"i1","to_router":"Melbourne","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Shepparton","latency":277,"to_interface":"i2","to_router":"Melbourne","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Perth","latency":3559,"to_interface":"i2","to_router":"Adelaide","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Perth","latency":922,"to_interface":"i0","to_router":"Kalgoorlie","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Adelaide","latency":473,"to_interface":"i0","to_router":"Port_Augusta","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sydney","latency":416,"to_interface":"i2","to_router":"Canberra","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Kalgoorlie","latency":2593,"to_interface":"i1","to_router":"Port_Augusta","weight":10}],"name":"Nextgen","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-32.25,"longitude":148.61667},"name":"Dubbo"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-29.46667,"longitude":149.85},"name":"Moree"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-33.13333,"longitude":148.18333},"name":"Parkes"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-36.08333,"longitude":146.91667},"name":"Albury"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-32.92715,"longitude":151.77647},"name":"Newcastle"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-30.3,"longitude":153.13333},"name":"Coff's_Harbour"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":-38.14711,"longitude":144.36069},"name":"Geelong"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-36.38333,"longitude":145.4},"name":"Shepparton"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-31.93333,"longitude":115.83333},"name":"Perth"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":-34.93333,"longitude":138.6},"name":"Adelaide"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":-37.814,"longitude":144.96332},"name":"Melbourne"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-33.86785,"longitude":151.20732},"name":"Sydney"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":-35.28346,"longitude":149.12807},"name":"Canberra"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-27.46794,"longitude":153.02809},"name":"Brisbane"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-30.75,"longitude":121.46667},"name":"Kalgoorlie"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-32.5,"longitude":137.76667},"name":"Port_Augusta"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Dubbo",
+        "to_router": "1_Moree",
+        "latency": 556,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Dubbo",
+        "to_router": "3_Parkes",
+        "latency": 181,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Moree",
+        "to_router": "14_Brisbane",
+        "latency": 641,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_None",
+        "to_router": "8_Shepparton",
+        "latency": 817,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_None",
+        "to_router": "3_Parkes",
+        "latency": 817,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_None",
+        "to_router": "13_Canberra",
+        "latency": 817,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Albury",
+        "to_router": "11_Melbourne",
+        "latency": 436,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Albury",
+        "to_router": "13_Canberra",
+        "latency": 369,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Newcastle",
+        "to_router": "12_Sydney",
+        "latency": 200,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Newcastle",
+        "to_router": "6_Coff's_Harbour",
+        "latency": 536,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Coff's_Harbour",
+        "to_router": "14_Brisbane",
+        "latency": 529,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Geelong",
+        "to_router": "10_Adelaide",
+        "latency": 1048,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Geelong",
+        "to_router": "10_Adelaide",
+        "latency": 1048,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Geelong",
+        "to_router": "11_Melbourne",
+        "latency": 112,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Shepparton",
+        "to_router": "11_Melbourne",
+        "latency": 277,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Perth",
+        "to_router": "10_Adelaide",
+        "latency": 3559,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Perth",
+        "to_router": "15_Kalgoorlie",
+        "latency": 922,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Adelaide",
+        "to_router": "16_Port_Augusta",
+        "latency": 473,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Sydney",
+        "to_router": "13_Canberra",
+        "latency": 416,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Kalgoorlie",
+        "to_router": "16_Port_Augusta",
+        "latency": 2593,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Nextgen",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Dubbo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Moree"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Parkes"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Albury"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Newcastle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Coff's_Harbour"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Geelong"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Shepparton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Perth"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Adelaide"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Melbourne"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Sydney"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Canberra"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Brisbane"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Kalgoorlie"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Port_Augusta"
+      }
+    ]
+  }
+}

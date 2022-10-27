@@ -1,1 +1,177 @@
-{"network":{"links":[{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Seattle","latency":1907,"to_interface":"i0","to_router":"San_Jose","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Seattle","latency":4649,"to_interface":"i0","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"San_Jose","latency":4929,"to_interface":"i1","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"San_Jose","latency":6448,"to_interface":"i0","to_router":"Vienna","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Minneapolis","latency":956,"to_interface":"i2","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Chicago","latency":1567,"to_interface":"i1","to_router":"Vienna","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i4","from_router":"Chicago","latency":2155,"to_interface":"i0","to_router":"Dallas","weight":10}],"name":"Napnet","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.60621,"longitude":-122.33207},"name":"Seattle"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.33939,"longitude":-121.89496},"name":"San_Jose"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.97997,"longitude":-93.26384},"name":"Minneapolis"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":41.85003,"longitude":-87.65005},"name":"Chicago"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":38.90122,"longitude":-77.26526},"name":"Vienna"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":32.78306,"longitude":-96.80667},"name":"Dallas"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Seattle",
+        "to_router": "1_San_Jose",
+        "latency": 1907,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Seattle",
+        "to_router": "3_Chicago",
+        "latency": 4649,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Jose",
+        "to_router": "3_Chicago",
+        "latency": 4929,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Jose",
+        "to_router": "4_Vienna",
+        "latency": 6448,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Minneapolis",
+        "to_router": "3_Chicago",
+        "latency": 956,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "3_Chicago",
+        "to_router": "4_Vienna",
+        "latency": 1567,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "3_Chicago",
+        "to_router": "5_Dallas",
+        "latency": 2155,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Napnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Seattle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_San_Jose"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Minneapolis"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Chicago"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Vienna"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Dallas"
+      }
+    ]
+  }
+}

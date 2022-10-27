@@ -1,1 +1,987 @@
-{"network":{"links":[{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Bordeaux","latency":349,"to_interface":"i0","to_router":"Poiters","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Bordeaux","latency":290,"to_interface":"i0","to_router":"Pau","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i2","from_router":"Bordeaux","latency":355,"to_interface":"i0","to_router":"Toulouse","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Pau","latency":254,"to_interface":"i1","to_router":"Toulouse","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Orleans","latency":320,"to_interface":"i1","to_router":"Poiters","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Orleans","latency":187,"to_interface":"i0","to_router":"Paris","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Limoges","latency":187,"to_interface":"i2","to_router":"Poiters","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Limoges","latency":240,"to_interface":"i0","to_router":"Clermont-Ferrand","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Clermont-Ferrand","latency":233,"to_interface":"i0","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Dijon","latency":133,"to_interface":"i0","to_router":"Besancon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Dijon","latency":295,"to_interface":"i1","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i2","from_router":"Toulouse","latency":332,"to_interface":"i0","to_router":"Montpellier","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Montpellier","latency":216,"to_interface":"i0","to_router":"Marseille","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i2","from_router":"Montpellier","latency":422,"to_interface":"i2","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Besancon","latency":331,"to_interface":"i0","to_router":"Strasbourg","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i2","from_router":"Besancon","latency":321,"to_interface":"i3","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"CERN","latency":280,"to_interface":"i4","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Martinique,_Guadeloupe,_Guyane","latency":280,"to_interface":"i5","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Martinique,_Guadeloupe,_Guyane","latency":280,"to_interface":"i0","to_router":"None","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"SFINX","latency":280,"to_interface":"i1","to_router":"Paris","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Geant2","latency":280,"to_interface":"i2","to_router":"Paris","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"None","latency":280,"to_interface":"i3","to_router":"Paris","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i2","from_router":"None","latency":280,"to_interface":"i0","to_router":"La_Reunion,_Nouvelle_Caledonie,_Mayotte,_Tahiti","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Cadarache","latency":92,"to_interface":"i1","to_router":"Marseille","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i2","from_router":"Marseille","latency":266,"to_interface":"i0","to_router":"Nice","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i3","from_router":"Marseille","latency":547,"to_interface":"i0","to_router":"Corte","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Nice","latency":344,"to_interface":"i0","to_router":"Grenoble","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Grenoble","latency":161,"to_interface":"i6","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Internet_mondial","latency":280,"to_interface":"i7","to_router":"Lyon","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Internet_mondial","latency":280,"to_interface":"i4","to_router":"Paris","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i8","from_router":"Lyon","latency":659,"to_interface":"i5","to_router":"Paris","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i6","from_router":"Paris","latency":494,"to_interface":"i3","to_router":"Poiters","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i7","from_router":"Paris","latency":222,"to_interface":"i0","to_router":"Reims","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i8","from_router":"Paris","latency":124,"to_interface":"i0","to_router":"Compiegne","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i9","from_router":"Paris","latency":345,"to_interface":"i0","to_router":"Lille","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i10","from_router":"Paris","latency":191,"to_interface":"i0","to_router":"Rouen","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Nantes","latency":271,"to_interface":"i4","to_router":"Poiters","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Nantes","latency":166,"to_interface":"i0","to_router":"Rennes","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Strasbourg","latency":195,"to_interface":"i0","to_router":"Nancy","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Nancy","latency":288,"to_interface":"i1","to_router":"Reims","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Compiegne","latency":231,"to_interface":"i1","to_router":"Lille","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Rouen","latency":187,"to_interface":"i0","to_router":"Caen","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Caen","latency":265,"to_interface":"i1","to_router":"Rennes","weight":10}],"name":"Renater2006","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":44.83333,"longitude":-0.56667},"name":"Bordeaux"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.3,"longitude":-0.36667},"name":"Pau"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.91667,"longitude":1.9},"name":"Orleans"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.83153,"longitude":1.2578},"name":"Limoges"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.78333,"longitude":3.08333},"name":"Clermont-Ferrand"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.31667,"longitude":5.01667},"name":"Dijon"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":43.60426,"longitude":1.44367},"name":"Toulouse"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":43.6,"longitude":3.88333},"name":"Montpellier"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":47.25,"longitude":6.03333},"name":"Besancon"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"CERN"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"Martinique,_Guadeloupe,_Guyane"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"SFINX"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Geant2"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"La_Reunion,_Nouvelle_Caledonie,_Mayotte,_Tahiti"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.7,"longitude":5.75},"name":"Cadarache"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":43.3,"longitude":5.4},"name":"Marseille"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.70313,"longitude":7.26608},"name":"Nice"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.16667,"longitude":5.71667},"name":"Grenoble"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"Internet_mondial"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8"],"routing_table":{}}],"location":{"latitude":45.75,"longitude":4.85},"name":"Lyon"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9","i10"],"routing_table":{}}],"location":{"latitude":48.85341,"longitude":2.3488},"name":"Paris"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":42.3,"longitude":9.15},"name":"Corte"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.21725,"longitude":-1.55336},"name":"Nantes"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":46.58333,"longitude":0.33333},"name":"Poiters"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":48.58333,"longitude":7.75},"name":"Strasbourg"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":48.68333,"longitude":6.2},"name":"Nancy"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":49.25,"longitude":4.03333},"name":"Reims"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":49.41794,"longitude":2.82606},"name":"Compiegne"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.63333,"longitude":3.06667},"name":"Lille"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":49.44313,"longitude":1.09932},"name":"Rouen"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":49.18585,"longitude":-0.35912},"name":"Caen"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":48.08333,"longitude":-1.68333},"name":"Rennes"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 2500000,
+        "from_router": "0_Bordeaux",
+        "to_router": "24_Poiters",
+        "latency": 349,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "0_Bordeaux",
+        "to_router": "1_Pau",
+        "latency": 290,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "0_Bordeaux",
+        "to_router": "6_Toulouse",
+        "latency": 355,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "1_Pau",
+        "to_router": "6_Toulouse",
+        "latency": 254,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "2_Orleans",
+        "to_router": "24_Poiters",
+        "latency": 320,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "2_Orleans",
+        "to_router": "21_Paris",
+        "latency": 187,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "3_Limoges",
+        "to_router": "24_Poiters",
+        "latency": 187,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "3_Limoges",
+        "to_router": "4_Clermont-Ferrand",
+        "latency": 240,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "4_Clermont-Ferrand",
+        "to_router": "20_Lyon",
+        "latency": 233,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "5_Dijon",
+        "to_router": "8_Besancon",
+        "latency": 133,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "5_Dijon",
+        "to_router": "20_Lyon",
+        "latency": 295,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "6_Toulouse",
+        "to_router": "7_Montpellier",
+        "latency": 332,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "7_Montpellier",
+        "to_router": "16_Marseille",
+        "latency": 216,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "7_Montpellier",
+        "to_router": "20_Lyon",
+        "latency": 422,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "8_Besancon",
+        "to_router": "25_Strasbourg",
+        "latency": 331,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "8_Besancon",
+        "to_router": "20_Lyon",
+        "latency": 321,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "9_CERN",
+        "to_router": "20_Lyon",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "10_Martinique_Guadeloupe_Guyane",
+        "to_router": "20_Lyon",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "10_Martinique_Guadeloupe_Guyane",
+        "to_router": "13_None",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "11_SFINX",
+        "to_router": "21_Paris",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "12_Geant2",
+        "to_router": "21_Paris",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "13_None",
+        "to_router": "21_Paris",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "13_None",
+        "to_router": "14_La_Reunion_Nouvelle_Caledonie_Mayotte_Tahiti",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "15_Cadarache",
+        "to_router": "16_Marseille",
+        "latency": 92,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "16_Marseille",
+        "to_router": "17_Nice",
+        "latency": 266,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "16_Marseille",
+        "to_router": "22_Corte",
+        "latency": 547,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "17_Nice",
+        "to_router": "18_Grenoble",
+        "latency": 344,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "18_Grenoble",
+        "to_router": "20_Lyon",
+        "latency": 161,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "19_Internet_mondial",
+        "to_router": "20_Lyon",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "19_Internet_mondial",
+        "to_router": "21_Paris",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "20_Lyon",
+        "to_router": "21_Paris",
+        "latency": 659,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "21_Paris",
+        "to_router": "24_Poiters",
+        "latency": 494,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "21_Paris",
+        "to_router": "27_Reims",
+        "latency": 222,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "21_Paris",
+        "to_router": "28_Compiegne",
+        "latency": 124,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "21_Paris",
+        "to_router": "29_Lille",
+        "latency": 345,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "21_Paris",
+        "to_router": "30_Rouen",
+        "latency": 191,
+        "weight": 10,
+        "from_interface": "i10",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "23_Nantes",
+        "to_router": "24_Poiters",
+        "latency": 271,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "23_Nantes",
+        "to_router": "32_Rennes",
+        "latency": 166,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "25_Strasbourg",
+        "to_router": "26_Nancy",
+        "latency": 195,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "26_Nancy",
+        "to_router": "27_Reims",
+        "latency": 288,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "28_Compiegne",
+        "to_router": "29_Lille",
+        "latency": 231,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "30_Rouen",
+        "to_router": "31_Caen",
+        "latency": 187,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "31_Caen",
+        "to_router": "32_Rennes",
+        "latency": 265,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Renater2006",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Bordeaux"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Pau"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Orleans"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Limoges"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Clermont-Ferrand"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Dijon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Toulouse"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Montpellier"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Besancon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_CERN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Martinique_Guadeloupe_Guyane"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_SFINX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Geant2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_La_Reunion_Nouvelle_Caledonie_Mayotte_Tahiti"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Cadarache"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Marseille"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Nice"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Grenoble"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Internet_mondial"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Lyon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Paris"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Corte"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Nantes"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_Poiters"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_Strasbourg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_Nancy"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "27_Reims"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "28_Compiegne"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "29_Lille"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "30_Rouen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "31_Caen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "32_Rennes"
+      }
+    ]
+  }
+}

@@ -1,1 +1,177 @@
-{"network":{"links":[{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Palo_Alto","latency":863,"to_interface":"i0","to_router":"Los_Angeles","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Palo_Alto","latency":2520,"to_interface":"i0","to_router":"Denver","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Palo_Alto","latency":6477,"to_interface":"i0","to_router":"Vienna","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Los_Angeles","latency":5184,"to_interface":"i0","to_router":"Atlanta","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Denver","latency":2462,"to_interface":"i0","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Chicago","latency":1567,"to_interface":"i1","to_router":"Vienna","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Vienna","latency":1432,"to_interface":"i1","to_router":"Atlanta","weight":10}],"name":"Epoch","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.44188,"longitude":-122.14302},"name":"Palo_Alto"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"Los_Angeles"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":39.73915,"longitude":-104.9847},"name":"Denver"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.85003,"longitude":-87.65005},"name":"Chicago"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":38.90122,"longitude":-77.26526},"name":"Vienna"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":33.749,"longitude":-84.38798},"name":"Atlanta"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Palo_Alto",
+        "to_router": "1_Los_Angeles",
+        "latency": 863,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Palo_Alto",
+        "to_router": "2_Denver",
+        "latency": 2520,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Palo_Alto",
+        "to_router": "4_Vienna",
+        "latency": 6477,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_Los_Angeles",
+        "to_router": "5_Atlanta",
+        "latency": 5184,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Denver",
+        "to_router": "3_Chicago",
+        "latency": 2462,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "3_Chicago",
+        "to_router": "4_Vienna",
+        "latency": 1567,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Vienna",
+        "to_router": "5_Atlanta",
+        "latency": 1432,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Epoch",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Palo_Alto"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Denver"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Chicago"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Vienna"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Atlanta"
+      }
+    ]
+  }
+}

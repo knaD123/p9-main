@@ -1,1 +1,383 @@
-{"network":{"links":[{"bandwidth":120000,"bidirectional":true,"from_interface":"i0","from_router":"Parnu","latency":201,"to_interface":"i0","to_router":"Tallinn","weight":200},{"bandwidth":120000,"bidirectional":true,"from_interface":"i0","from_router":"Haapsald","latency":151,"to_interface":"i1","to_router":"Tallinn","weight":200},{"bandwidth":120000,"bidirectional":true,"from_interface":"i0","from_router":"Kuressaare","latency":313,"to_interface":"i2","to_router":"Tallinn","weight":200},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Rakvere","latency":157,"to_interface":"i3","to_router":"Tallinn","weight":24},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Narva","latency":329,"to_interface":"i4","to_router":"Tallinn","weight":24},{"bandwidth":2400000,"bidirectional":true,"from_interface":"i5","from_router":"Tallinn","latency":147,"to_interface":"i0","to_router":"GEANT2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Tallinn","latency":132,"to_interface":"i0","to_router":"Paide","weight":24},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"Tallinn","latency":132,"to_interface":"i1","to_router":"Paide","weight":24},{"bandwidth":120000,"bidirectional":true,"from_interface":"i8","from_router":"Tallinn","latency":219,"to_interface":"i0","to_router":"Viljandi","weight":200},{"bandwidth":120000,"bidirectional":true,"from_interface":"i2","from_router":"Paide","latency":23,"to_interface":"i0","to_router":"Turi","weight":200},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Paide","latency":101,"to_interface":"i1","to_router":"Viljandi","weight":24},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Paide","latency":89,"to_interface":"i0","to_router":"Jogeva","weight":24},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Paide","latency":89,"to_interface":"i1","to_router":"Jogeva","weight":24},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Jogeva","latency":79,"to_interface":"i0","to_router":"Tartu","weight":24},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Jogeva","latency":79,"to_interface":"i1","to_router":"Tartu","weight":24},{"bandwidth":120000,"bidirectional":true,"from_interface":"i2","from_router":"Tartu","latency":110,"to_interface":"i0","to_router":"Voru","weight":200}],"name":"Eenet","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":58.38588,"longitude":24.49711},"name":"Parnu"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":58.94306,"longitude":23.54139},"name":"Haapsald"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":58.24806,"longitude":22.50389},"name":"Kuressaare"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":59.34639,"longitude":26.35583},"name":"Rakvere"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":59.37722,"longitude":28.19028},"name":"Narva"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8"],"routing_table":{}}],"location":{"latitude":59.43696,"longitude":24.75353},"name":"Tallinn"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"GEANT2"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":58.88556,"longitude":25.55722},"name":"Paide"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":58.80861,"longitude":25.4325},"name":"Turi"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":58.36389,"longitude":25.59},"name":"Viljandi"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":58.74667,"longitude":26.39389},"name":"Jogeva"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":58.38062,"longitude":26.72509},"name":"Tartu"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":57.83389,"longitude":27.01944},"name":"Voru"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 120000,
+        "from_router": "0_Parnu",
+        "to_router": "5_Tallinn",
+        "latency": 201,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 120000,
+        "from_router": "1_Haapsald",
+        "to_router": "5_Tallinn",
+        "latency": 151,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 120000,
+        "from_router": "2_Kuressaare",
+        "to_router": "5_Tallinn",
+        "latency": 313,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Rakvere",
+        "to_router": "5_Tallinn",
+        "latency": 157,
+        "weight": 24,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Narva",
+        "to_router": "5_Tallinn",
+        "latency": 329,
+        "weight": 24,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2400000,
+        "from_router": "5_Tallinn",
+        "to_router": "6_GEANT2",
+        "latency": 147,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Tallinn",
+        "to_router": "7_Paide",
+        "latency": 132,
+        "weight": 24,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Tallinn",
+        "to_router": "7_Paide",
+        "latency": 132,
+        "weight": 24,
+        "from_interface": "i7",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 120000,
+        "from_router": "5_Tallinn",
+        "to_router": "9_Viljandi",
+        "latency": 219,
+        "weight": 200,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 120000,
+        "from_router": "7_Paide",
+        "to_router": "8_Turi",
+        "latency": 23,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Paide",
+        "to_router": "9_Viljandi",
+        "latency": 101,
+        "weight": 24,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Paide",
+        "to_router": "10_Jogeva",
+        "latency": 89,
+        "weight": 24,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Paide",
+        "to_router": "10_Jogeva",
+        "latency": 89,
+        "weight": 24,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Jogeva",
+        "to_router": "11_Tartu",
+        "latency": 79,
+        "weight": 24,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Jogeva",
+        "to_router": "11_Tartu",
+        "latency": 79,
+        "weight": 24,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 120000,
+        "from_router": "11_Tartu",
+        "to_router": "12_Voru",
+        "latency": 110,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Eenet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Parnu"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Haapsald"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Kuressaare"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Rakvere"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Narva"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Tallinn"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_GEANT2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Paide"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Turi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Viljandi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Jogeva"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Tartu"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Voru"
+      }
+    ]
+  }
+}

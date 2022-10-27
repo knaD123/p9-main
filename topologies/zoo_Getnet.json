@@ -1,1 +1,203 @@
-{"network":{"links":[{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Seattle","latency":1904,"to_interface":"i0","to_router":"Santa_Clara","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Santa_Clara","latency":1661,"to_interface":"i0","to_router":"Phoenix","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Santa_Clara","latency":6488,"to_interface":"i0","to_router":"Washington,_DC","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Santa_Clara","latency":6022,"to_interface":"i0","to_router":"Pittsburgh","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Phoenix","latency":293,"to_interface":"i0","to_router":"Tucson","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Phoenix","latency":5305,"to_interface":"i1","to_router":"Washington,_DC","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Washington,_DC","latency":100,"to_interface":"i0","to_router":"Baltimore","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Baltimore","latency":530,"to_interface":"i1","to_router":"Pittsburgh","weight":10}],"name":"Getnet","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":47.60621,"longitude":-122.33207},"name":"Seattle"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":37.35411,"longitude":-121.95524},"name":"Santa_Clara"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":33.44838,"longitude":-112.07404},"name":"Phoenix"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":32.22174,"longitude":-110.92648},"name":"Tucson"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":38.89511,"longitude":-77.03637},"name":"Washington,_DC"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":39.29038,"longitude":-76.61219},"name":"Baltimore"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.44062,"longitude":-79.99589},"name":"Pittsburgh"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Seattle",
+        "to_router": "1_Santa_Clara",
+        "latency": 1904,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_Santa_Clara",
+        "to_router": "2_Phoenix",
+        "latency": 1661,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_Santa_Clara",
+        "to_router": "4_Washington_DC",
+        "latency": 6488,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_Santa_Clara",
+        "to_router": "6_Pittsburgh",
+        "latency": 6022,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Phoenix",
+        "to_router": "3_Tucson",
+        "latency": 293,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Phoenix",
+        "to_router": "4_Washington_DC",
+        "latency": 5305,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Washington_DC",
+        "to_router": "5_Baltimore",
+        "latency": 100,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "5_Baltimore",
+        "to_router": "6_Pittsburgh",
+        "latency": 530,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Getnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Seattle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Santa_Clara"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Phoenix"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Tucson"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Washington_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Baltimore"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Pittsburgh"
+      }
+    ]
+  }
+}

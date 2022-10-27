@@ -1,1 +1,499 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Carnegie_College","latency":300,"to_interface":"i0","to_router":"Kirkcaldy","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Adam_Smith_College","latency":300,"to_interface":"i1","to_router":"Kirkcaldy","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Kirkcaldy","latency":300,"to_interface":"i0","to_router":"UoD_Fife_Campus","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Kirkcaldy","latency":300,"to_interface":"i0","to_router":"None","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Janet_and_Internet","latency":300,"to_interface":"i0","to_router":"Glasgow","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"None","latency":300,"to_interface":"i0","to_router":"RNEP1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"None","latency":300,"to_interface":"i0","to_router":"RNEP2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Janet_and_Internet2","latency":300,"to_interface":"i0","to_router":"Leeds","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Dundee_College","latency":300,"to_interface":"i1","to_router":"RNEP1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Angus_College","latency":300,"to_interface":"i2","to_router":"RNEP1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Glasgow","latency":182,"to_interface":"i1","to_router":"RNEP2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Glasgow","latency":484,"to_interface":"i1","to_router":"Leeds","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Leeds","latency":527,"to_interface":"i3","to_router":"RNEP1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"RNEP1","latency":5,"to_interface":"i2","to_router":"RNEP2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"RNEP1","latency":300,"to_interface":"i0","to_router":"University_of_Abertay_Dundee","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"RNEP1","latency":300,"to_interface":"i0","to_router":"University_of_Dundee","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"RNEP1","latency":300,"to_interface":"i0","to_router":"University_of_St_Andrews","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i8","from_router":"RNEP1","latency":300,"to_interface":"i0","to_router":"Elmwood_College","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"RNEP2","latency":300,"to_interface":"i1","to_router":"University_of_Abertay_Dundee","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"RNEP2","latency":300,"to_interface":"i1","to_router":"University_of_Dundee","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"RNEP2","latency":300,"to_interface":"i1","to_router":"University_of_St_Andrews","weight":10}],"name":"Fatman","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Carnegie_College"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Adam_Smith_College"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":56.11667,"longitude":-3.16667},"name":"Kirkcaldy"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"UoD_Fife_Campus"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Janet_and_Internet"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Janet_and_Internet2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Dundee_College"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Angus_College"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":55.86515,"longitude":-4.25763},"name":"Glasgow"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":53.79648,"longitude":-1.54785},"name":"Leeds"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8"],"routing_table":{}}],"location":{"latitude":56.5,"longitude":-2.96667},"name":"RNEP1"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":56.5,"longitude":-2.96667},"name":"RNEP2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"University_of_Abertay_Dundee"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"University_of_Dundee"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"University_of_St_Andrews"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Elmwood_College"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Carnegie_College",
+        "to_router": "2_Kirkcaldy",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Adam_Smith_College",
+        "to_router": "2_Kirkcaldy",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Kirkcaldy",
+        "to_router": "3_UoD_Fife_Campus",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Kirkcaldy",
+        "to_router": "5_None",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Janet_and_Internet",
+        "to_router": "9_Glasgow",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_None",
+        "to_router": "11_RNEP1",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_None",
+        "to_router": "12_RNEP2",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Janet_and_Internet",
+        "to_router": "10_Leeds",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Dundee_College",
+        "to_router": "11_RNEP1",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Angus_College",
+        "to_router": "11_RNEP1",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Glasgow",
+        "to_router": "12_RNEP2",
+        "latency": 182,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Glasgow",
+        "to_router": "10_Leeds",
+        "latency": 484,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Leeds",
+        "to_router": "11_RNEP1",
+        "latency": 527,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_RNEP1",
+        "to_router": "12_RNEP2",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_RNEP1",
+        "to_router": "13_University_of_Abertay_Dundee",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_RNEP1",
+        "to_router": "14_University_of_Dundee",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_RNEP1",
+        "to_router": "15_University_of_St_Andrews",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_RNEP1",
+        "to_router": "16_Elmwood_College",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_RNEP2",
+        "to_router": "13_University_of_Abertay_Dundee",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_RNEP2",
+        "to_router": "14_University_of_Dundee",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_RNEP2",
+        "to_router": "15_University_of_St_Andrews",
+        "latency": 300,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Fatman",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Carnegie_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Adam_Smith_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Kirkcaldy"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_UoD_Fife_Campus"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Janet_and_Internet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Janet_and_Internet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Dundee_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Angus_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Glasgow"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Leeds"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_RNEP1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_RNEP2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_University_of_Abertay_Dundee"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_University_of_Dundee"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_University_of_St_Andrews"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Elmwood_College"
+      }
+    ]
+  }
+}

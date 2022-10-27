@@ -34,6 +34,7 @@ import argparse
 import sys, os
 from typing import Union, Set, List, Dict, Tuple
 import statistics
+import shutil
 
 from networkx import has_path
 
@@ -72,17 +73,14 @@ def main(conf):
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
     flows_with_load = flows_with_load[:math.ceil(len(flows_with_load) * conf["take_percent"])]
-
+    conf["loads"] = flows_with_load
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
-    # Load link capacities
 
-
-
-    link_cap = dict()
     with open(conf["topology"]) as f:
         topo_data = json.load(f)
 
+    # Load link capacities
     link_caps = {}
     for f in topo_data["network"]["links"]:
         src = f["from_router"]
@@ -90,7 +88,9 @@ def main(conf):
         if src != tgt:
             link_caps[(src,tgt)] = f.get("bandwidth", 0)
             if f["bidirectional"]:
-                link_caps[(src,tgt)] = f.get("bandwidth", 0)
+                link_caps[(tgt, src)] = f.get("bandwidth", 0)
+
+    conf["link_caps"] = link_caps
 
     before_fwd_gen = time.time_ns()
 
@@ -149,12 +149,46 @@ def main(conf):
         chunk_name = conf['failure_chunk_file'].split('/')[-1].split(".")[0]
         result_file = os.path.join(result_folder, chunk_name)
 
-    with open(result_file, 'w') as f:
-        for failed_set in failed_set_chunk:
-            simulation(network, failed_set, f, flows_with_load, link_caps)
 
+    # Prepare dictionary to store results
 
-def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_caps):
+    results = dict()
+    results["topology"] = conf["topology"]
+    # The algorithm used to generate the forwarding tables
+    method_dict = {}
+    method = conf["method"]
+    method_dict["name"] = method
+    if method == "inout-disjoint":
+        method_dict["path_heuristic"] = conf["path_heuristic"]
+        method_dict["mem_per_router_per_flow"] = conf["per_flow_memory"]
+    results["method"] = method_dict
+    results["flows"] = "flows.yml"
+    results["failure_scenarios"] = "failure_scenarios.yml"
+    results["flows#"] = len(flows)
+    results["failure_scenarios#"] = len(failed_set_chunk)
+    results["ft_gen_time"] = stats["fwd_gen_time"]
+    results["runs"] = list()
+
+    for failed_set in failed_set_chunk:
+        simulation(network, failed_set, flows_with_load, link_caps, results)
+
+    with open(os.path.join(result_folder, "flows.yml"), "w") as f:
+        fl = [f"[{', '.join(map(str, flow))}]" for flow in flows_with_load]
+        f.write(f"[{', '.join(fl)}]")
+
+    with open(os.path.join(result_folder, "failure_scenarios.yml"), "w") as f:
+        fs_strings = list()
+        for fs in failed_set_chunk:
+            mapped_links = [f"[{l[0]}, {l[1]}]" for l in fs]
+            fs_strings.append("[" + ", ".join(mapped_links) + "]")
+
+        dump = "[" + ", ".join(fs_strings) + "]"
+        f.write(dump)
+
+    with open(os.path.join(result_folder, "results.json"), "w") as f:
+        json.dump(results, f, indent=4)
+
+def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps, results):
     print("STARTING SIMULATION")
     print(failed_set)
 
@@ -179,6 +213,12 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
     verbose=conf["verbose"]
     s.run(flows, verbose=verbose)
 
+
+
+    ### OUTPUT RESULTS
+
+    res_dir = dict()
+
     (successful_flows, total_flows, codes) = s.success_rate(exit_codes=True)
 
     routers: List[Router] = list(network.routers.values())
@@ -188,25 +228,32 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
     from statistics import median_low as median
     hops = str(list(s.num_hops.values())).replace(' ', '')
 
-    # Compute link absolute utilization and avg path stretch (weighted by demand size)
+    # Compute:
+    # link absolute utilization
+    # avg path stretch (weighted by demand size, to reflect average for a single packet)
+    # rate of succesfully forwarded packets.
+
     path_stretch = 0
     normalization_factor = 0
     util_dict_abs = {}
+    successful_packets = 0
+    total_packets = 0
     for (src, tgt, load), (trace, res) in s.trace_routes.items():
-        trace_fixed = zip(trace, trace[1:])
-        for u, v, in trace_fixed:
-            # utilization
-            util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
-
-        # path stretch
-        if res and nx.has_path(view, source=src, target=tgt):
+        total_packets += load
+        if res:
+            successful_packets += load
             shortest_path = nx.shortest_path_length(view, source=src, target=tgt)
             normalization_factor += load
             path_stretch += (len(trace) - 1) / shortest_path * load
-            pass
+            trace_fixed = zip(trace, trace[1:])
+            for u, v, in trace_fixed:
+                # utilization
+                util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
 
+    success_rate = successful_packets / total_packets
 
-    path_stretch = path_stretch / normalization_factor
+    if normalization_factor:
+        path_stretch = path_stretch / normalization_factor
 
     # Compute relative link utilization
     util_dict_rel = {}
@@ -215,35 +262,24 @@ def simulation(network, failed_set, f, flows: List[Tuple[str, str, int]], link_c
         util_rel = util_abs / cap
         util_dict_rel[link] = util_rel
 
-    # Compute Fortz and Thorup score
 
-    def fortz_and_thorup(c: float):
-        if c < 1/3:
-            return 1
-        if c < 2/3:
-            return 3
-        if c < 9/10:
-            return 10
-        if c < 11/10:
-            return 500
-        else:
-            return 5000
-
-
+    # Compute median and maximum congestion
     median_cong = median(util_dict_rel.values())
     max_cong = max(util_dict_rel.values())
-    fortz_thorup_sum = sum([fortz_and_thorup(val) for val in util_dict_rel.values()])
 
-    f.write(f"len(F):{len(F)} looping_links:{s.looping_links} successful_flows:{successful_flows} connected_flows:{s.count_connected} median_congestion:{median_cong} max_congestion:{max_cong} fortz_thorup_sum:{fortz_thorup_sum} path_stretch: {path_stretch}\n")
+    res_dir["failed_links#"] = len(F)
+    res_dir["delivered_packet_rate"] = success_rate
+    res_dir["median_congestion"] = median_cong
+    res_dir["max_congestion"] = max_cong
+    res_dir["path_stretch"] = path_stretch
 
-    if len(F) == 0:
-        common = open(os.path.join(os.path.dirname(f.name), "common"), "w")
-        common.write(f"len(E):{links} num_flows:{total_flows} fwd_gen_time:{stats['fwd_gen_time']} memory:{router_memory_str}")
+    results["runs"].append(res_dir)
 
     print(f"SIMULATION FINISHED - FAILED: {s.count_connected - successful_flows}")
 
 
 if __name__ == "__main__":
+
     p = argparse.ArgumentParser(description='Command line utility to generate MPLS forwarding rules.')
 
     # general options
@@ -295,6 +331,7 @@ if __name__ == "__main__":
     inout_disjoint_parser = method_parser.add_parser("inout-disjoint")
     inout_disjoint_parser.add_argument('--epochs', default=1000, help="Epochs")
     inout_disjoint_parser.add_argument('--max_memory', default=0, help="Max memory allowed on any router")
+
 
     cfor_parser = method_parser.add_parser("cfor")
     cfor_parser.add_argument('--path', choices=['shortest', 'arborescence', 'disjoint'], default='shortest', help='Method for generating paths between switches on same layer')

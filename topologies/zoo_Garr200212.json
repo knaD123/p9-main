@@ -1,1 +1,735 @@
-{"network":{"links":[{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"CT","latency":633,"to_interface":"i0","to_router":"NA","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"PA","latency":524,"to_interface":"i1","to_router":"NA","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i2","from_router":"NA","latency":404,"to_interface":"i0","to_router":"CS","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i3","from_router":"NA","latency":1101,"to_interface":"i0","to_router":"MI","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i4","from_router":"NA","latency":5,"to_interface":"i0","to_router":"NA2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i5","from_router":"NA","latency":372,"to_interface":"i0","to_router":"BA","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i6","from_router":"NA","latency":319,"to_interface":"i0","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i1","from_router":"MI","latency":213,"to_interface":"i0","to_router":"TO","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i2","from_router":"MI","latency":601,"to_interface":"i0","to_router":"TS","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i3","from_router":"MI","latency":354,"to_interface":"i0","to_router":"PD","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i4","from_router":"MI","latency":203,"to_interface":"i0","to_router":"GE","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i5","from_router":"MI","latency":338,"to_interface":"i0","to_router":"BO2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i6","from_router":"MI","latency":338,"to_interface":"i1","to_router":"BO2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i7","from_router":"MI","latency":340,"to_interface":"i0","to_router":"MIX","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i8","from_router":"MI","latency":5,"to_interface":"i0","to_router":"MI2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i9","from_router":"MI","latency":340,"to_interface":"i0","to_router":"GEANT","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i10","from_router":"MI","latency":340,"to_interface":"i0","to_router":"GX","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i11","from_router":"MI","latency":799,"to_interface":"i1","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"FI","latency":140,"to_interface":"i2","to_router":"BO2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"BO","latency":5,"to_interface":"i3","to_router":"BO2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"KQ","latency":340,"to_interface":"i2","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i4","from_router":"BO2","latency":195,"to_interface":"i0","to_router":"PI","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i5","from_router":"BO2","latency":510,"to_interface":"i3","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"RM","latency":5,"to_interface":"i4","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"FRA","latency":34,"to_interface":"i5","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"CA","latency":690,"to_interface":"i6","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"NAMEX","latency":340,"to_interface":"i7","to_router":"RM2","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i8","from_router":"RM2","latency":228,"to_interface":"i0","to_router":"PG","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i9","from_router":"RM2","latency":156,"to_interface":"i0","to_router":"AQ","weight":10}],"name":"Garr200212","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":37.50213,"longitude":15.08719},"name":"CT"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":38.11582,"longitude":13.35976},"name":"PA"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6"],"routing_table":{}}],"location":{"latitude":40.83333,"longitude":14.25},"name":"NA"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":39.30999,"longitude":16.25019},"name":"CS"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9","i10","i11"],"routing_table":{}}],"location":{"latitude":45.46427,"longitude":9.18951},"name":"MI"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.07049,"longitude":7.68682},"name":"TO"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.64861,"longitude":13.78},"name":"TS"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.41519,"longitude":11.88181},"name":"PD"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.40632,"longitude":8.93386},"name":"GE"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.76667,"longitude":11.25},"name":"FI"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":40.83333,"longitude":14.25},"name":"NA2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.49381,"longitude":11.33875},"name":"BO"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"KQ"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":44.49381,"longitude":11.33875},"name":"BO2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"MIX"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.46427,"longitude":9.18951},"name":"MI2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":41.89474,"longitude":12.4839},"name":"RM"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":41.81632,"longitude":12.66868},"name":"FRA"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":41.11773,"longitude":16.85118},"name":"BA"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.71553,"longitude":10.39659},"name":"PI"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"GEANT"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"GX"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":39.20738,"longitude":9.13462},"name":"CA"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"NAMEX"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9"],"routing_table":{}}],"location":{"latitude":41.89474,"longitude":12.4839},"name":"RM2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.09674,"longitude":12.38286},"name":"PG"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":42.35055,"longitude":13.39954},"name":"AQ"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 155000,
+        "from_router": "0_CT",
+        "to_router": "2_NA",
+        "latency": 633,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "1_PA",
+        "to_router": "2_NA",
+        "latency": 524,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_NA",
+        "to_router": "3_CS",
+        "latency": 404,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_NA",
+        "to_router": "4_MI",
+        "latency": 1101,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_NA",
+        "to_router": "10_NA",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_NA",
+        "to_router": "18_BA",
+        "latency": 372,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_NA",
+        "to_router": "24_RM",
+        "latency": 319,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "5_TO",
+        "latency": 213,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "6_TS",
+        "latency": 601,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "7_PD",
+        "latency": 354,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "8_GE",
+        "latency": 203,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "13_BO",
+        "latency": 338,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "13_BO",
+        "latency": 338,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "14_MIX",
+        "latency": 340,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "15_MI",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "20_GEANT",
+        "latency": 340,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "21_GX",
+        "latency": 340,
+        "weight": 10,
+        "from_interface": "i10",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_MI",
+        "to_router": "24_RM",
+        "latency": 799,
+        "weight": 10,
+        "from_interface": "i11",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "9_FI",
+        "to_router": "13_BO",
+        "latency": 140,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "11_BO",
+        "to_router": "13_BO",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "12_KQ",
+        "to_router": "24_RM",
+        "latency": 340,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "13_BO",
+        "to_router": "19_PI",
+        "latency": 195,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "13_BO",
+        "to_router": "24_RM",
+        "latency": 510,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "16_RM",
+        "to_router": "24_RM",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "17_FRA",
+        "to_router": "24_RM",
+        "latency": 34,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "22_CA",
+        "to_router": "24_RM",
+        "latency": 690,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "23_NAMEX",
+        "to_router": "24_RM",
+        "latency": 340,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "24_RM",
+        "to_router": "25_PG",
+        "latency": 228,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "24_RM",
+        "to_router": "26_AQ",
+        "latency": 156,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Garr200212",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_CT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_PA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_NA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_CS"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_MI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_TO"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_TS"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_PD"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_GE"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_FI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_NA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_BO"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_KQ"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_BO"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_MIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_MI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_RM"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_FRA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_BA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_PI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_GEANT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_GX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_CA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_NAMEX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_RM"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_PG"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_AQ"
+      }
+    ]
+  }
+}
