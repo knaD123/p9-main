@@ -16,7 +16,7 @@ def add_data_points(data, variable, f):
             "\\addplot coordinates{\n"
         ])
 
-        for index, top in enumerate(tops.values(), start=0):
+        for index, top in enumerate(sorted(tops.values(), key=lambda x: x[variable]), start=0):
             f.write(f"({index}, {top[variable]})\n")
 
         f.writelines([
