@@ -1,1 +1,371 @@
-{"network":{"links":[{"bandwidth":1544,"bidirectional":true,"from_interface":"i0","from_router":"SEQSUINET,_Rice_University,_Houston","latency":1882,"to_interface":"i0","to_router":"SURANET,_Georgia_Tech,_Atlanta","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i1","from_router":"SEQSUINET,_Rice_University,_Houston","latency":2204,"to_interface":"i0","to_router":"NCSA,_University_of_Illinois,_Champaign","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i2","from_router":"SEQSUINET,_Rice_University,_Houston","latency":3492,"to_interface":"i0","to_router":"San_Diego_Supercomputer_Center","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i0","from_router":"Jon_Von_Neumann_Center,_Princeton,_NJ","latency":1890,"to_interface":"i1","to_router":"SURANET,_Georgia_Tech,_Atlanta","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i1","from_router":"Jon_Von_Neumann_Center,_Princeton,_NJ","latency":468,"to_interface":"i0","to_router":"Cornell_Theory_Center,_Ithaca_NY","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i0","from_router":"Pittsburgh_Supercomputer_Center","latency":626,"to_interface":"i0","to_router":"Merit_Univ_of_Michigan,_Ann_Arbor","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i1","from_router":"Cornell_Theory_Center,_Ithaca_NY","latency":996,"to_interface":"i1","to_router":"Merit_Univ_of_Michigan,_Ann_Arbor","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i0","from_router":"NorthWestNet,_Seattle","latency":2674,"to_interface":"i0","to_router":"NCAR,_Boulder","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i1","from_router":"NorthWestNet,_Seattle","latency":1887,"to_interface":"i0","to_router":"BARRnet,_Palo_Alto","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i1","from_router":"BARRnet,_Palo_Alto","latency":5489,"to_interface":"i2","to_router":"Merit_Univ_of_Michigan,_Ann_Arbor","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i2","from_router":"BARRnet,_Palo_Alto","latency":1160,"to_interface":"i1","to_router":"San_Diego_Supercomputer_Center","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i0","from_router":"Westnet,_Salt_Lake_City","latency":948,"to_interface":"i1","to_router":"NCAR,_Boulder","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i2","from_router":"NCAR,_Boulder","latency":2414,"to_interface":"i1","to_router":"NCSA,_University_of_Illinois,_Champaign","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i0","from_router":"MIDnet,_Lincoln,_NE","latency":1198,"to_interface":"i2","to_router":"NCSA,_University_of_Illinois,_Champaign","weight":10},{"bandwidth":1544,"bidirectional":true,"from_interface":"i3","from_router":"NCSA,_University_of_Illinois,_Champaign","latency":749,"to_interface":"i3","to_router":"Merit_Univ_of_Michigan,_Ann_Arbor","weight":10}],"name":"Nsfnet","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":29.76328,"longitude":-95.36327},"name":"SEQSUINET,_Rice_University,_Houston"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.34872,"longitude":-74.65905},"name":"Jon_Von_Neumann_Center,_Princeton,_NJ"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":33.749,"longitude":-84.38798},"name":"SURANET,_Georgia_Tech,_Atlanta"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":40.44062,"longitude":-79.99589},"name":"Pittsburgh_Supercomputer_Center"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.44063,"longitude":-76.49661},"name":"Cornell_Theory_Center,_Ithaca_NY"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.60621,"longitude":-122.33207},"name":"NorthWestNet,_Seattle"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.44188,"longitude":-122.14302},"name":"BARRnet,_Palo_Alto"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":32.71533,"longitude":-117.15726},"name":"San_Diego_Supercomputer_Center"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":40.76078,"longitude":-111.89105},"name":"Westnet,_Salt_Lake_City"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":40.01499,"longitude":-105.27055},"name":"NCAR,_Boulder"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":40.8,"longitude":-96.66696},"name":"MIDnet,_Lincoln,_NE"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":40.11642,"longitude":-88.24338},"name":"NCSA,_University_of_Illinois,_Champaign"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":42.27756,"longitude":-83.74088},"name":"Merit_Univ_of_Michigan,_Ann_Arbor"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1544,
+        "from_router": "0_SEQSUINET_Rice_University_Houston",
+        "to_router": "2_SURANET_Georgia_Tech_Atlanta",
+        "latency": 1882,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "0_SEQSUINET_Rice_University_Houston",
+        "to_router": "11_NCSA_University_of_Illinois_Champaign",
+        "latency": 2204,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "0_SEQSUINET_Rice_University_Houston",
+        "to_router": "7_San_Diego_Supercomputer_Center",
+        "latency": 3492,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "1_Jon_Von_Neumann_Center_Princeton_NJ",
+        "to_router": "2_SURANET_Georgia_Tech_Atlanta",
+        "latency": 1890,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "1_Jon_Von_Neumann_Center_Princeton_NJ",
+        "to_router": "4_Cornell_Theory_Center_Ithaca_NY",
+        "latency": 468,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "3_Pittsburgh_Supercomputer_Center",
+        "to_router": "12_Merit_Univ_of_Michigan_Ann_Arbor",
+        "latency": 626,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "4_Cornell_Theory_Center_Ithaca_NY",
+        "to_router": "12_Merit_Univ_of_Michigan_Ann_Arbor",
+        "latency": 996,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "5_NorthWestNet_Seattle",
+        "to_router": "9_NCAR_Boulder",
+        "latency": 2674,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "5_NorthWestNet_Seattle",
+        "to_router": "6_BARRnet_Palo_Alto",
+        "latency": 1887,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "6_BARRnet_Palo_Alto",
+        "to_router": "12_Merit_Univ_of_Michigan_Ann_Arbor",
+        "latency": 5489,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "6_BARRnet_Palo_Alto",
+        "to_router": "7_San_Diego_Supercomputer_Center",
+        "latency": 1160,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "8_Westnet_Salt_Lake_City",
+        "to_router": "9_NCAR_Boulder",
+        "latency": 948,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "9_NCAR_Boulder",
+        "to_router": "11_NCSA_University_of_Illinois_Champaign",
+        "latency": 2414,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "10_MIDnet_Lincoln_NE",
+        "to_router": "11_NCSA_University_of_Illinois_Champaign",
+        "latency": 1198,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1544,
+        "from_router": "11_NCSA_University_of_Illinois_Champaign",
+        "to_router": "12_Merit_Univ_of_Michigan_Ann_Arbor",
+        "latency": 749,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      }
+    ],
+    "name": "Nsfnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_SEQSUINET_Rice_University_Houston"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Jon_Von_Neumann_Center_Princeton_NJ"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_SURANET_Georgia_Tech_Atlanta"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Pittsburgh_Supercomputer_Center"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Cornell_Theory_Center_Ithaca_NY"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_NorthWestNet_Seattle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_BARRnet_Palo_Alto"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_San_Diego_Supercomputer_Center"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Westnet_Salt_Lake_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_NCAR_Boulder"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_MIDnet_Lincoln_NE"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_NCSA_University_of_Illinois_Champaign"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Merit_Univ_of_Michigan_Ann_Arbor"
+      }
+    ]
+  }
+}

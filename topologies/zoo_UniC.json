@@ -1,1 +1,707 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Odense","latency":49,"to_interface":"i0","to_router":"Nyborg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Odense","latency":49,"to_interface":"i1","to_router":"Nyborg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Odense","latency":111,"to_interface":"i0","to_router":"Vejle","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Odense","latency":102,"to_interface":"i0","to_router":"Kolding","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Nyborg","latency":66,"to_interface":"i0","to_router":"Slagelse","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Nyborg","latency":84,"to_interface":"i0","to_router":"Naestved","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Vejle","latency":103,"to_interface":"i0","to_router":"Herning","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Vejle","latency":46,"to_interface":"i1","to_router":"Kolding","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Vejle","latency":113,"to_interface":"i0","to_router":"Arthus","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Holbaek","latency":87,"to_interface":"i0","to_router":"Lyngby","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Holbaek","latency":74,"to_interface":"i1","to_router":"Slagelse","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Lyngby","latency":32,"to_interface":"i0","to_router":"Orestad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Lyngby","latency":32,"to_interface":"i1","to_router":"Orestad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Lyngby","latency":81,"to_interface":"i0","to_router":"None2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Lyngby","latency":81,"to_interface":"i0","to_router":"NORDUnet2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Lyngby","latency":81,"to_interface":"i0","to_router":"None3","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Naestved","latency":130,"to_interface":"i2","to_router":"Orestad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Orestad","latency":81,"to_interface":"i0","to_router":"NORDUnet","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Orestad","latency":81,"to_interface":"i0","to_router":"None4","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None","latency":81,"to_interface":"i1","to_router":"None3","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None5","latency":81,"to_interface":"i1","to_router":"Arthus","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Herning","latency":64,"to_interface":"i0","to_router":"Silkeborg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None6","latency":81,"to_interface":"i0","to_router":"Aalborg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Aalborg","latency":82,"to_interface":"i0","to_router":"Farso","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Aalborg","latency":81,"to_interface":"i0","to_router":"Hobro","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Farso","latency":118,"to_interface":"i1","to_router":"Silkeborg","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Hobro","latency":104,"to_interface":"i2","to_router":"Arthus","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Silkeborg","latency":81,"to_interface":"i0","to_router":"None7","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Arthus","latency":81,"to_interface":"i0","to_router":"None8","weight":10}],"name":"UniC","routers":[{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":55.39594,"longitude":10.38831},"name":"Odense"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":55.31274,"longitude":10.78964},"name":"Nyborg"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":55.70927,"longitude":9.5357},"name":"Vejle"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":55.4904,"longitude":9.47216},"name":"Kolding"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":55.71667,"longitude":11.71667},"name":"Holbaek"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":55.77044,"longitude":12.50378},"name":"Lyngby"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":55.40276,"longitude":11.35459},"name":"Slagelse"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":55.30604,"longitude":11.54766},"name":"Naestved"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":55.6303,"longitude":12.60035},"name":"Orestad"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"NORDUnet"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"NORDUnet2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"None3"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None4"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None5"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":56.13932,"longitude":8.97378},"name":"Herning"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None6"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":57.048,"longitude":9.9187},"name":"Aalborg"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":56.77276,"longitude":9.33926},"name":"Farso"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":56.64306,"longitude":9.79029},"name":"Hobro"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":56.1697,"longitude":9.54508},"name":"Silkeborg"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":56.15674,"longitude":10.21076},"name":"Arthus"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None7"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None8"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Odense",
+        "to_router": "1_Nyborg",
+        "latency": 49,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Odense",
+        "to_router": "1_Nyborg",
+        "latency": 49,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Odense",
+        "to_router": "2_Vejle",
+        "latency": 111,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Odense",
+        "to_router": "3_Kolding",
+        "latency": 102,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Nyborg",
+        "to_router": "6_Slagelse",
+        "latency": 66,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Nyborg",
+        "to_router": "7_Naestved",
+        "latency": 84,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Vejle",
+        "to_router": "16_Herning",
+        "latency": 103,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Vejle",
+        "to_router": "3_Kolding",
+        "latency": 46,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Vejle",
+        "to_router": "22_Arthus",
+        "latency": 113,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Holbaek",
+        "to_router": "5_Lyngby",
+        "latency": 87,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Holbaek",
+        "to_router": "6_Slagelse",
+        "latency": 74,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Lyngby",
+        "to_router": "8_Orestad",
+        "latency": 32,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Lyngby",
+        "to_router": "8_Orestad",
+        "latency": 32,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Lyngby",
+        "to_router": "12_None",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Lyngby",
+        "to_router": "11_NORDUnet",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Lyngby",
+        "to_router": "13_None",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Naestved",
+        "to_router": "8_Orestad",
+        "latency": 130,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Orestad",
+        "to_router": "10_NORDUnet",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Orestad",
+        "to_router": "14_None",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_None",
+        "to_router": "13_None",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_None",
+        "to_router": "22_Arthus",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Herning",
+        "to_router": "21_Silkeborg",
+        "latency": 64,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_None",
+        "to_router": "18_Aalborg",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Aalborg",
+        "to_router": "19_Farso",
+        "latency": 82,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Aalborg",
+        "to_router": "20_Hobro",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "19_Farso",
+        "to_router": "21_Silkeborg",
+        "latency": 118,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Hobro",
+        "to_router": "22_Arthus",
+        "latency": 104,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Silkeborg",
+        "to_router": "23_None",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Arthus",
+        "to_router": "24_None",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "UniC",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Odense"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Nyborg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Vejle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Kolding"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Holbaek"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Lyngby"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Slagelse"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Naestved"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Orestad"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_NORDUnet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_NORDUnet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Herning"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Aalborg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Farso"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Hobro"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Silkeborg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Arthus"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_None"
+      }
+    ]
+  }
+}

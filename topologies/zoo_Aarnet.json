@@ -2,244 +2,244 @@
   "network": {
     "links": [
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i0",
-        "from_router": "Sydney1",
+        "bandwidth": 10000000.0,
+        "from_router": "0_Sydney1",
+        "to_router": "10_Canberra2",
         "latency": 416,
+        "weight": 10,
+        "from_interface": "i0",
         "to_interface": "i0",
-        "to_router": "Canberra2",
-        "weight": 10
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Sydney1",
+        "bandwidth": 10000000.0,
+        "from_router": "0_Sydney1",
+        "to_router": "3_Sydney2",
         "latency": 5,
+        "weight": 10,
+        "from_interface": "i1",
         "to_interface": "i0",
-        "to_router": "Sydney2",
-        "weight": 10
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
+        "bandwidth": 10000000.0,
+        "from_router": "0_Sydney1",
+        "to_router": "6_Brisbane1",
+        "latency": 1225,
+        "weight": 10,
         "from_interface": "i2",
-        "from_router": "Sydney1",
-        "latency": 1225,
         "to_interface": "i0",
-        "to_router": "Brisbane1",
-        "weight": 10
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i0",
-        "from_router": "Brisbane2",
+        "bandwidth": 10000000.0,
+        "from_router": "1_Brisbane2",
+        "to_router": "3_Sydney2",
         "latency": 1225,
-        "to_interface": "i1",
-        "to_router": "Sydney2",
-        "weight": 10
-      },
-      {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Brisbane2",
-        "latency": 5,
-        "to_interface": "i1",
-        "to_router": "Brisbane1",
-        "weight": 10
-      },
-      {
-        "bandwidth": 10000000,
-        "bidirectional": true,
+        "weight": 10,
         "from_interface": "i0",
-        "from_router": "Canberra1",
-        "latency": 5,
         "to_interface": "i1",
-        "to_router": "Canberra2",
-        "weight": 10
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
+        "bandwidth": 10000000.0,
+        "from_router": "1_Brisbane2",
+        "to_router": "6_Brisbane1",
+        "latency": 5,
+        "weight": 10,
         "from_interface": "i1",
-        "from_router": "Canberra1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "2_Canberra1",
+        "to_router": "10_Canberra2",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "2_Canberra1",
+        "to_router": "15_Melbourne1",
         "latency": 781,
+        "weight": 10,
+        "from_interface": "i1",
         "to_interface": "i0",
-        "to_router": "Melbourne1",
-        "weight": 10
+        "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "bidirectional": true,
-        "from_interface": "i2",
-        "from_router": "Sydney2",
+        "from_router": "3_Sydney2",
+        "to_router": "8_Armidale",
         "latency": 629,
+        "weight": 100,
+        "from_interface": "i2",
         "to_interface": "i0",
-        "to_router": "Armidale",
-        "weight": 100
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i3",
-        "from_router": "Sydney2",
+        "bandwidth": 10000000.0,
+        "from_router": "3_Sydney2",
+        "to_router": "16_Melbourne2",
         "latency": 1193,
+        "weight": 10,
+        "from_interface": "i3",
         "to_interface": "i0",
-        "to_router": "Melbourne2",
-        "weight": 10
+        "bidirectional": true
       },
       {
         "bandwidth": 2500000,
-        "bidirectional": true,
-        "from_interface": "i0",
-        "from_router": "Townsville",
+        "from_router": "4_Townsville",
+        "to_router": "5_Cairns",
         "latency": 473,
+        "weight": 40,
+        "from_interface": "i0",
         "to_interface": "i0",
-        "to_router": "Cairns",
-        "weight": 40
+        "bidirectional": true
       },
       {
         "bandwidth": 2500000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Townsville",
+        "from_router": "4_Townsville",
+        "to_router": "7_Rockhampton",
         "latency": 1001,
+        "weight": 40,
+        "from_interface": "i1",
         "to_interface": "i0",
-        "to_router": "Rockhampton",
-        "weight": 40
+        "bidirectional": true
       },
       {
         "bandwidth": 2500000,
-        "bidirectional": true,
-        "from_interface": "i2",
-        "from_router": "Brisbane1",
+        "from_router": "6_Brisbane1",
+        "to_router": "7_Rockhampton",
         "latency": 871,
+        "weight": 40,
+        "from_interface": "i2",
         "to_interface": "i1",
-        "to_router": "Rockhampton",
-        "weight": 40
+        "bidirectional": true
       },
       {
         "bandwidth": 500000,
-        "bidirectional": true,
+        "from_router": "9_Hobart",
+        "to_router": "16_Melbourne2",
+        "latency": 1000,
+        "weight": 200,
         "from_interface": "i0",
-        "from_router": "Hobart",
-        "latency": 1000,
         "to_interface": "i1",
-        "to_router": "Melbourne2",
-        "weight": 200
+        "bidirectional": true
       },
       {
         "bandwidth": 500000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Hobart",
+        "from_router": "9_Hobart",
+        "to_router": "15_Melbourne1",
         "latency": 1000,
+        "weight": 200,
+        "from_interface": "i1",
         "to_interface": "i1",
-        "to_router": "Melbourne1",
-        "weight": 200
+        "bidirectional": true
       },
       {
         "bandwidth": 5727272,
-        "bidirectional": true,
-        "from_interface": "i0",
-        "from_router": "Perth1",
+        "from_router": "11_Perth1",
+        "to_router": "12_Perth2",
         "latency": 5,
+        "weight": 17,
+        "from_interface": "i0",
         "to_interface": "i0",
-        "to_router": "Perth2",
-        "weight": 17
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Perth1",
+        "bandwidth": 10000000.0,
+        "from_router": "11_Perth1",
+        "to_router": "13_Adelaide1",
         "latency": 3559,
+        "weight": 10,
+        "from_interface": "i1",
         "to_interface": "i0",
-        "to_router": "Adelaide1",
-        "weight": 10
+        "bidirectional": true
       },
       {
         "bandwidth": 2500000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Perth2",
+        "from_router": "12_Perth2",
+        "to_router": "14_Adelaide2",
         "latency": 3559,
+        "weight": 40,
+        "from_interface": "i1",
         "to_interface": "i0",
-        "to_router": "Adelaide2",
-        "weight": 40
+        "bidirectional": true
       },
       {
         "bandwidth": 500000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Adelaide1",
+        "from_router": "13_Adelaide1",
+        "to_router": "18_Darwin",
         "latency": 4365,
+        "weight": 200,
+        "from_interface": "i1",
         "to_interface": "i0",
-        "to_router": "Darwin",
-        "weight": 200
+        "bidirectional": true
       },
       {
         "bandwidth": 5727272,
-        "bidirectional": true,
-        "from_interface": "i2",
-        "from_router": "Adelaide1",
+        "from_router": "13_Adelaide1",
+        "to_router": "14_Adelaide2",
         "latency": 5,
+        "weight": 17,
+        "from_interface": "i2",
         "to_interface": "i1",
-        "to_router": "Adelaide2",
-        "weight": 17
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i3",
-        "from_router": "Adelaide1",
+        "bandwidth": 10000000.0,
+        "from_router": "13_Adelaide1",
+        "to_router": "15_Melbourne1",
         "latency": 1093,
+        "weight": 10,
+        "from_interface": "i3",
         "to_interface": "i2",
-        "to_router": "Melbourne1",
-        "weight": 10
+        "bidirectional": true
       },
       {
         "bandwidth": 2500000,
-        "bidirectional": true,
-        "from_interface": "i2",
-        "from_router": "Adelaide2",
+        "from_router": "14_Adelaide2",
+        "to_router": "16_Melbourne2",
         "latency": 1093,
+        "weight": 40,
+        "from_interface": "i2",
         "to_interface": "i2",
-        "to_router": "Melbourne2",
-        "weight": 40
+        "bidirectional": true
       },
       {
         "bandwidth": 500000,
-        "bidirectional": true,
-        "from_interface": "i3",
-        "from_router": "Adelaide2",
+        "from_router": "14_Adelaide2",
+        "to_router": "17_Alice_Springs",
         "latency": 2219,
+        "weight": 200,
+        "from_interface": "i3",
         "to_interface": "i0",
-        "to_router": "Alice_Springs",
-        "weight": 200
+        "bidirectional": true
       },
       {
-        "bandwidth": 10000000,
-        "bidirectional": true,
-        "from_interface": "i3",
-        "from_router": "Melbourne1",
+        "bandwidth": 10000000.0,
+        "from_router": "15_Melbourne1",
+        "to_router": "16_Melbourne2",
         "latency": 5,
+        "weight": 10,
+        "from_interface": "i3",
         "to_interface": "i3",
-        "to_router": "Melbourne2",
-        "weight": 10
+        "bidirectional": true
       },
       {
         "bandwidth": 500000,
-        "bidirectional": true,
-        "from_interface": "i1",
-        "from_router": "Alice_Springs",
+        "from_router": "17_Alice_Springs",
+        "to_router": "18_Darwin",
         "latency": 2153,
+        "weight": 200,
+        "from_interface": "i1",
         "to_interface": "i1",
-        "to_router": "Darwin",
-        "weight": 200
+        "bidirectional": true
       }
     ],
     "name": "Aarnet",
@@ -256,10 +256,10 @@
           }
         ],
         "location": {
-          "latitude": -33.86785,
-          "longitude": 151.20732
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Sydney1"
+        "name": "0_Sydney1"
       },
       {
         "interfaces": [
@@ -272,10 +272,10 @@
           }
         ],
         "location": {
-          "latitude": -27.46794,
-          "longitude": 153.02809
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Brisbane2"
+        "name": "1_Brisbane2"
       },
       {
         "interfaces": [
@@ -288,10 +288,10 @@
           }
         ],
         "location": {
-          "latitude": -35.28346,
-          "longitude": 149.12807
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Canberra1"
+        "name": "2_Canberra1"
       },
       {
         "interfaces": [
@@ -306,10 +306,10 @@
           }
         ],
         "location": {
-          "latitude": -33.86785,
-          "longitude": 151.20732
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Sydney2"
+        "name": "3_Sydney2"
       },
       {
         "interfaces": [
@@ -322,10 +322,10 @@
           }
         ],
         "location": {
-          "latitude": -19.25,
-          "longitude": 146.8
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Townsville"
+        "name": "4_Townsville"
       },
       {
         "interfaces": [
@@ -337,10 +337,10 @@
           }
         ],
         "location": {
-          "latitude": -16.91667,
-          "longitude": 145.76667
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Cairns"
+        "name": "5_Cairns"
       },
       {
         "interfaces": [
@@ -354,10 +354,10 @@
           }
         ],
         "location": {
-          "latitude": -27.46794,
-          "longitude": 153.02809
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Brisbane1"
+        "name": "6_Brisbane1"
       },
       {
         "interfaces": [
@@ -370,10 +370,10 @@
           }
         ],
         "location": {
-          "latitude": -23.38333,
-          "longitude": 150.5
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Rockhampton"
+        "name": "7_Rockhampton"
       },
       {
         "interfaces": [
@@ -385,10 +385,10 @@
           }
         ],
         "location": {
-          "latitude": -30.51667,
-          "longitude": 151.65
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Armidale"
+        "name": "8_Armidale"
       },
       {
         "interfaces": [
@@ -401,10 +401,10 @@
           }
         ],
         "location": {
-          "latitude": -42.87936,
-          "longitude": 147.32941
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Hobart"
+        "name": "9_Hobart"
       },
       {
         "interfaces": [
@@ -417,10 +417,10 @@
           }
         ],
         "location": {
-          "latitude": -35.28346,
-          "longitude": 149.12807
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Canberra2"
+        "name": "10_Canberra2"
       },
       {
         "interfaces": [
@@ -433,10 +433,10 @@
           }
         ],
         "location": {
-          "latitude": -31.93333,
-          "longitude": 115.83333
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Perth1"
+        "name": "11_Perth1"
       },
       {
         "interfaces": [
@@ -449,10 +449,10 @@
           }
         ],
         "location": {
-          "latitude": -31.93333,
-          "longitude": 115.83333
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Perth2"
+        "name": "12_Perth2"
       },
       {
         "interfaces": [
@@ -467,10 +467,10 @@
           }
         ],
         "location": {
-          "latitude": -34.93333,
-          "longitude": 138.6
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Adelaide1"
+        "name": "13_Adelaide1"
       },
       {
         "interfaces": [
@@ -485,10 +485,10 @@
           }
         ],
         "location": {
-          "latitude": -34.93333,
-          "longitude": 138.6
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Adelaide2"
+        "name": "14_Adelaide2"
       },
       {
         "interfaces": [
@@ -503,10 +503,10 @@
           }
         ],
         "location": {
-          "latitude": -37.814,
-          "longitude": 144.96332
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Melbourne1"
+        "name": "15_Melbourne1"
       },
       {
         "interfaces": [
@@ -521,10 +521,10 @@
           }
         ],
         "location": {
-          "latitude": -37.814,
-          "longitude": 144.96332
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Melbourne2"
+        "name": "16_Melbourne2"
       },
       {
         "interfaces": [
@@ -537,10 +537,10 @@
           }
         ],
         "location": {
-          "latitude": -23.7,
-          "longitude": 133.88333
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Alice_Springs"
+        "name": "17_Alice_Springs"
       },
       {
         "interfaces": [
@@ -553,10 +553,10 @@
           }
         ],
         "location": {
-          "latitude": -12.46113,
-          "longitude": 130.84185
+          "latitude": 0.0,
+          "longitude": 0.0
         },
-        "name": "Darwin"
+        "name": "18_Darwin"
       }
     ]
   }

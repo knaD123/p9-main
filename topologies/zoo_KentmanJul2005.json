@@ -1,1 +1,437 @@
-{"network":{"links":[{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"Blue_Bell_Hill","latency":19,"to_interface":"i0","to_router":"Beacon_Hill","weight":10},{"bandwidth":34000,"bidirectional":true,"from_interface":"i1","from_router":"Blue_Bell_Hill","latency":13,"to_interface":"i0","to_router":"Horsted","weight":45},{"bandwidth":155000,"bidirectional":true,"from_interface":"i2","from_router":"Blue_Bell_Hill","latency":51,"to_interface":"i0","to_router":"Cranbrook","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i3","from_router":"Blue_Bell_Hill","latency":58,"to_interface":"i0","to_router":"University_of_Greenwich","weight":10},{"bandwidth":34000,"bidirectional":true,"from_interface":"i4","from_router":"Blue_Bell_Hill","latency":16,"to_interface":"i0","to_router":"KIAD-M","weight":45},{"bandwidth":34000,"bidirectional":true,"from_interface":"i5","from_router":"Blue_Bell_Hill","latency":42,"to_interface":"i0","to_router":"Tonbridge","weight":45},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"Wye","latency":29,"to_interface":"i0","to_router":"Kent","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i1","from_router":"Wye","latency":5,"to_interface":"i0","to_router":"NTL-Wye","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i0","from_router":"Dunkirk","latency":71,"to_interface":"i1","to_router":"Beacon_Hill","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i1","from_router":"Dunkirk","latency":16,"to_interface":"i1","to_router":"Kent","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i2","from_router":"Beacon_Hill","latency":47,"to_interface":"i1","to_router":"University_of_Greenwich","weight":10},{"bandwidth":34000,"bidirectional":true,"from_interface":"i3","from_router":"Beacon_Hill","latency":15,"to_interface":"i0","to_router":"KIAD-R","weight":45},{"bandwidth":34000,"bidirectional":true,"from_interface":"i2","from_router":"Kent","latency":45,"to_interface":"i0","to_router":"CCCU-T","weight":45},{"bandwidth":34000,"bidirectional":true,"from_interface":"i3","from_router":"Kent","latency":6,"to_interface":"i0","to_router":"KIAD-C","weight":45},{"bandwidth":155000,"bidirectional":true,"from_interface":"i4","from_router":"Kent","latency":6,"to_interface":"i0","to_router":"CCCU-C","weight":10},{"bandwidth":155000,"bidirectional":true,"from_interface":"i1","from_router":"Cranbrook","latency":55,"to_interface":"i1","to_router":"NTL-Wye","weight":10},{"bandwidth":34000,"bidirectional":true,"from_interface":"i0","from_router":"CCCU-S","latency":12,"to_interface":"i1","to_router":"Tonbridge","weight":45}],"name":"KentmanJul2005","routers":[{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":51.33265,"longitude":0.5046},"name":"Blue_Bell_Hill"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.18249,"longitude":0.93678},"name":"Wye"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.29169,"longitude":0.97929},"name":"Dunkirk"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":51.4,"longitude":0.43333},"name":"Beacon_Hill"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":51.27904,"longitude":1.07992},"name":"Kent"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.37891,"longitude":0.52786},"name":"Horsted"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.08333,"longitude":0.53333},"name":"Cranbrook"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.18249,"longitude":0.93678},"name":"NTL-Wye"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.44628,"longitude":0.07703},"name":"University_of_Greenwich"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.27934,"longitude":1.08936},"name":"CCCU-C"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.15222,"longitude":0.24307},"name":"CCCU-S"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.35895,"longitude":1.40616},"name":"CCCU-T"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.37992,"longitude":0.51438},"name":"KIAD-R"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.27537,"longitude":1.09078},"name":"KIAD-C"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":51.27115,"longitude":0.49799},"name":"KIAD-M"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.18333,"longitude":0.28333},"name":"Tonbridge"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 155000,
+        "from_router": "0_Blue_Bell_Hill",
+        "to_router": "3_Beacon_Hill",
+        "latency": 19,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "0_Blue_Bell_Hill",
+        "to_router": "5_Horsted",
+        "latency": 13,
+        "weight": 45,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "0_Blue_Bell_Hill",
+        "to_router": "6_Cranbrook",
+        "latency": 51,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "0_Blue_Bell_Hill",
+        "to_router": "8_University_of_Greenwich",
+        "latency": 58,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "0_Blue_Bell_Hill",
+        "to_router": "14_KIAD-M",
+        "latency": 16,
+        "weight": 45,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "0_Blue_Bell_Hill",
+        "to_router": "15_Tonbridge",
+        "latency": 42,
+        "weight": 45,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "1_Wye",
+        "to_router": "4_Kent",
+        "latency": 29,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "1_Wye",
+        "to_router": "7_NTL-Wye",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_Dunkirk",
+        "to_router": "3_Beacon_Hill",
+        "latency": 71,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "2_Dunkirk",
+        "to_router": "4_Kent",
+        "latency": 16,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "3_Beacon_Hill",
+        "to_router": "8_University_of_Greenwich",
+        "latency": 47,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "3_Beacon_Hill",
+        "to_router": "12_KIAD-R",
+        "latency": 15,
+        "weight": 45,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "4_Kent",
+        "to_router": "11_CCCU-T",
+        "latency": 45,
+        "weight": 45,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "4_Kent",
+        "to_router": "13_KIAD-C",
+        "latency": 6,
+        "weight": 45,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "4_Kent",
+        "to_router": "9_CCCU-C",
+        "latency": 6,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "6_Cranbrook",
+        "to_router": "7_NTL-Wye",
+        "latency": 55,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "10_CCCU-S",
+        "to_router": "15_Tonbridge",
+        "latency": 12,
+        "weight": 45,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "KentmanJul2005",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Blue_Bell_Hill"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Wye"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Dunkirk"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Beacon_Hill"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Kent"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Horsted"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Cranbrook"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_NTL-Wye"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_University_of_Greenwich"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_CCCU-C"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_CCCU-S"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_CCCU-T"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_KIAD-R"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_KIAD-C"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_KIAD-M"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Tonbridge"
+      }
+    ]
+  }
+}

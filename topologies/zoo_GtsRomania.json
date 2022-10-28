@@ -1,1 +1,591 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Craiova","latency":433,"to_interface":"i0","to_router":"Timisoara","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Craiova","latency":311,"to_interface":"i0","to_router":"Bucarest","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Plaiesti","latency":101,"to_interface":"i1","to_router":"Bucarest","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Brasov","latency":335,"to_interface":"i0","to_router":"Cluj","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Brasov","latency":239,"to_interface":"i2","to_router":"Bucarest","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Targoviste","latency":131,"to_interface":"i3","to_router":"Bucarest","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Constanta","latency":345,"to_interface":"i4","to_router":"Bucarest","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Bucarest","latency":321,"to_interface":"i0","to_router":"Galati","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Bucarest","latency":278,"to_interface":"i0","to_router":"Focsani","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"Bucarest","latency":444,"to_interface":"i0","to_router":"Targu_Mures","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i8","from_router":"Bucarest","latency":546,"to_interface":"i0","to_router":"Iasi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i9","from_router":"Bucarest","latency":413,"to_interface":"i0","to_router":"Bacau","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i10","from_router":"Bucarest","latency":731,"to_interface":"i0","to_router":"Oradea","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Focsani","latency":255,"to_interface":"i0","to_router":"Piatra_Neamt","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Budapest","latency":334,"to_interface":"i0","to_router":"Bors","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Budapest2","latency":334,"to_interface":"i0","to_router":"Arad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Timisoara","latency":222,"to_interface":"i0","to_router":"Deva","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Timisoara","latency":86,"to_interface":"i1","to_router":"Arad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Sibiu","latency":372,"to_interface":"i1","to_router":"Oradea","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Iasi","latency":719,"to_interface":"i2","to_router":"Oradea","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bacau","latency":641,"to_interface":"i3","to_router":"Oradea","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Cluj","latency":223,"to_interface":"i4","to_router":"Oradea","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Oradea","latency":22,"to_interface":"i1","to_router":"Bors","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Oradea","latency":186,"to_interface":"i2","to_router":"Arad","weight":10}],"name":"GtsRomania","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.31667,"longitude":23.8},"name":"Craiova"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.95,"longitude":26.01667},"name":"Plaiesti"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.64861,"longitude":25.60613},"name":"Brasov"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.93333,"longitude":25.45},"name":"Targoviste"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.18333,"longitude":28.65},"name":"Constanta"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9","i10"],"routing_table":{}}],"location":{"latitude":44.43225,"longitude":26.10626},"name":"Bucarest"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.45,"longitude":28.05},"name":"Galati"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.7,"longitude":27.18333},"name":"Focsani"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Budapest"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Budapest2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":46.54245,"longitude":24.55747},"name":"Targu_Mures"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":45.74944,"longitude":21.22722},"name":"Timisoara"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.8,"longitude":24.15},"name":"Sibiu"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.16667,"longitude":27.6},"name":"Iasi"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":46.91667,"longitude":26.33333},"name":"Piatra_Neamt"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.56667,"longitude":26.9},"name":"Bacau"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.88333,"longitude":22.9},"name":"Deva"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.76667,"longitude":23.6},"name":"Cluj"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6"],"routing_table":{}}],"location":{"latitude":47.06667,"longitude":21.93333},"name":"Oradea"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.11667,"longitude":21.81667},"name":"Bors"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":46.18333,"longitude":21.31667},"name":"Arad"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Craiova",
+        "to_router": "11_Timisoara",
+        "latency": 433,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Craiova",
+        "to_router": "5_Bucarest",
+        "latency": 311,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Plaiesti",
+        "to_router": "5_Bucarest",
+        "latency": 101,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Brasov",
+        "to_router": "17_Cluj",
+        "latency": 335,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Brasov",
+        "to_router": "5_Bucarest",
+        "latency": 239,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Targoviste",
+        "to_router": "5_Bucarest",
+        "latency": 131,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Constanta",
+        "to_router": "5_Bucarest",
+        "latency": 345,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bucarest",
+        "to_router": "6_Galati",
+        "latency": 321,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bucarest",
+        "to_router": "7_Focsani",
+        "latency": 278,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bucarest",
+        "to_router": "10_Targu_Mures",
+        "latency": 444,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bucarest",
+        "to_router": "13_Iasi",
+        "latency": 546,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bucarest",
+        "to_router": "15_Bacau",
+        "latency": 413,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bucarest",
+        "to_router": "18_Oradea",
+        "latency": 731,
+        "weight": 10,
+        "from_interface": "i10",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Focsani",
+        "to_router": "14_Piatra_Neamt",
+        "latency": 255,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Budapest",
+        "to_router": "19_Bors",
+        "latency": 334,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Budapest",
+        "to_router": "20_Arad",
+        "latency": 334,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Timisoara",
+        "to_router": "16_Deva",
+        "latency": 222,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Timisoara",
+        "to_router": "20_Arad",
+        "latency": 86,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Sibiu",
+        "to_router": "18_Oradea",
+        "latency": 372,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Iasi",
+        "to_router": "18_Oradea",
+        "latency": 719,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Bacau",
+        "to_router": "18_Oradea",
+        "latency": 641,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Cluj",
+        "to_router": "18_Oradea",
+        "latency": 223,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Oradea",
+        "to_router": "19_Bors",
+        "latency": 22,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Oradea",
+        "to_router": "20_Arad",
+        "latency": 186,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i2",
+        "bidirectional": true
+      }
+    ],
+    "name": "GtsRomania",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Craiova"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Plaiesti"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Brasov"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Targoviste"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Constanta"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Bucarest"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Galati"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Focsani"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Budapest"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Budapest"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Targu_Mures"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Timisoara"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Sibiu"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Iasi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Piatra_Neamt"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Bacau"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Deva"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Cluj"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Oradea"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Bors"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Arad"
+      }
+    ]
+  }
+}

@@ -1,1 +1,661 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Auckland_2","latency":5,"to_interface":"i0","to_router":"Auckland_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Auckland_2","latency":3596,"to_interface":"i0","to_router":"Sydney_2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Fiji","latency":5320,"to_interface":"i0","to_router":"Sydney_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Fiji","latency":8499,"to_interface":"i0","to_router":"Hawaii_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sydney_1","latency":1193,"to_interface":"i0","to_router":"Melbourne","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Sydney_1","latency":5,"to_interface":"i1","to_router":"Sydney_2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Sydney_1","latency":8840,"to_interface":"i0","to_router":"Guam","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Auckland_1","latency":11791,"to_interface":"i0","to_router":"Hawaii_2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Sacramento","latency":13802,"to_interface":"i0","to_router":"Japan","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sacramento","latency":6598,"to_interface":"i1","to_router":"Hawaii_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Sacramento","latency":973,"to_interface":"i0","to_router":"Los_Angeles","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Los_Angeles","latency":6866,"to_interface":"i1","to_router":"Hawaii_2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Hawaii_1","latency":10330,"to_interface":"i1","to_router":"Japan","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Hawaii_1","latency":10202,"to_interface":"i1","to_router":"Guam","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Hawaii_1","latency":5,"to_interface":"i2","to_router":"Hawaii_2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Taiwan","latency":1212,"to_interface":"i0","to_router":"Hong_Kong","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Taiwan","latency":2624,"to_interface":"i0","to_router":"Korea","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Taiwan","latency":2049,"to_interface":"i0","to_router":"Philippines_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Philippines_2","latency":2204,"to_interface":"i1","to_router":"Hong_Kong","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Philippines_2","latency":4103,"to_interface":"i2","to_router":"Guam","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Philippines_2","latency":5,"to_interface":"i1","to_router":"Philippines_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Melbourne","latency":4542,"to_interface":"i0","to_router":"Perth","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Korea","latency":1847,"to_interface":"i2","to_router":"Japan","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Japan","latency":4816,"to_interface":"i2","to_router":"Hong_Kong","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Japan","latency":4206,"to_interface":"i3","to_router":"Guam","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Guam","latency":4103,"to_interface":"i2","to_router":"Philippines_1","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Guam","latency":7831,"to_interface":"i0","to_router":"Singapore/Malaysia","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Philippines_1","latency":2204,"to_interface":"i3","to_router":"Hong_Kong","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Hong_Kong","latency":4299,"to_interface":"i1","to_router":"Singapore/Malaysia","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Singapore/Malaysia","latency":2623,"to_interface":"i0","to_router":"Thailand","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Singapore/Malaysia","latency":6523,"to_interface":"i1","to_router":"Perth","weight":10}],"name":"Quest","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-36.86667,"longitude":174.76667},"name":"Auckland_2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-18.0,"longitude":178.0},"name":"Fiji"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":-33.86785,"longitude":151.20732},"name":"Sydney_1"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-36.86667,"longitude":174.76667},"name":"Auckland_1"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":38.58157,"longitude":-121.4944},"name":"Sacramento"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"Los_Angeles"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":21.30694,"longitude":-157.85833},"name":"Hawaii_1"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":21.30694,"longitude":-157.85833},"name":"Hawaii_2"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":24.0,"longitude":121.0},"name":"Taiwan"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":13.0,"longitude":122.0},"name":"Philippines_2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-37.814,"longitude":144.96332},"name":"Melbourne"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-33.86785,"longitude":151.20732},"name":"Sydney_2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":37.0,"longitude":127.5},"name":"Korea"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":35.68536,"longitude":139.75309},"name":"Japan"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":13.44444,"longitude":144.73667},"name":"Guam"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":13.0,"longitude":122.0},"name":"Philippines_1"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":22.25,"longitude":114.16667},"name":"Hong_Kong"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":1.36667,"longitude":103.8},"name":"Singapore/Malaysia"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":15.0,"longitude":100.0},"name":"Thailand"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-31.93333,"longitude":115.83333},"name":"Perth"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Auckland_2",
+        "to_router": "3_Auckland_1",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Auckland_2",
+        "to_router": "11_Sydney_2",
+        "latency": 3596,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Fiji",
+        "to_router": "2_Sydney_1",
+        "latency": 5320,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Fiji",
+        "to_router": "6_Hawaii_1",
+        "latency": 8499,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Sydney_1",
+        "to_router": "10_Melbourne",
+        "latency": 1193,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Sydney_1",
+        "to_router": "11_Sydney_2",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Sydney_1",
+        "to_router": "14_Guam",
+        "latency": 8840,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Auckland_1",
+        "to_router": "7_Hawaii_2",
+        "latency": 11791,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Sacramento",
+        "to_router": "13_Japan",
+        "latency": 13802,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Sacramento",
+        "to_router": "6_Hawaii_1",
+        "latency": 6598,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Sacramento",
+        "to_router": "5_Los_Angeles",
+        "latency": 973,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Los_Angeles",
+        "to_router": "7_Hawaii_2",
+        "latency": 6866,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Hawaii_1",
+        "to_router": "13_Japan",
+        "latency": 10330,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Hawaii_1",
+        "to_router": "14_Guam",
+        "latency": 10202,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Hawaii_1",
+        "to_router": "7_Hawaii_2",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Taiwan",
+        "to_router": "16_Hong_Kong",
+        "latency": 1212,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Taiwan",
+        "to_router": "12_Korea",
+        "latency": 2624,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Taiwan",
+        "to_router": "15_Philippines_1",
+        "latency": 2049,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Philippines_2",
+        "to_router": "16_Hong_Kong",
+        "latency": 2204,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Philippines_2",
+        "to_router": "14_Guam",
+        "latency": 4103,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Philippines_2",
+        "to_router": "15_Philippines_1",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Melbourne",
+        "to_router": "19_Perth",
+        "latency": 4542,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Korea",
+        "to_router": "13_Japan",
+        "latency": 1847,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Japan",
+        "to_router": "16_Hong_Kong",
+        "latency": 4816,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Japan",
+        "to_router": "14_Guam",
+        "latency": 4206,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Guam",
+        "to_router": "15_Philippines_1",
+        "latency": 4103,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Guam",
+        "to_router": "17_Singapore/Malaysia",
+        "latency": 7831,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Philippines_1",
+        "to_router": "16_Hong_Kong",
+        "latency": 2204,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Hong_Kong",
+        "to_router": "17_Singapore/Malaysia",
+        "latency": 4299,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Singapore/Malaysia",
+        "to_router": "18_Thailand",
+        "latency": 2623,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Singapore/Malaysia",
+        "to_router": "19_Perth",
+        "latency": 6523,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Quest",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Auckland_2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Fiji"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Sydney_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Auckland_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Sacramento"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Hawaii_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Hawaii_2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Taiwan"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Philippines_2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Melbourne"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Sydney_2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Korea"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Japan"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Guam"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Philippines_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Hong_Kong"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Singapore/Malaysia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Thailand"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Perth"
+      }
+    ]
+  }
+}

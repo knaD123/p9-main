@@ -1,1 +1,491 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Unknown","latency":10,"to_interface":"i0","to_router":"KKN","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"NRT","latency":10,"to_interface":"i0","to_router":"BKK","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"NRT","latency":10,"to_interface":"i0","to_router":"SKA","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"NRT","latency":10,"to_interface":"i1","to_router":"SKA","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"NRT","latency":10,"to_interface":"i0","to_router":"NPM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"SKA","latency":10,"to_interface":"i0","to_router":"CBI","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"CBI","latency":10,"to_interface":"i1","to_router":"BKK","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"CBI","latency":10,"to_interface":"i2","to_router":"BKK","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"BKK","latency":10,"to_interface":"i0","to_router":"CMI","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"BKK","latency":10,"to_interface":"i0","to_router":"PNK","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"BKK","latency":10,"to_interface":"i0","to_router":"NRM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"BKK","latency":10,"to_interface":"i1","to_router":"NRM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"BKK","latency":10,"to_interface":"i1","to_router":"NPM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"CRI","latency":10,"to_interface":"i1","to_router":"CMI","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"CRI","latency":10,"to_interface":"i2","to_router":"CMI","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"CRI","latency":10,"to_interface":"i1","to_router":"PNK","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"CMI","latency":10,"to_interface":"i2","to_router":"PNK","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"PNK","latency":10,"to_interface":"i1","to_router":"KKN","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"SKN","latency":10,"to_interface":"i0","to_router":"UBI","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"SKN","latency":10,"to_interface":"i2","to_router":"KKN","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"SKN","latency":10,"to_interface":"i3","to_router":"KKN","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"UBI","latency":10,"to_interface":"i2","to_router":"NRM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"UBI","latency":10,"to_interface":"i3","to_router":"NRM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"KKN","latency":10,"to_interface":"i4","to_router":"NRM","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"KKN","latency":10,"to_interface":"i5","to_router":"NRM","weight":10}],"name":"Uninet","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Unknown"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"name":"NRT"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"SKA"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"CBI"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7"],"routing_table":{}}],"name":"BKK"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"CRI"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"name":"CMI"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"name":"PNK"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"SKN"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"UBI"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"name":"KKN"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"name":"NRM"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"NPM"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_unknown",
+        "to_router": "10_KKN",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_NRT",
+        "to_router": "4_BKK",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_NRT",
+        "to_router": "2_SKA",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_NRT",
+        "to_router": "2_SKA",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_NRT",
+        "to_router": "12_NPM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_SKA",
+        "to_router": "3_CBI",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_CBI",
+        "to_router": "4_BKK",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_CBI",
+        "to_router": "4_BKK",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_BKK",
+        "to_router": "6_CMI",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_BKK",
+        "to_router": "7_PNK",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_BKK",
+        "to_router": "11_NRM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_BKK",
+        "to_router": "11_NRM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_BKK",
+        "to_router": "12_NPM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_CRI",
+        "to_router": "6_CMI",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_CRI",
+        "to_router": "6_CMI",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_CRI",
+        "to_router": "7_PNK",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_CMI",
+        "to_router": "7_PNK",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_PNK",
+        "to_router": "10_KKN",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_SKN",
+        "to_router": "9_UBI",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_SKN",
+        "to_router": "10_KKN",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_SKN",
+        "to_router": "10_KKN",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_UBI",
+        "to_router": "11_NRM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_UBI",
+        "to_router": "11_NRM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_KKN",
+        "to_router": "11_NRM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_KKN",
+        "to_router": "11_NRM",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i5",
+        "bidirectional": true
+      }
+    ],
+    "name": "Uninet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_unknown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_NRT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_SKA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_CBI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_BKK"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_CRI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_CMI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_PNK"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_SKN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_UBI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_KKN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_NRM"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_NPM"
+      }
+    ]
+  }
+}

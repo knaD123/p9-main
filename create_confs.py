@@ -20,7 +20,8 @@ implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 import random
 import shutil
 import time
-import json, yaml
+import json 
+import yaml
 import math
 import argparse
 import sys, os

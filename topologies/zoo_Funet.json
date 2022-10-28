@@ -1,1 +1,745 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Kouvola","latency":100,"to_interface":"i0","to_router":"Lahti","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Kouvola","latency":81,"to_interface":"i0","to_router":"Kotka","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Kouvola","latency":165,"to_interface":"i0","to_router":"Mikkeli","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Kouvola","latency":143,"to_interface":"i0","to_router":"Lappeenranta","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Lahti","latency":169,"to_interface":"i0","to_router":"Helsinki","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Mikkeli","latency":230,"to_interface":"i0","to_router":"Koupio","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Mikkeli","latency":172,"to_interface":"i0","to_router":"Jyvaskyla","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Jyvaskyla","latency":222,"to_interface":"i0","to_router":"Tampere","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Seinajoki","latency":121,"to_interface":"i0","to_router":"Vaasa","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Seinajoki","latency":265,"to_interface":"i0","to_router":"Pori","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Pori","latency":75,"to_interface":"i0","to_router":"Rauma","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Tampere","latency":115,"to_interface":"i0","to_router":"Hameenlinna","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Hameenlinna","latency":152,"to_interface":"i0","to_router":"Espoo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Rauma","latency":147,"to_interface":"i0","to_router":"Turku","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Turku","latency":85,"to_interface":"i0","to_router":"Salo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Helsinki","latency":31,"to_interface":"i1","to_router":"Espoo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Helsinki","latency":31,"to_interface":"i2","to_router":"Espoo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Helsinki","latency":175,"to_interface":"i0","to_router":"NORDU2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Espoo","latency":175,"to_interface":"i1","to_router":"NORDU2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Espoo","latency":148,"to_interface":"i1","to_router":"Salo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Espoo","latency":175,"to_interface":"i0","to_router":"NORDU","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Joensuu","latency":321,"to_interface":"i1","to_router":"Lappeenranta","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Joensuu","latency":190,"to_interface":"i1","to_router":"Koupio","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Oulu","latency":36,"to_interface":"i0","to_router":"Haukipudas","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Oulu","latency":241,"to_interface":"i0","to_router":"Ristijavi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Oulu","latency":291,"to_interface":"i0","to_router":"Kokkola","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Haukipudas","latency":251,"to_interface":"i0","to_router":"Rovaniemi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Rovaniemi","latency":186,"to_interface":"i0","to_router":"Sodankyla","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Rovaniemi","latency":422,"to_interface":"i1","to_router":"Ristijavi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Ristijavi","latency":305,"to_interface":"i2","to_router":"Koupio","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Kokkola","latency":191,"to_interface":"i1","to_router":"Vaasa","weight":10}],"name":"Funet","routers":[{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":60.86667,"longitude":26.7},"name":"Kouvola"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":60.98267,"longitude":25.66151},"name":"Lahti"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":61.68857,"longitude":27.27227},"name":"Mikkeli"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":62.23333,"longitude":25.73333},"name":"Jyvaskyla"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":62.8,"longitude":22.83333},"name":"Seinajoki"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":61.48333,"longitude":21.78333},"name":"Pori"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":61.49911,"longitude":23.78712},"name":"Tampere"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":60.99596,"longitude":24.46434},"name":"Hameenlinna"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":61.12724,"longitude":21.51127},"name":"Rauma"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":60.45148,"longitude":22.26869},"name":"Turku"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":60.46667,"longitude":26.91667},"name":"Kotka"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":60.16952,"longitude":24.93545},"name":"Helsinki"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":60.2052,"longitude":24.6522},"name":"Espoo"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":60.38333,"longitude":23.13333},"name":"Salo"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"NORDU"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"NORDU2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":62.6,"longitude":29.76667},"name":"Joensuu"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":61.05871,"longitude":28.18871},"name":"Lappeenranta"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":65.01236,"longitude":25.46816},"name":"Oulu"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":65.17654,"longitude":25.35233},"name":"Haukipudas"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":66.5,"longitude":25.71667},"name":"Rovaniemi"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":67.41667,"longitude":26.6},"name":"Sodankyla"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":64.5,"longitude":28.21667},"name":"Ristijavi"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":63.83847,"longitude":23.13066},"name":"Kokkola"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":63.096,"longitude":21.61577},"name":"Vaasa"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":62.89238,"longitude":27.67703},"name":"Koupio"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Kouvola",
+        "to_router": "1_Lahti",
+        "latency": 100,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Kouvola",
+        "to_router": "10_Kotka",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Kouvola",
+        "to_router": "2_Mikkeli",
+        "latency": 165,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Kouvola",
+        "to_router": "17_Lappeenranta",
+        "latency": 143,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Lahti",
+        "to_router": "11_Helsinki",
+        "latency": 169,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Mikkeli",
+        "to_router": "25_Koupio",
+        "latency": 230,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Mikkeli",
+        "to_router": "3_Jyvaskyla",
+        "latency": 172,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Jyvaskyla",
+        "to_router": "6_Tampere",
+        "latency": 222,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Seinajoki",
+        "to_router": "24_Vaasa",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Seinajoki",
+        "to_router": "5_Pori",
+        "latency": 265,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Pori",
+        "to_router": "8_Rauma",
+        "latency": 75,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Tampere",
+        "to_router": "7_Hameenlinna",
+        "latency": 115,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Hameenlinna",
+        "to_router": "12_Espoo",
+        "latency": 152,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Rauma",
+        "to_router": "9_Turku",
+        "latency": 147,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Turku",
+        "to_router": "13_Salo",
+        "latency": 85,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Helsinki",
+        "to_router": "12_Espoo",
+        "latency": 31,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Helsinki",
+        "to_router": "12_Espoo",
+        "latency": 31,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Helsinki",
+        "to_router": "15_NORDU",
+        "latency": 175,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Espoo",
+        "to_router": "15_NORDU",
+        "latency": 175,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Espoo",
+        "to_router": "13_Salo",
+        "latency": 148,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_Espoo",
+        "to_router": "14_NORDU",
+        "latency": 175,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Joensuu",
+        "to_router": "17_Lappeenranta",
+        "latency": 321,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Joensuu",
+        "to_router": "25_Koupio",
+        "latency": 190,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Oulu",
+        "to_router": "19_Haukipudas",
+        "latency": 36,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Oulu",
+        "to_router": "22_Ristijavi",
+        "latency": 241,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Oulu",
+        "to_router": "23_Kokkola",
+        "latency": 291,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "19_Haukipudas",
+        "to_router": "20_Rovaniemi",
+        "latency": 251,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Rovaniemi",
+        "to_router": "21_Sodankyla",
+        "latency": 186,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Rovaniemi",
+        "to_router": "22_Ristijavi",
+        "latency": 422,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Ristijavi",
+        "to_router": "25_Koupio",
+        "latency": 305,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "23_Kokkola",
+        "to_router": "24_Vaasa",
+        "latency": 191,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Funet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Kouvola"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Lahti"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Mikkeli"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Jyvaskyla"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Seinajoki"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Pori"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Tampere"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Hameenlinna"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Rauma"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Turku"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Kotka"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Helsinki"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Espoo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Salo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_NORDU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_NORDU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Joensuu"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Lappeenranta"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Oulu"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Haukipudas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Rovaniemi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Sodankyla"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Ristijavi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Kokkola"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_Vaasa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_Koupio"
+      }
+    ]
+  }
+}

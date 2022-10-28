@@ -1,1 +1,813 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Pune","latency":203,"to_interface":"i0","to_router":"Mumbai","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Pune","latency":1080,"to_interface":"i0","to_router":"None8","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Pune","latency":1229,"to_interface":"i0","to_router":"Bengaluru","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Indore","latency":863,"to_interface":"i1","to_router":"Mumbai","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Trivandrum","latency":1080,"to_interface":"i0","to_router":"None13","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Trivandrum","latency":846,"to_interface":"i1","to_router":"Bengaluru","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Mumbai","latency":1080,"to_interface":"i0","to_router":"None","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Mumbai","latency":1934,"to_interface":"i0","to_router":"Delhi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Mumbai","latency":1080,"to_interface":"i0","to_router":"None9","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None2","latency":1080,"to_interface":"i2","to_router":"Bengaluru","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Ahmedabad","latency":1295,"to_interface":"i1","to_router":"Delhi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Jaipur","latency":398,"to_interface":"i2","to_router":"Delhi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None3","latency":1080,"to_interface":"i0","to_router":"Kanpur","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None4","latency":1080,"to_interface":"i3","to_router":"Delhi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None5","latency":1080,"to_interface":"i0","to_router":"Kalkota","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None6","latency":1080,"to_interface":"i0","to_router":"Bhubaneswar","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None7","latency":1080,"to_interface":"i3","to_router":"Bengaluru","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None10","latency":1080,"to_interface":"i4","to_router":"Delhi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None11","latency":1080,"to_interface":"i0","to_router":"Chennai","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None12","latency":1080,"to_interface":"i0","to_router":"Hyderabad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None14","latency":1080,"to_interface":"i4","to_router":"Bengaluru","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Chennai","latency":488,"to_interface":"i5","to_router":"Bengaluru","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Chennai","latency":861,"to_interface":"i1","to_router":"Hyderabad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Bengaluru","latency":2905,"to_interface":"i5","to_router":"Delhi","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"Bengaluru","latency":834,"to_interface":"i2","to_router":"Hyderabad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Delhi","latency":656,"to_interface":"i1","to_router":"Kanpur","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"Delhi","latency":2177,"to_interface":"i1","to_router":"Kalkota","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Guwahati","latency":884,"to_interface":"i2","to_router":"Kalkota","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Gorakhpur","latency":947,"to_interface":"i2","to_router":"Kanpur","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Kanpur","latency":317,"to_interface":"i0","to_router":"Allahabad","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Kalkota","latency":620,"to_interface":"i1","to_router":"Bhubaneswar","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Kalkota","latency":1976,"to_interface":"i3","to_router":"Hyderabad","weight":10}],"name":"Ernet","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":18.51957,"longitude":73.85535},"name":"Pune"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":22.71792,"longitude":75.8333},"name":"Indore"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":8.48333,"longitude":76.91667},"name":"Trivandrum"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":19.01441,"longitude":72.84794},"name":"Mumbai"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":23.03333,"longitude":72.61667},"name":"Ahmedabad"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":26.91667,"longitude":75.81667},"name":"Jaipur"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None3"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None4"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None5"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None6"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None7"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None8"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None9"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None10"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None11"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None12"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None13"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None14"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":13.08784,"longitude":80.27847},"name":"Chennai"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7"],"routing_table":{}}],"location":{"latitude":12.97623,"longitude":77.60329},"name":"Bengaluru"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7"],"routing_table":{}}],"location":{"latitude":28.63576,"longitude":77.22445},"name":"Delhi"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":26.18617,"longitude":91.75095},"name":"Guwahati"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":29.45,"longitude":75.68333},"name":"Gorakhpur"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":26.46667,"longitude":80.35},"name":"Kanpur"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":25.45,"longitude":81.85},"name":"Allahabad"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":22.56972,"longitude":88.36972},"name":"Kalkota"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":20.23333,"longitude":85.83333},"name":"Bhubaneswar"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":17.37528,"longitude":78.47444},"name":"Hyderabad"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Pune",
+        "to_router": "3_Mumbai",
+        "latency": 203,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Pune",
+        "to_router": "13_None",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Pune",
+        "to_router": "21_Bengaluru",
+        "latency": 1229,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Indore",
+        "to_router": "3_Mumbai",
+        "latency": 863,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Trivandrum",
+        "to_router": "18_None",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Trivandrum",
+        "to_router": "21_Bengaluru",
+        "latency": 846,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Mumbai",
+        "to_router": "4_None",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Mumbai",
+        "to_router": "22_Delhi",
+        "latency": 1934,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Mumbai",
+        "to_router": "14_None",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_None",
+        "to_router": "21_Bengaluru",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Ahmedabad",
+        "to_router": "22_Delhi",
+        "latency": 1295,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Jaipur",
+        "to_router": "22_Delhi",
+        "latency": 398,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_None",
+        "to_router": "25_Kanpur",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_None",
+        "to_router": "22_Delhi",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_None",
+        "to_router": "27_Kalkota",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_None",
+        "to_router": "28_Bhubaneswar",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_None",
+        "to_router": "21_Bengaluru",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_None",
+        "to_router": "22_Delhi",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_None",
+        "to_router": "20_Chennai",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_None",
+        "to_router": "29_Hyderabad",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "19_None",
+        "to_router": "21_Bengaluru",
+        "latency": 1080,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Chennai",
+        "to_router": "21_Bengaluru",
+        "latency": 488,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Chennai",
+        "to_router": "29_Hyderabad",
+        "latency": 861,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Bengaluru",
+        "to_router": "22_Delhi",
+        "latency": 2905,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Bengaluru",
+        "to_router": "29_Hyderabad",
+        "latency": 834,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Delhi",
+        "to_router": "25_Kanpur",
+        "latency": 656,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Delhi",
+        "to_router": "27_Kalkota",
+        "latency": 2177,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "23_Guwahati",
+        "to_router": "27_Kalkota",
+        "latency": 884,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "24_Gorakhpur",
+        "to_router": "25_Kanpur",
+        "latency": 947,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "25_Kanpur",
+        "to_router": "26_Allahabad",
+        "latency": 317,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "27_Kalkota",
+        "to_router": "28_Bhubaneswar",
+        "latency": 620,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "27_Kalkota",
+        "to_router": "29_Hyderabad",
+        "latency": 1976,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i3",
+        "bidirectional": true
+      }
+    ],
+    "name": "Ernet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Pune"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Indore"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Trivandrum"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Mumbai"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Ahmedabad"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Jaipur"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Chennai"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Bengaluru"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Delhi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Guwahati"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_Gorakhpur"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_Kanpur"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_Allahabad"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "27_Kalkota"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "28_Bhubaneswar"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "29_Hyderabad"
+      }
+    ]
+  }
+}

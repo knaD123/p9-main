@@ -1,1 +1,549 @@
-{"network":{"links":[{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Montreal","latency":1706,"to_interface":"i0","to_router":"Toronto","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Montreal","latency":2362,"to_interface":"i0","to_router":"Philadelphia","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"White_Plains","latency":1936,"to_interface":"i0","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"White_Plains","latency":612,"to_interface":"i0","to_router":"Bethesda","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"White_Plains","latency":73,"to_interface":"i0","to_router":"New_York","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Detroit","latency":1223,"to_interface":"i0","to_router":"St_Louis","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Detroit","latency":489,"to_interface":"i1","to_router":"Toronto","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Detroit","latency":443,"to_interface":"i0","to_router":"Columbus","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Columbus","latency":812,"to_interface":"i0","to_router":"Schaumburg","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Columbus","latency":867,"to_interface":"i1","to_router":"Bethesda","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Columbus","latency":1281,"to_interface":"i1","to_router":"New_York","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Bethesda","latency":1459,"to_interface":"i0","to_router":"Atlanta","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"New_York","latency":2696,"to_interface":"i0","to_router":"Tampa","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"New_York","latency":220,"to_interface":"i1","to_router":"Philadelphia","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Schaumburg","latency":4617,"to_interface":"i0","to_router":"Los_Angeles","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"St_Louis","latency":701,"to_interface":"i1","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Vancouver","latency":1461,"to_interface":"i0","to_router":"San_Francisco","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"San_Francisco","latency":4973,"to_interface":"i2","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"San_Francisco","latency":936,"to_interface":"i1","to_router":"Los_Angeles","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Los_Angeles","latency":961,"to_interface":"i0","to_router":"Phoenix","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Phoenix","latency":2374,"to_interface":"i0","to_router":"Dallas","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Dallas","latency":2155,"to_interface":"i3","to_router":"Chicago","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Dallas","latency":1935,"to_interface":"i1","to_router":"Atlanta","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Atlanta","latency":1122,"to_interface":"i1","to_router":"Tampa","weight":10}],"name":"Ibm","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.428,"longitude":-90.24601},"name":"Montreal"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.03399,"longitude":-73.76291},"name":"White_Plains"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":42.33143,"longitude":-83.04575},"name":"Detroit"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.46423,"longitude":-80.60091},"name":"Toronto"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":39.96118,"longitude":-82.99879},"name":"Columbus"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":38.98067,"longitude":-77.10026},"name":"Bethesda"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":40.71427,"longitude":-74.00597},"name":"New_York"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":39.95234,"longitude":-75.16379},"name":"Philadelphia"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.03336,"longitude":-88.08341},"name":"Schaumburg"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":38.62727,"longitude":-90.19789},"name":"St_Louis"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":45.63873,"longitude":-122.66149},"name":"Vancouver"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.77493,"longitude":-122.41942},"name":"San_Francisco"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"Los_Angeles"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":33.44838,"longitude":-112.07404},"name":"Phoenix"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":32.78306,"longitude":-96.80667},"name":"Dallas"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":33.749,"longitude":-84.38798},"name":"Atlanta"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":27.94752,"longitude":-82.45843},"name":"Tampa"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":41.85003,"longitude":-87.65005},"name":"Chicago"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Montreal",
+        "to_router": "3_Toronto",
+        "latency": 1706,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Montreal",
+        "to_router": "7_Philadelphia",
+        "latency": 2362,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_White_Plains",
+        "to_router": "17_Chicago",
+        "latency": 1936,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_White_Plains",
+        "to_router": "5_Bethesda",
+        "latency": 612,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_White_Plains",
+        "to_router": "6_New_York",
+        "latency": 73,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Detroit",
+        "to_router": "9_St_Louis",
+        "latency": 1223,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Detroit",
+        "to_router": "3_Toronto",
+        "latency": 489,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Detroit",
+        "to_router": "4_Columbus",
+        "latency": 443,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Columbus",
+        "to_router": "8_Schaumburg",
+        "latency": 812,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Columbus",
+        "to_router": "5_Bethesda",
+        "latency": 867,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Columbus",
+        "to_router": "6_New_York",
+        "latency": 1281,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "5_Bethesda",
+        "to_router": "15_Atlanta",
+        "latency": 1459,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "6_New_York",
+        "to_router": "16_Tampa",
+        "latency": 2696,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "6_New_York",
+        "to_router": "7_Philadelphia",
+        "latency": 220,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "8_Schaumburg",
+        "to_router": "12_Los_Angeles",
+        "latency": 4617,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "9_St_Louis",
+        "to_router": "17_Chicago",
+        "latency": 701,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "10_Vancouver",
+        "to_router": "11_San_Francisco",
+        "latency": 1461,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "11_San_Francisco",
+        "to_router": "17_Chicago",
+        "latency": 4973,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "11_San_Francisco",
+        "to_router": "12_Los_Angeles",
+        "latency": 936,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "12_Los_Angeles",
+        "to_router": "13_Phoenix",
+        "latency": 961,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "13_Phoenix",
+        "to_router": "14_Dallas",
+        "latency": 2374,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "14_Dallas",
+        "to_router": "17_Chicago",
+        "latency": 2155,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "14_Dallas",
+        "to_router": "15_Atlanta",
+        "latency": 1935,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "15_Atlanta",
+        "to_router": "16_Tampa",
+        "latency": 1122,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Ibm",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Montreal"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_White_Plains"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Detroit"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Toronto"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Columbus"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Bethesda"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_New_York"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Philadelphia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Schaumburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_St_Louis"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Vancouver"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_San_Francisco"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Phoenix"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Dallas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Atlanta"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Tampa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Chicago"
+      }
+    ]
+  }
+}

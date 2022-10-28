@@ -1,1 +1,361 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Lviv","latency":1874,"to_interface":"i0","to_router":"Stockholm","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Oslo","latency":698,"to_interface":"i1","to_router":"Stockholm","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Kaunas","latency":1013,"to_interface":"i2","to_router":"Stockholm","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Warsaw","latency":1355,"to_interface":"i3","to_router":"Stockholm","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Tallinn","latency":141,"to_interface":"i0","to_router":"Helsinki","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Riga","latency":742,"to_interface":"i4","to_router":"Stockholm","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i5","from_router":"Stockholm","latency":664,"to_interface":"i1","to_router":"Helsinki","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i6","from_router":"Stockholm","latency":874,"to_interface":"i0","to_router":"Copenhagen","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i7","from_router":"Stockholm","latency":3555,"to_interface":"i0","to_router":"Reykjavik","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i8","from_router":"Stockholm","latency":1120,"to_interface":"i0","to_router":"TEN-34","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i9","from_router":"Stockholm","latency":1120,"to_interface":"i0","to_router":"USA","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Helsinki","latency":900,"to_interface":"i0","to_router":"Petrozavodsk","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Helsinki","latency":500,"to_interface":"i0","to_router":"St_Petersburg","weight":10}],"name":"Nordu1997","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":49.83826,"longitude":24.02324},"name":"Lviv"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":59.91273,"longitude":10.74609},"name":"Oslo"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":54.9,"longitude":23.9},"name":"Kaunas"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":52.22977,"longitude":21.01178},"name":"Warsaw"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":59.43696,"longitude":24.75353},"name":"Tallinn"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":56.946,"longitude":24.10589},"name":"Riga"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9"],"routing_table":{}}],"location":{"latitude":59.33258,"longitude":18.0649},"name":"Stockholm"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":60.16952,"longitude":24.93545},"name":"Helsinki"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":55.67594,"longitude":12.56553},"name":"Copenhagen"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":64.13548,"longitude":-21.89541},"name":"Reykjavik"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"TEN-34"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"USA"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":61.784910000000004,"longitude":34.34691},"name":"Petrozavodsk"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":59.89444,"longitude":30.26417},"name":"St_Petersburg"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Lviv",
+        "to_router": "6_Stockholm",
+        "latency": 1874,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Oslo",
+        "to_router": "6_Stockholm",
+        "latency": 698,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Kaunas",
+        "to_router": "6_Stockholm",
+        "latency": 1013,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Warsaw",
+        "to_router": "6_Stockholm",
+        "latency": 1355,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Tallinn",
+        "to_router": "7_Helsinki",
+        "latency": 141,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Riga",
+        "to_router": "6_Stockholm",
+        "latency": 742,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stockholm",
+        "to_router": "7_Helsinki",
+        "latency": 664,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stockholm",
+        "to_router": "8_Copenhagen",
+        "latency": 874,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stockholm",
+        "to_router": "9_Reykjavik",
+        "latency": 3555,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stockholm",
+        "to_router": "10_TEN-34",
+        "latency": 1120,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stockholm",
+        "to_router": "11_USA",
+        "latency": 1120,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Helsinki",
+        "to_router": "12_Petrozavodsk",
+        "latency": 900,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Helsinki",
+        "to_router": "13_St_Petersburg",
+        "latency": 500,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Nordu1997",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Lviv"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Oslo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Kaunas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Warsaw"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Tallinn"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Riga"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Stockholm"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Helsinki"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Copenhagen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Reykjavik"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_TEN-34"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_USA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Petrozavodsk"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_St_Petersburg"
+      }
+    ]
+  }
+}

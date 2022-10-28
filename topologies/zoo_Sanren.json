@@ -1,1 +1,191 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Johannesburg","latency":93,"to_interface":"i0","to_router":"Pretoria","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Johannesburg","latency":626,"to_interface":"i0","to_router":"Bloemfontein","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Pretoria","latency":895,"to_interface":"i0","to_router":"Durban","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Durban","latency":769,"to_interface":"i0","to_router":"East_London","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bloemfontein","latency":1518,"to_interface":"i0","to_router":"Cape_Town","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"East_London","latency":405,"to_interface":"i0","to_router":"Port_Elizabeth","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Port_Elizabeth","latency":1105,"to_interface":"i1","to_router":"Cape_Town","weight":10}],"name":"Sanren","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-26.20227,"longitude":28.04363},"name":"Johannesburg"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-25.74486,"longitude":28.18783},"name":"Pretoria"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-29.85,"longitude":31.01667},"name":"Durban"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-29.13333,"longitude":26.2},"name":"Bloemfontein"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-33.01529,"longitude":27.91162},"name":"East_London"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-33.96667,"longitude":25.58333},"name":"Port_Elizabeth"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":-33.91667,"longitude":18.41667},"name":"Cape_Town"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Johannesburg",
+        "to_router": "1_Pretoria",
+        "latency": 93,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Johannesburg",
+        "to_router": "3_Bloemfontein",
+        "latency": 626,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Pretoria",
+        "to_router": "2_Durban",
+        "latency": 895,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Durban",
+        "to_router": "4_East_London",
+        "latency": 769,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Bloemfontein",
+        "to_router": "6_Cape_Town",
+        "latency": 1518,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_East_London",
+        "to_router": "5_Port_Elizabeth",
+        "latency": 405,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Port_Elizabeth",
+        "to_router": "6_Cape_Town",
+        "latency": 1105,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Sanren",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Johannesburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Pretoria"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Durban"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Bloemfontein"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_East_London"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Port_Elizabeth"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Cape_Town"
+      }
+    ]
+  }
+}
