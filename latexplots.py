@@ -8,6 +8,10 @@ alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_conge
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR Shortest paths ({i})" for i in range(50)})
 alg_to_name["rsvp-fn"] = "RSVP"
 
+variable_to_label = dict()
+variable_to_label["weighted_max_congestion"] = "Max Congestion"
+variable_to_label["weighted_delivered_packet_rate"] = "Connectivity"
+variable_to_label["weighted_path_stretch"] = "Path Stretch"
 
 
 def add_data_points(data, variable, f):
@@ -47,7 +51,7 @@ def create_plot(data, variable):
             "\\usepackage{pgfplots}\n",
             "\\begin{document}\n"
             "\\begin{tikzpicture}\n",
-            "\\begin{axis}[ylabel={Congestion}]\n",
+            f"\\begin{{axis}}[ylabel={{{variable_to_label[variable]}}}]\n",
             f"\\legend{{{alg_joined}}}\n"
         ])
 
