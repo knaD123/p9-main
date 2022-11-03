@@ -149,7 +149,6 @@ def main(conf):
         chunk_name = conf['failure_chunk_file'].split('/')[-1].split(".")[0]
         result_file = os.path.join(result_folder, chunk_name)
 
-
     # Prepare dictionary to store results
 
     results = dict()
@@ -167,10 +166,14 @@ def main(conf):
     results["flows#"] = len(flows)
     results["failure_scenarios#"] = len(failed_set_chunk)
     results["ft_gen_time"] = stats["fwd_gen_time"]
+    results["simulation_time"] = None
     results["runs"] = list()
 
+    time_before_sim = time.time_ns()
     for failed_set in failed_set_chunk:
         simulation(network, failed_set, flows_with_load, link_caps, results)
+
+    results["simulation_time"] = time.time_ns() - time_before_sim
 
     with open(os.path.join(result_folder, "flows.yml"), "w") as f:
         fl = [f"[{', '.join(map(str, flow))}]" for flow in flows_with_load]
@@ -216,6 +219,18 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
 
 
     ### OUTPUT RESULTS
+
+    def fortz_and_thorup(u):
+        if u < 1 / 3:
+            return 1
+        if u < 2 / 3:
+            return 3
+        if u < 9 / 10:
+            return 10
+        if u < 11 / 10:
+            return 500
+        else:
+            return 5000
 
     res_dir = dict()
 
@@ -266,12 +281,14 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     # Compute median and maximum congestion
     median_cong = median(util_dict_rel.values())
     max_cong = max(util_dict_rel.values())
+    ft_score = sum([fortz_and_thorup(u) for u in util_dict_rel.values()])
 
     res_dir["failed_links#"] = len(F)
     res_dir["delivered_packet_rate"] = success_rate
     res_dir["median_congestion"] = median_cong
     res_dir["max_congestion"] = max_cong
     res_dir["path_stretch"] = path_stretch
+    res_dir["fortz_thorup_sum"] = ft_score
 
     results["runs"].append(res_dir)
 
