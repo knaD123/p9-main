@@ -16,6 +16,6 @@ FILTER="$2"
 rm confs/*/conf*
 
 for TOPO in $(ls topologies/${FILTER}*) ; do
-  $EXECUTOR scripts/run-createconfs.sh ${TOPO}
+  $EXECUTOR experiments/10-31/run-createconfs.sh ${TOPO}
 done
 

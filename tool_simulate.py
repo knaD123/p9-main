@@ -59,16 +59,8 @@ def main(conf):
         print("*****************************")
         print(G.graph["name"])
 
-    # Load
-    if conf["flows_file"]:
-        with open(conf["flows_file"],"r") as file:
-            flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
-    elif conf["flows_folder"]:
-        flows_with_load = []
-        for flow_file in os.listdir(conf["flows_folder"]):
-            flow_file_path = os.path.join(conf["flows_folder"], flow_file)
-            with open(flow_file_path, "r") as file:
-                flows_with_load += [[x, y, int(z)] for [x, y, z] in yaml.load(file, Loader=yaml.BaseLoader)]
+    with open(conf["demands"],"r") as file:
+        flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
 
     #Sort the flows
     flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
@@ -364,10 +356,6 @@ if __name__ == "__main__":
                    help="Path of the output file, to store forwarding configuration. Defaults to print on screen.")
 
     # Simulator options
-    p.add_argument("--flows_file", type=str, default="", help="File containing the flows with loads ")
-    p.add_argument("--flows_folder", type=str, default="", help="Directory of flow files ")
-
-    p.add_argument("--failure_chunk_file", type=str, default="", help="Failure set, encoded as json readable list. ")
     p.add_argument("--result_folder", type=str, default="", help="Path to the folder of simulation result files. Defaults to print on screen.")
     p.add_argument("--print_flows", action="store_true", help="Print flows instead of running simulation. Defaults False.")
     p.add_argument("--verbose", action="store_true", help="Remove verbosity")

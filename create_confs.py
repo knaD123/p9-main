@@ -112,6 +112,8 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         "random_seed": random_seed,
         "result_folder": os.path.join(conf["result_folder"], conf_name, topofile.split('/')[-1].split('.')[0]),
         #"flows": [os.path.join(folder, toponame.split("_")[1] + f"_000{x}.yml") for x in range(0,4)]
+        "demands": conf["demand_file"],
+        "failure_chunk_file": os.path.join(folder, "failure_chunks", "0.yml")
     }
     if per_flow_memory is not None:
         base_config['per_flow_memory'] = per_flow_memory
@@ -178,7 +180,7 @@ if __name__ == "__main__":
 
     p.add_argument("--threshold",type=int, default = 1000, help="Maximum number of failures to generate")
 
-    p.add_argument("--division",type=int, default = 1000, help="chunk size; number of failure scenarios per worker.")
+    p.add_argument("--division",type=int, default = 100000, help="chunk size; number of failure scenarios per worker.")
 
     p.add_argument("--random_seed",type=int, default = 1, help="Random seed. Leave empty to pick a random one.")
 
@@ -193,6 +195,8 @@ if __name__ == "__main__":
     p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths"])
 
     p.add_argument("--max_memory", type=int, default=3)
+
+    p.add_argument("--demand_file", type=str, required=True)
 
 
     args = p.parse_args()
@@ -287,12 +291,3 @@ if __name__ == "__main__":
             i+=1
             with open(pathf, "w") as file:
                 documents = yaml.dump(F_chunk, file, default_flow_style=True, Dumper=NoAliasDumper)
-
-    #move demands
-    if not (args.keep_flows and os.path.exists(os.path.join(folder, "flows"))):
-        flows_folder = os.path.join(folder, "flows")
-        os.makedirs(flows_folder, exist_ok = True)
-
-        for demandfile in os.listdir("demands"):
-            if toponame.split("_")[1] == demandfile.split("_")[0]:
-                shutil.copy("demands/" + demandfile, flows_folder)
