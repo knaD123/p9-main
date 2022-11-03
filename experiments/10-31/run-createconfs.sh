@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --output=/nfs/home/student.aau.dk/amad18/slurm-output/createconfs-%j.out
-#SBATCH --error=/nfs/home/student.aau.dk/amad18/slurm-output/createconfs-%j.err
+#SBATCH --output=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs-%j.out
+#SBATCH --error=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs-%j.err
 #SBATCH --partition=naples
 #SBATCH --time=06:00:00
 #SBATCH --mem=12G
