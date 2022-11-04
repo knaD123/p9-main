@@ -38,6 +38,7 @@ def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph
 
     # Minimizing alpha is equivalent with minimizing utility of link with maximal utility
     solver.Minimize(alpha)
+
     status = solver.Solve()
 
     if status == pywraplp.Solver.OPTIMAL:
