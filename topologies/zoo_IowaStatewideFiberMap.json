@@ -1,1 +1,963 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Bloomfield","latency":54,"to_interface":"i0","to_router":"Ottumwa","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bloomfield","latency":201,"to_interface":"i0","to_router":"Osceola","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Bloomfield","latency":84,"to_interface":"i0","to_router":"Fairfield","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Omaha","latency":132,"to_interface":"i0","to_router":"Stanton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Omaha","latency":117,"to_interface":"i0","to_router":"Kansas_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Omaha","latency":117,"to_interface":"i0","to_router":"Harlan","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Oskaloosa","latency":65,"to_interface":"i1","to_router":"Ottumwa","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Oskaloosa","latency":88,"to_interface":"i0","to_router":"Grinnell","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Creston","latency":88,"to_interface":"i1","to_router":"Osceola","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Creston","latency":109,"to_interface":"i1","to_router":"Stanton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Osceola","latency":112,"to_interface":"i0","to_router":"Des_Moines","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Stanton","latency":50,"to_interface":"i0","to_router":"Clarinda","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Stanton","latency":133,"to_interface":"i1","to_router":"Harlan","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Harlan","latency":242,"to_interface":"i1","to_router":"Des_Moines","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Harlan","latency":220,"to_interface":"i0","to_router":"Sioux_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sioux_City","latency":117,"to_interface":"i0","to_router":"None","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Sioux_City","latency":117,"to_interface":"i0","to_router":"None2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"None","latency":117,"to_interface":"i0","to_router":"Sioux_Falls","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"None","latency":117,"to_interface":"i0","to_router":"Spencer","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"None2","latency":117,"to_interface":"i0","to_router":"Ft_Dodge","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"None2","latency":117,"to_interface":"i1","to_router":"Spencer","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None3","latency":117,"to_interface":"i0","to_router":"Marshalltown","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"None3","latency":117,"to_interface":"i1","to_router":"Ft_Dodge","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"None3","latency":117,"to_interface":"i0","to_router":"Mason_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"None3","latency":117,"to_interface":"i0","to_router":"Ames","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Minneapolis","latency":117,"to_interface":"i1","to_router":"Mason_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Dubuque","latency":186,"to_interface":"i0","to_router":"Davenport","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Davenport","latency":139,"to_interface":"i0","to_router":"Iowa_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Davenport","latency":177,"to_interface":"i0","to_router":"Cedar_Rapids","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Davenport","latency":117,"to_interface":"i0","to_router":"Chicago","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Davenport","latency":72,"to_interface":"i0","to_router":"Muscatine","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Iowa_City","latency":71,"to_interface":"i1","to_router":"Cedar_Rapids","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Cedar_Rapids","latency":136,"to_interface":"i0","to_router":"Waterloo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Cedar_Rapids","latency":161,"to_interface":"i1","to_router":"Grinnell","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Mt._Pleasant","latency":62,"to_interface":"i1","to_router":"Fairfield","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Mt._Pleasant","latency":116,"to_interface":"i1","to_router":"Muscatine","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Ames","latency":85,"to_interface":"i2","to_router":"Des_Moines","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Marshalltown","latency":72,"to_interface":"i0","to_router":"Newton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Mason_City","latency":173,"to_interface":"i1","to_router":"Waterloo","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Grinnell","latency":50,"to_interface":"i1","to_router":"Newton","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Newton","latency":84,"to_interface":"i3","to_router":"Des_Moines","weight":10}],"name":"IowaStatewideFiberMap","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":40.75169,"longitude":-92.41491},"name":"Bloomfield"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.25861,"longitude":-95.93779},"name":"Omaha"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.2964,"longitude":-92.64436},"name":"Oskaloosa"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.02001,"longitude":-92.4113},"name":"Ottumwa"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.0586,"longitude":-94.36135},"name":"Creston"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.03389,"longitude":-93.7655},"name":"Osceola"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":40.98166,"longitude":-95.10415},"name":"Stanton"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":41.65304,"longitude":-95.32555},"name":"Harlan"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":40.74194,"longitude":-95.03831},"name":"Clarinda"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":42.49999,"longitude":-96.40031},"name":"Sioux_City"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"None2"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"name":"None3"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Minneapolis"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Kansas_City"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":42.50056,"longitude":-90.66457},"name":"Dubuque"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":41.52364,"longitude":-90.57764},"name":"Davenport"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.66113,"longitude":-91.53017},"name":"Iowa_City"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":42.00833,"longitude":-91.64407},"name":"Cedar_Rapids"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Chicago"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.96364,"longitude":-91.55794},"name":"Mt._Pleasant"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.00863,"longitude":-91.96267},"name":"Fairfield"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":41.42447,"longitude":-91.04321},"name":"Muscatine"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.03471,"longitude":-93.61994},"name":"Ames"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.04943,"longitude":-92.90798},"name":"Marshalltown"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.14136,"longitude":-95.14444},"name":"Spencer"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":43.54997,"longitude":-96.70033},"name":"Sioux_Falls"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.49747,"longitude":-94.16802},"name":"Ft_Dodge"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":43.15357,"longitude":-93.20104},"name":"Mason_City"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.49276,"longitude":-92.34296},"name":"Waterloo"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.74305,"longitude":-92.72241},"name":"Grinnell"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.69971,"longitude":-93.04798},"name":"Newton"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":41.60054,"longitude":-93.60911},"name":"Des_Moines"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Bloomfield",
+        "to_router": "3_Ottumwa",
+        "latency": 54,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Bloomfield",
+        "to_router": "5_Osceola",
+        "latency": 201,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Bloomfield",
+        "to_router": "21_Fairfield",
+        "latency": 84,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Omaha",
+        "to_router": "6_Stanton",
+        "latency": 132,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Omaha",
+        "to_router": "14_Kansas_City",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Omaha",
+        "to_router": "7_Harlan",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Oskaloosa",
+        "to_router": "3_Ottumwa",
+        "latency": 65,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Oskaloosa",
+        "to_router": "30_Grinnell",
+        "latency": 88,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Creston",
+        "to_router": "5_Osceola",
+        "latency": 88,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Creston",
+        "to_router": "6_Stanton",
+        "latency": 109,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Osceola",
+        "to_router": "32_Des_Moines",
+        "latency": 112,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stanton",
+        "to_router": "8_Clarinda",
+        "latency": 50,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Stanton",
+        "to_router": "7_Harlan",
+        "latency": 133,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Harlan",
+        "to_router": "32_Des_Moines",
+        "latency": 242,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Harlan",
+        "to_router": "9_Sioux_City",
+        "latency": 220,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Sioux_City",
+        "to_router": "10_None",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Sioux_City",
+        "to_router": "11_None",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_None",
+        "to_router": "26_Sioux_Falls",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_None",
+        "to_router": "25_Spencer",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_None",
+        "to_router": "27_Ft_Dodge",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_None",
+        "to_router": "25_Spencer",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_None",
+        "to_router": "24_Marshalltown",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_None",
+        "to_router": "27_Ft_Dodge",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_None",
+        "to_router": "28_Mason_City",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "12_None",
+        "to_router": "23_Ames",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Minneapolis",
+        "to_router": "28_Mason_City",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_Dubuque",
+        "to_router": "16_Davenport",
+        "latency": 186,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Davenport",
+        "to_router": "17_Iowa_City",
+        "latency": 139,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Davenport",
+        "to_router": "18_Cedar_Rapids",
+        "latency": 177,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Davenport",
+        "to_router": "19_Chicago",
+        "latency": 117,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "16_Davenport",
+        "to_router": "22_Muscatine",
+        "latency": 72,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Iowa_City",
+        "to_router": "18_Cedar_Rapids",
+        "latency": 71,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Cedar_Rapids",
+        "to_router": "29_Waterloo",
+        "latency": 136,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "18_Cedar_Rapids",
+        "to_router": "30_Grinnell",
+        "latency": 161,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Mt._Pleasant",
+        "to_router": "21_Fairfield",
+        "latency": 62,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Mt._Pleasant",
+        "to_router": "22_Muscatine",
+        "latency": 116,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "23_Ames",
+        "to_router": "32_Des_Moines",
+        "latency": 85,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "24_Marshalltown",
+        "to_router": "31_Newton",
+        "latency": 72,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "28_Mason_City",
+        "to_router": "29_Waterloo",
+        "latency": 173,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "30_Grinnell",
+        "to_router": "31_Newton",
+        "latency": 50,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "31_Newton",
+        "to_router": "32_Des_Moines",
+        "latency": 84,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      }
+    ],
+    "name": "IowaStatewideFiberMap",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Bloomfield"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Omaha"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Oskaloosa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Ottumwa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Creston"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Osceola"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Stanton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Harlan"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Clarinda"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Sioux_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Minneapolis"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Kansas_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Dubuque"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Davenport"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Iowa_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Cedar_Rapids"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Chicago"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Mt._Pleasant"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Fairfield"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Muscatine"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Ames"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_Marshalltown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_Spencer"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_Sioux_Falls"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "27_Ft_Dodge"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "28_Mason_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "29_Waterloo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "30_Grinnell"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "31_Newton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "32_Des_Moines"
+      }
+    ]
+  }
+}

@@ -1,1 +1,399 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"London","latency":121,"to_interface":"i0","to_router":"None2","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"London","latency":102,"to_interface":"i0","to_router":"Reading","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"London","latency":136,"to_interface":"i0","to_router":"Cambridge","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Southport","latency":106,"to_interface":"i0","to_router":"Bracewell","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Southport","latency":49,"to_interface":"i0","to_router":"Liverpool","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"None","latency":121,"to_interface":"i1","to_router":"Reading","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Manchester","latency":196,"to_interface":"i0","to_router":"Birmingham","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Manchester","latency":87,"to_interface":"i1","to_router":"Liverpool","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Peterborough","latency":105,"to_interface":"i0","to_router":"Leicester","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Peterborough","latency":85,"to_interface":"i1","to_router":"Cambridge","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Sheffield","latency":148,"to_interface":"i1","to_router":"Leicester","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sheffield","latency":82,"to_interface":"i0","to_router":"Leeds","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bracewell","latency":81,"to_interface":"i1","to_router":"Leeds","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Birmingham","latency":208,"to_interface":"i0","to_router":"Bristol","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Reading","latency":191,"to_interface":"i1","to_router":"Bristol","weight":10}],"name":"HiberniaUk","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":51.50853,"longitude":-0.12574},"name":"London"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.64779,"longitude":-3.00648},"name":"Southport"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"None2"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.48095,"longitude":-2.23743},"name":"Manchester"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":52.57364,"longitude":-0.24777},"name":"Peterborough"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":52.2,"longitude":0.11667},"name":"Cambridge"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.38297,"longitude":-1.4659},"name":"Sheffield"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":52.63333,"longitude":-1.13333},"name":"Leicester"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.93225,"longitude":-2.20958},"name":"Bracewell"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.79648,"longitude":-1.54785},"name":"Leeds"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":52.46667,"longitude":-1.91667},"name":"Birmingham"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":53.41058,"longitude":-2.97794},"name":"Liverpool"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":51.45625,"longitude":-0.97113},"name":"Reading"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.45,"longitude":-2.58333},"name":"Bristol"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_London",
+        "to_router": "3_None",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_London",
+        "to_router": "13_Reading",
+        "latency": 102,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_London",
+        "to_router": "6_Cambridge",
+        "latency": 136,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Southport",
+        "to_router": "9_Bracewell",
+        "latency": 106,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Southport",
+        "to_router": "12_Liverpool",
+        "latency": 49,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_None",
+        "to_router": "13_Reading",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Manchester",
+        "to_router": "11_Birmingham",
+        "latency": 196,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Manchester",
+        "to_router": "12_Liverpool",
+        "latency": 87,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Peterborough",
+        "to_router": "8_Leicester",
+        "latency": 105,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Peterborough",
+        "to_router": "6_Cambridge",
+        "latency": 85,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Sheffield",
+        "to_router": "8_Leicester",
+        "latency": 148,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Sheffield",
+        "to_router": "10_Leeds",
+        "latency": 82,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Bracewell",
+        "to_router": "10_Leeds",
+        "latency": 81,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Birmingham",
+        "to_router": "14_Bristol",
+        "latency": 208,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Reading",
+        "to_router": "14_Bristol",
+        "latency": 191,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "HiberniaUk",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_London"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Southport"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Manchester"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Peterborough"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Cambridge"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Sheffield"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Leicester"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Bracewell"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Leeds"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Birmingham"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Liverpool"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Reading"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Bristol"
+      }
+    ]
+  }
+}

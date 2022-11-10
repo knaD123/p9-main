@@ -1,1 +1,819 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Chicago","latency":1527,"to_interface":"i0","to_router":"Ashburn","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Chicago","latency":956,"to_interface":"i0","to_router":"Minneapolis/St_Paul","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Chicago","latency":2462,"to_interface":"i0","to_router":"Denver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Dallas","latency":1778,"to_interface":"i1","to_router":"Denver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Dallas","latency":2374,"to_interface":"i0","to_router":"Phoenix","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"St_Cloud","latency":420,"to_interface":"i0","to_router":"Fargo?","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"St_Cloud","latency":164,"to_interface":"i1","to_router":"Minneapolis/St_Paul","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Minneapolis/St_Paul","latency":3733,"to_interface":"i0","to_router":"Seattle","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Minneapolis/St_Paul","latency":579,"to_interface":"i1","to_router":"Fargo?","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Minneapolis/St_Paul","latency":2728,"to_interface":"i0","to_router":"New_York","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Los_Angeles","latency":832,"to_interface":"i0","to_router":"Santa_Clara","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Los_Angeles","latency":618,"to_interface":"i0","to_router":"Las_Vegas","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Los_Angeles","latency":961,"to_interface":"i1","to_router":"Phoenix","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Santa_Clara","latency":242,"to_interface":"i0","to_router":"Sacramento","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Las_Vegas","latency":691,"to_interface":"i2","to_router":"Phoenix","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Las_Vegas","latency":975,"to_interface":"i0","to_router":"Salt_Lake_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Sacramento","latency":183,"to_interface":"i0","to_router":"Santa_Rose","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Sacramento","latency":1300,"to_interface":"i0","to_router":"Portland","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Sacramento","latency":32,"to_interface":"i0","to_router":"Rancho_Cordova","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Sacramento","latency":303,"to_interface":"i0","to_router":"Reno","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Salem","latency":122,"to_interface":"i1","to_router":"Portland","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Salem","latency":170,"to_interface":"i0","to_router":"Eugene","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Bend","latency":329,"to_interface":"i2","to_router":"Portland","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bend","latency":674,"to_interface":"i1","to_router":"Seattle","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Reno","latency":1149,"to_interface":"i1","to_router":"Salt_Lake_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"New_York","latency":588,"to_interface":"i1","to_router":"Ashburn","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Spokane","latency":617,"to_interface":"i2","to_router":"Seattle","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Spokane","latency":1189,"to_interface":"i0","to_router":"Billings","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Billings","latency":1221,"to_interface":"i2","to_router":"Denver","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i3","from_router":"Denver","latency":1026,"to_interface":"i0","to_router":"Ogden","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Ogden","latency":180,"to_interface":"i0","to_router":"Orem","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Ogden","latency":91,"to_interface":"i2","to_router":"Salt_Lake_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Orem","latency":95,"to_interface":"i3","to_router":"Salt_Lake_City","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Salt_Lake_City","latency":798,"to_interface":"i0","to_router":"Boise","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Boise","latency":928,"to_interface":"i3","to_router":"Portland","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i4","from_router":"Portland","latency":393,"to_interface":"i3","to_router":"Seattle","weight":10}],"name":"Integra","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.85003,"longitude":-87.65005},"name":"Chicago"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":32.78306,"longitude":-96.80667},"name":"Dallas"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.5608,"longitude":-94.16249},"name":"St_Cloud"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":44.97997,"longitude":-93.26384},"name":"Minneapolis/St_Paul"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"Los_Angeles"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":37.35411,"longitude":-121.95524},"name":"Santa_Clara"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":36.17497,"longitude":-115.13722},"name":"Las_Vegas"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":33.44838,"longitude":-112.07404},"name":"Phoenix"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":38.58157,"longitude":-121.4944},"name":"Sacramento"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":38.44047,"longitude":-122.71443},"name":"Santa_Rose"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.9429,"longitude":-123.0351},"name":"Salem"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.05817,"longitude":-121.31531},"name":"Bend"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":44.05207,"longitude":-123.08675},"name":"Eugene"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":39.52963,"longitude":-119.8138},"name":"Reno"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":38.58907,"longitude":-121.30273},"name":"Rancho_Cordova"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.71427,"longitude":-74.00597},"name":"New_York"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":39.04372,"longitude":-77.48749},"name":"Ashburn"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":47.65878,"longitude":-117.42605},"name":"Spokane"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":46.87719,"longitude":-96.7898},"name":"Fargo?"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.78329,"longitude":-108.50069},"name":"Billings"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":39.73915,"longitude":-104.9847},"name":"Denver"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":41.223,"longitude":-111.97383},"name":"Ogden"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":40.2969,"longitude":-111.69465},"name":"Orem"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":40.76078,"longitude":-111.89105},"name":"Salt_Lake_City"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.6135,"longitude":-116.20345},"name":"Boise"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":45.52345,"longitude":-122.67621},"name":"Portland"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":47.60621,"longitude":-122.33207},"name":"Seattle"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Chicago",
+        "to_router": "16_Ashburn",
+        "latency": 1527,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Chicago",
+        "to_router": "3_Minneapolis/St_Paul",
+        "latency": 956,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Chicago",
+        "to_router": "20_Denver",
+        "latency": 2462,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Dallas",
+        "to_router": "20_Denver",
+        "latency": 1778,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Dallas",
+        "to_router": "7_Phoenix",
+        "latency": 2374,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_St_Cloud",
+        "to_router": "18_Fargounknown",
+        "latency": 420,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_St_Cloud",
+        "to_router": "3_Minneapolis/St_Paul",
+        "latency": 164,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Minneapolis/St_Paul",
+        "to_router": "26_Seattle",
+        "latency": 3733,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Minneapolis/St_Paul",
+        "to_router": "18_Fargounknown",
+        "latency": 579,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Minneapolis/St_Paul",
+        "to_router": "15_New_York",
+        "latency": 2728,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Los_Angeles",
+        "to_router": "5_Santa_Clara",
+        "latency": 832,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Los_Angeles",
+        "to_router": "6_Las_Vegas",
+        "latency": 618,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Los_Angeles",
+        "to_router": "7_Phoenix",
+        "latency": 961,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Santa_Clara",
+        "to_router": "8_Sacramento",
+        "latency": 242,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Las_Vegas",
+        "to_router": "7_Phoenix",
+        "latency": 691,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Las_Vegas",
+        "to_router": "23_Salt_Lake_City",
+        "latency": 975,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Sacramento",
+        "to_router": "9_Santa_Rose",
+        "latency": 183,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Sacramento",
+        "to_router": "25_Portland",
+        "latency": 1300,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Sacramento",
+        "to_router": "14_Rancho_Cordova",
+        "latency": 32,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Sacramento",
+        "to_router": "13_Reno",
+        "latency": 303,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Salem",
+        "to_router": "25_Portland",
+        "latency": 122,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Salem",
+        "to_router": "12_Eugene",
+        "latency": 170,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Bend",
+        "to_router": "25_Portland",
+        "latency": 329,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Bend",
+        "to_router": "26_Seattle",
+        "latency": 674,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Reno",
+        "to_router": "23_Salt_Lake_City",
+        "latency": 1149,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "15_New_York",
+        "to_router": "16_Ashburn",
+        "latency": 588,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Spokane",
+        "to_router": "26_Seattle",
+        "latency": 617,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "17_Spokane",
+        "to_router": "19_Billings",
+        "latency": 1189,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "19_Billings",
+        "to_router": "20_Denver",
+        "latency": 1221,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "20_Denver",
+        "to_router": "21_Ogden",
+        "latency": 1026,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Ogden",
+        "to_router": "22_Orem",
+        "latency": 180,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "21_Ogden",
+        "to_router": "23_Salt_Lake_City",
+        "latency": 91,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "22_Orem",
+        "to_router": "23_Salt_Lake_City",
+        "latency": 95,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "23_Salt_Lake_City",
+        "to_router": "24_Boise",
+        "latency": 798,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "24_Boise",
+        "to_router": "25_Portland",
+        "latency": 928,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "25_Portland",
+        "to_router": "26_Seattle",
+        "latency": 393,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i3",
+        "bidirectional": true
+      }
+    ],
+    "name": "Integra",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Chicago"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Dallas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_St_Cloud"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Minneapolis/St_Paul"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Santa_Clara"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Las_Vegas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Phoenix"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Sacramento"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Santa_Rose"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Salem"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Bend"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Eugene"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Reno"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Rancho_Cordova"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_New_York"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Ashburn"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Spokane"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Fargounknown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Billings"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Denver"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Ogden"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Orem"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Salt_Lake_City"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_Boise"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_Portland"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_Seattle"
+      }
+    ]
+  }
+}

@@ -1,1 +1,179 @@
-{"network":{"links":[{"bandwidth":5000,"bidirectional":true,"from_interface":"i0","from_router":"PPU","latency":10,"to_interface":"i0","to_router":"PADI2","weight":200},{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"GEANT","latency":10,"to_interface":"i1","to_router":"PADI2","weight":22},{"bandwidth":100000,"bidirectional":true,"from_interface":"i0","from_router":"BZU","latency":10,"to_interface":"i2","to_router":"PADI2","weight":10},{"bandwidth":100000,"bidirectional":true,"from_interface":"i3","from_router":"PADI2","latency":10,"to_interface":"i0","to_router":"QOU","weight":10},{"bandwidth":5000,"bidirectional":true,"from_interface":"i4","from_router":"PADI2","latency":10,"to_interface":"i0","to_router":"AQU","weight":200},{"bandwidth":51000,"bidirectional":true,"from_interface":"i5","from_router":"PADI2","latency":10,"to_interface":"i0","to_router":"BU","weight":19}],"name":"Padi","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"PPU"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"GEANT"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"BZU"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":4.3238,"longitude":100.9299},"name":"PADI2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"QOU"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"AQU"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"BU"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 5000,
+        "from_router": "3_PPU",
+        "to_router": "11_PADI2",
+        "latency": 10,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "7_GEANT",
+        "to_router": "11_PADI2",
+        "latency": 10,
+        "weight": 22,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "10_BZU",
+        "to_router": "11_PADI2",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "11_PADI2",
+        "to_router": "12_QOU",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000,
+        "from_router": "11_PADI2",
+        "to_router": "13_AQU",
+        "latency": 10,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 51000,
+        "from_router": "11_PADI2",
+        "to_router": "14_BU",
+        "latency": 10,
+        "weight": 19,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Padi",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_PPU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_GEANT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_BZU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_PADI2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_QOU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_AQU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_BU"
+      }
+    ]
+  }
+}

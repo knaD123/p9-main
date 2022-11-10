@@ -1,1 +1,165 @@
-{"network":{"links":[{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Novi_Sad","latency":121,"to_interface":"i0","to_router":"Belgrade","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Novi_Sad","latency":531,"to_interface":"i0","to_router":"Podgorica","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Belgrade","latency":162,"to_interface":"i0","to_router":"Kragujevac","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Kragujevac","latency":189,"to_interface":"i0","to_router":"Nis","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Nis","latency":94,"to_interface":"i0","to_router":"Krusevac","weight":10},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i1","from_router":"Krusevac","latency":355,"to_interface":"i1","to_router":"Podgorica","weight":10}],"name":"Telecomserbia","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":45.25167,"longitude":19.83694},"name":"Novi_Sad"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.80401,"longitude":20.46513},"name":"Belgrade"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":44.01667,"longitude":20.91667},"name":"Kragujevac"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.32472,"longitude":21.90333},"name":"Nis"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":43.58,"longitude":21.33389},"name":"Krusevac"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":42.44111,"longitude":19.26361},"name":"Podgorica"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 2500000,
+        "from_router": "0_Novi_Sad",
+        "to_router": "1_Belgrade",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "0_Novi_Sad",
+        "to_router": "5_Podgorica",
+        "latency": 531,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "1_Belgrade",
+        "to_router": "2_Kragujevac",
+        "latency": 162,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "2_Kragujevac",
+        "to_router": "3_Nis",
+        "latency": 189,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "3_Nis",
+        "to_router": "4_Krusevac",
+        "latency": 94,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "4_Krusevac",
+        "to_router": "5_Podgorica",
+        "latency": 355,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Telecomserbia",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Novi_Sad"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Belgrade"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Kragujevac"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Nis"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Krusevac"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Podgorica"
+      }
+    ]
+  }
+}

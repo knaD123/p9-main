@@ -1,1 +1,375 @@
-{"network":{"links":[{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"Houston","latency":2595,"to_interface":"i0","to_router":"Miami","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"Houston","latency":3680,"to_interface":"i0","to_router":"Los_Angeles","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Houston","latency":3803,"to_interface":"i0","to_router":"New_York","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Houston","latency":609,"to_interface":"i0","to_router":"Dallas","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i0","from_router":"San_Francisco","latency":936,"to_interface":"i1","to_router":"Los_Angeles","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i1","from_router":"San_Francisco","latency":6857,"to_interface":"i0","to_router":"Newark","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"San_Francisco","latency":6531,"to_interface":"i0","to_router":"Washington,_DC","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"San_Francisco","latency":5728,"to_interface":"i0","to_router":"Atlanta","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i4","from_router":"San_Francisco","latency":3972,"to_interface":"i1","to_router":"Dallas","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Los_Angeles","latency":6559,"to_interface":"i1","to_router":"New_York","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Los_Angeles","latency":6263,"to_interface":"i1","to_router":"Miami","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"New_York","latency":2930,"to_interface":"i2","to_router":"Miami","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"New_York","latency":28,"to_interface":"i1","to_router":"Newark","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Newark","latency":536,"to_interface":"i1","to_router":"Washington,_DC","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Newark","latency":1987,"to_interface":"i1","to_router":"Atlanta","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i4","from_router":"Newark","latency":3657,"to_interface":"i2","to_router":"Dallas","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i2","from_router":"Washington,_DC","latency":1457,"to_interface":"i2","to_router":"Atlanta","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Washington,_DC","latency":3173,"to_interface":"i3","to_router":"Dallas","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i3","from_router":"Atlanta","latency":1627,"to_interface":"i3","to_router":"Miami","weight":10},{"bandwidth":45000,"bidirectional":true,"from_interface":"i4","from_router":"Atlanta","latency":1935,"to_interface":"i4","to_router":"Dallas","weight":10}],"name":"Gridnet","routers":[{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":29.76328,"longitude":-95.36327},"name":"Houston"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":37.77493,"longitude":-122.41942},"name":"San_Francisco"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":34.05223,"longitude":-118.24368},"name":"Los_Angeles"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":40.71427,"longitude":-74.00597},"name":"New_York"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":40.73566,"longitude":-74.17237},"name":"Newark"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":38.89511,"longitude":-77.03637},"name":"Washington,_DC"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":33.749,"longitude":-84.38798},"name":"Atlanta"},{"interfaces":[{"names":["i0","i1","i2","i3","i4"],"routing_table":{}}],"location":{"latitude":32.78306,"longitude":-96.80667},"name":"Dallas"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":25.77427,"longitude":-80.19366},"name":"Miami"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Houston",
+        "to_router": "8_Miami",
+        "latency": 2595,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Houston",
+        "to_router": "2_Los_Angeles",
+        "latency": 3680,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Houston",
+        "to_router": "3_New_York",
+        "latency": 3803,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "0_Houston",
+        "to_router": "7_Dallas",
+        "latency": 609,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Francisco",
+        "to_router": "2_Los_Angeles",
+        "latency": 936,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Francisco",
+        "to_router": "4_Newark",
+        "latency": 6857,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Francisco",
+        "to_router": "5_Washington_DC",
+        "latency": 6531,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Francisco",
+        "to_router": "6_Atlanta",
+        "latency": 5728,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "1_San_Francisco",
+        "to_router": "7_Dallas",
+        "latency": 3972,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Los_Angeles",
+        "to_router": "3_New_York",
+        "latency": 6559,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "2_Los_Angeles",
+        "to_router": "8_Miami",
+        "latency": 6263,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "3_New_York",
+        "to_router": "8_Miami",
+        "latency": 2930,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "3_New_York",
+        "to_router": "4_Newark",
+        "latency": 28,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Newark",
+        "to_router": "5_Washington_DC",
+        "latency": 536,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Newark",
+        "to_router": "6_Atlanta",
+        "latency": 1987,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "4_Newark",
+        "to_router": "7_Dallas",
+        "latency": 3657,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "5_Washington_DC",
+        "to_router": "6_Atlanta",
+        "latency": 1457,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "5_Washington_DC",
+        "to_router": "7_Dallas",
+        "latency": 3173,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "6_Atlanta",
+        "to_router": "8_Miami",
+        "latency": 1627,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 45000,
+        "from_router": "6_Atlanta",
+        "to_router": "7_Dallas",
+        "latency": 1935,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i4",
+        "bidirectional": true
+      }
+    ],
+    "name": "Gridnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Houston"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_San_Francisco"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_New_York"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Newark"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Washington_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Atlanta"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Dallas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Miami"
+      }
+    ]
+  }
+}

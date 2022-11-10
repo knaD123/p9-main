@@ -1,1 +1,179 @@
-{"network":{"links":[{"bandwidth":7750,"bidirectional":true,"from_interface":"i0","from_router":"Grodno","latency":415,"to_interface":"i0","to_router":"Minsk","weight":200},{"bandwidth":7750,"bidirectional":true,"from_interface":"i1","from_router":"Minsk","latency":375,"to_interface":"i0","to_router":"Vitebsk","weight":200},{"bandwidth":7750,"bidirectional":true,"from_interface":"i2","from_router":"Minsk","latency":307,"to_interface":"i0","to_router":"Mogilev","weight":200},{"bandwidth":7750,"bidirectional":true,"from_interface":"i3","from_router":"Minsk","latency":470,"to_interface":"i0","to_router":"Gomel","weight":200},{"bandwidth":7750,"bidirectional":true,"from_interface":"i4","from_router":"Minsk","latency":551,"to_interface":"i0","to_router":"Brest","weight":200},{"bandwidth":155000,"bidirectional":true,"from_interface":"i5","from_router":"Minsk","latency":424,"to_interface":"i0","to_router":"Pionier_GEANT_2","weight":10}],"name":"Basnet","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":53.67679,"longitude":23.83029},"name":"Grodno"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5"],"routing_table":{}}],"location":{"latitude":53.9,"longitude":27.56667},"name":"Minsk"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":55.19048,"longitude":30.2033},"name":"Vitebsk"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":53.9141,"longitude":30.33764},"name":"Mogilev"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":52.43826,"longitude":30.98227},"name":"Gomel"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":52.09755,"longitude":23.68775},"name":"Brest"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Pionier_GEANT_2"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 7750,
+        "from_router": "0_Grodno",
+        "to_router": "1_Minsk",
+        "latency": 415,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "1_Minsk",
+        "to_router": "2_Vitebsk",
+        "latency": 375,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "1_Minsk",
+        "to_router": "3_Mogilev",
+        "latency": 307,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "1_Minsk",
+        "to_router": "4_Gomel",
+        "latency": 470,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "1_Minsk",
+        "to_router": "5_Brest",
+        "latency": 551,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "1_Minsk",
+        "to_router": "6_Pionier_GEANT_2",
+        "latency": 424,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Basnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Grodno"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Minsk"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Vitebsk"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Mogilev"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Gomel"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Brest"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Pionier_GEANT_2"
+      }
+    ]
+  }
+}

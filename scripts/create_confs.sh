@@ -11,7 +11,7 @@ fi
 
 FILTER="$2"
 
-source ${PD}/venv/bin/activate
+#source ${PD}/venv/bin/activate
 
 rm confs/*/conf*
 

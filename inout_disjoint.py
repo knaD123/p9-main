@@ -6,7 +6,7 @@ from mpls_classes import *
 from functools import *
 from networkx import shortest_path
 import networkx as nx
-
+from collections import defaultdict
 import os
 
 from itertools import islice
@@ -15,10 +15,6 @@ from ForwardingTable import ForwardingTable
 
 from typing import Dict, Tuple, List, Callable
 
-global crap_var
-crap_var = False
-
-
 def label(ingress, egress, path_index: int):
     return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
                 {"ingress": ingress, "egress": [egress], "path_index": path_index})
@@ -26,21 +22,109 @@ def label(ingress, egress, path_index: int):
 def create_label_generator(f):
     return (label(f[0], f[1], i) for i, _ in enumerate(iter(int, 1)))
 
-def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+def compute_memory_usage(network, flows, path_encoder, _flow_to_paths_dict) -> Dict:
+    memory_usage = {r: 0 for r in network.routers}
+
+    ft = ForwardingTable()
+    for f in flows:
+        ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
+
+    for (router, _), rules in ft.table.items():
+        memory_usage[router] += len(rules)
+
+    return memory_usage
+
+def shortest_path(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
 
-    def compute_memory_usage(_flow_to_paths_dict) -> Dict:
-        memory_usage = {r: 0 for r in network.routers}
+    forwarding_table = ForwardingTable()
+    flow_to_paths = defaultdict(list)
+    G = network.topology.to_directed()
 
-        ft = ForwardingTable()
-        for f in flows:
-            ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
+    for src, tgt in G.edges:
+        G[src][tgt]["weight"] = 1
 
-        for (router, _), rules in ft.table.items():
-            memory_usage[router] += len(rules)
+    for src, tgt, load in self.loads:
+        path_gen = nx.shortest_simple_paths(G, src, tgt, weight="weight")
+        try:
+            path = next(path_gen)
+        except StopIteration as e:
+            raise Exception("Bug")
+        flow_to_paths[(src, tgt)].append(path)
 
-        return memory_usage
+    for f in flows:
+        # remove duplicate labels
+        encoded_path = path_encoder(flow_to_paths[f], create_label_generator(f))
+        # encoded_path.to_graphviz(f'ft {f[0]} -> {f[1]}', network.topology)
+        forwarding_table.extend(encoded_path)
+
+    return forwarding_table.table
+
+def greedy_min_congestion(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
+                                     path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
+    Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
+
+    forwarding_table = ForwardingTable()
+    flow_to_paths = defaultdict(list)
+    weighted_graph = network.topology.to_directed()
+
+    # Absolute link utilization under current path set
+    link_to_util = {e: 0 for e in self.link_caps.keys()}
+
+    for src, tgt, load in sorted(self.loads, key=lambda x: x[2], reverse=True):
+        # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
+        imposed_util_abs = dict()
+        for (u, v), util in link_to_util.items():
+            imposed_util_abs[(u, v)] = util + load
+
+        imposed_util_rel= dict()
+        for (u, v), util_abs in imposed_util_abs.items():
+            link_cap = self.link_caps[(u,v)]
+            imposed_util_rel[(u, v)] = util_abs / link_cap
+
+        # We order links by how much relative utilization it has were the flow to go through it
+        ordered_by_util = list(imposed_util_rel.items())
+        ordered_by_util.sort(key=lambda x: x[1])
+
+        edge_to_weight = dict()
+        prev_util = ordered_by_util[0][1]
+        next_weight = 1
+        for i, (edge, util) in enumerate(ordered_by_util):
+            if util > prev_util:
+                next_weight = sum(edge_to_weight.values()) + 1
+            edge_to_weight[edge] = next_weight
+            prev_util = util
+
+        def update_weights(G, edge_to_weight):
+            for (src, tgt), weight in edge_to_weight.items():
+                G[src][tgt]["weight"] = weight
+            return G
+
+        weighted_graph = update_weights(weighted_graph, edge_to_weight)
+
+        path_gen = nx.shortest_simple_paths(weighted_graph, src, tgt, weight="weight")
+        try:
+            path = next(path_gen)
+        except StopIteration as e:
+            raise Exception("Bugg")
+
+        flow_to_paths[(src,tgt)].append(path)
+        # Update util use
+        for v1, v2 in zip(path[:-1], path[1:]):
+            link_to_util[(v1, v2)] += load
+
+    for f in flows:
+        # remove duplicate labels
+        encoded_path = path_encoder(flow_to_paths[f], create_label_generator(f))
+        # encoded_path.to_graphviz(f'ft {f[0]} -> {f[1]}', network.topology)
+        forwarding_table.extend(encoded_path)
+
+    return forwarding_table.table
+
+def global_weights_heuristic(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
+                                     path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
+    Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
 
     forwarding_table = ForwardingTable()
     flow_to_paths_dict = {f: [] for f in flows}
@@ -52,7 +136,6 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
     flow_to_misses = {f: 0 for f in flows}  # Number of consecutive times path was not added for flow
     i = 0
     total_paths_used = 0
-
     while len(unfinished_flows) > 0:
         # select the next ingress router to even out memory usage
         flow = unfinished_flows[i % len(unfinished_flows)]
@@ -68,11 +151,11 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
                     try_paths[f].append(path)
 
         # see if adding this path surpasses the memory limit
-        router_memory_usage = compute_memory_usage(try_paths)
+        router_memory_usage = compute_memory_usage(network, flows, path_encoder, try_paths)
         max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
 
-        # update weights in the network to change the shortest path
-        update_weights(weighted_graph, path)
+        # update weights in the network to change the shortest path'
+        update_weights(weighted_graph, path, lambda x: x)
 
         i += 1
         if not max_memory_reached and path not in flow_to_paths_dict[flow]:
@@ -85,9 +168,6 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
                 unfinished_flows.remove(flow)
                 i -= 1  # Undo increment
 
-    global crap_var
-    crap_var = True
-
     for f in flows:
         # remove duplicate labels
         encoded_path = path_encoder(flow_to_paths_dict[f], create_label_generator(f))
@@ -96,21 +176,9 @@ def global_weights_heuristic(network: Network, flows: List[Tuple[str, str]], epo
 
     return forwarding_table.table
 
-def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, str]], epochs: int, total_max_memory: int,
+def semi_disjoint_paths(self, network: Network, flows: List[Tuple[str, str, int]], epochs: int, total_max_memory: int,
                                      path_encoder: Callable[[List[str], Generator], ForwardingTable]) -> Dict[
     Tuple[str, oFEC], List[Tuple[int, str, oFEC]]]:
-
-    def compute_memory_usage(_flow_to_paths_dict) -> Dict:
-        memory_usage = {r: 0 for r in network.routers}
-
-        ft = ForwardingTable()
-        for f in flows:
-            ft.extend(path_encoder(_flow_to_paths_dict[f], create_label_generator(f)))
-
-        for (router, _), rules in ft.table.items():
-            memory_usage[router] += len(rules)
-
-        return memory_usage
 
     forwarding_table = ForwardingTable()
     flow_to_paths_dict = {f: [] for f in flows}
@@ -139,11 +207,11 @@ def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, st
                     try_paths[f].append(path)
 
         # see if adding this path surpasses the memory limit
-        router_memory_usage = compute_memory_usage(try_paths)
+        router_memory_usage = compute_memory_usage(network, flows, path_encoder, try_paths)
         max_memory_reached = any(router_memory_usage[r] > total_max_memory for r in network.routers)
 
         # update weights in the network to change the shortest path
-        update_weights(flow_to_weight_graph_dict[flow], path)
+        update_weights(flow_to_weight_graph_dict[flow], path, lambda x: x * 2 + 1)
 
         i += 1
         if not max_memory_reached and path not in flow_to_paths_dict[flow]:
@@ -156,10 +224,6 @@ def generate_pseudo_forwarding_table(network: Network, flows: List[Tuple[str, st
                 unfinished_flows.remove(flow)
                 i -= 1  # Undo increment
 
-    global crap_var
-    crap_var = True
-
-    flow_to_paths_dict[("Sydney2", "Sydney1")] = [["Sydney2", "Brisbane2", "Brisbane1", "Sydney1"]]
     for f in flows:
         # remove duplicate labels
         encoded_path = path_encoder(flow_to_paths_dict[f], create_label_generator(f))
@@ -174,14 +238,14 @@ def reset_weights(G: Graph, value):
         d["weight"] = value
 
 
-def update_weights(G: Graph, path):
+def update_weights(G: Graph, path, update_func):
     for v1, v2 in zip(path[:-1], path[1:]):
         # weight = G[v1][v2]["weight"]
 
         # if weight <= 0:
         #     G[v1][v2]["weight"] = 1
         # else:
-        G[v1][v2]["weight"] = G[v1][v2]["weight"] * 2 + 1
+        G[v1][v2]["weight"] = update_func(G[v1][v2]["weight"])
 
 
 def encode_paths_full_backtrack(paths: List[str], label_generator: Iterator[oFEC]):
@@ -303,10 +367,25 @@ class InOutDisjoint(MPLS_Client):
 
         self.epochs = kwargs['epochs']
         self.per_flow_memory = kwargs['per_flow_memory']
-        self.backtracking_method = {
+
+        back_tracking_methods = {
             'full': encode_paths_full_backtrack,
             'partial': encode_paths_quick_next_path
-        }[kwargs['backtrack']]
+        }
+        self.backtracking_method = back_tracking_methods[kwargs["backtrack"]]
+
+        path_heuristics = {
+            'global_weights': global_weights_heuristic,
+            'semi_disjoint_paths': semi_disjoint_paths,
+            'greedy_min_congestion': greedy_min_congestion,
+            'shortest_path': shortest_path,
+        }
+
+        self.path_heuristic = semi_disjoint_paths
+        self.loads = kwargs["loads"]
+        self.link_caps = kwargs["link_caps"]
+        if "path_heuristic" in kwargs:
+            self.path_heuristic = path_heuristics[kwargs["path_heuristic"]]
 
     def LFIB_compute_entry(self, fec: oFEC, single=False):
         for priority, next_hop, swap_fec in self.partial_forwarding_table[(self.router.name, fec)]:
@@ -336,7 +415,7 @@ class InOutDisjoint(MPLS_Client):
         flows = [(headend, tailend) for tailend in network.routers for headend in
                  map(lambda x: x[0], network.routers[tailend].clients[self.protocol].demands.values())]
 
-        ft = generate_pseudo_forwarding_table(self.router.network, flows, self.epochs,
+        ft = self.path_heuristic(self, self.router.network, flows, self.epochs,
                                               self.per_flow_memory * len(flows), self.backtracking_method)
 
         for (src, fec), entries in ft.items():
@@ -359,3 +438,5 @@ class InOutDisjoint(MPLS_Client):
 
     def self_sourced(self, fec: oFEC):
         return 'inout-disjoint' in fec.fec_type and fec.value["egress"][0] == self.router.name
+
+

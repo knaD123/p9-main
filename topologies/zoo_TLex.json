@@ -1,1 +1,369 @@
-{"network":{"links":[{"bandwidth":622080,"bidirectional":true,"from_interface":"i0","from_router":"Pacific_NW_Gigapop_(Seattle,_WA)","latency":10,"to_interface":"i0","to_router":"ONS-15454","weight":160},{"bandwidth":9953280,"bidirectional":true,"from_interface":"i1","from_router":"Pacific_NW_Gigapop_(Seattle,_WA)","latency":10,"to_interface":"i1","to_router":"ONS-15454","weight":10},{"bandwidth":9953280,"bidirectional":true,"from_interface":"i0","from_router":"Future_IEEAF_Asian_Extension","latency":10,"to_interface":"i2","to_router":"ONS-15454","weight":10},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"Cat_6500_AS23814","latency":10,"to_interface":"i3","to_router":"ONS-15454","weight":15},{"bandwidth":2488320,"bidirectional":true,"from_interface":"i1","from_router":"Cat_6500_AS23814","latency":10,"to_interface":"i4","to_router":"ONS-15454","weight":40},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i2","from_router":"Cat_6500_AS23814","latency":10,"to_interface":"i0","to_router":"NetIron_N140G_AS23814","weight":10},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i5","from_router":"ONS-15454","latency":10,"to_interface":"i1","to_router":"NetIron_N140G_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i6","from_router":"ONS-15454","latency":10,"to_interface":"i0","to_router":"BigIron_15000_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i7","from_router":"ONS-15454","latency":10,"to_interface":"i1","to_router":"BigIron_15000_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"DR_Data_Reservoir","latency":10,"to_interface":"i2","to_router":"NetIron_N140G_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"U-Tokyo_akihabara","latency":10,"to_interface":"i3","to_router":"NetIron_N140G_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"JGN2","latency":10,"to_interface":"i4","to_router":"NetIron_N140G_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"APAN-JP_AS7660","latency":10,"to_interface":"i5","to_router":"NetIron_N140G_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"WIDE_AS2500","latency":10,"to_interface":"i6","to_router":"NetIron_N140G_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i0","from_router":"ASCC/TW_AS9264","latency":10,"to_interface":"i2","to_router":"BigIron_15000_AS23814","weight":15},{"bandwidth":6603392,"bidirectional":true,"from_interface":"i3","from_router":"BigIron_15000_AS23814","latency":10,"to_interface":"i7","to_router":"NetIron_N140G_AS23814","weight":15}],"name":"TLex","routers":[{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"Pacific_NW_Gigapop_(Seattle,_WA)"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"Future_IEEAF_Asian_Extension"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"name":"Cat_6500_AS23814"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7"],"routing_table":{}}],"location":{"latitude":49.41631,"longitude":1.92302},"name":"ONS-15454"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"DR_Data_Reservoir"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"U-Tokyo_akihabara"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"JGN2"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"APAN-JP_AS7660"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"WIDE_AS2500"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"name":"ASCC/TW_AS9264"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"name":"BigIron_15000_AS23814"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7"],"routing_table":{}}],"name":"NetIron_N140G_AS23814"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 622080,
+        "from_router": "0_Pacific_NW_Gigapop_(Seattle_WA)",
+        "to_router": "3_ONS-15454",
+        "latency": 10,
+        "weight": 160,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "0_Pacific_NW_Gigapop_(Seattle_WA)",
+        "to_router": "3_ONS-15454",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "1_Future_IEEAF_Asian_Extension",
+        "to_router": "3_ONS-15454",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "2_Cat_6500_AS23814",
+        "to_router": "3_ONS-15454",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "2_Cat_6500_AS23814",
+        "to_router": "3_ONS-15454",
+        "latency": 10,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "2_Cat_6500_AS23814",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "3_ONS-15454",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "3_ONS-15454",
+        "to_router": "10_BigIron_15000_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "3_ONS-15454",
+        "to_router": "10_BigIron_15000_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i7",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "4_DR_Data_Reservoir",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "5_U-Tokyo_akihabara",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "6_JGN2",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "7_APAN-JP_AS7660",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "8_WIDE_AS2500",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "9_ASCC/TW_AS9264",
+        "to_router": "10_BigIron_15000_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 6603392,
+        "from_router": "10_BigIron_15000_AS23814",
+        "to_router": "11_NetIron_N140G_AS23814",
+        "latency": 10,
+        "weight": 15,
+        "from_interface": "i3",
+        "to_interface": "i7",
+        "bidirectional": true
+      }
+    ],
+    "name": "TLex",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Pacific_NW_Gigapop_(Seattle_WA)"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Future_IEEAF_Asian_Extension"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Cat_6500_AS23814"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_ONS-15454"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_DR_Data_Reservoir"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_U-Tokyo_akihabara"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_JGN2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_APAN-JP_AS7660"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_WIDE_AS2500"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_ASCC/TW_AS9264"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_BigIron_15000_AS23814"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_NetIron_N140G_AS23814"
+      }
+    ]
+  }
+}

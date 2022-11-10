@@ -1,1 +1,769 @@
-{"network":{"links":[{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Southampton_Aggregation","latency":5,"to_interface":"i0","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Southampton_Aggregation","latency":5,"to_interface":"i1","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Southampton_Aggregation","latency":103,"to_interface":"i0","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Southampton","latency":5,"to_interface":"i2","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Southampton","latency":5,"to_interface":"i3","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Southampton","latency":103,"to_interface":"i1","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Winchester","latency":37,"to_interface":"i4","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Winchester","latency":77,"to_interface":"i2","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Portsmouth","latency":46,"to_interface":"i5","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Portsmouth","latency":94,"to_interface":"i3","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Bournemouth","latency":70,"to_interface":"i6","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bournemouth","latency":168,"to_interface":"i4","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Bere_Regis_Colocation","latency":33,"to_interface":"i0","to_router":"Bournemouth_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Solent","latency":5,"to_interface":"i7","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Solent","latency":103,"to_interface":"i5","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Bournemouth_Aggregation","latency":168,"to_interface":"i6","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Bournemouth_Aggregation","latency":70,"to_interface":"i8","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Isle_of_Wight_Colocation","latency":50,"to_interface":"i0","to_router":"Wymering","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Hampton_Park_Colocation","latency":55,"to_interface":"i0","to_router":"Brighton_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Wymering","latency":44,"to_interface":"i9","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i2","from_router":"Wymering","latency":86,"to_interface":"i7","to_router":"Aldershot_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i0","from_router":"Chichester","latency":78,"to_interface":"i10","to_router":"Southampton_Core","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i1","from_router":"Chichester","latency":81,"to_interface":"i8","to_router":"Aldershot_Core","weight":100},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i0","from_router":"Janet_SJ5","latency":79,"to_interface":"i11","to_router":"Southampton_Core","weight":10},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i1","from_router":"Janet_SJ5","latency":79,"to_interface":"i9","to_router":"Aldershot_Core","weight":10},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i12","from_router":"Southampton_Core","latency":103,"to_interface":"i10","to_router":"Aldershot_Core","weight":10},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i13","from_router":"Southampton_Core","latency":152,"to_interface":"i1","to_router":"Brighton_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i14","from_router":"Southampton_Core","latency":152,"to_interface":"i0","to_router":"Brighton","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i15","from_router":"Southampton_Core","latency":203,"to_interface":"i0","to_router":"Sussex","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i16","from_router":"Southampton_Core","latency":129,"to_interface":"i0","to_router":"Surrey","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i17","from_router":"Southampton_Core","latency":103,"to_interface":"i0","to_router":"Aldershot_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i11","from_router":"Aldershot_Core","latency":111,"to_interface":"i2","to_router":"Brighton_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i12","from_router":"Aldershot_Core","latency":111,"to_interface":"i3","to_router":"Brighton_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i13","from_router":"Aldershot_Core","latency":111,"to_interface":"i1","to_router":"Brighton","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i14","from_router":"Aldershot_Core","latency":111,"to_interface":"i2","to_router":"Brighton","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i15","from_router":"Aldershot_Core","latency":156,"to_interface":"i1","to_router":"Sussex","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i16","from_router":"Aldershot_Core","latency":32,"to_interface":"i1","to_router":"Surrey","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i17","from_router":"Aldershot_Core","latency":32,"to_interface":"i2","to_router":"Surrey","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i18","from_router":"Aldershot_Core","latency":5,"to_interface":"i1","to_router":"Aldershot_Aggregation","weight":100},{"bandwidth":1000000,"bidirectional":true,"from_interface":"i19","from_router":"Aldershot_Core","latency":5,"to_interface":"i2","to_router":"Aldershot_Aggregation","weight":100}],"name":"Janetlense","routers":[{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":50.9,"longitude":-1.4},"name":"Southampton_Aggregation"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":50.9,"longitude":-1.4},"name":"Southampton"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":51.06513,"longitude":-1.3187},"name":"Winchester"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.80908,"longitude":-1.07142},"name":"Portsmouth"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.71667,"longitude":-1.88333},"name":"Bournemouth"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":50.68333,"longitude":-2.11667},"name":"Bere_Regis_Colocation"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.9,"longitude":-1.4},"name":"Solent"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":50.71667,"longitude":-1.88333},"name":"Bournemouth_Aggregation"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":50.66667,"longitude":-1.33333},"name":"Isle_of_Wight_Colocation"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":50.76871,"longitude":0.28453},"name":"Hampton_Park_Colocation"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":50.85164,"longitude":-1.07404},"name":"Wymering"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.83673,"longitude":-0.78003},"name":"Chichester"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"name":"Janet_SJ5"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9","i10","i11","i12","i13","i14","i15","i16","i17"],"routing_table":{}}],"location":{"latitude":50.9,"longitude":-1.4},"name":"Southampton_Core"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8","i9","i10","i11","i12","i13","i14","i15","i16","i17","i18","i19"],"routing_table":{}}],"location":{"latitude":51.25,"longitude":-0.76667},"name":"Aldershot_Core"},{"interfaces":[{"names":["i0","i1","i2","i3"],"routing_table":{}}],"location":{"latitude":50.82838,"longitude":-0.13947},"name":"Brighton_Aggregation"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":50.82838,"longitude":-0.13947},"name":"Brighton"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":50.76871,"longitude":0.28453},"name":"Sussex"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":51.31903,"longitude":-0.55893},"name":"Surrey"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":51.25,"longitude":-0.76667},"name":"Aldershot_Aggregation"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Southampton_Aggregation",
+        "to_router": "13_Southampton_Core",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Southampton_Aggregation",
+        "to_router": "13_Southampton_Core",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "0_Southampton_Aggregation",
+        "to_router": "14_Aldershot_Core",
+        "latency": 103,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Southampton",
+        "to_router": "13_Southampton_Core",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Southampton",
+        "to_router": "13_Southampton_Core",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "1_Southampton",
+        "to_router": "14_Aldershot_Core",
+        "latency": 103,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Winchester",
+        "to_router": "13_Southampton_Core",
+        "latency": 37,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "2_Winchester",
+        "to_router": "14_Aldershot_Core",
+        "latency": 77,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Portsmouth",
+        "to_router": "13_Southampton_Core",
+        "latency": 46,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "3_Portsmouth",
+        "to_router": "14_Aldershot_Core",
+        "latency": 94,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Bournemouth",
+        "to_router": "13_Southampton_Core",
+        "latency": 70,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "4_Bournemouth",
+        "to_router": "14_Aldershot_Core",
+        "latency": 168,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "5_Bere_Regis_Colocation",
+        "to_router": "7_Bournemouth_Aggregation",
+        "latency": 33,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Solent",
+        "to_router": "13_Southampton_Core",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "6_Solent",
+        "to_router": "14_Aldershot_Core",
+        "latency": 103,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Bournemouth_Aggregation",
+        "to_router": "14_Aldershot_Core",
+        "latency": 168,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "7_Bournemouth_Aggregation",
+        "to_router": "13_Southampton_Core",
+        "latency": 70,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "8_Isle_of_Wight_Colocation",
+        "to_router": "10_Wymering",
+        "latency": 50,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "9_Hampton_Park_Colocation",
+        "to_router": "15_Brighton_Aggregation",
+        "latency": 55,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Wymering",
+        "to_router": "13_Southampton_Core",
+        "latency": 44,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i9",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "10_Wymering",
+        "to_router": "14_Aldershot_Core",
+        "latency": 86,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Chichester",
+        "to_router": "13_Southampton_Core",
+        "latency": 78,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i10",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "11_Chichester",
+        "to_router": "14_Aldershot_Core",
+        "latency": 81,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "12_Janet_SJ5",
+        "to_router": "13_Southampton_Core",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i11",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "12_Janet_SJ5",
+        "to_router": "14_Aldershot_Core",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i9",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "13_Southampton_Core",
+        "to_router": "14_Aldershot_Core",
+        "latency": 103,
+        "weight": 10,
+        "from_interface": "i12",
+        "to_interface": "i10",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Southampton_Core",
+        "to_router": "15_Brighton_Aggregation",
+        "latency": 152,
+        "weight": 100,
+        "from_interface": "i13",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Southampton_Core",
+        "to_router": "16_Brighton",
+        "latency": 152,
+        "weight": 100,
+        "from_interface": "i14",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Southampton_Core",
+        "to_router": "17_Sussex",
+        "latency": 203,
+        "weight": 100,
+        "from_interface": "i15",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Southampton_Core",
+        "to_router": "18_Surrey",
+        "latency": 129,
+        "weight": 100,
+        "from_interface": "i16",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "13_Southampton_Core",
+        "to_router": "19_Aldershot_Aggregation",
+        "latency": 103,
+        "weight": 100,
+        "from_interface": "i17",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "15_Brighton_Aggregation",
+        "latency": 111,
+        "weight": 100,
+        "from_interface": "i11",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "15_Brighton_Aggregation",
+        "latency": 111,
+        "weight": 100,
+        "from_interface": "i12",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "16_Brighton",
+        "latency": 111,
+        "weight": 100,
+        "from_interface": "i13",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "16_Brighton",
+        "latency": 111,
+        "weight": 100,
+        "from_interface": "i14",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "17_Sussex",
+        "latency": 156,
+        "weight": 100,
+        "from_interface": "i15",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "18_Surrey",
+        "latency": 32,
+        "weight": 100,
+        "from_interface": "i16",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "18_Surrey",
+        "latency": 32,
+        "weight": 100,
+        "from_interface": "i17",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "19_Aldershot_Aggregation",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i18",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "14_Aldershot_Core",
+        "to_router": "19_Aldershot_Aggregation",
+        "latency": 5,
+        "weight": 100,
+        "from_interface": "i19",
+        "to_interface": "i2",
+        "bidirectional": true
+      }
+    ],
+    "name": "Janetlense",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Southampton_Aggregation"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Southampton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Winchester"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Portsmouth"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Bournemouth"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Bere_Regis_Colocation"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Solent"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Bournemouth_Aggregation"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Isle_of_Wight_Colocation"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Hampton_Park_Colocation"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Wymering"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Chichester"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Janet_SJ5"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12",
+              "i13",
+              "i14",
+              "i15",
+              "i16",
+              "i17"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_Southampton_Core"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12",
+              "i13",
+              "i14",
+              "i15",
+              "i16",
+              "i17",
+              "i18",
+              "i19"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_Aldershot_Core"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_Brighton_Aggregation"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_Brighton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_Sussex"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Surrey"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Aldershot_Aggregation"
+      }
+    ]
+  }
+}

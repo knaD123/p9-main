@@ -20,7 +20,8 @@ implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 import random
 import shutil
 import time
-import json, yaml
+import json 
+import yaml
 import math
 import argparse
 import sys, os
@@ -97,8 +98,8 @@ def generate_failures_all(G, division = None, random_seed = 1):
     return [all_of_em]
 
 
-def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None):
-    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "")
+def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None):
+    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "")
     base_config = {
     #we need extra configuration here!!!!
         "topology": topofile,
@@ -111,6 +112,8 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         "random_seed": random_seed,
         "result_folder": os.path.join(conf["result_folder"], conf_name, topofile.split('/')[-1].split('.')[0]),
         #"flows": [os.path.join(folder, toponame.split("_")[1] + f"_000{x}.yml") for x in range(0,4)]
+        "demands": conf["demand_file"],
+        "failure_chunk_file": os.path.join(folder, "failure_chunks", "0.yml")
     }
     if per_flow_memory is not None:
         base_config['per_flow_memory'] = per_flow_memory
@@ -146,12 +149,12 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['method'] = 'kf'
     elif conf_type == 'inout-disjoint':
         base_config['method'] = 'inout-disjoint'
-        base_config['epochs'] = 3
         base_config['backtrack'] = 'partial'
+        base_config['path_heuristic'] = path_heuristic
     elif conf_type == 'inout-disjoint-full':
         base_config['method'] = 'inout-disjoint'
-        base_config['epochs'] = 3
         base_config['backtrack'] = 'full'
+        base_config['path_heuristic'] = path_heuristic
     elif conf_type == 'rmpls':
         base_config['enable_RMPLS'] = True
         base_config['protection'] = None
@@ -177,7 +180,7 @@ if __name__ == "__main__":
 
     p.add_argument("--threshold",type=int, default = 1000, help="Maximum number of failures to generate")
 
-    p.add_argument("--division",type=int, default = 1000, help="chunk size; number of failure scenarios per worker.")
+    p.add_argument("--division",type=int, default = 100000, help="chunk size; number of failure scenarios per worker.")
 
     p.add_argument("--random_seed",type=int, default = 1, help="Random seed. Leave empty to pick a random one.")
 
@@ -186,6 +189,15 @@ if __name__ == "__main__":
     p.add_argument("--keep_flows", action="store_true", default=False, help="Do not generate flows if they already exist")
 
     p.add_argument("--result_folder", type=str, default='results', help="Folder to store results in")
+
+    p.add_argument("--algorithm", required=True, choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor", "rsvp-fn", "all"])
+
+    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths"])
+
+    p.add_argument("--max_memory", type=int, default=3)
+
+    p.add_argument("--demand_file", type=str, required=True)
+
 
     args = p.parse_args()
     conf = vars(args)
@@ -228,33 +240,41 @@ if __name__ == "__main__":
     #with open(os.path.join(folder, "flows.yml"), "w") as file:
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
-    def create(conf_type, max_memory = None):
-        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory)
-        if max_memory is not None:
-            conf_name = f"conf_{conf_type}_max-mem={max_memory}.yml"
-        else:
-            conf_name = f"conf_{conf_type}.yml"
+    def create(conf_type, max_memory = None, path_heuristic=None):
+        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic)
+        conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
+            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
         with open(path, "w") as file:
             documents = yaml.dump(dict_conf, file, Dumper=NoAliasDumper)
 
-    create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
-    create('tba-simple')
-#    create('hd')
-#    create('cfor-short')
-#    create('cfor-arb')
-    create('gft')
-    create('kf')
-    create('rmpls')
-    create('plinko4')
+    algorithm = conf["algorithm"]
+    if algorithm == "all":
+        create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
+        create('tba-simple')
+        #    create('hd')
+        #    create('cfor-short')
+        #    create('cfor-arb')
+        create('gft')
+        create('kf')
+        create('rmpls')
+        create('plinko4')
 
-    per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-    for mem in per_flow_memory:
-        create('inout-disjoint', mem)
-        create('inout-disjoint-full', mem)
-        create('tba-complex', mem)
+        per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path"]
+        for mem in per_flow_memory:
+            create('tba-complex', mem)
+            for h in heuristics:
+                create('inout-disjoint', mem, h)
+                create('inout-disjoint-full', mem, h)
+    elif algorithm in ['inout-disjoint', 'inout-disjoint-full']:
+        create(algorithm, conf["max_memory"], conf["path_heuristic"])
+    elif algorithm == "tba-complex":
+        create(algorithm, conf["max_memory"])
+    else:
+        create(algorithm)
 
     if not (args.keep_failure_chunks and os.path.exists(os.path.join(folder, "failure_chunks"))):
         # Generate failures
@@ -271,12 +291,3 @@ if __name__ == "__main__":
             i+=1
             with open(pathf, "w") as file:
                 documents = yaml.dump(F_chunk, file, default_flow_style=True, Dumper=NoAliasDumper)
-
-    #move demands
-    if not (args.keep_flows and os.path.exists(os.path.join(folder, "flows"))):
-        flows_folder = os.path.join(folder, "flows")
-        os.makedirs(flows_folder, exist_ok = True)
-
-        for demandfile in os.listdir("demands"):
-            if toponame.split("_")[1] == demandfile.split("_")[0]:
-                shutil.copy("demands/" + demandfile, flows_folder)

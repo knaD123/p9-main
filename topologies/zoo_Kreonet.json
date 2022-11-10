@@ -1,1 +1,335 @@
-{"network":{"links":[{"bandwidth":5000000,"bidirectional":true,"from_interface":"i0","from_router":"Jeonju","latency":105,"to_interface":"i0","to_router":"Daejeon","weight":40},{"bandwidth":2500000,"bidirectional":true,"from_interface":"i0","from_router":"Jeju","latency":315,"to_interface":"i0","to_router":"Kwangju","weight":80},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i1","from_router":"Kwangju","latency":233,"to_interface":"i1","to_router":"Daejeon","weight":20},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i0","from_router":"Busan","latency":337,"to_interface":"i2","to_router":"Daejeon","weight":20},{"bandwidth":5000000,"bidirectional":true,"from_interface":"i0","from_router":"Changwon","latency":282,"to_interface":"i3","to_router":"Daejeon","weight":40},{"bandwidth":20000000,"bidirectional":true,"from_interface":"i0","from_router":"Seoul","latency":244,"to_interface":"i4","to_router":"Daejeon","weight":10},{"bandwidth":5000000,"bidirectional":true,"from_interface":"i1","from_router":"Seoul","latency":46,"to_interface":"i0","to_router":"Incheon","weight":40},{"bandwidth":5000000,"bidirectional":true,"from_interface":"i2","from_router":"Seoul","latency":56,"to_interface":"i0","to_router":"Suwon","weight":40},{"bandwidth":5000000,"bidirectional":true,"from_interface":"i0","from_router":"Cheonan","latency":103,"to_interface":"i5","to_router":"Daejeon","weight":40},{"bandwidth":5000000,"bidirectional":true,"from_interface":"i0","from_router":"Ochang","latency":147,"to_interface":"i6","to_router":"Daejeon","weight":40},{"bandwidth":5000000,"bidirectional":true,"from_interface":"i7","from_router":"Daejeon","latency":300,"to_interface":"i0","to_router":"Pohang","weight":40},{"bandwidth":10000000,"bidirectional":true,"from_interface":"i8","from_router":"Daejeon","latency":199,"to_interface":"i0","to_router":"Daegu","weight":20}],"name":"Kreonet","routers":[{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":35.82194,"longitude":127.14889},"name":"Jeonju"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":33.50972,"longitude":126.52194},"name":"Jeju"},{"interfaces":[{"names":["i0","i1"],"routing_table":{}}],"location":{"latitude":35.15472,"longitude":126.91556},"name":"Kwangju"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":35.10278,"longitude":129.04028},"name":"Busan"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":35.22806,"longitude":128.68111},"name":"Changwon"},{"interfaces":[{"names":["i0","i1","i2"],"routing_table":{}}],"location":{"latitude":37.56826,"longitude":126.97783},"name":"Seoul"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":37.45361,"longitude":126.73167},"name":"Incheon"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":37.29111,"longitude":127.00889},"name":"Suwon"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":36.8065,"longitude":127.1522},"name":"Cheonan"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":35.55292,"longitude":127.49042},"name":"Ochang"},{"interfaces":[{"names":["i0","i1","i2","i3","i4","i5","i6","i7","i8"],"routing_table":{}}],"location":{"latitude":36.32139,"longitude":127.41972},"name":"Daejeon"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":36.03222,"longitude":129.365},"name":"Pohang"},{"interfaces":[{"names":["i0"],"routing_table":{}}],"location":{"latitude":35.87028,"longitude":128.59111},"name":"Daegu"}]}}
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 5000000,
+        "from_router": "0_Jeonju",
+        "to_router": "10_Daejeon",
+        "latency": 105,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "1_Jeju",
+        "to_router": "2_Kwangju",
+        "latency": 315,
+        "weight": 80,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "2_Kwangju",
+        "to_router": "10_Daejeon",
+        "latency": 233,
+        "weight": 20,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "3_Busan",
+        "to_router": "10_Daejeon",
+        "latency": 337,
+        "weight": 20,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000000,
+        "from_router": "4_Changwon",
+        "to_router": "10_Daejeon",
+        "latency": 282,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 20000000.0,
+        "from_router": "5_Seoul",
+        "to_router": "10_Daejeon",
+        "latency": 244,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000000,
+        "from_router": "5_Seoul",
+        "to_router": "6_Incheon",
+        "latency": 46,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000000,
+        "from_router": "5_Seoul",
+        "to_router": "7_Suwon",
+        "latency": 56,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000000,
+        "from_router": "8_Cheonan",
+        "to_router": "10_Daejeon",
+        "latency": 103,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000000,
+        "from_router": "9_Ochang",
+        "to_router": "10_Daejeon",
+        "latency": 147,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 5000000,
+        "from_router": "10_Daejeon",
+        "to_router": "11_Pohang",
+        "latency": 300,
+        "weight": 40,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "10_Daejeon",
+        "to_router": "12_Daegu",
+        "latency": 199,
+        "weight": 20,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Kreonet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Jeonju"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Jeju"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Kwangju"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Busan"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Changwon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Seoul"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Incheon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Suwon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Cheonan"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Ochang"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_Daejeon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_Pohang"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_Daegu"
+      }
+    ]
+  }
+}
