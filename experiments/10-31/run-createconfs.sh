@@ -6,11 +6,7 @@
 #SBATCH --mem=12G
 #SBATCH --cpus-per-task=1
 
-PD=$(pwd)
-
-source ${PD}/venv/bin/activate
-
-python3 -m pip install -r requirements.txt
+source venv/bin/activate
 
 TOPO="${1}"
 
