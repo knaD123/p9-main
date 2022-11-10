@@ -1,7 +1,7 @@
 from ortools.linear_solver import pywraplp
 
 
-def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph, dict of capacities, dict of demands
+def congestion_lp(graph, capacities, demands, printflows=False, singleflow=False):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -10,7 +10,10 @@ def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph
         else:
             return 0  # intermediate
 
-    solver = pywraplp.Solver.CreateSolver('GLOP')
+    if singleflow:
+        solver = pywraplp.Solver.CreateSolver('SCIP')
+    else:
+        solver = pywraplp.Solver.CreateSolver('GLOP')
     if not solver:
         return
 
@@ -18,8 +21,12 @@ def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph
     alpha = solver.NumVar(0, solver.infinity(), "alpha")
 
     # Flow variables for solver
-    f = {(i, j, d): solver.NumVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
-         (i, j) in graph.edges for d in range(len(demands))}
+    if singleflow:
+        f = {(i, j, d): solver.IntVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
+             (i, j) in graph.edges for d in range(len(demands))}
+    else:
+        f = {(i, j, d): solver.NumVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
+             (i, j) in graph.edges for d in range(len(demands))}
 
     # Flow conservation constraints: total flow balance at node i for each demand d
     # must be 0 if i is an intermediate node, 1 if i is the source of demand d, and
@@ -42,6 +49,11 @@ def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph
     status = solver.Solve()
 
     if status == pywraplp.Solver.OPTIMAL:
+        if printflows:
+            for d in range(len(demands)):
+                for (i, j) in graph.edges:
+                    if f[i,j,d].SolutionValue() > 0:
+                        print(f[i,j,d].name() + ": " + str(f[i,j,d].SolutionValue()))
         print('Minimal maximal utilization =', solver.Objective().Value())
         return solver.Objective().Value()
     else:
