@@ -6,7 +6,9 @@
 #SBATCH --mem=12G
 #SBATCH --cpus-per-task=1
 
-source venv/bin/activate
+PD=$(pwd)
+
+source ${PD}/venv/bin/activate
 
 TOPO="${1}"
 
