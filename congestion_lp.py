@@ -8,7 +8,7 @@ from mpls_fwd_gen import *
 
 
 def main(graphfile, demandsfile, print_flows=False, unsplittable_flow=False):
-    with open("demands/" + demandsfile, "r") as file:
+    with open(demandsfile, "r") as file:
         flows_with_load = [[x, y, int(z)] for [x, y, z] in yaml.load(file, Loader=yaml.BaseLoader)]
 
     # Sort the flows
