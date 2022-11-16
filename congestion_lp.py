@@ -39,6 +39,7 @@ def main(graphfile, demandsfile, print_flows=False, unsplittable_flow=False):
     results["topology"] = graphfile
     results["demandfile"] = demandsfile
     results["minimal_maximal_utilization"] = minimized_max_util
+    results["unsplittable_flows"] = unsplittable_flow
 
     with open(os.path.join(result_folder, "results.json"), "w") as f:
         json.dump(results, f, indent=4)
