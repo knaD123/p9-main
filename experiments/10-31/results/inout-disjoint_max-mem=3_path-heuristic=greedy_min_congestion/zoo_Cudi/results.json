@@ -1,0 +1,2840 @@
+{
+    "topology": "topologies/zoo_Cudi.json",
+    "method": {
+        "name": "inout-disjoint",
+        "path_heuristic": "greedy_min_congestion",
+        "mem_per_router_per_flow": 3
+    },
+    "flows": "flows.yml",
+    "failure_scenarios": "failure_scenarios.yml",
+    "flows#": 510,
+    "failure_scenarios#": 353,
+    "ft_gen_time": 104140569115,
+    "simulation_time": 63372092553,
+    "runs": [
+        {
+            "failed_links#": 0,
+            "delivered_packet_rate": 1.0,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1602275172866143,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.7834659736173291,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7095725,
+            "path_stretch": 1.040467744222008,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9868863064504116,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7942016666666667,
+            "path_stretch": 1.161378576713604,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9982887951128274,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8193408333333333,
+            "path_stretch": 1.16036787139077,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8189289343717391,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0504588857929174,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9756151680967543,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8107166666666666,
+            "path_stretch": 1.1632836309916086,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9963583755658245,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8181525,
+            "path_stretch": 1.1607607156090973,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8467397457921251,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.533985,
+            "path_stretch": 1.1381712092641778,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9882037849333813,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7831129166666667,
+            "path_stretch": 1.1611416081437802,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8189289343717391,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0504588857929174,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9914111177043179,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7795595833333333,
+            "path_stretch": 1.1614831592778354,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9955000958151419,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8052854166666666,
+            "path_stretch": 1.160951784897033,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9972704448499888,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8177,
+            "path_stretch": 1.160422304739042,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9512346361109665,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7920466666666667,
+            "path_stretch": 1.1605903909495114,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9825566952229864,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8133879166666667,
+            "path_stretch": 1.160477065333753,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.997645186712963,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8194820833333334,
+            "path_stretch": 1.160495831447001,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8585523492233943,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.032480845482482,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9882037849333813,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7831129166666667,
+            "path_stretch": 1.1611416081437802,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.821476594900233,
+            "median_congestion": 0.015847083333333335,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1809813372105902,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9512346361109665,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7920466666666667,
+            "path_stretch": 1.1605903909495114,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.90592105124382,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7663558333333333,
+            "path_stretch": 1.1588151153774713,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9884139129751875,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81762625,
+            "path_stretch": 1.1609821013033723,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8189289343717391,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0504588857929174,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8562222807443692,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.73397875,
+            "path_stretch": 1.052770474271932,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9826370144358776,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8122820833333333,
+            "path_stretch": 1.162406474509786,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 1.0,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1602275172866143,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9914111177043179,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7795595833333333,
+            "path_stretch": 1.1614831592778354,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9988991400002823,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1604040997438132,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9989388128236195,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1603977293000682,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9982887951128274,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8193408333333333,
+            "path_stretch": 1.16036787139077,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9980082457813347,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8190025,
+            "path_stretch": 1.1601122380229418,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9989767007755591,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.160391645933505,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8585523492233943,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.032480845482482,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9994273808034485,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.16031931920637,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.821476594900233,
+            "median_congestion": 0.015847083333333335,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1809813372105902,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.821476594900233,
+            "median_congestion": 0.015847083333333335,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1809813372105902,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.821476594900233,
+            "median_congestion": 0.015847083333333335,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1809813372105902,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9972704448499888,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8177,
+            "path_stretch": 1.160422304739042,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9991158396140524,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8160945833333333,
+            "path_stretch": 1.160284014566612,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9826370144358776,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8122820833333333,
+            "path_stretch": 1.162406474509786,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9512346361109665,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7920466666666667,
+            "path_stretch": 1.1605903909495114,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9997174224055556,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1602728067908121,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.997645186712963,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8194820833333334,
+            "path_stretch": 1.160495831447001,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.90592105124382,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7663558333333333,
+            "path_stretch": 1.1588151153774713,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9989388128236195,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1603977293000682,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.821476594900233,
+            "median_congestion": 0.015847083333333335,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1809813372105902,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9960524323821753,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.80681125,
+            "path_stretch": 1.1604272532278972,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9980082457813347,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8190025,
+            "path_stretch": 1.1601122380229418,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.8189289343717391,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0504588857929174,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9914111177043179,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7795595833333333,
+            "path_stretch": 1.1614831592778354,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9882037849333813,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7831129166666667,
+            "path_stretch": 1.1611416081437802,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9873008833977591,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7736520833333334,
+            "path_stretch": 1.1614226895661655,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 1,
+            "delivered_packet_rate": 0.9980082457813347,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8190025,
+            "path_stretch": 1.1601122380229418,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9112933518895054,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7919641666666667,
+            "path_stretch": 1.1724243194738284,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9977256681868903,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8190025,
+            "path_stretch": 1.1601575852887327,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8152780610585034,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0505334755205484,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8194419226375077,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1809950824524016,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8131190157115739,
+            "median_congestion": 0.013798709677419354,
+            "max_congestion": 0.5652745833333334,
+            "path_stretch": 1.194159722109281,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8558227940733832,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.8177,
+            "path_stretch": 1.0325844396607131,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9506387324557283,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.79772125,
+            "path_stretch": 1.0551799446407333,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9966756770220038,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1604037769686322,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8387570707274763,
+            "median_congestion": 0.018087741935483872,
+            "max_congestion": 0.5259383333333333,
+            "path_stretch": 1.1394862215667136,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9976481885421317,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8191429166666667,
+            "path_stretch": 1.160398700315447,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9829855511415145,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8041125,
+            "path_stretch": 1.1613691566288524,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8919367461048021,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7528825,
+            "path_stretch": 1.1595068136579387,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9853345230312504,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.81219625,
+            "path_stretch": 1.1620136312279876,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9943412274950028,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8183041666666667,
+            "path_stretch": 1.1602119638305994,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9871804857089403,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7831129166666667,
+            "path_stretch": 1.1613086455650277,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7497587584045132,
+            "median_congestion": 0.01229290322580645,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.201989226368183,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9736044293368602,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8070970833333333,
+            "path_stretch": 1.1639893314742948,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9949128731253374,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8052854166666666,
+            "path_stretch": 1.1610467827029807,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9869734406268209,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8112941666666666,
+            "path_stretch": 1.1601659850122334,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.6405898578090314,
+            "median_congestion": 0.0075987096774193545,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2293630866425005,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9483675647328235,
+            "median_congestion": 0.018639935483870967,
+            "max_congestion": 0.7956716666666667,
+            "path_stretch": 1.055312090565879,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9843964108507849,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7711420833333333,
+            "path_stretch": 1.16184644908323,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8562222807443692,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.73397875,
+            "path_stretch": 1.052770474271932,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.988402067919549,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81258875,
+            "path_stretch": 1.1600701239051834,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9168979292084306,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7502166666666666,
+            "path_stretch": 1.1733663911372838,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9888899868552334,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.77751,
+            "path_stretch": 1.161894853379176,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8439759535634876,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.8061058333333333,
+            "path_stretch": 1.0328899417785429,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7196827829195596,
+            "median_congestion": 0.013494166666666666,
+            "max_congestion": 0.6604808333333333,
+            "path_stretch": 1.0440353269462237,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7512185398161809,
+            "median_congestion": 0.01229290322580645,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.20159671726147,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9852993123864071,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7806029166666667,
+            "path_stretch": 1.1615641507652494,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8204154077238525,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1812154321244643,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.970127824376443,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7917470833333333,
+            "path_stretch": 1.1645770129209387,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9941663100980398,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8163108333333333,
+            "path_stretch": 1.160599221108664,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9987330658297892,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8193841666666667,
+            "path_stretch": 1.160430772514266,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7514636351112762,
+            "median_congestion": 0.01229290322580645,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2015309650352828,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8376007174533974,
+            "median_congestion": 0.01714875,
+            "max_congestion": 0.7409891666666667,
+            "path_stretch": 1.0436851578740798,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8267072416613648,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7305854166666667,
+            "path_stretch": 1.0426341668528811,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9806452602172123,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8106491666666666,
+            "path_stretch": 1.1622935797526677,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8445206638618223,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7275891666666666,
+            "path_stretch": 1.0530652820437594,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9864167230118115,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.76911125,
+            "path_stretch": 1.1614809854668566,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.750020242064259,
+            "median_congestion": 0.010202051675375102,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2013399100643796,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8972274294493071,
+            "median_congestion": 0.013779935483870968,
+            "max_congestion": 0.7774345833333334,
+            "path_stretch": 1.1733397386384725,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8986010502507825,
+            "median_congestion": 0.014843333333333333,
+            "max_congestion": 0.7655304166666667,
+            "path_stretch": 1.17378560399355,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9952482666870467,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1608685139322323,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9847797525486747,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7716025,
+            "path_stretch": 1.1618359471715887,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9873527257988071,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81762625,
+            "path_stretch": 1.1611551216810612,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9340803182393249,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.7836933333333334,
+            "path_stretch": 1.162853488161753,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9712413407369799,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.80534125,
+            "path_stretch": 1.1602731809672608,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9837123994529207,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.80481125,
+            "path_stretch": 1.1611136357263383,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7797948176745755,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.6971679166666667,
+            "path_stretch": 1.04038026307562,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8435231641421284,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.6869954166666666,
+            "path_stretch": 1.0530328615993592,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.903566237956783,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7652025,
+            "path_stretch": 1.15910768539254,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9917467546575813,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8052854166666666,
+            "path_stretch": 1.1608042616396528,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9839818339034375,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7916916666666667,
+            "path_stretch": 1.1618023845611927,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9751565372780938,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7672625,
+            "path_stretch": 1.1628280842133263,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8100397068981547,
+            "median_congestion": 0.013139166666666667,
+            "max_congestion": 0.5913445833333333,
+            "path_stretch": 1.191396902555273,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.899719758964476,
+            "median_congestion": 0.014843333333333333,
+            "max_congestion": 0.7544416666666667,
+            "path_stretch": 1.1735455560202475,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7567513166266125,
+            "median_congestion": 0.008196129032258064,
+            "max_congestion": 0.5753354166666667,
+            "path_stretch": 1.2054852836589935,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.98175285404993,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.80774125,
+            "path_stretch": 1.1624659333387155,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9988722046682824,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8148433333333334,
+            "path_stretch": 1.16032310944483,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9823130602772165,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8121366666666666,
+            "path_stretch": 1.1605168671267772,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9950585024052765,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8191429166666667,
+            "path_stretch": 1.1606921249320212,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8105532630775499,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7244233333333333,
+            "path_stretch": 1.1820501757695698,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9962970408941622,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8177079166666666,
+            "path_stretch": 1.1602526747173654,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9506387324557283,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.79772125,
+            "path_stretch": 1.0551799446407333,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9862775841733181,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7736520833333334,
+            "path_stretch": 1.1615901715364454,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8706910973373126,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7298125,
+            "path_stretch": 1.0576934995530487,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9855896785105864,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7723575,
+            "path_stretch": 1.1615669271908808,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9946471706786519,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8168579166666666,
+            "path_stretch": 1.1609025009026759,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9743451509668567,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8070970833333333,
+            "path_stretch": 1.1638646626700306,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8962984038868658,
+            "median_congestion": 0.018087741935483872,
+            "max_congestion": 0.7428079166666667,
+            "path_stretch": 1.1763759196445274,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8135466546723309,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.6897408333333334,
+            "path_stretch": 1.1825840152160942,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8032109511920426,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.6391191666666667,
+            "path_stretch": 1.0506483850380055,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8182753469181518,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0504991892125433,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9983119173104779,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1604984519450379,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8450285409049525,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.5326904166666667,
+            "path_stretch": 1.13845100957519,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9506450606361379,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.79647,
+            "path_stretch": 1.0551795773231516,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9112933518895054,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7919641666666667,
+            "path_stretch": 1.1724243194738284,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8175708906297334,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7340058333333334,
+            "path_stretch": 1.0438776462711807,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8367386245683653,
+            "median_congestion": 0.01714875,
+            "max_congestion": 0.7414416666666667,
+            "path_stretch": 1.0439786277930412,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8364479339221137,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.73152,
+            "path_stretch": 1.043475575187162,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9963780091511979,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8185858333333333,
+            "path_stretch": 1.1608099695246288,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.99483239165141,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8157066666666667,
+            "path_stretch": 1.1608154544962017,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9940859908851486,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.1606975018668333,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9994273808034485,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.16031931920637,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9837038807485231,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7677629166666666,
+            "path_stretch": 1.1618787423678407,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.7094407040571262,
+            "median_congestion": 0.014154838709677419,
+            "max_congestion": 0.533985,
+            "path_stretch": 1.156255228324019,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.947838999407585,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.7897154166666667,
+            "path_stretch": 1.1605694215584137,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8213664196566913,
+            "median_congestion": 0.013798709677419354,
+            "max_congestion": 0.6025141666666667,
+            "path_stretch": 1.1920396141332499,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9704123491033212,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8069983333333334,
+            "path_stretch": 1.1618774965946626,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8551718839268924,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.8181525,
+            "path_stretch": 1.032609241157104,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.995297188389444,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8181525,
+            "path_stretch": 1.1609321188963366,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9830687910530562,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8049525,
+            "path_stretch": 1.1612439813497042,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8947881592929573,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7633466666666666,
+            "path_stretch": 1.1595499294163614,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8194848406815678,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7257995833333334,
+            "path_stretch": 1.1808913866176487,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.5989779339594338,
+            "median_congestion": 0.005662916666666667,
+            "max_congestion": 0.23414125,
+            "path_stretch": 1.2347892869818557,
+            "fortz_thorup_sum": 104
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9260227597064957,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.791555,
+            "path_stretch": 1.044468575167008,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.8390579026884869,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7439245833333333,
+            "path_stretch": 1.0438570644672367,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9889730645057391,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.77756625,
+            "path_stretch": 1.16188125357092,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 2,
+            "delivered_packet_rate": 0.9851410267456489,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8061058333333333,
+            "path_stretch": 1.1610160830374274,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9030451366392073,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7601820833333334,
+            "path_stretch": 1.1587457231919562,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9980388319866479,
+            "median_congestion": 0.02158709677419355,
+            "max_congestion": 0.8193408333333333,
+            "path_stretch": 1.1604080362152105,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.985471795867828,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7641025,
+            "path_stretch": 1.1615758615517273,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8150768573736851,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7120975,
+            "path_stretch": 1.1815721741197345,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7499026028130547,
+            "median_congestion": 0.01229290322580645,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.201950481308905,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9951950450671915,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81729125,
+            "path_stretch": 1.1608664049313988,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9022135488289702,
+            "median_congestion": 0.018926666666666668,
+            "max_congestion": 0.7663558333333333,
+            "path_stretch": 1.1587179601313606,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7702261221121389,
+            "median_congestion": 0.015499736350127032,
+            "max_congestion": 0.6991945833333333,
+            "path_stretch": 1.0381371567663646,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.990496208852021,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8171508333333334,
+            "path_stretch": 1.1603260036824086,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9609041769073663,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.80033875,
+            "path_stretch": 1.163099435744723,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.6526417962686127,
+            "median_congestion": 0.010932916666666667,
+            "max_congestion": 0.5005575,
+            "path_stretch": 1.0497746242577393,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7646891265147676,
+            "median_congestion": 0.015390258064516129,
+            "max_congestion": 0.69873625,
+            "path_stretch": 1.040623301026016,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9611112219894858,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.76117125,
+            "path_stretch": 1.1652316428905503,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.980880619850139,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7930483333333334,
+            "path_stretch": 1.1621290839147704,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7174543709796786,
+            "median_congestion": 0.01320375,
+            "max_congestion": 0.6584875,
+            "path_stretch": 1.0441721005896953,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9598076979556245,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.79131625,
+            "path_stretch": 1.1646754572853104,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8526682772697114,
+            "median_congestion": 0.0064575,
+            "max_congestion": 0.7569858333333334,
+            "path_stretch": 1.1748286779156865,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8433510051827797,
+            "median_congestion": 0.016652916666666667,
+            "max_congestion": 0.7930483333333334,
+            "path_stretch": 1.0329363248125947,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9046151744249347,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7663558333333333,
+            "path_stretch": 1.1590443763754332,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8377327168063003,
+            "median_congestion": 0.016652916666666667,
+            "max_congestion": 0.7767233333333333,
+            "path_stretch": 1.032208390661745,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9489715003093506,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.7920466666666667,
+            "path_stretch": 1.1605972020957205,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7967671597941816,
+            "median_congestion": 0.01382967741935484,
+            "max_congestion": 0.6797529166666667,
+            "path_stretch": 1.1835971032387322,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7511214265860489,
+            "median_congestion": 0.01229290322580645,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2016227818998952,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.6804716733607458,
+            "median_congestion": 0.01382967741935484,
+            "max_congestion": 0.6507216666666666,
+            "path_stretch": 1.0450204315138913,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9855718297966106,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81295125,
+            "path_stretch": 1.1618385906001316,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7558840313884239,
+            "median_congestion": 0.014410416666666667,
+            "max_congestion": 0.6852970833333333,
+            "path_stretch": 1.0394912275259833,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9022756136752952,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.76371,
+            "path_stretch": 1.1591069137544205,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8571689116292323,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.8206354166666666,
+            "path_stretch": 1.0325332683155095,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8522095653205329,
+            "median_congestion": 0.0064575,
+            "max_congestion": 0.7193270833333333,
+            "path_stretch": 1.1746119893858125,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9870370469529892,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.7785720833333334,
+            "path_stretch": 1.1612457486505396,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8547508976686172,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7294379166666667,
+            "path_stretch": 1.0528613142850338,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9494042504927462,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7971783333333333,
+            "path_stretch": 1.1671945424888206,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7019797793541979,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.64166375,
+            "path_stretch": 1.0398842874437657,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8368801161918827,
+            "median_congestion": 0.01714875,
+            "max_congestion": 0.7382304166666667,
+            "path_stretch": 1.0435055508203785,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.816984722636664,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.64598,
+            "path_stretch": 1.0503267637207314,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9701958928811053,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.80061375,
+            "path_stretch": 1.1622978926993202,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8425446489636631,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.5299825,
+            "path_stretch": 1.1388591747061065,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9855635544837673,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.81762625,
+            "path_stretch": 1.1610854760877145,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8419880124791718,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6944629166666667,
+            "path_stretch": 1.0528955227452677,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7721145971812986,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6734170833333334,
+            "path_stretch": 1.0405494627967404,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7641675384140834,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.73397875,
+            "path_stretch": 1.0127472412748328,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7750819458797785,
+            "median_congestion": 0.01247591198887877,
+            "max_congestion": 0.5805495833333333,
+            "path_stretch": 1.20169913829658,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8893181775035134,
+            "median_congestion": 0.015101666666666666,
+            "max_congestion": 0.77521,
+            "path_stretch": 1.0396240965637473,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.6792339461770407,
+            "median_congestion": 0.015499736350127032,
+            "max_congestion": 0.5187904166666667,
+            "path_stretch": 1.006020761303537,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9812897610527755,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8121366666666666,
+            "path_stretch": 1.1606842557943855,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9143115694228164,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.7556941666666667,
+            "path_stretch": 1.165067810223067,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9721954356295055,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7455854166666667,
+            "path_stretch": 1.1624913725748074,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.915797069208713,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7502166666666666,
+            "path_stretch": 1.1735747911548373,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9837390102628483,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7896608333333334,
+            "path_stretch": 1.1614453753287453,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8419880124791718,
+            "median_congestion": 0.018087741935483872,
+            "max_congestion": 0.533985,
+            "path_stretch": 1.138950974211209,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8213331561442818,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7998495833333333,
+            "path_stretch": 1.0318358493512634,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9801302436884919,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8110308333333334,
+            "path_stretch": 1.1624576325270939,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9004354923949064,
+            "median_congestion": 0.018087741935483872,
+            "max_congestion": 0.74232375,
+            "path_stretch": 1.1758816514221064,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.47986510915543296,
+            "median_congestion": 0.0068748387096774196,
+            "max_congestion": 0.33717,
+            "path_stretch": 1.2382811641444327,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9618961597518315,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8007075,
+            "path_stretch": 1.1653721606419345,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8104172071987433,
+            "median_congestion": 0.013139166666666667,
+            "max_congestion": 0.59805375,
+            "path_stretch": 1.1933602511281938,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7210111328919508,
+            "median_congestion": 0.016173481616413403,
+            "max_congestion": 0.49322875,
+            "path_stretch": 1.0042029685434495,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8392492895806185,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7439245833333333,
+            "path_stretch": 1.043847063067926,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7214959688679485,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7358779166666667,
+            "path_stretch": 1.0092823389288779,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8574430516497972,
+            "median_congestion": 0.015711854657015484,
+            "max_congestion": 0.7364725,
+            "path_stretch": 1.1589277709394425,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9841535872101957,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.76911125,
+            "path_stretch": 1.1614896011139304,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9894204181823876,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8008091666666667,
+            "path_stretch": 1.1618879927233858,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8556249167398058,
+            "median_congestion": 0.017497916666666665,
+            "max_congestion": 0.8194820833333334,
+            "path_stretch": 1.0324638543061213,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9713255542147385,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8041616666666667,
+            "path_stretch": 1.1641238045472764,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8039806364169907,
+            "median_congestion": 0.014405833333333333,
+            "max_congestion": 0.720185,
+            "path_stretch": 1.1817484448011761,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9850895899971912,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.81762625,
+            "path_stretch": 1.161162980505327,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7505305530229313,
+            "median_congestion": 0.01229290322580645,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2017815143739659,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7293819363550557,
+            "median_congestion": 0.009407741935483872,
+            "max_congestion": 0.38368625,
+            "path_stretch": 1.2063632973086666,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9634564618753904,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8077075,
+            "path_stretch": 1.164191558974054,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8404755773612753,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.5315020833333334,
+            "path_stretch": 1.139201016376292,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9799582469901795,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8109833333333333,
+            "path_stretch": 1.1607907192998765,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8553381203584216,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7294379166666667,
+            "path_stretch": 1.0528250229489853,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9042723168555629,
+            "median_congestion": 0.014843333333333333,
+            "max_congestion": 0.7745645833333333,
+            "path_stretch": 1.1737630723750994,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9463629107617847,
+            "median_congestion": 0.018639935483870967,
+            "max_congestion": 0.7906975,
+            "path_stretch": 1.0550138664839155,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9821052038899163,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.81076125,
+            "path_stretch": 1.1618592566586123,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9163107065186262,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7502166666666666,
+            "path_stretch": 1.1734774939300388,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7387555130215293,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.57956375,
+            "path_stretch": 1.0557033234730884,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9092128408840695,
+            "median_congestion": 0.018087741935483872,
+            "max_congestion": 0.71245875,
+            "path_stretch": 1.1744768291705003,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9828661270189126,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.78977375,
+            "path_stretch": 1.1615816891022137,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9458472451889197,
+            "median_congestion": 0.01693327261396865,
+            "max_congestion": 0.7880825,
+            "path_stretch": 1.16044850492307,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9249438049466575,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7841829166666666,
+            "path_stretch": 1.0561000728406265,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.980960776801994,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8133879166666667,
+            "path_stretch": 1.1607381443807134,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9947265163253263,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8168116666666667,
+            "path_stretch": 1.1603016386563003,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8574245538916768,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.8148433333333334,
+            "path_stretch": 1.0324241783972476,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.985679408863574,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8163316666666667,
+            "path_stretch": 1.1612926871125548,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9172234248469351,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.75109375,
+            "path_stretch": 1.1728878675203962,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.819178167323256,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7261379166666667,
+            "path_stretch": 1.1813254678606664,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7288536955518895,
+            "median_congestion": 0.009339354838709677,
+            "max_congestion": 0.38368625,
+            "path_stretch": 1.2065128602656492,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9618548643181328,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7637333333333334,
+            "path_stretch": 1.1647309169997848,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8193905670195681,
+            "median_congestion": 0.015847083333333335,
+            "max_congestion": 0.7274325,
+            "path_stretch": 1.1814420846618021,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8009478153904268,
+            "median_congestion": 0.014843333333333333,
+            "max_congestion": 0.6391191666666667,
+            "path_stretch": 1.0506792339632751,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.882719426816135,
+            "median_congestion": 0.009090322580645162,
+            "max_congestion": 0.7471941666666667,
+            "path_stretch": 1.1739994145961927,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8162125223656556,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7897433333333334,
+            "path_stretch": 1.0128358895548493,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.827336976742639,
+            "median_congestion": 0.015224166666666667,
+            "max_congestion": 0.7181545833333334,
+            "path_stretch": 1.0508321272261376,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.960466153240296,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7961870833333333,
+            "path_stretch": 1.1641890436687905,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8393443745477988,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.7196,
+            "path_stretch": 1.0515038510068906,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.9474267752452616,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.8027620833333333,
+            "path_stretch": 1.0433372310390385,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.8415379003649088,
+            "median_congestion": 0.016652916666666667,
+            "max_congestion": 0.8041125,
+            "path_stretch": 1.0329852285478252,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.7710699606306048,
+            "median_congestion": 0.015499736350127032,
+            "max_congestion": 0.7065633333333333,
+            "path_stretch": 1.039446543662496,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 3,
+            "delivered_packet_rate": 0.94815605747221,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7993991666666667,
+            "path_stretch": 1.0434118002143553,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8298756317836269,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7204404166666667,
+            "path_stretch": 1.0531009330262586,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9850634659703721,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.77110625,
+            "path_stretch": 1.1616532348716637,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9372185278088643,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.78852125,
+            "path_stretch": 1.0533534294466849,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7530739136339674,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.6827729166666666,
+            "path_stretch": 1.0354695444596849,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9907002521049718,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8165925,
+            "path_stretch": 1.1609741233813036,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8295653886825199,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.7215770833333334,
+            "path_stretch": 1.0535519819741674,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8841558426385981,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.6833395833333333,
+            "path_stretch": 1.16145775447797,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9832344595709591,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.7725358333333333,
+            "path_stretch": 1.1625607594602123,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.599737559000141,
+            "median_congestion": 0.009107096774193548,
+            "max_congestion": 0.35458083333333335,
+            "path_stretch": 1.0496506749766243,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7905638392518858,
+            "median_congestion": 0.013677083333333333,
+            "max_congestion": 0.6833570833333333,
+            "path_stretch": 1.1835966432910596,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.6424630803407936,
+            "median_congestion": 0.008646666666666667,
+            "max_congestion": 0.48840375,
+            "path_stretch": 1.2238463808595232,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.906516711507504,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7919641666666667,
+            "path_stretch": 1.1725050640380803,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7779613490966685,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.7070895833333334,
+            "path_stretch": 1.0407540820168084,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7055355677002533,
+            "median_congestion": 0.009407741935483872,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.0634891209900725,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8898530710091614,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7087329166666667,
+            "path_stretch": 1.176568735991468,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.931792113107625,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7693675,
+            "path_stretch": 1.0532313403162934,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9881490218336828,
+            "median_congestion": 0.018926666666666668,
+            "max_congestion": 0.7766241666666667,
+            "path_stretch": 1.1617702409478465,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9957872167185983,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.8190025,
+            "path_stretch": 1.1604693564193003,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9814295489354135,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.76613,
+            "path_stretch": 1.1618114756795155,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8097722195800717,
+            "median_congestion": 0.013139166666666667,
+            "max_congestion": 0.56178875,
+            "path_stretch": 1.1944532911603145,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9948647627281207,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81644875,
+            "path_stretch": 1.1608102218559386,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9671405175705174,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.8061483333333334,
+            "path_stretch": 1.1632382202936413,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8020335851137831,
+            "median_congestion": 0.013488087819375869,
+            "max_congestion": 0.6323004166666667,
+            "path_stretch": 1.0495602934863426,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.6929085761285783,
+            "median_congestion": 0.010744516129032258,
+            "max_congestion": 0.6474929166666666,
+            "path_stretch": 1.0423852533731273,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9815504334073406,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7701675,
+            "path_stretch": 1.16168090076615,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8270096151022188,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7333679166666667,
+            "path_stretch": 1.0419983512482214,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7774265367215385,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.5274608333333334,
+            "path_stretch": 1.1491454453354049,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9119584598766589,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7480741666666667,
+            "path_stretch": 1.1634716956356728,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8474334117216399,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.74095875,
+            "path_stretch": 1.0351048524808417,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8035691424293301,
+            "median_congestion": 0.013488087819375869,
+            "max_congestion": 0.6230904166666666,
+            "path_stretch": 1.0499052544697705,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9667245614043628,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7758654166666666,
+            "path_stretch": 1.161308234341146,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.6714730008182824,
+            "median_congestion": 0.0024975,
+            "max_congestion": 0.41036791666666667,
+            "path_stretch": 1.2209244603224194,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7823558647385512,
+            "median_congestion": 0.015205416666666667,
+            "max_congestion": 0.6974558333333334,
+            "path_stretch": 1.0383026729644533,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8903899116472432,
+            "median_congestion": 0.018087741935483872,
+            "max_congestion": 0.72694,
+            "path_stretch": 1.177462305104744,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8532107159135401,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.8168579166666666,
+            "path_stretch": 1.0326841959127162,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7008952265886126,
+            "median_congestion": 0.01450601601073774,
+            "max_congestion": 0.6336170833333333,
+            "path_stretch": 1.0384611279846396,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8531749373550704,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7306779166666667,
+            "path_stretch": 1.052958958191093,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9113551733442762,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7153941666666667,
+            "path_stretch": 1.1743334237201786,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.6298270832816126,
+            "median_congestion": 0.005662916666666667,
+            "max_congestion": 0.41090166666666667,
+            "path_stretch": 1.202416171956669,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7651768020588978,
+            "median_congestion": 0.015605096774193548,
+            "max_congestion": 0.6735195833333333,
+            "path_stretch": 1.0392846895963812,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8346942166434714,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.50370875,
+            "path_stretch": 1.1395525290940018,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7563962083490118,
+            "median_congestion": 0.011879583333333334,
+            "max_congestion": 0.5432608333333333,
+            "path_stretch": 1.198640252565589,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.842660746735024,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.5319354166666667,
+            "path_stretch": 1.1388400433524997,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.92696176432266,
+            "median_congestion": 0.01693327261396865,
+            "max_congestion": 0.7387054166666667,
+            "path_stretch": 1.16170085842021,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9579562184027056,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7509925,
+            "path_stretch": 1.1653852625126957,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8092800007269294,
+            "median_congestion": 0.015476129032258064,
+            "max_congestion": 0.7244233333333333,
+            "path_stretch": 1.1823366002883062,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9443050351708909,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.794085,
+            "path_stretch": 1.0550303817550122,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9363100282674951,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7941629166666667,
+            "path_stretch": 1.0432522293901327,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8140708389495934,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.64514125,
+            "path_stretch": 1.0503646216049027,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9700436108986844,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7698291666666667,
+            "path_stretch": 1.1623579223860063,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7546723471010199,
+            "median_congestion": 0.013494166666666666,
+            "max_congestion": 0.7094179166666666,
+            "path_stretch": 1.0441759082733226,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.39338662959326515,
+            "median_congestion": 0.0068748387096774196,
+            "max_congestion": 0.33520833333333333,
+            "path_stretch": 1.0179859176502066,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9335029934727253,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7644595833333333,
+            "path_stretch": 1.162106962213144,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.4211850280443862,
+            "median_congestion": 0.009589166666666666,
+            "max_congestion": 0.5154733333333333,
+            "path_stretch": 1.0087518901270358,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9573238060143351,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7732608333333333,
+            "path_stretch": 1.1634998598987432,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8158678799248861,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.6474725,
+            "path_stretch": 1.0505379937026122,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7486859695640484,
+            "median_congestion": 0.015205416666666667,
+            "max_congestion": 0.6863145833333333,
+            "path_stretch": 1.0392088483010762,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9788749923128834,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7880658333333334,
+            "path_stretch": 1.1619321751211897,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8072240722684694,
+            "median_congestion": 0.009407741935483872,
+            "max_congestion": 0.72421125,
+            "path_stretch": 1.1724076522129263,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7992791228947239,
+            "median_congestion": 0.015017083333333334,
+            "max_congestion": 0.6272575,
+            "path_stretch": 1.0508975354884573,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7670772844447322,
+            "median_congestion": 0.010681666666666667,
+            "max_congestion": 0.47400875,
+            "path_stretch": 1.1525205568990746,
+            "fortz_thorup_sum": 112
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7477523195620769,
+            "median_congestion": 0.009339354838709677,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2014998294573622,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9680992369025732,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7869541666666666,
+            "path_stretch": 1.1618765920127312,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7910097325792089,
+            "median_congestion": 0.014843333333333333,
+            "max_congestion": 0.4760075,
+            "path_stretch": 1.1471983597272652,
+            "fortz_thorup_sum": 110
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9193552103397925,
+            "median_congestion": 0.015600833333333333,
+            "max_congestion": 0.7372454166666667,
+            "path_stretch": 1.1644129053873882,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9860019026729098,
+            "median_congestion": 0.020526451612903226,
+            "max_congestion": 0.81762625,
+            "path_stretch": 1.1613759042826297,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.960902716558041,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7916695833333334,
+            "path_stretch": 1.1623679251134815,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.807059052794711,
+            "median_congestion": 0.013733333333333334,
+            "max_congestion": 0.5902195833333334,
+            "path_stretch": 1.1925743714880574,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9828509556120332,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8082641666666667,
+            "path_stretch": 1.1603991514150354,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8296375948436039,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.70292,
+            "path_stretch": 1.0443550494320237,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9636406281514136,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7895583333333334,
+            "path_stretch": 1.164492294595537,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8581309573125289,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.7377670833333333,
+            "path_stretch": 1.1589566020488535,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7504636203455219,
+            "median_congestion": 0.010202051675375102,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2015249547084894,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9632386264343673,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.80267,
+            "path_stretch": 1.1632909094114812,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9763012077575703,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.77506625,
+            "path_stretch": 1.1610434054798222,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.816462404361317,
+            "median_congestion": 0.0152,
+            "max_congestion": 0.7244970833333333,
+            "path_stretch": 1.1813578475703492,
+            "fortz_thorup_sum": 115
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7665888787259393,
+            "median_congestion": 0.011170322580645162,
+            "max_congestion": 0.57756375,
+            "path_stretch": 1.0487227966904564,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.612837379231139,
+            "median_congestion": 0.008044166666666666,
+            "max_congestion": 0.43210208333333333,
+            "path_stretch": 1.0595681071435477,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.818007048294888,
+            "median_congestion": 0.015646900915584103,
+            "max_congestion": 0.7117308333333333,
+            "path_stretch": 1.0519840439399624,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7472204278855975,
+            "median_congestion": 0.009090322580645162,
+            "max_congestion": 0.693945,
+            "path_stretch": 1.0522598715779832,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8162457858780651,
+            "median_congestion": 0.013139166666666667,
+            "max_congestion": 0.5995304166666666,
+            "path_stretch": 1.1932251650457548,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.946832656461421,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.79822125,
+            "path_stretch": 1.0430944098562462,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.823386812948236,
+            "median_congestion": 0.01586451612903226,
+            "max_congestion": 0.7114625,
+            "path_stretch": 1.043833233027054,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9552995995884411,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7925675,
+            "path_stretch": 1.1653233854633718,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8316372998530401,
+            "median_congestion": 0.016652916666666667,
+            "max_congestion": 0.7980591666666667,
+            "path_stretch": 1.0333779160459717,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.796337654831509,
+            "median_congestion": 0.009407741935483872,
+            "max_congestion": 0.72571625,
+            "path_stretch": 1.1758375440998345,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.6623914940168677,
+            "median_congestion": 0.013001935483870969,
+            "max_congestion": 0.6042579166666666,
+            "path_stretch": 1.0446575325072305,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7638245997141934,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.6740225,
+            "path_stretch": 1.0447099996038134,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7505931857828827,
+            "median_congestion": 0.010202051675375102,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.2017646768468049,
+            "fortz_thorup_sum": 108
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9787158953669444,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.8003175,
+            "path_stretch": 1.1614447891765394,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.994666479741953,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.8179895833333334,
+            "path_stretch": 1.1607693156601449,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9691464696298453,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.7948429166666666,
+            "path_stretch": 1.1639261252939697,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9661691418776425,
+            "median_congestion": 0.017549733953310005,
+            "max_congestion": 0.7566125,
+            "path_stretch": 1.1631119037072644,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.8230796528068157,
+            "median_congestion": 0.016877419354838708,
+            "max_congestion": 0.7335466666666667,
+            "path_stretch": 1.0406633133335894,
+            "fortz_thorup_sum": 117
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9708179205631626,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.7606766666666667,
+            "path_stretch": 1.1618385804371367,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9003331056810996,
+            "median_congestion": 0.015101666666666666,
+            "max_congestion": 0.78266625,
+            "path_stretch": 1.172286522904914,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.7042236872230305,
+            "median_congestion": 0.009339354838709677,
+            "max_congestion": 0.44035708333333334,
+            "path_stretch": 1.062694427224406,
+            "fortz_thorup_sum": 106
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9744151666039528,
+            "median_congestion": 0.01875,
+            "max_congestion": 0.795555,
+            "path_stretch": 1.1617642957008152,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9906379438670926,
+            "median_congestion": 0.01780774193548387,
+            "max_congestion": 0.81303375,
+            "path_stretch": 1.1610427487510735,
+            "fortz_thorup_sum": 119
+        },
+        {
+            "failed_links#": 4,
+            "delivered_packet_rate": 0.9942099583167624,
+            "median_congestion": 0.020210416666666668,
+            "max_congestion": 0.81534125,
+            "path_stretch": 1.161160644133847,
+            "fortz_thorup_sum": 119
+        }
+    ]
+}
