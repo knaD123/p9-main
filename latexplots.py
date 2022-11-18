@@ -15,43 +15,27 @@ alg_to_name["rsvp-fn"] = "RSVP"
 alg_to_name["gft"] = "GFT"
 
 variable_to_label = dict()
-variable_to_label["weighted_max_congestion"] = "Max Congestion"
-variable_to_label["connectivity"] = "Connectivity"
-variable_to_label["weighted_path_stretch"] = "Path Stretch"
-variable_to_label["weighted_fortz_thorup_sum"] = "Weighted Ftz Thrp"
-
-type_to_legend_pos = {
-    "weighted_max_congestion": "north west",
-    "connectivity": "south east",
-    "weighted_path_stretch": "north west",
-    "weighted_fortz_thorup_sum": "north west"
-}
+variable_to_label["max_congestion"] = "Weighted Max Single Link Utilization"
+variable_to_label["delivered_packet_rate"] = "Weighted Connectivity"
+variable_to_label["path_stretch"] = "Weighted Path Stretch"
+variable_to_label["fortz_thorup_sum"] = "Weighted Ftz Thrp"
 
 # Plot options generator
 line_options = [
-    "[mark=none, color=orange, loosely dashed, thick]",
-    "[mark=none, color=magenta, solid, thick]",
-    "[mark=none, color=red, solid, thick]",
-    "[mark=none, color=gray, densely dashed, thick]",
-    "[mark=none, color=green, dotted, thick]",
-    "[mark=none, color=blue, dashed, thick]",
-    "[mark=none, color=black, dash dot, thick]"
+    "mark=none, color=orange, loosely dashed, thick",
+    "mark=none, color=magenta, solid, thick",
+    "mark=none, color=red, solid, thick",
+    "mark=none, color=gray, densely dashed, thick",
+    "mark=none, color=green, dotted, thick",
+    "mark=none, color=blue, dashed, thick",
+    "mark=none, color=black, dash dot, thick"
 ]
 
-type_to_legend_style = {
-    "connectivity": ['legend cell align=left'],
-    "weighted_max_congestion": ['legend cell align=left'],
-    "weighted_max_stretch": ['legend cell align=left'],
-    "weighted_fortz_thorup_sum": ['legend cell align=left'],
-
-
-}
-
 axis_option = {
-    "connectivity": r"ylabel={Weighted Average Connectivity}, legend pos= {south east}, legend style = {legend cell align=left}",
-    "weighted_max_congestion": r"ylabel={Weighted Average Max Congestion}, legend pos= {south east}, legend style = {legend cell align=left}",
-    "weighted_path_stretch": r"ylabel={Weighted Average Path Stretch}, legend pos= {south east}, legend style = {legend cell align=left}",
-    "weighted_fortz_thorup_sum": r"ylabel={Weighted Average Fortz Thorup Sum}, legend pos= {south east}, legend style = {legend cell align=left}",
+    "delivered_packet_rate": r"ylabel={Weighted Average Connectivity}, legend pos= {south east}, legend style = {legend cell align=left}",
+    "max_congestion": r"ylabel={Weighted Average Max Utilization}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "path_stretch": r"ylabel={Weighted Average Path Stretch}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "fortz_thorup_sum": r"ylabel={Weighted Average Fortz Thorup Sum}, legend pos= {north west}, legend style = {legend cell align=left}",
 }
 
 def default_packages():
@@ -60,80 +44,73 @@ def default_packages():
 get_latex_packages = defaultdict(default_packages)
 
 
-def add_data_points(data, variable, f):
-    for alg, tops in sorted(data.items(), key=lambda x: x[0]):
-        f.writelines([
-            f"\\addplot{next(option_gen)} coordinates{{\n"
-        ])
-        tops_filtered = []
-        for top in tops.values():
-            if variable in top:
-                tops_filtered.append(top)
-
-        for index, top in enumerate(sorted(tops_filtered, key=lambda x: x[variable]), start=0):
-            f.write(f"({index}, {top[variable]})\n")
-
-        f.writelines([
-            "};\n"
-        ])
-
-# Compute Fortz and Thorup score
-
-def create_plot(data, variable, directory):
-    with open(f"{directory}/{variable}.tex", "w") as f:
-        alg_joined = ', '.join(alg_names)
-        f.writelines([
-            r"\documentclass[margin=10,varwidth]{standalone}\usepackage[utf8]{inputenc}\usepackage{amsmath} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{xcolor} \usepackage{tikz} \usepackage{pgfplots}",
-            "\n",
-            "\\begin{document}\n"
-            "\\begin{tikzpicture}\n",
-            f"\\begin{{axis}}[ylabel={{{variable_to_label[variable]}}}, legend pos= {{south east}}, legend style = {{legend cell align=left}}]\n",
-            f"\\legend{{{alg_joined}}}\n"
-        ])
-
-        add_data_points(data, variable, f)
-
-        f.writelines([
-            "\\end{axis}\n"
-            "\\end{tikzpicture}\n"
-            "\\end{document}\n"
-        ])
-
-def plot(variable, data, args, topologies):
-    # Process data
-
-    #Trim runs that didn't finish for all algorithms
-    if args.filter_unfinished_topologies:
-        for topology in topologies:
-            remove_topology = False
-            for alg_data in data.values():
-                if not topology in alg_data:
-                    remove_topology = True
+def tex_string(variable, data_points, args, topologies):
 
     latex_packages = get_latex_packages[variable]
-    variable_name = variable_to_label[variable]
-    legend_pos = type_to_legend_pos[variable]
-    legend_style = type_to_legend_style[variable]
-    legend_order = sorted([alg_to_name[alg] for alg in data.keys()])
+    legend_order = sorted([alg_to_name[alg] for alg in data_points.keys()])
 
     # Add all graph styling
     output = ""
     output += r"\documentclass[margin=10,varwidth]{standalone}"
     for package in latex_packages:
         output += rf"\usepackage{{{package}}}"
-    output += r"\n"
-    output += r"\begin{document}\n" + \
-              r"\begin{tikzpicture}\n" + \
+    output += r"\begin{document}" + \
+              r"\begin{tikzpicture}" + \
               r"\begin{axis}"
-    output += rf"[{axis_option[variable]}]\n"
-    output += rf"\legend{{{', '.join(legend_order)}}}\n"
+    output += rf"[{axis_option[variable]}]"
+    output += rf"\legend{{{', '.join(legend_order)}}}"
 
-    # Add each plot
+    # Add each line
+    line_options_gen = (x for x in line_options)
+    alphabetical_order = sorted(data_points.keys())
+    for alg in alphabetical_order:
+        output += rf"\addplot[{next(line_options_gen)}] coordinates{{" + \
+                  r"".join(data_points[alg]) + \
+                  r"};"
 
-    for alg, alg_data in data.items():
-        output = add_data_to_output(alg, )
-    print(output)
-    pass
+    output += r"\end{axis}" + \
+              r"\end{tikzpicture}" + \
+              r"\end{document}"
+
+    return output
+
+def scenario_probability(num_failed_links, num_edges, fp=0.001):
+    if num_failed_links < num_edges:
+        return (num_failed_links ** fp) * ((num_edges - num_failed_links) ** (1 - fp))
+    elif num_failed_links == num_edges:
+        return (num_failed_links ** fp)
+    else:
+        raise Exception(f"Error: There was {num_failed_links} failed links, but only {num_edges} in the network")
+
+def compute_normalization_sum(runs, num_edges):
+    sum = 0
+    for run in runs:
+        sum += scenario_probability(run["failed_links#"], num_edges)
+    return sum
+
+
+def generate_data_points(variable, data, topology_info):
+    # Map an algorithm to a set of data points
+    # First compute normalization sum for each topology
+    alg_to_topo_to_norm_sum = {}
+    for alg, topologies in data.items():
+        topo_to_norm_sum = {}
+        for topology, topology_data in topologies.items():
+            topo_to_norm_sum[topology] = compute_normalization_sum(topology_data["runs"], topology_info[topology]["num_edges"])
+        alg_to_topo_to_norm_sum[alg] = topo_to_norm_sum
+
+    alg_to_data_points = {}
+    for alg, topologies in data.items():
+        connectivity_unsorted = []
+        for topology, topology_data in topologies.items():
+            connectivity = 0
+            for run in topology_data["runs"]:
+                connectivity += (run[variable] * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
+            connectivity_unsorted.append(connectivity)
+        data_points = [f"({i}, {con})" for i, con in enumerate(sorted(connectivity_unsorted), start=0)]
+        alg_to_data_points[alg] = data_points
+
+    return alg_to_data_points
 
 def data_subset(topologies, input_dir):
     data = {}
@@ -157,9 +134,9 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", type=str, required=True)
     parser.add_argument("--path_stretch", action="store_true")
     parser.add_argument("--max_congestion", action="store_true")
-    parser.add_argument("--connectivity", action="store_true")
+    parser.add_argument("--delivered_packet_rate", action="store_true")
+    parser.add_argument("--fortz_thorup_sum", action="store_true")
     parser.add_argument("--filter_unfinished_topologies", action="store_false", help="Filter a topology from the data if not all algorithms finished")
-
     parser.add_argument("--topology_info", default="topology_info.json", help="Json file describing the topologies")
     parser.add_argument("--num_failed_links", type=int, help='Results for failure scenarios with exactly <num_failed_links> failed links')
     parser.add_argument("--max_nodes", type=int, help='Results for networks with up to <max_nodes> nodes')
@@ -189,7 +166,7 @@ if __name__ == "__main__":
             for topology in pop_list:
                 topologies.pop(topology, None)
 
-    # Only compute for failure scenarios with k <args.num_failed_links> failed links
+    # Only compute for failure scenarios with <args.num_failed_links> failed links
     if args.num_failed_links:
         for topologies in data.values():
             for topology in topologies.values():
@@ -200,67 +177,38 @@ if __name__ == "__main__":
                 topology["runs"] = new_runs
                 topology["failure_scenarios#"] = len(new_runs)
 
-    line_options_gen = (x for x in line_options)
+    # Filter a toplogy if simulation failed for at least one algorithm
+    if args.filter_unfinished_topologies:
+        filter_topologies = []
+        for topology_to_check in topology_info:
+            for topologies in data.values():
+                if not topology_to_check in topologies:
+                    filter_topologies.append(topology_to_check)
+                    break
+        for topology in filter_topologies:
+            for alg in data.keys():
+                data[alg].pop(topology, None)
 
     #Generate plots
-    if args.connectivity:
-        plot("connectivity", data, args, topologies)
+    if args.delivered_packet_rate:
+        data_points = generate_data_points("delivered_packet_rate", data, topology_info)
+        _tex_string = tex_string("delivered_packet_rate", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "delivered_packet_rate.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.max_congestion:
+        data_points = generate_data_points("max_congestion", data, topology_info)
+        _tex_string = tex_string("max_congestion", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "max_congestion.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.path_stretch:
+        data_points = generate_data_points("path_stretch", data, topology_info)
+        _tex_string = tex_string("path_stretch", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "path_stretch.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.fortz_thorup_sum:
+        data_points = generate_data_points("fortz_thorup_sum", data, topology_info)
+        _tex_string = tex_string("fortz_thorup_sum", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "fortz_thorup_sum.tex"), "w") as f:
+            f.write(_tex_string)
 
-
-    # Generate aggregated data for each algorithm
-    for alg, tops in results.items():
-        for name, top in tops.items():
-            # Run should have finished for all algorithms
-            cont = False
-            for algo in results.values():
-                if not name in algo:
-                    cont = True
-                    break
-            if cont:
-
-                continue
-            # Calculate congestion weighted by link probability
-            normalization_sum = 0
-            max_congestion = 0
-            path_stretch = 0
-            delivered_packet_rate = 0
-            ftz_score = 0
-            with open(top["topology"], "r") as t:
-                total_links = len(json.load(t)["network"]["links"])
-
-            for run in top["runs"]:
-                failed_links = run["failed_links#"]
-                probability = 0.001 ** failed_links * (1 - 0.001) ** (total_links - failed_links)
-                normalization_sum += probability
-                max_congestion += run["max_congestion"] * probability
-                delivered_packet_rate += run["delivered_packet_rate"] * probability
-                path_stretch += run["path_stretch"] * probability
-                ftz_score += run["fortz_thorup_sum"] * probability
-
-            top["weighted_max_congestion"] = max_congestion / normalization_sum
-            top["weighted_delivered_packet_rate"] = delivered_packet_rate / normalization_sum
-            top["weighted_path_stretch"] = path_stretch / normalization_sum
-            top["weighted_fortz_thorup_sum"] = ftz_score / normalization_sum
-
-        """max_congestion = 0.0
-        delivered_packet_rate = 0.0
-        path_stretch = 0.0
-        top_len = len(tops)
-        for top in tops.values():
-            max_congestion += top["weighted_max_congestion"]
-            delivered_packet_rate += top["weighted_delivered_packet_rate"]
-            path_stretch += top["weighted_path_stretch"]
-
-        results[alg]["average_max_congestion"] = max_congestion / top_len
-        results[alg]["average_delivered_packet_rate"] = delivered_packet_rate / top_len
-        results[alg]["average_path_stretch"] = path_stretch / top_len"""
-
-    variables = [
-        "weighted_max_congestion",
-        "weighted_delivered_packet_rate",
-        "weighted_path_stretch",
-        "weighted_fortz_thorup_sum"]
-
-    for v in variables:
-        create_plot(results, v, args.output_dir)
 
