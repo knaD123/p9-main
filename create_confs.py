@@ -51,7 +51,7 @@ def powerset(iterable, m = 0):
 
 def generate_failures_random(G, n, division = None, random_seed = 1):
     # create Failure information from sampling.
-    F_list = [()]
+    F_list = []
     random.seed(random_seed)
 
     lis = list(map(lambda x: math.comb(G.number_of_edges(),x) , range(K+1)))
@@ -65,37 +65,46 @@ def generate_failures_random(G, n, division = None, random_seed = 1):
     #
     # excess = reduce(lambda a,b: a+b, p) - n
     # p[-1] -= excess   #adjust.
-
-    edges = list(G.edges)
-
-    for k in range(1,K+1):
-        for f in range(p[k]):
-            failed = set()
-            while (len(failed) < k):
-                e = random.choice(edges)
-                if e not in failed:
-                    failed.add(e)
-            F_list.append(tuple(failed))
-        # X = combinations(list(G.edges),k)
-        # F = random.choices(list(X),k=p[k])
-        # F_list += F
-
+    edges = [list(x) for x in G.edges()]
+    _k = K
+    if len(edges) < _k:
+        _k = len(edges)
+    if conf["only_K_failed_links"]:
+        while len(F_list) < n:
+            random_scenario = tuple(random.sample(edges, _k))
+            if random_scenario not in F_list:
+                F_list.append(random_scenario)
+    else:
+        F_list.append([])
+        for k in range(1,_k+1):
+            for f in range(p[k]):
+                failed = set()
+                while (len(failed) < k):
+                    e = random.choice(edges)
+                    if e not in failed:
+                        failed.add(e)
+                F_list.append(tuple(failed))
     if division:
-        P = partition(F_list, division)
+        P = partition([list(x) for x in F_list], division)
         return P
-
-    return [F_list]
+    return [list(x) for x in F_list]
 
 def generate_failures_all(G, division = None, random_seed = 1):
+
     # create Failure information from sampling.
-
-    all_of_em = list(powerset(G.edges(),m=K))
-
+    edges = [list(x) for x in G.edges()]
+    _k = K
+    if len(edges) < _k:
+        _k =  len(edges)
+    if conf["only_K_failed_links"]:
+        F_list = combinations(edges, _k)
+    else:
+        F_list = list(powerset(edges, m=_k))
     if division:
-        P = partition(all_of_em, division)
+        P = partition([list(x) for x in F_list], division)
         return P
 
-    return [all_of_em]
+    return [list(x) for x in F_list]
 
 
 def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None):
@@ -177,6 +186,8 @@ if __name__ == "__main__":
     p.add_argument("--conf", type=str, help="where to store created configurations. Must not exists.")
 
     p.add_argument("--K", type=int, default = 4, help="Maximum number of failed links.")
+
+    p.add_argument("--only_K_failed_links", action="store_true", help="Only creates failure scenarios with K failed links")
 
     p.add_argument("--threshold",type=int, default = 1000, help="Maximum number of failures to generate")
 
@@ -290,4 +301,4 @@ if __name__ == "__main__":
             pathf = os.path.join(failure_folder, str(i)+".yml")
             i+=1
             with open(pathf, "w") as file:
-                documents = yaml.dump(F_chunk, file, default_flow_style=True, Dumper=NoAliasDumper)
+                file.write(str(F_chunk))
