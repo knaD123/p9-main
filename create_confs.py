@@ -65,7 +65,7 @@ def generate_failures_random(G, n, division = None, random_seed = 1):
     #
     # excess = reduce(lambda a,b: a+b, p) - n
     # p[-1] -= excess   #adjust.
-    edges = [list(x) for x in G.edges()]
+    edges = list(G.edges())
     _k = K
     if len(edges) < _k:
         _k = len(edges)
@@ -301,4 +301,4 @@ if __name__ == "__main__":
             pathf = os.path.join(failure_folder, str(i)+".yml")
             i+=1
             with open(pathf, "w") as file:
-                file.write(str(F_chunk))
+                file.write(str(F_chunk).replace("'", "").replace("(","[").replace(")", "]"))
