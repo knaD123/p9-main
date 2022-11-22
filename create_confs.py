@@ -107,8 +107,8 @@ def generate_failures_all(G, division = None, random_seed = 1):
     return [list(x) for x in F_list]
 
 
-def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None):
-    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "")
+def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None):
+    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "")
     base_config = {
     #we need extra configuration here!!!!
         "topology": topofile,
@@ -160,10 +160,14 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['method'] = 'inout-disjoint'
         base_config['backtrack'] = 'partial'
         base_config['path_heuristic'] = path_heuristic
+        if extra_hops is not None:
+            base_config["extra_hops"] = extra_hops
     elif conf_type == 'inout-disjoint-full':
         base_config['method'] = 'inout-disjoint'
         base_config['backtrack'] = 'full'
         base_config['path_heuristic'] = path_heuristic
+        if extra_hops is not None:
+            base_config["extra_hops"] = extra_hops
     elif conf_type == 'rmpls':
         base_config['enable_RMPLS'] = True
         base_config['protection'] = None
@@ -173,7 +177,6 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['protection'] = 'plinko'
     else:
         raise Exception(f"Conf type {conf_type} not known")
-
     return base_config
 
 
@@ -204,6 +207,8 @@ if __name__ == "__main__":
     p.add_argument("--algorithm", required=True, choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor", "rsvp-fn", "all"])
 
     p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic"])
+
+    p.add_argument("--extra_hops", type=int)
 
     p.add_argument("--max_memory", type=int, default=3)
 
@@ -251,10 +256,10 @@ if __name__ == "__main__":
     #with open(os.path.join(folder, "flows.yml"), "w") as file:
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
-    def create(conf_type, max_memory = None, path_heuristic=None):
-        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic)
+    def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None):
+        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops)
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
-            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + ".yml"
+            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
@@ -281,7 +286,11 @@ if __name__ == "__main__":
                 create('inout-disjoint', mem, h)
                 create('inout-disjoint-full', mem, h)
     elif algorithm in ['inout-disjoint', 'inout-disjoint-full']:
-        create(algorithm, conf["max_memory"], conf["path_heuristic"])
+        if conf["path_heuristic"] == "benjamins_heuristic":
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], extra_hops=conf["extra_hops"])
+        else:
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
+
     elif algorithm == "tba-complex":
         create(algorithm, conf["max_memory"])
     else:

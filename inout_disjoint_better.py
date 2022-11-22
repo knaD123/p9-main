@@ -12,7 +12,7 @@ import os
 from itertools import islice, cycle
 
 from ForwardingTable import ForwardingTable
-
+from benjamins_heuristic_file import initializenetwork, pathfind
 from typing import Dict, Tuple, List, Callable
 
 def label(ingress, egress, path_index: int):
@@ -184,7 +184,6 @@ def greedy_min_congestion(client):
         yield ((src, tgt), path)
 
 def shortest_paths(client):
-    loads = sorted(client.loads, key=lambda x: x[2], reverse=True)
     G = client.router.network.topology.to_directed()
     for src, tgt in G.edges:
         G[src][tgt]["weight"] = 1
@@ -201,6 +200,61 @@ def shortest_paths(client):
             except StopIteration as e:
                 path_gens.pop((src,tgt))
                 continue
+def benjamins_heuristic(client):
+    # We set number of extra hops allowed
+    k = 2
+
+    G = client.router.network.topology
+    for (src, tgt), cap in client.link_caps.items():
+        G[src][tgt]["weight"] = cap
+
+    demands, grapher = initializenetwork(G, sorted(client.loads, key=lambda x: x[2], reverse=True))
+    demand_to_paths = dict()
+
+    def benja_path_to_juan_path(benja_path, src):
+        juan_path = []
+
+        #Add first node
+        first_link = benja_path[0]
+        node1 = first_link.node1.identity
+        node2 = first_link.node2.identity
+
+        if node1 == src:
+            juan_path.append(node1)
+        elif node2 == src:
+            juan_path.append(node2)
+        else:
+            raise Exception()
+
+        for link in benja_path:
+            node1 = link.node1.identity
+            node2 = link.node2.identity
+            if juan_path[-1] == node1:
+                juan_path.append(node2)
+            elif juan_path[-1] == node2:
+                juan_path.append(node1)
+            else:
+                raise Exception()
+
+        return juan_path
+
+    for d in demands:
+        paths = pathfind(d, grapher, k)
+        demand_to_paths[(d.source.identity, d.target.identity)] = [benja_path_to_juan_path(x, d.source.identity) for x in paths]
+
+    demand_num = len(demand_to_paths.items())
+    i = 0
+    for (src, tgt), paths in cycle(demand_to_paths.items()):
+        if len(paths) > 0:
+            i = 0
+            path = paths[0]
+            paths.remove(path)
+            yield ((src,tgt), path)
+        else:
+            i += 1
+        # If all paths have been yielded
+        if i == demand_num:
+            break
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
@@ -226,6 +280,7 @@ class InOutDisjoint(MPLS_Client):
             'shortest_path': shortest_paths,
             'greedy_min_congestion': greedy_min_congestion,
             'semi_disjoint_paths': semi_disjoint_paths,
+            'benjamins_heuristic': benjamins_heuristic,
         }
 
         "self.path_heuristic = semi_disjoint_paths"
