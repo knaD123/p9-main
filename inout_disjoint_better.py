@@ -328,7 +328,6 @@ def hybrid(client):
     for src, tgt, load in client.loads:
         new_pathdict[(src, tgt, load)] = []
 
-
     # Remove duplicate paths
     for src, tgt, load in pathdict.keys():
         for elem in pathdict[(src,tgt,load)]:
@@ -336,11 +335,12 @@ def hybrid(client):
                 new_pathdict[(src,tgt,load)].append(elem)
     pathdict = new_pathdict
 
-
     pathdict = lowestutilitypathinsert(client, pathdict)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
-        pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
+        unused_paths = find_unused_paths(pathdict[src,tgt,load], G, src, tgt)
+        if unused_paths:
+            pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
 
     for src, tgt, load in cycle(pathdict.keys()):
         for path in pathdict[(src,tgt,load)]:
