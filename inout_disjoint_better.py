@@ -403,13 +403,13 @@ class InOutDisjoint(MPLS_Client):
         path_heuristic = self.path_heuristic(self)
         yields = 0
         while yields < total_yields:
-            #try:
-                # Generate next path
-            flow, path = next(path_heuristic)
-            yields += 1
-            #except:
-                # No more paths can be generated
-            #    break
+            try:
+            # Generate next path
+                flow, path = next(path_heuristic)
+                yields += 1
+            except:
+            # No more paths can be generated
+                break
             flow_to_paths[flow].append(path)
 
             if self.mem_exceeded(flow_to_paths):
