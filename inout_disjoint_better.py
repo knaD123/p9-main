@@ -284,7 +284,8 @@ def lowestutilitypathinsert(client, pathdict):
             prev_util = curr_util
 
         path = nx.shortest_path(G, src, tgt, weight="weight")
-        pathdict[src,tgt,load].remove(path)
+        if path in pathdict[src,tgt,load]:
+            pathdict[src,tgt,load].remove(path)
         pathdict[src,tgt,load] = [path] + pathdict[src,tgt,load]
     return pathdict
 
@@ -323,11 +324,9 @@ def hybrid(client):
         pathdict[(src,tgt,load)].append(path)
 
     new_pathdict = dict()
-    new_pathdict2 = dict()
 
     for src, tgt, load in client.loads:
         new_pathdict[(src, tgt, load)] = []
-        new_pathdict2[(src, tgt, load)] = []
 
 
     # Remove duplicate paths
@@ -335,7 +334,6 @@ def hybrid(client):
         for elem in pathdict[(src,tgt,load)]:
             if elem not in new_pathdict[(src,tgt,load)]:
                 new_pathdict[(src,tgt,load)].append(elem)
-                new_pathdict2[(src, tgt, load)].append(elem)
     pathdict = new_pathdict
 
 
@@ -347,7 +345,6 @@ def hybrid(client):
     for src, tgt, load in cycle(pathdict.keys()):
         for path in pathdict[(src,tgt,load)]:
             yield ((src,tgt),path)
-            break
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
