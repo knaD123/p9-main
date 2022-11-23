@@ -202,7 +202,7 @@ def shortest_paths(client):
                 continue
 def benjamins_heuristic(client):
     # We set number of extra hops allowed
-    k = 2
+    k = client.kwargs["extra_hops"]
 
     G = client.router.network.topology
     for (src, tgt), cap in client.link_caps.items():
@@ -286,6 +286,7 @@ class InOutDisjoint(MPLS_Client):
         "self.path_heuristic = semi_disjoint_paths"
         self.loads = kwargs["loads"]
         self.link_caps = kwargs["link_caps"]
+        self.kwargs = kwargs
         if "path_heuristic" in kwargs:
             self.path_heuristic = path_heuristics[kwargs["path_heuristic"]]
 
