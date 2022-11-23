@@ -206,7 +206,7 @@ if __name__ == "__main__":
 
     p.add_argument("--algorithm", required=True, choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor", "rsvp-fn", "all"])
 
-    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic"])
+    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic", "hybrid"])
 
     p.add_argument("--extra_hops", type=int)
 
@@ -279,7 +279,7 @@ if __name__ == "__main__":
         create('plinko4')
 
         per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path", "benjamins_heuristic"]
+        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path", "benjamins_heuristic","hybrid"]
         for mem in per_flow_memory:
             create('tba-complex', mem)
             for h in heuristics:

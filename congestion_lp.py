@@ -7,7 +7,7 @@ import sys
 from mpls_fwd_gen import *
 
 
-def main(graphfile, demandsfile, print_flows=False, unsplittable_flow=False):
+def main(graphfile, demandsfile, print_flows=False, unsplittable_flow=True):
     with open(demandsfile, "r") as file:
         flows_with_load = [[x, y, int(z)] for [x, y, z] in yaml.load(file, Loader=yaml.BaseLoader)]
 
@@ -44,7 +44,7 @@ def main(graphfile, demandsfile, print_flows=False, unsplittable_flow=False):
     with open(os.path.join(result_folder, "results.json"), "w") as f:
         json.dump(results, f, indent=4)
 
-def congestion_lp(graph, capacities, demands, print_flows=False, unsplittable_flow=False):  # Inputs networkx directed graph, dict of capacities, dict of demands
+def congestion_lp(graph, capacities, demands, print_flows=True, unsplittable_flow=True):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -57,6 +57,9 @@ def congestion_lp(graph, capacities, demands, print_flows=False, unsplittable_fl
         solver = pywraplp.Solver.CreateSolver('SCIP')
     else:
         solver = pywraplp.Solver.CreateSolver('GLOP')
+
+    #take percent
+    demands = sorted(demands, key=lambda x: x[2], reverse=True)[:math.ceil(len(demands) * 0.2)]
 
     # alpha is the minimal coefficient for capacities needed s.t. all demands do not exceed capacities
     alpha = solver.NumVar(0, solver.infinity(), "alpha")

@@ -134,7 +134,6 @@ def encode_paths_quick_next_path(paths: List[str], label_generator: Iterator[oFE
     return ft
 
 def semi_disjoint_paths(client):
-
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
         for edge in graph.edges:
@@ -256,6 +255,196 @@ def benjamins_heuristic(client):
         if i == demand_num:
             break
 
+# Insert lowest utility path first in semi disjoint paths
+def lowestutilitypathinsert(client, pathdict):
+    G = client.router.network.topology.to_directed()
+
+    # Absolute link utilization under current path set
+    link_to_util = {e: 0 for e in client.link_caps.keys()}
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
+        imposed_util =  dict()
+        for (u, v), util in link_to_util.items():
+            imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
+
+        # We or der links by how much relative utilization it has were the flow to go through it
+        ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
+
+        # We set the weights. Link weight > sum of link weights for all links with less utilization
+        weight = 0
+        weight_sum = 0
+        prev_util = 0
+
+        for (u, v), curr_util in ordered_links:
+            if curr_util > prev_util:
+                weight = weight_sum + 1
+            G[u][v]["weight"] = weight
+            weight_sum += weight
+            prev_util = curr_util
+
+        path = nx.shortest_path(G, src, tgt, weight="weight")
+        pathdict[src,tgt,load].remove(path)
+        pathdict[src,tgt,load] = [path] + pathdict[src,tgt,load]
+    return pathdict
+
+def find_unused_paths(paths, G, src, tgt):
+    graph_copy = G.copy()
+    paths_to_add = []
+
+    for path in paths:
+        for x, y in zip(path[::], path[1::]):
+            if graph_copy.has_edge(x,y):
+                graph_copy.remove_edge(x, y)
+
+    for (edgesrc, edgetgt) in graph_copy.edges:
+        first = nx.shortest_path(G, src, edgesrc)
+        last = nx.shortest_path(G, edgetgt, tgt)
+        paths_to_add.append(first+last)
+
+def hybrid(client):
+    G = client.router.network.topology.to_directed()
+    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    for graph in flow_to_graph.values():
+        for edge in graph.edges:
+            graph[edge[0]][edge[1]]["weight"] = 1
+
+    pathdict = dict()
+
+    for src, tgt, load in client.loads:
+        pathdict[(src,tgt,load)] = []
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * len(graph.edges):
+        path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
+            w = w * 2 + 1
+            flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
+        pathdict[(src,tgt,load)].append(path)
+
+    new_pathdict = dict()
+    new_pathdict2 = dict()
+
+    for src, tgt, load in client.loads:
+        new_pathdict[(src, tgt, load)] = []
+        new_pathdict2[(src, tgt, load)] = []
+
+
+    # Remove duplicate paths
+    for src, tgt, load in pathdict.keys():
+        for elem in pathdict[(src,tgt,load)]:
+            if elem not in new_pathdict[(src,tgt,load)]:
+                new_pathdict[(src,tgt,load)].append(elem)
+                new_pathdict2[(src, tgt, load)].append(elem)
+    pathdict = new_pathdict
+
+
+    pathdict = lowestutilitypathinsert(client, pathdict)
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
+
+    for src, tgt, load in cycle(pathdict.keys()):
+        for path in pathdict[(src,tgt,load)]:
+            yield ((src,tgt),path)
+            break
+
+
+# Insert lowest utility path first in semi disjoint paths
+def lowestutilitypathinsert(client, pathdict):
+    G = client.router.network.topology.to_directed()
+
+    # Absolute link utilization under current path set
+    link_to_util = {e: 0 for e in client.link_caps.keys()}
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
+        imposed_util =  dict()
+        for (u, v), util in link_to_util.items():
+            imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
+
+        # We or der links by how much relative utilization it has were the flow to go through it
+        ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
+
+        # We set the weights. Link weight > sum of link weights for all links with less utilization
+        weight = 0
+        weight_sum = 0
+        prev_util = 0
+
+        for (u, v), curr_util in ordered_links:
+            if curr_util > prev_util:
+                weight = weight_sum + 1
+            G[u][v]["weight"] = weight
+            weight_sum += weight
+            prev_util = curr_util
+
+        path = nx.shortest_path(G, src, tgt, weight="weight")
+        pathdict[src,tgt,load].remove(path)
+        pathdict[src,tgt,load] = [path] + pathdict[src,tgt,load]
+    return pathdict
+
+def find_unused_paths(paths, G, src, tgt):
+    graph_copy = G.copy()
+    paths_to_add = []
+
+    for path in paths:
+        for x, y in zip(path[::], path[1::]):
+            if graph_copy.has_edge(x,y):
+                graph_copy.remove_edge(x, y)
+
+    for (edgesrc, edgetgt) in graph_copy.edges:
+        first = nx.shortest_path(G, src, edgesrc)
+        last = nx.shortest_path(G, edgetgt, tgt)
+        paths_to_add.append(first+last)
+
+def hybrid(client):
+    G = client.router.network.topology.to_directed()
+    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    for graph in flow_to_graph.values():
+        for edge in graph.edges:
+            graph[edge[0]][edge[1]]["weight"] = 1
+
+    pathdict = dict()
+
+    for src, tgt, load in client.loads:
+        pathdict[(src,tgt,load)] = []
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * len(graph.edges):
+        path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
+            w = w * 2 + 1
+            flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
+        pathdict[(src,tgt,load)].append(path)
+
+    new_pathdict = dict()
+    new_pathdict2 = dict()
+
+    for src, tgt, load in client.loads:
+        new_pathdict[(src, tgt, load)] = []
+        new_pathdict2[(src, tgt, load)] = []
+
+
+    # Remove duplicate paths
+    for src, tgt, load in pathdict.keys():
+        for elem in pathdict[(src,tgt,load)]:
+            if elem not in new_pathdict[(src,tgt,load)]:
+                new_pathdict[(src,tgt,load)].append(elem)
+                new_pathdict2[(src, tgt, load)].append(elem)
+    pathdict = new_pathdict
+
+
+    pathdict = lowestutilitypathinsert(client, pathdict)
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
+
+    for src, tgt, load in cycle(pathdict.keys()):
+        for path in pathdict[(src,tgt,load)]:
+            yield ((src,tgt),path)
+            break
+
+
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
 
@@ -281,6 +470,7 @@ class InOutDisjoint(MPLS_Client):
             'greedy_min_congestion': greedy_min_congestion,
             'semi_disjoint_paths': semi_disjoint_paths,
             'benjamins_heuristic': benjamins_heuristic,
+            'hybrid': hybrid,
         }
 
         "self.path_heuristic = semi_disjoint_paths"
@@ -309,13 +499,13 @@ class InOutDisjoint(MPLS_Client):
         path_heuristic = self.path_heuristic(self)
         yields = 0
         while yields < total_yields:
-            try:
+            #try:
                 # Generate next path
-                flow, path = next(path_heuristic)
-                yields += 1
-            except:
+            flow, path = next(path_heuristic)
+            yields += 1
+            #except:
                 # No more paths can be generated
-                break
+            #    break
             flow_to_paths[flow].append(path)
 
             if self.mem_exceeded(flow_to_paths):
