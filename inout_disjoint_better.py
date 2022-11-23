@@ -345,6 +345,7 @@ def hybrid(client):
     for src, tgt, load in cycle(pathdict.keys()):
         for path in pathdict[(src,tgt,load)]:
             yield ((src,tgt),path)
+            break
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
