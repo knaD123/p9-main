@@ -343,9 +343,7 @@ def hybrid(client):
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
 
     for src, tgt, load in cycle(pathdict.keys()):
-        for path in pathdict[(src,tgt,load)]:
-            yield ((src,tgt),path)
-            break
+        yield ((src,tgt),pathdict[(src,tgt,load)][0])
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
