@@ -315,7 +315,7 @@ def hybrid(client):
     for src, tgt, load in client.loads:
         pathdict[(src,tgt,load)] = []
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * len(graph.edges):
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow:
         path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
@@ -342,8 +342,9 @@ def hybrid(client):
         if unused_paths:
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
 
-    for src, tgt, load in cycle(pathdict.keys()):
-        yield ((src,tgt),pathdict[(src,tgt,load)][0])
+    for i in range(len(client.loads) * client.mem_limit_per_router_per_flow):
+        for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+            yield ((src,tgt),pathdict[(src,tgt,load)][i])
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
