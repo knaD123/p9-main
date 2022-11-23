@@ -6,9 +6,12 @@ import yaml
 from collections import defaultdict
 
 alg_to_name = dict()
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths": f"FBR SD ({i})" for i in range(50)})
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion": f"FBR GC ({i})" for i in range(50)})
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR SP ({i})" for i in range(50)})
+alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths": f"FBR({i}) SD" for i in range(50)})
+alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion": f"FBR({i}) GC" for i in range(50)})
+alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
+alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
+for i in range(50):
+    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=benjamins_heuristic{j}": f"FBR({i}) Benj({j})" for j in range(50)})
 alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50)})
 
 alg_to_name["rsvp-fn"] = "RSVP"
@@ -28,7 +31,9 @@ line_options = [
     "mark=none, color=gray, densely dashed, thick",
     "mark=none, color=green, dotted, thick",
     "mark=none, color=blue, dashed, thick",
-    "mark=none, color=black, dash dot, thick"
+    "mark=none, color=black, dash dot, thick",
+    "mark=none, color=yellow, dash dot, thick",
+    "mark=none, color=purple, dash dot, thick"
 ]
 
 axis_option = {
@@ -136,7 +141,7 @@ if __name__ == "__main__":
     parser.add_argument("--max_congestion", action="store_true")
     parser.add_argument("--delivered_packet_rate", action="store_true")
     parser.add_argument("--fortz_thorup_sum", action="store_true")
-    parser.add_argument("--filter_unfinished_topologies", action="store_false", help="Filter a topology from the data if not all algorithms finished")
+    parser.add_argument("--dont_filter_unfinished_topologies", action="store_true", help="Filter a topology from the data if not all algorithms finished")
     parser.add_argument("--topology_info", default="topology_info.json", help="Json file describing the topologies")
     parser.add_argument("--num_failed_links", type=int, help='Results for failure scenarios with exactly <num_failed_links> failed links')
     parser.add_argument("--max_nodes", type=int, help='Results for networks with up to <max_nodes> nodes')
@@ -178,7 +183,7 @@ if __name__ == "__main__":
                 topology["failure_scenarios#"] = len(new_runs)
 
     # Filter a toplogy if simulation failed for at least one algorithm
-    if args.filter_unfinished_topologies:
+    if not args.dont_filter_unfinished_topologies:
         filter_topologies = []
         for topology_to_check in topology_info:
             for topologies in data.values():
