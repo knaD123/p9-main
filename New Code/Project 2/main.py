@@ -60,8 +60,11 @@ def pathfind(demand, grapher, extrasteps = 0):
     bestpaths = []
     removedPath = []
 
-    shortestrouteindex(demand.source, demand.target)
-    paths = pathfindrecursion(demand.source, demand.target, [], [], extrasteps)
+    srilist = []
+    srilist.append(demand.target)
+
+    shortestrouteindex2(demand.source, demand.target, srilist)
+    paths = pathfindrecursion(demand.source, demand.target, extrasteps)
     grapher.cleanup()
 
     while paths != []:
@@ -84,15 +87,30 @@ def pathfind(demand, grapher, extrasteps = 0):
         removedPath += tempRemoved
         bestpaths.append(bestpath.copy())
 
-        shortestrouteindex(demand.source, demand.target, removedPath)
-        paths = pathfindrecursion(demand.source, demand.target, removedPath, [], extrasteps)
+        shortestrouteindex2(demand.source, demand.target, srilist, removedPath)
+        paths = pathfindrecursion(demand.source, demand.target, extrasteps, removedPath)
         grapher.cleanup()
 
     for link in bestpaths[0]:
         link.usage += demand.load
     return bestpaths
 
-def shortestrouteindex(source, target, removednodes =[], i = 0):
+#only checks each node once but has a memory overhead
+def shortestrouteindex2(source, target, nodes=[], removed =[], i = 1):
+    i+=1
+    nnodes = []
+    for node in nodes:
+        for link in node.clinks:
+            if link not in removed:
+                if link.nextnode(node) != target and link.nextnode(node).jumpsfromtarget == 0:
+                    link.nextnode(node).jumpsfromtarget = i
+                    nnodes.append(link.nextnode(node))
+    if nnodes !=[]:
+        shortestrouteindex2(source, target, nnodes, removed, i)
+    return
+
+#has better memory overhead, but may check shared paths multiple times
+def shortestrouteindex(source, target, removednodes =[], i=0):
     i += 1
     target.jumpsfromtarget = i
     for link in target.clinks:
@@ -102,7 +120,7 @@ def shortestrouteindex(source, target, removednodes =[], i = 0):
                     shortestrouteindex(source, link.nextnode(target), removednodes, i)
     return
 
-def pathfindrecursion(source, target, removednodes =[], currentpath =[], i=0, c=None):
+def pathfindrecursion(source, target, i=0, removedlinks =[], removednodes =[], currentpath =[], c=None):
     paths = []
     if c == None:
         c = source.jumpsfromtarget
@@ -112,13 +130,14 @@ def pathfindrecursion(source, target, removednodes =[], currentpath =[], i=0, c=
     else:
         #print(c)
         for link in source.clinks:
-            if not (link in removednodes):
-                if (link.nextnode(source).jumpsfromtarget - (c-1)) - i <= 0:
-                    r1 = removednodes.copy()
-                    r1.append(link)
-                    p1 = currentpath.copy()
-                    p1.append(link) #check if this either puts all the paths in a shared list or in individual local lists
-                    paths += pathfindrecursion(link.nextnode(source), target, r1, p1, i -(link.nextnode(source).jumpsfromtarget-c), c-1)
+            if link not in removedlinks:
+                if not (link.nextnode(source) in removednodes):
+                    if (link.nextnode(source).jumpsfromtarget - (c-1)) - i <= 0:
+                        r1 = removednodes.copy()
+                        r1.append(link.nextnode(source))
+                        p1 = currentpath.copy()
+                        p1.append(link) #check if this either puts all the paths in a shared list or in individual local lists
+                        paths += pathfindrecursion(link.nextnode(source), target, i -(link.nextnode(source).jumpsfromtarget-c), removedlinks, r1, p1, c-1)
 
     return paths
 
@@ -133,7 +152,7 @@ def printtestvalues(test, demand):
         print()
         for p in t:
 
-            print("from "+str(p.node1.identity) + " to "+ str(p.node2.identity))
+            print("from "+str(p.source_node.identity) + " to "+ str(p.target_node.identity))
             print("Link capacity of " +str(p.capacity))
             print("Link usage of "+str(p.usage)+ "("+str(p.usage+demand.load)+")")
             print("Link utilization of "+str(p.usage/p.capacity)+ "("+str((demand.load+p.usage)/p.capacity)+")")
@@ -151,10 +170,10 @@ def printtestvalues(test, demand):
 if __name__ == '__main__':
     network, demands, grapher = initializenetwork()
 
-    #test =pathfind(demands[0], grapher, 0)
+    test =pathfind(demands[0], grapher, 0)
     test2 =pathfind(demands[1], grapher, 5)
 
-    #printtestvalues(test, demands[0])
+    printtestvalues(test, demands[0])
     printtestvalues(test2, demands[1])
     #printtestvalues(test2)
 
