@@ -330,7 +330,7 @@ def common_prefix_length(path1, path2):
             return prefixlen
 
 
-def hybrid(client):
+def nielsens_heuristic(client):
     G = client.router.network.topology.to_directed()
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
@@ -363,17 +363,17 @@ def hybrid(client):
     pathdict = new_pathdict
 
     pathdict = lowestutilitypathinsert(client, pathdict)
-
-    pathdict = prefixsort(client, pathdict)
+    if client.mem_limit_per_router_per_flow > 10:
+        pathdict = prefixsort(client, pathdict)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         unused_paths = find_unused_paths(pathdict[src,tgt,load], G, src, tgt)
         if unused_paths:
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
 
-    for i in range(len(client.loads) * client.mem_limit_per_router_per_flow):
-        for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
-            yield ((src,tgt),pathdict[(src,tgt,load)][i])
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        for path in pathdict[src,tgt,load]:
+            yield ((src,tgt),path)
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
@@ -400,7 +400,7 @@ class InOutDisjoint(MPLS_Client):
             'greedy_min_congestion': greedy_min_congestion,
             'semi_disjoint_paths': semi_disjoint_paths,
             'benjamins_heuristic': benjamins_heuristic,
-            'hybrid': hybrid,
+            'nielsens_heuristic': nielsens_heuristic,
         }
 
         "self.path_heuristic = semi_disjoint_paths"
