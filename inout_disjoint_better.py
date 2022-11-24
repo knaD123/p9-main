@@ -303,6 +303,33 @@ def find_unused_paths(paths, G, src, tgt):
         last = nx.shortest_path(G, edgetgt, tgt)
         paths_to_add.append(first+last)
 
+# Shitter bruteforce algo
+def prefixsort(client, pathdict):
+    new_pathdict = dict()
+    for src, tgt, load in client.loads:
+        new_pathdict[(src, tgt, load)] = []
+        new_pathdict[src,tgt,load].append(pathdict[src,tgt,load][0])
+
+    for i in range(len(client.loads)):
+        for src, tgt, load in client.loads:
+            if new_pathdict[src, tgt, load][-1] in pathdict[src, tgt, load]:
+                pathdict[src, tgt, load].remove(new_pathdict[src, tgt, load][-1])
+            if pathdict[src,tgt,load] != []:
+                max_common_prefix_path = max(pathdict[src,tgt,load], key=lambda x: common_prefix_length(new_pathdict[src,tgt,load][-1],x))
+                new_pathdict[src,tgt,load].append(max_common_prefix_path)
+
+    pathdict = new_pathdict
+
+    return pathdict
+def common_prefix_length(path1, path2):
+    prefixlen = 0
+    for i in range(len(path1)):
+        if path1[i] == path2[i]:
+            prefixlen += 1
+        else:
+            return prefixlen
+
+
 def hybrid(client):
     G = client.router.network.topology.to_directed()
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
@@ -336,6 +363,8 @@ def hybrid(client):
     pathdict = new_pathdict
 
     pathdict = lowestutilitypathinsert(client, pathdict)
+
+    pathdict = prefixsort(client, pathdict)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         unused_paths = find_unused_paths(pathdict[src,tgt,load], G, src, tgt)
