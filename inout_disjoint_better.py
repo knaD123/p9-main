@@ -342,7 +342,7 @@ def nielsens_heuristic(client):
     for src, tgt, load in client.loads:
         pathdict[(src,tgt,load)] = []
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow:
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * len(graph.edges):
         path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
@@ -360,11 +360,13 @@ def nielsens_heuristic(client):
         for elem in pathdict[(src,tgt,load)]:
             if elem not in new_pathdict[(src,tgt,load)]:
                 new_pathdict[(src,tgt,load)].append(elem)
-    pathdict = new_pathdict
+
+    for src, tgt, load in client.loads:
+        pathdict[src,tgt,load] = new_pathdict[src,tgt,load][:client.mem_limit_per_router_per_flow]
 
     pathdict = lowestutilitypathinsert(client, pathdict)
-    if client.mem_limit_per_router_per_flow > 10:
-        pathdict = prefixsort(client, pathdict)
+
+    pathdict = prefixsort(client, pathdict)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         unused_paths = find_unused_paths(pathdict[src,tgt,load], G, src, tgt)
