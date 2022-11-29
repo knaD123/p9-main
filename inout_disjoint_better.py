@@ -8,6 +8,7 @@ from networkx import shortest_path
 import networkx as nx
 from collections import defaultdict
 import os
+from ortools.linear_solver import pywraplp
 
 from itertools import islice, cycle
 
@@ -329,6 +330,92 @@ def common_prefix_length(path1, path2):
         else:
             return prefixlen
 
+def congestion_lp(graph, capacities, demands, print_flows=True, unsplittable_flow=True, take_percent=1):  # Inputs networkx directed graph, dict of capacities, dict of demands
+    def demand(i, d):
+        if demands[d][0] == i:  # source
+            return 1
+        elif demands[d][1] == i:  # destination
+            return -1
+        else:
+            return 0  # intermediate
+
+    if unsplittable_flow:
+        solver = pywraplp.Solver.CreateSolver('SCIP')
+    else:
+        solver = pywraplp.Solver.CreateSolver('GLOP')
+
+    #take percent
+    demands = sorted(demands, key=lambda x: x[2], reverse=True)[:math.ceil(len(demands) * take_percent)]
+
+    # alpha is the minimal coefficient for capacities needed s.t. all demands do not exceed capacities
+    alpha = solver.NumVar(0, solver.infinity(), "alpha")
+
+    # Flow variables for solver
+    if unsplittable_flow:
+        f = {(i, j, d): solver.IntVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
+             (i, j) in graph.edges for d in range(len(demands))}
+    else:
+        f = {(i, j, d): solver.NumVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
+             (i, j) in graph.edges for d in range(len(demands))}
+
+    # Flow conservation constraints: total flow balance at node i for each demand d
+    # must be 0 if i is an intermediate node, 1 if i is the source of demand d, and
+    # -1 if i is the destination.
+    for i in graph.nodes:
+        for d in range(len(demands)):
+            solver.Add(sum(f[i, j, d] for j in graph.nodes if (i, j) in graph.edges) -
+                       sum(f[j, i, d] for j in graph.nodes if (i, j) in graph.edges) ==
+                       demand(i, d))
+
+    # Capacity constraints: weighted sum of flow variables must be contained in the
+    # total capacity installed on the arc (i, j)
+    #for (i, j) in graph.edges:
+    #    solver.Add((sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) <=
+    #               capacities[i, j] * alpha)
+
+    def util(f,demands,caps,graph):
+        lst = []
+        for (i,j) in graph.edges:
+            lst.append(sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))/caps[i,j])
+        return sum(lst)
+
+    # We minimize average utilization
+    z = (util(f,demands,capacities,graph))
+
+    # Minimizing alpha is equivalent with minimizing utility of link with maximal utility
+    solver.Minimize(z)
+
+    status = solver.Solve()
+
+    if status == pywraplp.Solver.OPTIMAL:
+        #create dictionary to be returned to andreas's heuristic
+        pathdict = dict()
+
+        for src, tgt, load in demands:
+            pathdict[(src, tgt, load)] = []
+
+        for d in range(len(demands)):
+            src,tgt,load = demands[d]
+            pathtoadd = []
+            for (i, j) in graph.edges:
+                if f[i,j,d].SolutionValue() > 0:
+                    pathtoadd.append((i,j))
+
+            new_pta = [src]
+
+            for i in range(len(pathtoadd)):
+                for s,d in pathtoadd:
+                    if s == new_pta[-1]:
+                        new_pta.append(d)
+                    else:
+                        continue
+
+            pathdict[src,tgt,load] = [new_pta]
+
+        return pathdict
+    else:
+        print(solver.Objective().Value())
+        print('The problem does not have an optimal solution.')
 
 def nielsens_heuristic(client):
     G = client.router.network.topology.to_directed()
@@ -337,10 +424,12 @@ def nielsens_heuristic(client):
         for edge in graph.edges:
             graph[edge[0]][edge[1]]["weight"] = 1
 
-    pathdict = dict()
+    #pathdict = dict()
 
-    for src, tgt, load in client.loads:
-        pathdict[(src,tgt,load)] = []
+    pathdict = congestion_lp(G,client.link_caps,client.loads)
+
+    #for src, tgt, load in client.loads:
+    #    pathdict[(src,tgt,load)] = []
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * len(graph.edges):
         path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
@@ -364,7 +453,7 @@ def nielsens_heuristic(client):
     for src, tgt, load in client.loads:
         pathdict[src,tgt,load] = new_pathdict[src,tgt,load][:client.mem_limit_per_router_per_flow]
 
-    pathdict = lowestutilitypathinsert(client, pathdict)
+    #pathdict = lowestutilitypathinsert(client, pathdict)
 
     pathdict = prefixsort(client, pathdict)
 
