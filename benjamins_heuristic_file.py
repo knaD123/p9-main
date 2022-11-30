@@ -13,7 +13,7 @@ def initializenetwork(G, demands):
     for node in G.nodes:
         _node = nd.Node(node)
         grapher.nodes.append(_node)
-    for src,tgt in G.edges:
+    for src, tgt in G.edges:
         node1 = grapher.get_node(src)
         node2 = grapher.get_node(tgt)
         node1.newLink(node2, G[src][tgt]["weight"])
