@@ -369,9 +369,9 @@ def congestion_lp(graph, capacities, demands, print_flows=True, unsplittable_flo
 
     # Capacity constraints: weighted sum of flow variables must be contained in the
     # total capacity installed on the arc (i, j)
-    #for (i, j) in graph.edges:
-    #    solver.Add((sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) <=
-    #               capacities[i, j] * alpha)
+    for (i, j) in graph.edges:
+        solver.Add((sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) <=
+                   capacities[i, j] * alpha)
 
     def util(f,demands,caps,graph):
         lst = []
