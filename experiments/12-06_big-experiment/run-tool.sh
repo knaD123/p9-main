@@ -13,6 +13,6 @@ source venv/bin/activate
 
 python3 -m pip install -r requirements.txt
 
-CONFIG="$2"
+CONFIG="$1"
 
 python3 tool_simulate.py --conf ${CONFIG}
