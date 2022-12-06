@@ -10,6 +10,8 @@ alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_pa
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion": f"FBR({i}) GC" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
+alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
+
 for i in range(50):
     alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=benjamins_heuristic{j}": f"FBR({i}) Benj({j})" for j in range(50)})
 alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50)})
@@ -152,9 +154,18 @@ if __name__ == "__main__":
     data = {}
     input_dir = args.input_dir
 
+    # Remove empty folders
+    for d in os.listdir(input_dir):
+        alg_dir = os.path.join(input_dir, d)
+        for topo_dir in os.listdir(alg_dir):
+            full_path = os.path.join(alg_dir, topo_dir)
+            if len(os.listdir(full_path)) == 0:
+                os.rmdir(full_path)
+
     # Load info of topologies
     with open(args.topology_info, "r") as f:
         topology_info = json.load(f)
+
 
     # Only load from specific topologies if path provided. By default use all topologies
     if args.topologies:
