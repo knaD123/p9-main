@@ -12,6 +12,7 @@ alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": 
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
 
+
 for i in range(50):
     alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=benjamins_heuristic{j}": f"FBR({i}) Benj({j})" for j in range(50)})
 alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50)})
@@ -119,9 +120,10 @@ def generate_data_points(variable, data, topology_info):
 
     return alg_to_data_points
 
-def data_subset(topologies, input_dir):
+def data_subset(topologies, input_dir, algorithms):
     data = {}
-    for alg_dir in os.listdir(input_dir):
+    # Jargon line below simply says to only use subset of algorithms, unless "all" is specified
+    for alg_dir in ([alg for alg in os.listdir(input_dir) if alg in algorithms] if algorithms != "all" else os.listdir(input_dir)):
         alg_data = dict()
         for topology in [x for x in os.listdir(os.path.join(input_dir, alg_dir)) if x in topologies]:
             topo_file = os.path.join(input_dir, alg_dir, topology, "results.json")
@@ -148,10 +150,10 @@ if __name__ == "__main__":
     parser.add_argument("--num_failed_links", type=int, help='Results for failure scenarios with exactly <num_failed_links> failed links')
     parser.add_argument("--max_nodes", type=int, help='Results for networks with up to <max_nodes> nodes')
     parser.add_argument("--topologies", help='Provide the path to a list of names of topologies you want results for')
+    parser.add_argument("--algorithms", type=str, default="all", help='Subset of algorithms to compute results for. Specify algorithms by the name of its result directory, separate names by comma. If left empty compare all algorithms in directory.')
+
     args = parser.parse_args()
 
-    # Load data
-    data = {}
     input_dir = args.input_dir
 
     # Remove empty folders
@@ -173,7 +175,10 @@ if __name__ == "__main__":
             topologies = yaml.load(f)
     else:
         topologies = topology_info.keys()
-    data = data_subset(topologies, input_dir)
+
+    # Load data
+    algorithms = [x for x in args.algorithms.split(", ")]
+    data = data_subset(topologies, input_dir, args.algorithms)
 
     # Filter topologies that are too large
     if args.max_nodes:
