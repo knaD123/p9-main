@@ -136,7 +136,11 @@ def max_congestion_normalized_data(data, topology_info):
         for topology, topology_data in topologies.items():
             value = 0
             for run in topology_data["runs"]:
-                value += ((run["max_congestion"] / run["delivered_packet_rate"]) * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
+                if run["delivered_packet_rate"] > 0:
+                    value += ((run["max_congestion"] / run["delivered_packet_rate"]) * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
+                else:
+                    value += (10 * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
+
             values_unsorted.append(value)
         data_points = [f"({i}, {con})" for i, con in enumerate(sorted(values_unsorted), start=0)]
         alg_to_data_points[alg] = data_points
