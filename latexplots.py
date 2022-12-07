@@ -22,6 +22,7 @@ alg_to_name["gft"] = "GFT"
 
 variable_to_label = dict()
 variable_to_label["max_congestion"] = "Weighted Max Single Link Utilization"
+variable_to_label["max_congestion_weighted"] = "Weighted Max Single Link Utilization*"
 variable_to_label["delivered_packet_rate"] = "Weighted Connectivity"
 variable_to_label["path_stretch"] = "Weighted Path Stretch"
 variable_to_label["fortz_thorup_sum"] = "Weighted Ftz Thrp"
@@ -42,6 +43,7 @@ line_options = [
 axis_option = {
     "delivered_packet_rate": r"ylabel={Weighted Average Connectivity}, legend pos= {south east}, legend style = {legend cell align=left}",
     "max_congestion": r"ylabel={Weighted Average Max Utilization}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "max_congestion_weighted": r"ylabel={Weighted Average Max Utilization*}, legend pos= {north west}, legend style = {legend cell align=left}",
     "path_stretch": r"ylabel={Weighted Average Path Stretch}, legend pos= {north west}, legend style = {legend cell align=left}",
     "fortz_thorup_sum": r"ylabel={Weighted Average Fortz Thorup Sum}, legend pos= {north west}, legend style = {legend cell align=left}",
 }
