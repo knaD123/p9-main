@@ -120,6 +120,29 @@ def generate_data_points(variable, data, topology_info):
 
     return alg_to_data_points
 
+def max_congestion_normalized_data(data, topology_info):
+    # Map an algorithm to a set of data points
+    # First compute normalization sum for each topology
+    alg_to_topo_to_norm_sum = {}
+    for alg, topologies in data.items():
+        topo_to_norm_sum = {}
+        for topology, topology_data in topologies.items():
+            topo_to_norm_sum[topology] = compute_normalization_sum(topology_data["runs"], topology_info[topology]["num_edges"])
+        alg_to_topo_to_norm_sum[alg] = topo_to_norm_sum
+
+    alg_to_data_points = {}
+    for alg, topologies in data.items():
+        values_unsorted = []
+        for topology, topology_data in topologies.items():
+            value = 0
+            for run in topology_data["runs"]:
+                value += ((run["max_congestion"] / run["delivered_packet_rate"]) * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
+            values_unsorted.append(value)
+        data_points = [f"({i}, {con})" for i, con in enumerate(sorted(values_unsorted), start=0)]
+        alg_to_data_points[alg] = data_points
+
+    return alg_to_data_points
+
 def data_subset(topologies, input_dir, algorithms):
     data = {}
     # Jargon line below simply says to only use subset of algorithms, unless "all" is specified
@@ -143,6 +166,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", type=str, required=True)
     parser.add_argument("--path_stretch", action="store_true")
     parser.add_argument("--max_congestion", action="store_true")
+    parser.add_argument("--max_congestion_normalized", action="store_true", help="normalized by connectivity")
     parser.add_argument("--delivered_packet_rate", action="store_true")
     parser.add_argument("--fortz_thorup_sum", action="store_true")
     parser.add_argument("--dont_filter_unfinished_topologies", action="store_true", help="Filter a topology from the data if not all algorithms finished")
@@ -221,6 +245,11 @@ if __name__ == "__main__":
         _tex_string = tex_string("max_congestion", data_points, args, topologies)
         with open(os.path.join(args.output_dir, "max_congestion.tex"), "w") as f:
             f.write(_tex_string)
+    if args.max_congestion_normalized:
+        data_points = max_congestion_normalized_data(data, topology_info)
+        _tex_string = tex_string("max_congestion_normalized", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "max_congestion_normalized.tex"), "w") as f:
+            f.write(_tex_string)
     if args.path_stretch:
         data_points = generate_data_points("path_stretch", data, topology_info)
         _tex_string = tex_string("path_stretch", data_points, args, topologies)
@@ -231,5 +260,6 @@ if __name__ == "__main__":
         _tex_string = tex_string("fortz_thorup_sum", data_points, args, topologies)
         with open(os.path.join(args.output_dir, "fortz_thorup_sum.tex"), "w") as f:
             f.write(_tex_string)
+
 
 
