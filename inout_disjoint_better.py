@@ -303,6 +303,7 @@ def find_unused_paths(paths, G, src, tgt):
         first = nx.shortest_path(G, src, edgesrc)
         last = nx.shortest_path(G, edgetgt, tgt)
         paths_to_add.append(first+last)
+    return paths_to_add
 
 # Shitter bruteforce algo
 def prefixsort(client, pathdict):
@@ -431,7 +432,7 @@ def nielsens_heuristic(client):
     #for src, tgt, load in client.loads:
     #    pathdict[(src,tgt,load)] = []
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow:
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * 2:
         path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
@@ -456,10 +457,13 @@ def nielsens_heuristic(client):
     #pathdict = lowestutilitypathinsert(client, pathdict)
     pathdict = prefixsort(client, pathdict)
 
+    # Find unused paths probably deprecatable
+    '''
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         unused_paths = find_unused_paths(pathdict[src,tgt,load], G, src, tgt)
         if unused_paths:
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
+    '''
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         for path in pathdict[src,tgt,load]:
