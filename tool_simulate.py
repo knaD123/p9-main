@@ -63,8 +63,7 @@ def main(conf):
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
 
     #Sort the flows
-    flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)
-    flows_with_load = flows_with_load[:math.ceil(len(flows_with_load) * conf["take_percent"])]
+    flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[:math.ceil(len(flows_with_load) * conf["take_percent"])]
     conf["loads"] = flows_with_load
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
@@ -213,20 +212,36 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     ### OUTPUT RESULTS
 
     def fortz_and_thorup(u):
+        if u < 1 / 20:
+            return u * 0.1
+        if u < 1 / 10:
+            return u * 0.3 - 0.01
+        if u < 1 / 6:
+            return u * 1 - 0.08
         if u < 1 / 3:
-            return 1
+            return u * 2 - 0.24666
+        if u < 1 / 2:
+            return u * 5 - 1.24666
         if u < 2 / 3:
-            return 3
+            return u * 10 - 3.74666
         if u < 9 / 10:
-            return 10
+            return u * 20 - 10.41333
+        if u < 1:
+            return u * 70 - 55.41333
         if u < 11 / 10:
-            return 500
+            return u * 500 - 485.41333
         else:
-            return 5000
+            return u * 5000 - 5435.41333
 
     res_dir = dict()
 
     (successful_flows, total_flows, codes) = s.success_rate(exit_codes=True)
+
+    failed_traces = []
+    for src,tgt,load in flows:
+        (traces,succes) = s.trace_routes[src,tgt,load]
+        if not succes:
+            failed_traces = failed_traces + [(src,tgt), traces]
 
     routers: List[Router] = list(network.routers.values())
     router_memory = [sum(len(rule) for rule in router.LFIB.values()) for router in routers]
@@ -275,6 +290,7 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     max_cong = max(util_dict_rel.values())
     ft_score = sum([fortz_and_thorup(u) for u in util_dict_rel.values()])
 
+    res_dir["failed_links"] = F
     res_dir["failed_links#"] = len(F)
     res_dir["delivered_packet_rate"] = success_rate
     res_dir["median_congestion"] = median_cong
@@ -285,7 +301,10 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     results["runs"].append(res_dir)
 
     print(f"SIMULATION FINISHED - FAILED: {s.count_connected - successful_flows}")
-
+    if conf["print_fails"]:
+        print("Failed traces:")
+        for fails in failed_traces:
+            print(fails)
 
 if __name__ == "__main__":
 
@@ -360,6 +379,7 @@ if __name__ == "__main__":
     p.add_argument("--print_flows", action="store_true", help="Print flows instead of running simulation. Defaults False.")
     p.add_argument("--verbose", action="store_true", help="Remove verbosity")
     p.add_argument("--take_percent", type=float, default=0.20, help="What percentage of biggest flows to take")
+    p.add_argument("--print_fails", action="store_true", help="Print failed traces")
 
     args = p.parse_args()
 
