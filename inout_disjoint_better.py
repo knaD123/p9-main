@@ -4,7 +4,7 @@ import networkx.exception
 
 from mpls_classes import *
 from functools import *
-from networkx import shortest_path
+from networkx import shortest_path, diameter
 import networkx as nx
 from collections import defaultdict
 import os
@@ -16,20 +16,25 @@ from ForwardingTable import ForwardingTable
 from benjamins_heuristic_file import initializenetwork, pathfind
 from typing import Dict, Tuple, List, Callable
 
+
 def label(ingress, egress, path_index: int):
     return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
                 {"ingress": ingress, "egress": [egress], "path_index": path_index})
 
+
 def create_label_generator(f):
     return (label(f[0], f[1], i) for i, _ in enumerate(iter(int, 1)))
+
 
 def reset_weights(G: Graph, value):
     for u, v, d in G.edges(data=True):
         d["weight"] = value
 
+
 def update_weights(G: Graph, path, update_func):
     for v1, v2 in zip(path[:-1], path[1:]):
         G[v1][v2]["weight"] = update_func(G[v1][v2]["weight"])
+
 
 def encode_paths_full_backtrack(paths: List[str], label_generator: Iterator[oFEC]):
     ft = ForwardingTable()
@@ -108,6 +113,7 @@ def encode_paths_full_backtrack(paths: List[str], label_generator: Iterator[oFEC
 
     return ft
 
+
 def encode_paths_quick_next_path(paths: List[str], label_generator: Iterator[oFEC]):
     ft = ForwardingTable()
 
@@ -134,6 +140,7 @@ def encode_paths_quick_next_path(paths: List[str], label_generator: Iterator[oFE
 
     return ft
 
+
 def semi_disjoint_paths(client):
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
@@ -144,12 +151,13 @@ def semi_disjoint_paths(client):
     iterations = 3
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * iterations:
-        path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
+        path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
-            w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
+            w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
             w = w * 2 + 1
-            flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
+            flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
         yield ((src, tgt), path)
+
 
 def greedy_min_congestion(client):
     G = client.router.network.topology.to_directed()
@@ -159,9 +167,9 @@ def greedy_min_congestion(client):
 
     for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
         # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
-        imposed_util =  dict()
+        imposed_util = dict()
         for (u, v), util in link_to_util.items():
-            imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
+            imposed_util[(u, v)] = (util + load) / client.link_caps[(u, v)]
 
         # We or der links by how much relative utilization it has were the flow to go through it
         ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
@@ -183,23 +191,26 @@ def greedy_min_congestion(client):
             link_to_util[(v1, v2)] += load
         yield ((src, tgt), path)
 
+
 def shortest_paths(client):
     G = client.router.network.topology.to_directed()
     for src, tgt in G.edges:
         G[src][tgt]["weight"] = 1
 
-    path_gens = {(src,tgt): nx.shortest_simple_paths(G, src, tgt, weight="weight") for src, tgt in client.flows}
+    path_gens = {(src, tgt): nx.shortest_simple_paths(G, src, tgt, weight="weight") for src, tgt in client.flows}
 
     for src, tgt, _ in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
         if len(path_gens) < 1:
             break
-        if (src,tgt) in path_gens:
+        if (src, tgt) in path_gens:
             try:
                 path = next(path_gens[(src, tgt)])
-                yield ((src,tgt), path)
+                yield ((src, tgt), path)
             except StopIteration as e:
-                path_gens.pop((src,tgt))
+                path_gens.pop((src, tgt))
                 continue
+
+
 def benjamins_heuristic(client):
     # We set number of extra hops allowed
     k = client.kwargs["extra_hops"]
@@ -214,7 +225,7 @@ def benjamins_heuristic(client):
     def benja_path_to_juan_path(benja_path, src):
         juan_path = []
 
-        #Add first node
+        # Add first node
         first_link = benja_path[0]
         node1 = first_link.node1.identity
         node2 = first_link.node2.identity
@@ -240,7 +251,8 @@ def benjamins_heuristic(client):
 
     for d in demands:
         paths = pathfind(d, grapher, k)
-        demand_to_paths[(d.source.identity, d.target.identity)] = [benja_path_to_juan_path(x, d.source.identity) for x in paths]
+        demand_to_paths[(d.source.identity, d.target.identity)] = [benja_path_to_juan_path(x, d.source.identity) for x
+                                                                   in paths]
 
     demand_num = len(demand_to_paths.items())
     i = 0
@@ -249,12 +261,13 @@ def benjamins_heuristic(client):
             i = 0
             path = paths[0]
             paths.remove(path)
-            yield ((src,tgt), path)
+            yield ((src, tgt), path)
         else:
             i += 1
         # If all paths have been yielded
         if i == demand_num:
             break
+
 
 # Insert lowest utility path first in semi disjoint paths
 def lowestutilitypathinsert(client, pathdict):
@@ -265,9 +278,9 @@ def lowestutilitypathinsert(client, pathdict):
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
-        imposed_util =  dict()
+        imposed_util = dict()
         for (u, v), util in link_to_util.items():
-            imposed_util[(u, v)] = (util + load) / client.link_caps[(u,v)]
+            imposed_util[(u, v)] = (util + load) / client.link_caps[(u, v)]
 
         # We or der links by how much relative utilization it has were the flow to go through it
         ordered_links = sorted(list(imposed_util.items()), key=lambda x: x[1])
@@ -285,10 +298,11 @@ def lowestutilitypathinsert(client, pathdict):
             prev_util = curr_util
 
         path = nx.shortest_path(G, src, tgt, weight="weight")
-        if path in pathdict[src,tgt,load]:
-            pathdict[src,tgt,load].remove(path)
-        pathdict[src,tgt,load] = [path] + pathdict[src,tgt,load]
+        if path in pathdict[src, tgt, load]:
+            pathdict[src, tgt, load].remove(path)
+        pathdict[src, tgt, load] = [path] + pathdict[src, tgt, load]
     return pathdict
+
 
 def find_unused_paths(paths, G, src, tgt):
     graph_copy = G.copy()
@@ -296,33 +310,37 @@ def find_unused_paths(paths, G, src, tgt):
 
     for path in paths:
         for x, y in zip(path[::], path[1::]):
-            if graph_copy.has_edge(x,y):
+            if graph_copy.has_edge(x, y):
                 graph_copy.remove_edge(x, y)
 
     for (edgesrc, edgetgt) in graph_copy.edges:
         first = nx.shortest_path(G, src, edgesrc)
         last = nx.shortest_path(G, edgetgt, tgt)
-        paths_to_add.append(first+last)
+        paths_to_add.append(first + last)
     return paths_to_add
+
 
 # Shitter bruteforce algo
 def prefixsort(client, pathdict):
     new_pathdict = dict()
     for src, tgt, load in client.loads:
         new_pathdict[(src, tgt, load)] = []
-        new_pathdict[src,tgt,load].append(pathdict[src,tgt,load][0])
+        new_pathdict[src, tgt, load].append(pathdict[src, tgt, load][0])
 
     for i in range(len(client.loads)):
         for src, tgt, load in client.loads:
             if new_pathdict[src, tgt, load][-1] in pathdict[src, tgt, load]:
                 pathdict[src, tgt, load].remove(new_pathdict[src, tgt, load][-1])
-            if pathdict[src,tgt,load] != []:
-                max_common_prefix_path = max(pathdict[src,tgt,load], key=lambda x: common_prefix_length(new_pathdict[src,tgt,load][-1],x))
-                new_pathdict[src,tgt,load].append(max_common_prefix_path)
+            if pathdict[src, tgt, load] != []:
+                max_common_prefix_path = max(pathdict[src, tgt, load],
+                                             key=lambda x: common_prefix_length(new_pathdict[src, tgt, load][-1], x))
+                new_pathdict[src, tgt, load].append(max_common_prefix_path)
 
     pathdict = new_pathdict
 
     return pathdict
+
+
 def common_prefix_length(path1, path2):
     prefixlen = 0
     for i in range(len(path1)):
@@ -331,7 +349,34 @@ def common_prefix_length(path1, path2):
         else:
             return prefixlen
 
-def congestion_lp(graph, capacities, demands, print_flows=True, unsplittable_flow=True, take_percent=1):  # Inputs networkx directed graph, dict of capacities, dict of demands
+
+# Limit number of hops for packets
+def max_hops(max_hops, pathdict, client):
+    new_pathdict = dict()
+    for src, tgt, load in client.loads:
+        max_hops_for_demand = max_hops
+        new_pathdict[(src, tgt, load)] = []
+
+        if max_hops_for_demand >= len(pathdict[src, tgt, load][0]):
+            new_pathdict[src, tgt, load].append(pathdict[src, tgt, load][0])
+            # -2 because first node does not count as a hop and assume that last link fails so it does not make the hop
+            max_hops_for_demand -= len(pathdict[src, tgt, load][0]) - 2
+
+        for path in pathdict[src, tgt, load][1:]:
+            if max_hops_for_demand >= ((len(new_pathdict[src, tgt, load][-1]) - common_prefix_length(
+                    new_pathdict[src, tgt, load][-1], path) - 1) + (len(path) - (
+            common_prefix_length(new_pathdict[src, tgt, load][-1], path)))):
+                max_hops_for_demand = max_hops_for_demand - ((len(
+                    new_pathdict[src, tgt, load][-1]) - common_prefix_length(new_pathdict[src, tgt, load][-1],
+                                                                             path) - 1) + (len(path) - (
+                    common_prefix_length(new_pathdict[src, tgt, load][-1], path)) - 1))
+                new_pathdict[src, tgt, load].append(path)
+
+    return new_pathdict
+
+
+def congestion_lp(graph, capacities, demands, print_flows=True,
+                  take_percent=1):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -340,24 +385,60 @@ def congestion_lp(graph, capacities, demands, print_flows=True, unsplittable_flo
         else:
             return 0  # intermediate
 
-    if unsplittable_flow:
-        solver = pywraplp.Solver.CreateSolver('SCIP')
-    else:
-        solver = pywraplp.Solver.CreateSolver('GLOP')
+    def fortz_and_thorup(u):
+        if u <= 1 / 20:
+            return u * 0.1
+        if u <= 1 / 10:
+            return u * 0.3 - 0.01
+        if u <= 1 / 6:
+            return u * 1 - 0.08
+        if u <= 1 / 3:
+            return u * 2 - 0.24666
+        if u <= 1 / 2:
+            return u * 5 - 1.24666
+        if u <= 2 / 3:
+            return u * 10 - 3.74666
+        if u <= 9 / 10:
+            return u * 20 - 10.41333
+        if u <= 1:
+            return u * 70 - 55.41333
+        if u <= 11 / 10:
+            return u * 500 - 485.41333
+        else:
+            return u * 5000 - 5435.41333
 
-    #take percent
-    demands = sorted(demands, key=lambda x: x[2], reverse=True)[:math.ceil(len(demands) * take_percent)]
+    # take percent
+    # demands = sorted(demands, key=lambda x: x[2], reverse=True)#[:math.ceil(len(demands) * take_percent)]
 
-    # alpha is the minimal coefficient for capacities needed s.t. all demands do not exceed capacities
-    alpha = solver.NumVar(0, solver.infinity(), "alpha")
+    solver = pywraplp.Solver.CreateSolver('SCIP')
 
     # Flow variables for solver
-    if unsplittable_flow:
-        f = {(i, j, d): solver.IntVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
-             (i, j) in graph.edges for d in range(len(demands))}
-    else:
-        f = {(i, j, d): solver.NumVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
-             (i, j) in graph.edges for d in range(len(demands))}
+    f = {(i, j, d): solver.IntVar(0, 1, "{}->{}=>{}->{}".format(i, j, demands[d][0], demands[d][1])) for
+         (i, j) in graph.edges for d in range(len(demands))}
+
+    # l = {(i, j): solver.NumVar(0, solver.infinity(), "load:{}->{}".format(i, j)) for (i, j) in graph.edges}
+
+    func = {(i, j): solver.NumVar(0, solver.infinity(), "func:{}->{}".format(i, j)) for (i, j) in graph.edges}
+
+    # Loadvar equals demand
+    # for (i, j) in graph.edges:
+    #    solver.Add(sum(demands[d][2] * f[i, j, d] for d in range(len(demands))) == l[i, j])
+
+    for (i, j) in graph.edges:
+        solver.Add(func[i, j] >= (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))))
+        solver.Add(func[i, j] >= 3 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
+                0.666 * capacities[i, j]))
+        solver.Add(func[i, j] >= 10 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
+                5.333 * capacities[i, j]))
+        solver.Add(func[i, j] >= 70 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
+                59.333 * capacities[i, j]))
+        solver.Add(func[i, j] >= 500 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
+                489.333 * capacities[i, j]))
+        solver.Add(func[i, j] >= 5000 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
+                6489.333 * capacities[i, j]))
+
+    # for (i, j) in graph.edges:
+    #    solver.Add(func[i, j] == ((sum(demands[d][2] * f[i, j, d] for d in range(len(demands))))/capacities[i,j]))
 
     # Flow conservation constraints: total flow balance at node i for each demand d
     # must be 0 if i is an intermediate node, 1 if i is the source of demand d, and
@@ -368,55 +449,46 @@ def congestion_lp(graph, capacities, demands, print_flows=True, unsplittable_flo
                        sum(f[j, i, d] for j in graph.nodes if (i, j) in graph.edges) ==
                        demand(i, d))
 
-    # Capacity constraints: weighted sum of flow variables must be contained in the
-    # total capacity installed on the arc (i, j)
-    for (i, j) in graph.edges:
-        solver.Add((sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) <=
-                   capacities[i, j] * alpha)
-
-    def util(f,demands,caps,graph):
-        lst = []
-        for (i,j) in graph.edges:
-            lst.append(sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))/caps[i,j])
-        return sum(lst)
-
-    # We minimize average utilization
-    z = (util(f,demands,capacities,graph))
-
-    # Minimizing alpha is equivalent with minimizing utility of link with maximal utility
-    solver.Minimize(z)
+    fortzfunc = sum((func[i, j]) for (i, j) in graph.edges)
+    solver.Minimize(fortzfunc)
 
     status = solver.Solve()
 
     if status == pywraplp.Solver.OPTIMAL:
-        #create dictionary to be returned to andreas's heuristic
+        # create dictionary to be returned to andreas's heuristic
         pathdict = dict()
 
         for src, tgt, load in demands:
             pathdict[(src, tgt, load)] = []
 
         for d in range(len(demands)):
-            src,tgt,load = demands[d]
+            src, tgt, load = demands[d]
             pathtoadd = []
             for (i, j) in graph.edges:
-                if f[i,j,d].SolutionValue() > 0:
-                    pathtoadd.append((i,j))
+                if f[i, j, d].SolutionValue() > 0:
+                    pathtoadd.append((i, j))
 
             new_pta = [src]
 
             for i in range(len(pathtoadd)):
-                for s,d in pathtoadd:
+                for s, d in pathtoadd:
                     if s == new_pta[-1]:
                         new_pta.append(d)
                     else:
                         continue
 
-            pathdict[src,tgt,load] = [new_pta]
+            pathdict[src, tgt, load] = [new_pta]
 
         return pathdict
     else:
         print(solver.Objective().Value())
         print('The problem does not have an optimal solution.')
+        pathdict = dict()
+
+        for src, tgt, load in demands:
+            pathdict[(src, tgt, load)] = []
+        return pathdict
+
 
 def nielsens_heuristic(client):
     G = client.router.network.topology.to_directed()
@@ -425,20 +497,21 @@ def nielsens_heuristic(client):
         for edge in graph.edges:
             graph[edge[0]][edge[1]]["weight"] = 1
 
-    #pathdict = dict()
+    # pathdict = dict()
 
-    pathdict = congestion_lp(G,client.link_caps,client.loads)
+    pathdict = congestion_lp(G, client.link_caps, client.loads)
 
-    #for src, tgt, load in client.loads:
+    # for src, tgt, load in client.loads:
     #    pathdict[(src,tgt,load)] = []
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * 2:
-        path = nx.shortest_path(flow_to_graph[(src,tgt)], src, tgt, weight="weight")
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2],
+                                 reverse=True) * client.mem_limit_per_router_per_flow * 2:
+        path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
-            w = flow_to_graph[(src,tgt)][v1][v2]["weight"]
+            w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
             w = w * 2 + 1
-            flow_to_graph[(src,tgt)][v1][v2]["weight"] = w
-        pathdict[(src,tgt,load)].append(path)
+            flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
+        pathdict[(src, tgt, load)].append(path)
 
     new_pathdict = dict()
 
@@ -447,14 +520,14 @@ def nielsens_heuristic(client):
 
     # Remove duplicate paths
     for src, tgt, load in pathdict.keys():
-        for elem in pathdict[(src,tgt,load)]:
-            if elem not in new_pathdict[(src,tgt,load)]:
-                new_pathdict[(src,tgt,load)].append(elem)
+        for elem in pathdict[(src, tgt, load)]:
+            if elem not in new_pathdict[(src, tgt, load)]:
+                new_pathdict[(src, tgt, load)].append(elem)
 
     for src, tgt, load in client.loads:
-        pathdict[src,tgt,load] = new_pathdict[src,tgt,load]
+        pathdict[src, tgt, load] = new_pathdict[src, tgt, load]
 
-    #pathdict = lowestutilitypathinsert(client, pathdict)
+    # pathdict = lowestutilitypathinsert(client, pathdict)
     pathdict = prefixsort(client, pathdict)
 
     # Find unused paths probably deprecatable
@@ -465,9 +538,12 @@ def nielsens_heuristic(client):
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
     '''
 
+    pathdict = max_hops(round(diameter(G) * 1.5), pathdict, client)
+
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
-        for path in pathdict[src,tgt,load]:
-            yield ((src,tgt),path)
+        for path in pathdict[src, tgt, load]:
+            yield ((src, tgt), path)
+
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
@@ -524,11 +600,11 @@ class InOutDisjoint(MPLS_Client):
         yields = 0
         while yields < total_yields:
             try:
-            # Generate next path
+                # Generate next path
                 flow, path = next(path_heuristic)
                 yields += 1
             except:
-            # No more paths can be generated
+                # No more paths can be generated
                 break
             flow_to_paths[flow].append(path)
 
@@ -562,7 +638,6 @@ class InOutDisjoint(MPLS_Client):
     def define_demand(self, headend: str):
         self.demands[f"{len(self.demands.items())}_{headend}_to_{self.router.name}"] = (headend, self.router.name)
 
-
     def commit_config(self):
         # Only one router should generate dataplane!
         if self.router.name != min(rname for rname in self.router.network.routers):
@@ -571,7 +646,7 @@ class InOutDisjoint(MPLS_Client):
         network = self.router.network
 
         self.flows = [(headend, tailend) for tailend in network.routers for headend in
-                 map(lambda x: x[0], network.routers[tailend].clients[self.protocol].demands.values())]
+                      map(lambda x: x[0], network.routers[tailend].clients[self.protocol].demands.values())]
 
         self.mem_limit_per_router = self.mem_limit_per_router_per_flow * len(self.flows)
 
@@ -597,5 +672,3 @@ class InOutDisjoint(MPLS_Client):
 
     def self_sourced(self, fec: oFEC):
         return 'inout-disjoint' in fec.fec_type and fec.value["egress"][0] == self.router.name
-
-
