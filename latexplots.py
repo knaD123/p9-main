@@ -20,6 +20,7 @@ alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50
 alg_to_name["rsvp-fn"] = "RSVP"
 alg_to_name["gft"] = "GFT"
 alg_to_name["tba-simple"] = "TBA-S"
+alg_to_name["rmpls"] = "RMPLS"
 
 
 variable_to_label = dict()
