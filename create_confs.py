@@ -160,6 +160,9 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['method'] = 'inout-disjoint'
         base_config['backtrack'] = 'partial'
         base_config['path_heuristic'] = path_heuristic
+        if path_heuristic == "nielsens_heuristic":
+            base_config["max_stretch"] = conf["max_stretch"]
+            base_config["max_utilization"] = conf["max_utilization"]
         if extra_hops is not None:
             base_config["extra_hops"] = extra_hops
     elif conf_type == 'inout-disjoint-full':
@@ -214,6 +217,9 @@ if __name__ == "__main__":
 
     p.add_argument("--demand_file", type=str, required=True)
 
+    p.add_argument("--max_stretch", type=float, default=float(sys.maxsize), help="Maximum path_stretch, works only for Nielsens Heuristic.")
+
+    p.add_argument("--max_utilization", type=float, default=float(sys.maxsize), help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
 
     args = p.parse_args()
     conf = vars(args)
