@@ -3,7 +3,7 @@
 #SBATCH --error=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs-%j.err
 #SBATCH --partition=naples
 #SBATCH --time=06:00:00
-#SBATCH --mem=12G
+#SBATCH --mem=20G
 #SBATCH --cpus-per-task=1
 
 source venv/bin/activate
