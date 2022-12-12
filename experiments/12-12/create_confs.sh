@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=dhabi
+#SBATCH --partition=naples
 
 EXECUTOR="sbatch"
 if [ "$1" = "no" ]; then
