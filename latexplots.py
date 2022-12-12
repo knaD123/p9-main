@@ -19,6 +19,8 @@ alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50
 
 alg_to_name["rsvp-fn"] = "RSVP"
 alg_to_name["gft"] = "GFT"
+alg_to_name["tba-simple"] = "TBA-S"
+
 
 variable_to_label = dict()
 variable_to_label["max_congestion"] = "Weighted Max Single Link Utilization"
