@@ -29,6 +29,7 @@ import networkx as nx
 from mpls_fwd_gen import *
 from itertools import chain, combinations
 from functools import reduce
+from collections import defaultdict
 
 folder = ""
 
@@ -106,6 +107,24 @@ def generate_failures_all(G, division = None, random_seed = 1):
 
     return [list(x) for x in F_list]
 
+def generate_failures_percent(G, threshold, division, random_seed):
+    def return_0():
+        return 0
+
+    F_list = []
+    edges = [list(x) for x in G.edges()]
+    num_edges = len(edges)
+    random.seed(random_seed)
+    num_fails_to_size_dict = defaultdict(return_0)
+    for percentage, size in conf["fail_lengths"]:
+        num_fails_to_size_dict[round(percentage * num_edges / 100)] += size
+    for num_to_fail, size in num_fails_to_size_dict.items():
+        if num_to_fail < num_edges:
+            all_possible_scenarios = list(combinations(edges, num_to_fail))
+            amount_of_scenarios = min(len(all_possible_scenarios), size)
+            F_list.extend(random.sample(all_possible_scenarios, amount_of_scenarios))
+
+    return [F_list]
 
 def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None):
     conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "")
@@ -183,6 +202,8 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
     return base_config
 
 
+
+
 if __name__ == "__main__":
     # #general options
     p = argparse.ArgumentParser(description='Command line utility to generate MPLS simulation specifications.')
@@ -194,6 +215,8 @@ if __name__ == "__main__":
     p.add_argument("--K", type=int, default = 4, help="Maximum number of failed links.")
 
     p.add_argument("--only_K_failed_links", action="store_true", help="Only creates failure scenarios with K failed links")
+
+    p.add_argument("--fail_lengths", default="")
 
     p.add_argument("--threshold",type=int, default = 1000, help="Maximum number of failures to generate")
 
@@ -223,7 +246,8 @@ if __name__ == "__main__":
 
     args = p.parse_args()
     conf = vars(args)
-
+    if conf["fail_lengths"]:
+        conf["fail_lengths"] = list(map(lambda x: tuple(list(map(int, x.split()))), conf["fail_lengths"].split(",")))
     topofile = conf["topology"]
     configs_dir = conf["conf"]
     K = conf["K"]
@@ -304,7 +328,9 @@ if __name__ == "__main__":
 
     if not (args.keep_failure_chunks and os.path.exists(os.path.join(folder, "failure_chunks"))):
         # Generate failures
-        if math.comb(G.number_of_edges(), K) > threshold:
+        if conf["fail_lengths"]:
+            F_list = generate_failures_percent(G, threshold, division = division, random_seed = random_seed)
+        elif math.comb(G.number_of_edges(), K) > threshold:
             F_list = generate_failures_random(G, threshold, division = division, random_seed = random_seed)
         else:
             F_list = generate_failures_all(G,  division = division, random_seed = random_seed)
