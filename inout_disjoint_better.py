@@ -1,4 +1,5 @@
 import itertools
+import math
 
 import networkx.exception
 
@@ -351,10 +352,10 @@ def common_prefix_length(path1, path2):
 
 
 # Limit number of hops for packets
-def max_hops(max_hops, pathdict, client):
+def max_hops(max_stretch, pathdict, client, graph):
     new_pathdict = dict()
     for src, tgt, load in client.loads:
-        max_hops_for_demand = max_hops
+        max_hops_for_demand = math.floor(((len(shortest_path(graph, src, tgt)))-1) * max_stretch)
         new_pathdict[(src, tgt, load)] = []
 
         if max_hops_for_demand >= len(pathdict[src, tgt, load][0]):
@@ -375,8 +376,7 @@ def max_hops(max_hops, pathdict, client):
     return new_pathdict
 
 
-def congestion_lp(graph, capacities, demands, print_flows=True,
-                  take_percent=1):  # Inputs networkx directed graph, dict of capacities, dict of demands
+def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -407,9 +407,6 @@ def congestion_lp(graph, capacities, demands, print_flows=True,
         else:
             return u * 5000 - 5435.41333
 
-    # take percent
-    # demands = sorted(demands, key=lambda x: x[2], reverse=True)#[:math.ceil(len(demands) * take_percent)]
-
     solver = pywraplp.Solver.CreateSolver('SCIP')
 
     # Flow variables for solver
@@ -437,8 +434,10 @@ def congestion_lp(graph, capacities, demands, print_flows=True,
         solver.Add(func[i, j] >= 5000 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
                 6489.333 * capacities[i, j]))
 
-    # for (i, j) in graph.edges:
-    #    solver.Add(func[i, j] == ((sum(demands[d][2] * f[i, j, d] for d in range(len(demands))))/capacities[i,j]))
+
+    # Max utilization
+    #for (i, j) in graph.edges:
+    #   solver.Add(max_utilization <= ((sum(demands[d][2] * f[i, j, d] for d in range(len(demands))))/capacities[i,j]))
 
     # Flow conservation constraints: total flow balance at node i for each demand d
     # must be 0 if i is an intermediate node, 1 if i is the source of demand d, and
@@ -498,7 +497,6 @@ def nielsens_heuristic(client):
             graph[edge[0]][edge[1]]["weight"] = 1
 
     # pathdict = dict()
-
     pathdict = congestion_lp(G, client.link_caps, client.loads)
 
     # for src, tgt, load in client.loads:
@@ -538,7 +536,9 @@ def nielsens_heuristic(client):
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
     '''
 
-    pathdict = max_hops(round(diameter(G) * 1.5), pathdict, client)
+    #pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
+
+    pathdict = max_hops(2, pathdict, client, G)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         for path in pathdict[src, tgt, load]:
