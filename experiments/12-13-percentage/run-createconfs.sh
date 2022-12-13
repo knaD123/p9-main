@@ -18,12 +18,12 @@ if [[ $TOPO =~ $TOPO_RE ]] ; then
   DEMAND="demands/"${BASH_REMATCH[1]}"_0000.yml"
 fi
 
-python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic semi_disjoint_paths
-python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm rsvp-fn
-python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm tba-simple
-python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --max_memory 4 --algorithm tba-complex
-python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm rmpls
-python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm gft
+python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs-percentage --result_folder results-percentage --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic semi_disjoint_paths
+python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs-percentage --result_folder results-percentage --demand_file ${DEMAND} --algorithm rsvp-fn
+python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs-percentage --result_folder results-percentage --demand_file ${DEMAND} --algorithm tba-simple
+python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs-percentage --result_folder results-percentage --demand_file ${DEMAND} --max_memory 4 --algorithm tba-complex
+python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs-percentage --result_folder results-percentage --demand_file ${DEMAND} --algorithm rmpls
+python3 create_confs.py --fail_lengths "7 1000,14 1000,21 1000,50 1000" --topology ${TOPO} --conf confs-percentage --result_folder results-percentage --demand_file ${DEMAND} --algorithm gft
 
 
 
