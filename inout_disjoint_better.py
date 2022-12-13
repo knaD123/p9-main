@@ -382,7 +382,7 @@ def max_hops(max_stretch, pathdict, client, graph):
     return new_pathdict
 
 
-def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph, dict of capacities, dict of demands
+def congestion_lp(graph, capacities, demands, max_stretch):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -423,9 +423,11 @@ def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph
 
     func = {(i, j): solver.NumVar(0, solver.infinity(), "func:{}->{}".format(i, j)) for (i, j) in graph.edges}
 
-    # Loadvar equals demand
-    # for (i, j) in graph.edges:
-    #    solver.Add(sum(demands[d][2] * f[i, j, d] for d in range(len(demands))) == l[i, j])
+    # max stretch constraint
+    for d in range(len(demands)):
+        src,tgt,load = demands[d]
+        max_hops = math.floor(len(shortest_path(graph,src,tgt))-1) * max_stretch
+        solver.Add(sum(f[i, j, d] for (i, j) in graph.edges) <= max_hops)
 
     for (i, j) in graph.edges:
         solver.Add(func[i, j] >= (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))))
@@ -503,7 +505,7 @@ def nielsens_heuristic(client):
             graph[edge[0]][edge[1]]["weight"] = 1
 
     # pathdict = dict()
-    pathdict = congestion_lp(G, client.link_caps, client.loads)
+    pathdict = congestion_lp(G, client.link_caps, client.loads, client.kwargs['max_stretch'])
 
     # for src, tgt, load in client.loads:
     #    pathdict[(src,tgt,load)] = []
