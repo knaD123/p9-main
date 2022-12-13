@@ -542,10 +542,7 @@ def nielsens_heuristic(client):
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
     '''
 
-    #pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
-    print()
-    pathdict = max_hops(2, pathdict, client, G)
-    print()
+    pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         for path in pathdict[src, tgt, load]:
