@@ -601,7 +601,7 @@ class InOutDisjoint(MPLS_Client):
     def compute_forwarding_table(self):
         flow_to_paths = defaultdict(list)
 
-        total_yields = self.mem_limit_per_router * 2
+        total_yields = self.mem_limit_per_router * 2 * len(self.flows)
         path_heuristic = self.path_heuristic(self)
         yields = 0
         while yields < total_yields:
