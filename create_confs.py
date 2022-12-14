@@ -217,9 +217,9 @@ if __name__ == "__main__":
 
     p.add_argument("--demand_file", type=str, required=True)
 
-    p.add_argument("--max_stretch", type=float, default=float(sys.maxsize), help="Maximum path_stretch, works only for Nielsens Heuristic.")
+    p.add_argument("--max_stretch", type=float, default=10000, help="Maximum path_stretch, works only for Nielsens Heuristic.")
 
-    p.add_argument("--max_utilization", type=float, default=float(sys.maxsize), help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
+    p.add_argument("--max_utilization", type=float, default=10000, help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
 
     args = p.parse_args()
     conf = vars(args)
