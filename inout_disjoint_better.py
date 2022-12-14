@@ -519,6 +519,7 @@ def nielsens_heuristic(client):
             flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
         pathdict[(src, tgt, load)].append(path)
 
+    '''
     new_pathdict = dict()
 
     for src, tgt, load in client.loads:
@@ -537,7 +538,6 @@ def nielsens_heuristic(client):
     pathdict = prefixsort(client, pathdict)
 
     # Find unused paths probably deprecatable
-    '''
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         unused_paths = find_unused_paths(pathdict[src,tgt,load], G, src, tgt)
         if unused_paths:
