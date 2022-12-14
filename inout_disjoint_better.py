@@ -151,7 +151,7 @@ def semi_disjoint_paths(client):
     # We hardcode number of iterations for the time being
     iterations = 3
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * iterations:
+    for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
         path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
@@ -609,6 +609,9 @@ class InOutDisjoint(MPLS_Client):
                 # Generate next path
                 flow, path = next(path_heuristic)
                 yields += 1
+                # If path is already encoded we do not encode it again
+                if path in flow_to_paths[flow]:
+                    continue
             except:
                 # No more paths can be generated
                 break
