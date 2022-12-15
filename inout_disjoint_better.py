@@ -360,13 +360,13 @@ def max_hops(max_stretch, pathdict, client, graph):
         max_hops_for_demand = math.floor(((len(shortest_path(graph, src, tgt)))-1) * max_stretch)
         new_pathdict[(src, tgt, load)] = []
 
-        if max_hops_for_demand >= len(pathdict[src, tgt, load][0]):
+        if max_hops_for_demand >= len(pathdict[src, tgt, load][0])-1:
             new_pathdict[src, tgt, load].append(pathdict[src, tgt, load][0])
             # -2 because first node does not count as a hop and assume that last link fails so it does not make the hop
             max_hops_for_demand -= len(pathdict[src, tgt, load][0]) - 2
         else:
             for path in pathdict[src,tgt,load]:
-                if max_hops_for_demand >= len(path):
+                if max_hops_for_demand >= len(path)-1:
                     new_pathdict[src, tgt, load].append(path)
                     # -2 because first node does not count as a hop and assume that last link fails so it does not make the hop
                     max_hops_for_demand -= len(path) - 2
@@ -378,7 +378,6 @@ def max_hops(max_stretch, pathdict, client, graph):
             if max_hops_for_demand >= ((len(new_pathdict[src, tgt, load][-1]) - common_prefix_length(new_pathdict[src, tgt, load][-1], path) - 1) + (len(path) - (common_prefix_length(new_pathdict[src, tgt, load][-1], path)))):
                 max_hops_for_demand = max_hops_for_demand - ((len(new_pathdict[src, tgt, load][-1]) - common_prefix_length(new_pathdict[src, tgt, load][-1],path) - 1) + (len(path) - (common_prefix_length(new_pathdict[src, tgt, load][-1], path)) - 1))
                 new_pathdict[src, tgt, load].append(path)
-
     return new_pathdict
 
 
@@ -545,6 +544,7 @@ def nielsens_heuristic(client):
     '''
 
     pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
+
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         for path in pathdict[src, tgt, load]:
