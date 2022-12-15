@@ -126,8 +126,8 @@ def generate_failures_percent(G, threshold, division, random_seed):
 
     return [F_list]
 
-def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None):
-    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "")
+def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None, max_stretch = None):
+    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "")
     base_config = {
     #we need extra configuration here!!!!
         "topology": topofile,
@@ -287,7 +287,7 @@ if __name__ == "__main__":
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
     def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None, max_stretch = None):
-        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops)
+        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops,  max_stretch=max_stretch)
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
             f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + ".yml"
 
