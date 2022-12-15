@@ -286,10 +286,10 @@ if __name__ == "__main__":
     #with open(os.path.join(folder, "flows.yml"), "w") as file:
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
-    def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None):
+    def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None, max_stretch = None):
         dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops)
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
-            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + ".yml"
+            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
@@ -318,6 +318,8 @@ if __name__ == "__main__":
     elif algorithm in ['inout-disjoint', 'inout-disjoint-full']:
         if conf["path_heuristic"] == "benjamins_heuristic":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], extra_hops=conf["extra_hops"])
+        elif conf["path_heuristic"] == "nielsens_heuristic":
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"])
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 
