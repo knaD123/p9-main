@@ -14,7 +14,6 @@ import numpy as np
 from networkx import Graph
 
 from networkx.algorithms.shortest_paths.weighted import _weight_function, _dijkstra_multisource
-from resource import getrusage, RUSAGE_SELF
 
 from typing import *
 
@@ -2693,7 +2692,7 @@ class MPLS_packet(object):
     This is just a proof of concept, must be further developed.
     """
 
-    def __init__(self, network, init_router, targets, init_stack = [], restricted_topology = None, mode="packet", max_ttl = 255, verbose = False):
+    def __init__(self, network, init_router, targets, init_stack = [], restricted_topology = None, mode="packet", max_ttl = 2550, verbose = False):
         self.network = network
         self.ttl = max_ttl
         if restricted_topology is not None:
