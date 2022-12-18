@@ -126,8 +126,8 @@ def generate_failures_percent(G, threshold, division, random_seed):
 
     return [F_list]
 
-def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None, max_stretch = None):
-    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "")
+def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None, max_stretch = None, population = None, crossover = None, mutation = None):
+    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (f"_p={population}" if population is not None else "") + (f"_c={crossover}" if crossover is not None else "") + (f"_m={mutation}" if mutation is not None else "")
     base_config = {
     #we need extra configuration here!!!!
         "topology": topofile,
@@ -179,9 +179,13 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         base_config['method'] = 'inout-disjoint'
         base_config['backtrack'] = 'partial'
         base_config['path_heuristic'] = path_heuristic
-        if path_heuristic == "nielsens_heuristic":
+        if path_heuristic == "nielsens_heuristic" or path_heuristic == "essence":
             base_config["max_stretch"] = conf["max_stretch"]
             base_config["max_utilization"] = conf["max_utilization"]
+        if path_heuristic == "essence":
+            base_config["pop"] = conf["pop"]
+            base_config["crossover"] = conf["crossover"]
+            base_config["mutation"] = conf["mutation"]
         if extra_hops is not None:
             base_config["extra_hops"] = extra_hops
     elif conf_type == 'inout-disjoint-full':
@@ -232,7 +236,7 @@ if __name__ == "__main__":
 
     p.add_argument("--algorithm", required=True, choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor", "rsvp-fn", "all"])
 
-    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic", "nielsens_heuristic"])
+    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic", "nielsens_heuristic", "essence"])
 
     p.add_argument("--extra_hops", type=int)
 
@@ -243,6 +247,12 @@ if __name__ == "__main__":
     p.add_argument("--max_stretch", type=float, default=10000, help="Maximum path_stretch, works only for Nielsens Heuristic.")
 
     p.add_argument("--max_utilization", type=float, default=10000, help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
+
+    p.add_argument("--pop", type=int, default=100, help="Population size")
+
+    p.add_argument("--crossover", type=int, default=0.5, help="crossover for genetic algo")
+
+    p.add_argument("--mutation", type=float, default=0.1, help="chance for mutation")
 
     args = p.parse_args()
     conf = vars(args)
@@ -286,10 +296,10 @@ if __name__ == "__main__":
     #with open(os.path.join(folder, "flows.yml"), "w") as file:
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
-    def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None, max_stretch = None):
-        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops,  max_stretch=max_stretch)
+    def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None, max_stretch = None, population = None, crossover = None, mutation = None):
+        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops,  max_stretch=max_stretch, population=population, crossover =crossover, mutation =mutation)
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
-            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + ".yml"
+            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (f"_p={population}" if population is not None else "") + (f"_c={crossover}" if crossover is not None else "") + (f"_m={mutation}" if mutation is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
@@ -309,7 +319,7 @@ if __name__ == "__main__":
         create('plinko4')
 
         per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path", "benjamins_heuristic","nielsens_heuristic"]
+        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path", "benjamins_heuristic","nielsens_heuristic","essence"]
         for mem in per_flow_memory:
             create('tba-complex', mem)
             for h in heuristics:
@@ -320,6 +330,8 @@ if __name__ == "__main__":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], extra_hops=conf["extra_hops"])
         elif conf["path_heuristic"] == "nielsens_heuristic":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"])
+        elif conf["path_heuristic"] == "essence":
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"], population=conf["pop"], crossover=conf["crossover"], mutation=conf["mutation"])
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 

@@ -2,7 +2,6 @@ import itertools
 import math
 
 import networkx.exception
-
 from mpls_classes import *
 from functools import *
 from networkx import shortest_path, diameter
@@ -10,6 +9,7 @@ import networkx as nx
 from collections import defaultdict
 import os
 from ortools.linear_solver import pywraplp
+import random
 
 from itertools import islice, cycle
 
@@ -299,9 +299,9 @@ def lowestutilitypathinsert(client, pathdict):
             prev_util = curr_util
 
         path = nx.shortest_path(G, src, tgt, weight="weight")
-        if path in pathdict[src, tgt, load]:
+        if path in pathdict[src, tgt]:
             pathdict[src, tgt, load].remove(path)
-        pathdict[src, tgt, load] = [path] + pathdict[src, tgt, load]
+        pathdict[src, tgt] = [path] + pathdict[src, tgt]
     return pathdict
 
 
@@ -325,17 +325,17 @@ def find_unused_paths(paths, G, src, tgt):
 def prefixsort(client, pathdict):
     new_pathdict = dict()
     for src, tgt, load in client.loads:
-        new_pathdict[(src, tgt, load)] = []
-        new_pathdict[src, tgt, load].append(pathdict[src, tgt, load][0])
+        new_pathdict[(src, tgt)] = []
+        new_pathdict[src, tgt].append(pathdict[src, tgt][0])
 
     for i in range(len(client.loads)):
         for src, tgt, load in client.loads:
-            if new_pathdict[src, tgt, load][-1] in pathdict[src, tgt, load]:
-                pathdict[src, tgt, load].remove(new_pathdict[src, tgt, load][-1])
-            if pathdict[src, tgt, load] != []:
-                max_common_prefix_path = max(pathdict[src, tgt, load],
-                                             key=lambda x: common_prefix_length(new_pathdict[src, tgt, load][-1], x))
-                new_pathdict[src, tgt, load].append(max_common_prefix_path)
+            if new_pathdict[src, tgt][-1] in pathdict[src, tgt]:
+                pathdict[src, tgt].remove(new_pathdict[src, tgt][-1])
+            if pathdict[src, tgt] != []:
+                max_common_prefix_path = max(pathdict[src, tgt],
+                                             key=lambda x: common_prefix_length(new_pathdict[src, tgt][-1], x))
+                new_pathdict[src, tgt].append(max_common_prefix_path)
 
     pathdict = new_pathdict
 
@@ -357,31 +357,36 @@ def common_prefix_length(path1, path2):
 def max_hops(max_stretch, pathdict, client, graph):
     new_pathdict = dict()
     for src, tgt, load in client.loads:
-        max_hops_for_demand = math.floor(((len(shortest_path(graph, src, tgt)))-1) * max_stretch)
-        new_pathdict[(src, tgt, load)] = []
+        max_hops_for_demand = math.floor(((len(shortest_path(graph, src, tgt))) - 1) * max_stretch)
+        new_pathdict[(src, tgt)] = []
 
-        if max_hops_for_demand >= len(pathdict[src, tgt, load][0])-1:
-            new_pathdict[src, tgt, load].append(pathdict[src, tgt, load][0])
+        if max_hops_for_demand >= len(pathdict[src, tgt][0]) - 1:
+            new_pathdict[src, tgt].append(pathdict[src, tgt][0])
             # -2 because first node does not count as a hop and assume that last link fails so it does not make the hop
-            max_hops_for_demand -= len(pathdict[src, tgt, load][0]) - 2
+            max_hops_for_demand -= len(pathdict[src, tgt][0]) - 2
         else:
-            for path in pathdict[src,tgt,load]:
-                if max_hops_for_demand >= len(path)-1:
-                    new_pathdict[src, tgt, load].append(path)
+            for path in pathdict[src, tgt]:
+                if max_hops_for_demand >= len(path) - 1:
+                    new_pathdict[src, tgt].append(path)
                     # -2 because first node does not count as a hop and assume that last link fails so it does not make the hop
                     max_hops_for_demand -= len(path) - 2
                     break
 
-        for path in pathdict[src, tgt, load]:
-            if path in new_pathdict[src,tgt,load]:
+        for path in pathdict[src, tgt]:
+            if path in new_pathdict[src, tgt]:
                 continue
-            if max_hops_for_demand >= ((len(new_pathdict[src, tgt, load][-1]) - common_prefix_length(new_pathdict[src, tgt, load][-1], path) - 1) + (len(path) - (common_prefix_length(new_pathdict[src, tgt, load][-1], path)))):
-                max_hops_for_demand = max_hops_for_demand - ((len(new_pathdict[src, tgt, load][-1]) - common_prefix_length(new_pathdict[src, tgt, load][-1],path) - 1) + (len(path) - (common_prefix_length(new_pathdict[src, tgt, load][-1], path)) - 1))
-                new_pathdict[src, tgt, load].append(path)
+            if max_hops_for_demand >= (
+                    (len(new_pathdict[src, tgt][-1]) - common_prefix_length(new_pathdict[src, tgt][-1], path) - 1) + (
+                    len(path) - (common_prefix_length(new_pathdict[src, tgt][-1], path)))):
+                max_hops_for_demand = max_hops_for_demand - ((len(new_pathdict[src, tgt][-1]) - common_prefix_length(
+                    new_pathdict[src, tgt][-1], path) - 1) + (len(path) - (
+                    common_prefix_length(new_pathdict[src, tgt][-1], path)) - 1))
+                new_pathdict[src, tgt].append(path)
     return new_pathdict
 
 
-def congestion_lp(graph, capacities, demands, max_stretch):  # Inputs networkx directed graph, dict of capacities, dict of demands
+def congestion_lp(graph, capacities, demands,
+                  max_stretch):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -424,8 +429,8 @@ def congestion_lp(graph, capacities, demands, max_stretch):  # Inputs networkx d
 
     # max stretch constraint
     for d in range(len(demands)):
-        src,tgt,load = demands[d]
-        max_hops = math.floor(len(shortest_path(graph,src,tgt))-1) * max_stretch
+        src, tgt, load = demands[d]
+        max_hops = math.floor(len(shortest_path(graph, src, tgt)) - 1) * max_stretch
         solver.Add(sum(f[i, j, d] for (i, j) in graph.edges) <= max_hops)
 
     for (i, j) in graph.edges:
@@ -441,9 +446,8 @@ def congestion_lp(graph, capacities, demands, max_stretch):  # Inputs networkx d
         solver.Add(func[i, j] >= 5000 * (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))) - (
                 6489.333 * capacities[i, j]))
 
-
     # Max utilization
-    #for (i, j) in graph.edges:
+    # for (i, j) in graph.edges:
     #   solver.Add(max_utilization <= ((sum(demands[d][2] * f[i, j, d] for d in range(len(demands))))/capacities[i,j]))
 
     # Flow conservation constraints: total flow balance at node i for each demand d
@@ -543,11 +547,188 @@ def nielsens_heuristic(client):
             pathdict[src,tgt,load].append(find_unused_paths(pathdict[src,tgt,load], G, src, tgt))
     '''
 
+    pathdict = prefixsort(client, pathdict)
     pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        for path in pathdict[src, tgt]:
+            yield ((src, tgt), path)
+
+
+def fortz_func(u):
+    if u <= 1 / 20:
+        return u * 0.1
+    if u <= 1 / 10:
+        return u * 0.3 - 0.01
+    if u <= 1 / 6:
+        return u * 1 - 0.08
+    if u <= 1 / 3:
+        return u * 2 - 0.24666
+    if u <= 1 / 2:
+        return u * 5 - 1.24666
+    if u <= 2 / 3:
+        return u * 10 - 3.74666
+    if u <= 9 / 10:
+        return u * 20 - 10.41333
+    if u <= 1:
+        return u * 70 - 55.41333
+    if u <= 11 / 10:
+        return u * 500 - 485.41333
+    else:
+        return u * 5000 - 5435.41333
+
+
+def selection(population, capacities, loads):
+    # Sort the population by fitness
+    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+
+    # Select the top 50% of the population as parents
+    num_parents = int(len(population) * 0.5)
+    parents = population[:num_parents]
+
+    return parents
+
+
+def crossover(individual1, individual2, crossover_probability):
+    # Check if crossover should happen
+    if random.random() > crossover_probability:
+        return individual1, individual2
+
+    # Select two random points in the individuals
+    point1 = random.randint(1, len(individual1) - 1)
+    point2 = random.randint(point1 + 1, len(individual1))
+
+    # Create the offspring by exchanging the elements between the two points
+    offspring1 = {}
+    offspring2 = {}
+    i = 0
+    for source_destination, path in individual1.items():
+        if i < point1:
+            offspring1[source_destination] = path
+            offspring2[source_destination] = individual2[source_destination]
+        elif i < point2:
+            offspring1[source_destination] = individual2[source_destination]
+            offspring2[source_destination] = path
+        else:
+            offspring1[source_destination] = path
+            offspring2[source_destination] = individual2[source_destination]
+        i += 1
+
+    return offspring1, offspring2
+
+
+def calculate_fitness(individual, capacities, loads):
+    fitness = 0
+
+    # Initialize the utilization of each link to 0
+    utilization = {link: 0 for link in capacities.keys()}
+
+    # Calculate the utilization of each link
+    for (source, destination), path in individual.items():
+        load = loads[source, destination]
+        for i in range(len(path) - 1):
+            link = (path[i], path[i + 1])
+            utilization[link] += load
+
+    # Calculate the fitness using the fortz_func
+    for link, capacity in capacities.items():
+        u = utilization[link] / capacity
+        fitness += fortz_func(u)
+
+    return fitness
+
+
+def mutate(individual, mutation_rate, viable_paths):
+    # Determine if the individual should be mutated
+    if random.uniform(0, 1) < mutation_rate:
+        # Choose a random source-destination pair to mutate
+        source, destination = random.choice(list(individual.keys()))
+
+        # Choose a new path for the pair from the viable paths
+        new_path = random.choice(viable_paths[(source, destination)])
+
+        # Mutate the individual
+        individual[(source, destination)] = new_path
+
+    return individual
+
+
+def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads):
+    # Initialize the population
+    population = [{k: random.choice(v) for k, v in viable_paths.items()} for i in range(population_size)]
+
+    # Run the genetic algorithm
+    for generation in range(100):
+        # Select the parents
+        parents = selection(population, capacities, loads)
+
+        # Generate the children
+        children = []
+        while len(children) < len(population):
+            parent1, parent2 = random.sample(parents, 2)
+            child1, child2 = crossover(parent1, parent2, crossover_rate)
+            child1 = mutate(child1, mutation_rate, viable_paths)
+            child2 = mutate(child2, mutation_rate, viable_paths)
+            children.extend([child1, child2])
+
+        # Replace the population with the children
+        population = children
+
+    # Sort the population by fitness
+    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+
+    # Return the fittest individual
+    return population[0]
+
+
+def remove_duplicates(lst):
+    # Create a new list with the unique elements
+    unique_lst = []
+    for element in lst:
+        if element not in unique_lst:
+            unique_lst.append(element)
+    return unique_lst
+
+
+def essence(client):
+    G = client.router.network.topology.to_directed()
+    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    for graph in flow_to_graph.values():
+        for edge in graph.edges:
+            graph[edge[0]][edge[1]]["weight"] = 1
+
+    pathdict = dict()
+    loads = dict()
+
+    for src, tgt, load in client.loads:
+        pathdict[(src, tgt)] = []
+        loads[(src, tgt)] = load
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2],
+                                 reverse=True) * client.mem_limit_per_router_per_flow * 2:
+        path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
+            w = w * 2 + 1
+            flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
+        # if path not in pathdict[(src, tgt)]:
+        pathdict[(src, tgt)].append(path)
+
+    genetic_paths = genetic_algorithm(viable_paths=pathdict, capacities=client.link_caps,
+                                      population_size=client.kwargs["pop"], crossover_rate=client.kwargs["crossover"],
+                                      mutation_rate=client.kwargs["mutation"], loads=loads)
+
+    for (src, tgt) in genetic_paths:
+        pathdict[src, tgt].insert(0, genetic_paths[src, tgt])
+
+    for (src, tgt) in pathdict:
+        pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
+
+    pathdict = prefixsort(client, pathdict)
+    pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
-        for path in pathdict[src, tgt, load]:
+        for path in pathdict[src, tgt]:
             yield ((src, tgt), path)
 
 
@@ -577,6 +758,7 @@ class InOutDisjoint(MPLS_Client):
             'semi_disjoint_paths': semi_disjoint_paths,
             'benjamins_heuristic': benjamins_heuristic,
             'nielsens_heuristic': nielsens_heuristic,
+            'essence': essence,
         }
 
         "self.path_heuristic = semi_disjoint_paths"
