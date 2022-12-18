@@ -602,16 +602,16 @@ def crossover(individual1, individual2, crossover_probability):
     offspring1 = {}
     offspring2 = {}
     i = 0
-    for source_destination, path in individual1.items():
+    for (src,tgt), path in individual1.items():
         if i < point1:
-            offspring1[source_destination] = path
-            offspring2[source_destination] = individual2[source_destination]
+            offspring1[(src,tgt)] = path
+            offspring2[(src,tgt)] = individual2[(src,tgt)]
         elif i < point2:
-            offspring1[source_destination] = individual2[source_destination]
-            offspring2[source_destination] = path
+            offspring1[(src,tgt)] = individual2[(src,tgt)]
+            offspring2[(src,tgt)] = path
         else:
-            offspring1[source_destination] = path
-            offspring2[source_destination] = individual2[source_destination]
+            offspring1[(src,tgt)] = path
+            offspring2[(src,tgt)] = individual2[(src,tgt)]
         i += 1
 
     return offspring1, offspring2
