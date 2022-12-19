@@ -705,7 +705,7 @@ def essence(client):
         loads[(src, tgt)] = load
 
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2],
-                                 reverse=True) * client.mem_limit_per_router_per_flow * 2:
+                                 reverse=True) * client.mem_limit_per_router_per_flow:
         path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
