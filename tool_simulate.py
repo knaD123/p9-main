@@ -160,6 +160,7 @@ def main(conf):
     results["simulation_time"] = None
     results["runs"] = list()
 
+
     time_before_sim = time.time_ns()
     for failed_set in failed_set_chunk:
         simulation(network, failed_set, flows_with_load, link_caps, results)
@@ -275,7 +276,10 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
             possible_packets += load
 
 
-    success_rate = successful_packets / possible_packets
+    if possible_packets > 0:
+        success_rate = successful_packets / possible_packets
+    else:
+        success_rate = 1
 
     if normalization_factor:
         path_stretch = path_stretch / normalization_factor
@@ -287,6 +291,18 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
         util_rel = util_abs / cap
         util_dict_rel[link] = util_rel
 
+    # Compute clean packets
+    clean_packets = 0
+    for (src, tgt, load), (trace, res) in s.trace_routes.items():
+        if res:
+            trace_fixed = zip(trace, trace[1:])
+            for link in trace_fixed:
+                if util_dict_rel[link] > 1:
+                    break
+            else:
+                clean_packets += load
+
+
 
     # Compute median and maximum congestion
     median_cong = median(util_dict_rel.values())
@@ -295,6 +311,10 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
 
     res_dir["failed_links"] = F
     res_dir["failed_links#"] = len(F)
+    if possible_packets > 0:
+        res_dir["clean_packets_ratio"] = clean_packets / possible_packets
+    else:
+        res_dir["clean_packets_ratio"] = 1
     res_dir["delivered_packet_rate"] = success_rate
     res_dir["median_congestion"] = median_cong
     res_dir["max_congestion"] = max_cong

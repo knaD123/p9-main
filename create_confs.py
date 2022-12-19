@@ -52,64 +52,41 @@ def powerset(iterable, m=0):
     # note we return an iterator rather than a list
     return chain.from_iterable(combinations(xs, n) for n in range(m + 1))
 
-
-def generate_failures_random(G, n, division=None, random_seed=1):
-    # create Failure information from sampling.
-    F_list = []
-    random.seed(random_seed)
-
-    lis = list(map(lambda x: math.comb(G.number_of_edges(), x), range(K + 1)))
-
-    # Caps failure scenarios to n for all K.
-    p = [min(f, n) for f in lis]
-
-    # # compute numbers proportional to failure scenarios per k
-    # r = reduce(lambda a,b: a+b, lis)
-    # p = list(map(lambda x: math.ceil(n*x/r),lis))
-    #
-    # excess = reduce(lambda a,b: a+b, p) - n
-    # p[-1] -= excess   #adjust.
-    edges = list(G.edges())
-    _k = K
-    if len(edges) < _k:
-        _k = len(edges)
-    if conf["only_K_failed_links"]:
-        while len(F_list) < n:
-            random_scenario = tuple(random.sample(edges, _k))
-            if random_scenario not in F_list:
-                F_list.append(random_scenario)
-    else:
-        F_list.append([])
-        for k in range(1, _k + 1):
-            for f in range(p[k]):
-                failed = set()
-                while (len(failed) < k):
-                    e = random.choice(edges)
-                    if e not in failed:
-                        failed.add(e)
-                F_list.append(tuple(failed))
-    if division:
-        P = partition([list(x) for x in F_list], division)
-        return P
-    return [list(x) for x in F_list]
-
-
-def generate_failures_all(G, division=None, random_seed=1):
-    # create Failure information from sampling.
+def generate_failures(G, threshold = 1000, division=None, random_seed=1):
     edges = [list(x) for x in G.edges()]
+
     _k = K
+    F_list = []
     if len(edges) < _k:
         _k = len(edges)
     if conf["only_K_failed_links"]:
         F_list = combinations(edges, _k)
-    else:
-        F_list = list(powerset(edges, m=_k))
+    for k in range(_k+1):
+
+        number_of_scenarios_of_len_k = math.comb(len(edges), k)
+        number_of_choices_to_threshold_ratio = number_of_scenarios_of_len_k / threshold
+
+        if number_of_choices_to_threshold_ratio > 2:
+            new_scenarios = []
+
+            while len(new_scenarios) < threshold:
+                scenario_to_try = list(random.sample(edges, k))
+                scenario_to_try.sort(key = lambda x: f"{x[0]}{x[1]})")
+
+                if scenario_to_try not in new_scenarios:
+                    new_scenarios.append(scenario_to_try)
+
+        elif number_of_choices_to_threshold_ratio > 1:
+            new_scenarios = random.sample(list(combinations(edges, k)), threshold)
+
+        else:
+            new_scenarios = list(combinations(edges, k))
+
+        F_list.extend(new_scenarios)
     if division:
         P = partition([list(x) for x in F_list], division)
         return P
-
-    return [list(x) for x in F_list]
-
+    return [F_list]
 
 def generate_failures_percent(G, threshold, division, random_seed):
     def return_0():
@@ -237,7 +214,7 @@ if __name__ == "__main__":
 
     p.add_argument("--threshold", type=int, default=1000, help="Maximum number of failures to generate")
 
-    p.add_argument("--division", type=int, default=100000, help="chunk size; number of failure scenarios per worker.")
+    p.add_argument("--division", type=int, default=None, help="chunk size; number of failure scenarios per worker.")
 
     p.add_argument("--random_seed", type=int, default=1, help="Random seed. Leave empty to pick a random one.")
 
@@ -384,10 +361,8 @@ if __name__ == "__main__":
         # Generate failures
         if conf["fail_lengths"]:
             F_list = generate_failures_percent(G, threshold, division=division, random_seed=random_seed)
-        elif math.comb(G.number_of_edges(), K) > threshold:
-            F_list = generate_failures_random(G, threshold, division=division, random_seed=random_seed)
         else:
-            F_list = generate_failures_all(G, division=division, random_seed=random_seed)
+            F_list = generate_failures(G, threshold, division=division, random_seed=random_seed)
 
         failure_folder = os.path.join(folder, "failure_chunks")
         os.makedirs(failure_folder, exist_ok=True)
