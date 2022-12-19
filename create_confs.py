@@ -16,11 +16,11 @@ This program is distributed WITHOUT ANY WARRANTY; without even the
 implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 """
-#Load required libraries
+# Load required libraries
 import random
 import shutil
 import time
-import json 
+import json
 import yaml
 import math
 import argparse
@@ -38,24 +38,27 @@ class NoAliasDumper(yaml.SafeDumper):
     def ignore_aliases(self, data):
         return True
 
+
 def partition(lst, division):
     n = math.ceil(len(lst) / division)
     return [lst[round(division * i):round(division * (i + 1))] for i in range(n)]
 
-def powerset(iterable, m = 0):
+
+def powerset(iterable, m=0):
     """
     powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)
     """
     xs = list(iterable)
     # note we return an iterator rather than a list
-    return chain.from_iterable(combinations(xs,n) for n in range(m+1))
+    return chain.from_iterable(combinations(xs, n) for n in range(m + 1))
 
-def generate_failures_random(G, n, division = None, random_seed = 1):
+
+def generate_failures_random(G, n, division=None, random_seed=1):
     # create Failure information from sampling.
     F_list = []
     random.seed(random_seed)
 
-    lis = list(map(lambda x: math.comb(G.number_of_edges(),x) , range(K+1)))
+    lis = list(map(lambda x: math.comb(G.number_of_edges(), x), range(K + 1)))
 
     # Caps failure scenarios to n for all K.
     p = [min(f, n) for f in lis]
@@ -77,7 +80,7 @@ def generate_failures_random(G, n, division = None, random_seed = 1):
                 F_list.append(random_scenario)
     else:
         F_list.append([])
-        for k in range(1,_k+1):
+        for k in range(1, _k + 1):
             for f in range(p[k]):
                 failed = set()
                 while (len(failed) < k):
@@ -90,13 +93,13 @@ def generate_failures_random(G, n, division = None, random_seed = 1):
         return P
     return [list(x) for x in F_list]
 
-def generate_failures_all(G, division = None, random_seed = 1):
 
+def generate_failures_all(G, division=None, random_seed=1):
     # create Failure information from sampling.
     edges = [list(x) for x in G.edges()]
     _k = K
     if len(edges) < _k:
-        _k =  len(edges)
+        _k = len(edges)
     if conf["only_K_failed_links"]:
         F_list = combinations(edges, _k)
     else:
@@ -106,6 +109,7 @@ def generate_failures_all(G, division = None, random_seed = 1):
         return P
 
     return [list(x) for x in F_list]
+
 
 def generate_failures_percent(G, threshold, division, random_seed):
     def return_0():
@@ -126,10 +130,19 @@ def generate_failures_percent(G, threshold, division, random_seed):
 
     return [F_list]
 
-def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_memory = None, path_heuristic = None, extra_hops = None, max_stretch = None, population = None, crossover = None, mutation = None):
-    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (f"_p={population}" if population is not None else "") + (f"_c={crossover}" if crossover is not None else "") + (f"_m={mutation}" if mutation is not None else "")
+
+def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memory=None, path_heuristic=None,
+                  extra_hops=None, max_stretch=None, population=None, crossover=None, mutation=None, generations=None):
+    conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (
+        f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
+                    f"{extra_hops}" if extra_hops is not None else "") + (
+                    # f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (
+                    f"_p={population}" if population is not None else "") + (
+                    f"_c={crossover}" if crossover is not None else "") + (
+                    f"_m={mutation}" if mutation is not None else "") + (
+                    f"_g={generations}" if generations is not None else "")
     base_config = {
-    #we need extra configuration here!!!!
+        # we need extra configuration here!!!!
         "topology": topofile,
         "random_weight_mode": "equal",
         "random_gen_method": 1,
@@ -139,7 +152,7 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
         "vpn": False,
         "random_seed": random_seed,
         "result_folder": os.path.join(conf["result_folder"], conf_name, topofile.split('/')[-1].split('.')[0]),
-        #"flows": [os.path.join(folder, toponame.split("_")[1] + f"_000{x}.yml") for x in range(0,4)]
+        # "flows": [os.path.join(folder, toponame.split("_")[1] + f"_000{x}.yml") for x in range(0,4)]
         "demands": conf["demand_file"],
         "failure_chunk_file": os.path.join(folder, "failure_chunks", "0.yml")
     }
@@ -186,6 +199,7 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
             base_config["population"] = conf["population"]
             base_config["crossover"] = conf["crossover"]
             base_config["mutation"] = conf["mutation"]
+            base_config["generations"] = conf["generations"]
         if extra_hops is not None:
             base_config["extra_hops"] = extra_hops
     elif conf_type == 'inout-disjoint-full':
@@ -206,8 +220,6 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
     return base_config
 
 
-
-
 if __name__ == "__main__":
     # #general options
     p = argparse.ArgumentParser(description='Command line utility to generate MPLS simulation specifications.')
@@ -216,27 +228,34 @@ if __name__ == "__main__":
 
     p.add_argument("--conf", type=str, help="where to store created configurations. Must not exists.")
 
-    p.add_argument("--K", type=int, default = 4, help="Maximum number of failed links.")
+    p.add_argument("--K", type=int, default=4, help="Maximum number of failed links.")
 
-    p.add_argument("--only_K_failed_links", action="store_true", help="Only creates failure scenarios with K failed links")
+    p.add_argument("--only_K_failed_links", action="store_true",
+                   help="Only creates failure scenarios with K failed links")
 
     p.add_argument("--fail_lengths", default="")
 
-    p.add_argument("--threshold",type=int, default = 1000, help="Maximum number of failures to generate")
+    p.add_argument("--threshold", type=int, default=1000, help="Maximum number of failures to generate")
 
-    p.add_argument("--division",type=int, default = 100000, help="chunk size; number of failure scenarios per worker.")
+    p.add_argument("--division", type=int, default=100000, help="chunk size; number of failure scenarios per worker.")
 
-    p.add_argument("--random_seed",type=int, default = 1, help="Random seed. Leave empty to pick a random one.")
+    p.add_argument("--random_seed", type=int, default=1, help="Random seed. Leave empty to pick a random one.")
 
-    p.add_argument("--keep_failure_chunks", action="store_true", default=False, help="Do not generate failure chunks if they already exist")
+    p.add_argument("--keep_failure_chunks", action="store_true", default=False,
+                   help="Do not generate failure chunks if they already exist")
 
-    p.add_argument("--keep_flows", action="store_true", default=False, help="Do not generate flows if they already exist")
+    p.add_argument("--keep_flows", action="store_true", default=False,
+                   help="Do not generate flows if they already exist")
 
     p.add_argument("--result_folder", type=str, default='results', help="Folder to store results in")
 
-    p.add_argument("--algorithm", required=True, choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor", "rsvp-fn", "all"])
+    p.add_argument("--algorithm", required=True,
+                   choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor",
+                            "rsvp-fn", "all"])
 
-    p.add_argument("--path_heuristic", default="shortest_path", choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic", "nielsens_heuristic", "essence"])
+    p.add_argument("--path_heuristic", default="shortest_path",
+                   choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
+                            "nielsens_heuristic", "essence"])
 
     p.add_argument("--extra_hops", type=int)
 
@@ -244,15 +263,19 @@ if __name__ == "__main__":
 
     p.add_argument("--demand_file", type=str, required=True)
 
-    p.add_argument("--max_stretch", type=float, default=10000, help="Maximum path_stretch, works only for Nielsens Heuristic.")
+    p.add_argument("--max_stretch", type=float, default=10000,
+                   help="Maximum path_stretch, works only for Nielsens Heuristic.")
 
-    p.add_argument("--max_utilization", type=float, default=10000, help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
+    p.add_argument("--max_utilization", type=float, default=10000,
+                   help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
 
     p.add_argument("--population", type=int, default=100, help="Population size")
 
-    p.add_argument("--crossover", type=int, default=0.5, help="crossover for genetic algo")
+    p.add_argument("--crossover", type=float, default=0.7, help="crossover for genetic algorithm")
 
-    p.add_argument("--mutation", type=float, default=0.1, help="chance for mutation")
+    p.add_argument("--mutation", type=float, default=0.1, help="chance for mutation for genetic algorithm")
+
+    p.add_argument("--generations", type=int, default=100, help="number of generations for genetic algorithm")
 
     args = p.parse_args()
     conf = vars(args)
@@ -261,7 +284,7 @@ if __name__ == "__main__":
     topofile = conf["topology"]
     configs_dir = conf["conf"]
     K = conf["K"]
-    #L = conf["L"]
+    # L = conf["L"]
     random_seed = conf["random_seed"]
     division = conf["division"]
     threshold = conf["threshold"]
@@ -269,7 +292,7 @@ if __name__ == "__main__":
     assert os.path.exists(topofile)
 
     # create main folder for our experiments
-    os.makedirs(configs_dir, exist_ok = True)
+    os.makedirs(configs_dir, exist_ok=True)
 
     # Load
     if topofile.endswith(".graphml"):
@@ -281,34 +304,46 @@ if __name__ == "__main__":
 
     print(topofile)
     toponame = topofile.split('/')[-1].split(".")[0]
-    folder = os.path.join(configs_dir,toponame)
-    os.makedirs(folder, exist_ok = True)
+    folder = os.path.join(configs_dir, toponame)
+    os.makedirs(folder, exist_ok=True)
 
     G = gen(topofile)
-    n = G.number_of_nodes() * G.number_of_nodes()    #tentative number of LSPs
+    n = G.number_of_nodes() * G.number_of_nodes()  # tentative number of LSPs
 
-    #Generate flows
-    #flows = []
-    #for src in list(G.nodes):
+
+    # Generate flows
+    # flows = []
+    # for src in list(G.nodes):
     #    tgt = random.choice(list(set(G.nodes) - {src}))
     #    flows.append((src, tgt))
 
-    #with open(os.path.join(folder, "flows.yml"), "w") as file:
+    # with open(os.path.join(folder, "flows.yml"), "w") as file:
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
-    def create(conf_type, max_memory = None, path_heuristic=None, extra_hops = None, max_stretch = None, population = None, crossover = None, mutation = None):
-        dict_conf = generate_conf(n, conf_type = conf_type, topofile = topofile, random_seed = random_seed, per_flow_memory=max_memory, path_heuristic = path_heuristic, extra_hops=extra_hops,  max_stretch=max_stretch, population=population, crossover =crossover, mutation =mutation)
+    def create(conf_type, max_memory=None, path_heuristic=None, extra_hops=None, max_stretch=None, population=None,
+               crossover=None, mutation=None, generations=None):
+        dict_conf = generate_conf(n, conf_type=conf_type, topofile=topofile, random_seed=random_seed,
+                                  per_flow_memory=max_memory, path_heuristic=path_heuristic, extra_hops=extra_hops,
+                                  max_stretch=max_stretch, population=population, crossover=crossover,
+                                  mutation=mutation, generations=generations)
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
-            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (f"{extra_hops}" if extra_hops is not None else "") + (f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (f"_p={population}" if population is not None else "") + (f"_c={crossover}" if crossover is not None else "") + (f"_m={mutation}" if mutation is not None else "") + ".yml"
+            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
+                        f"{extra_hops}" if extra_hops is not None else "") + (
+                        # f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (
+                        f"_p={population}" if population is not None else "") + (
+                        f"_c={crossover}" if crossover is not None else "") + (
+                        f"_m={mutation}" if mutation is not None else "") + (
+                        f"_g={generations}" if generations is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
-       # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
+        # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
         with open(path, "w") as file:
             documents = yaml.dump(dict_conf, file, Dumper=NoAliasDumper)
 
+
     algorithm = conf["algorithm"]
     if algorithm == "all":
-        create('rsvp-fn')    # conf file with RSVP(FRR), no RMPLS
+        create('rsvp-fn')  # conf file with RSVP(FRR), no RMPLS
         create('tba-simple')
         #    create('hd')
         #    create('cfor-short')
@@ -319,7 +354,8 @@ if __name__ == "__main__":
         create('plinko4')
 
         per_flow_memory = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path", "benjamins_heuristic","nielsens_heuristic","essence"]
+        heuristics = ["semi_disjoint_paths", "global_weights", "greedy_min_congestion", "shortest_path",
+                      "benjamins_heuristic", "nielsens_heuristic", "essence"]
         for mem in per_flow_memory:
             create('tba-complex', mem)
             for h in heuristics:
@@ -327,11 +363,15 @@ if __name__ == "__main__":
                 create('inout-disjoint-full', mem, h)
     elif algorithm in ['inout-disjoint', 'inout-disjoint-full']:
         if conf["path_heuristic"] == "benjamins_heuristic":
-            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], extra_hops=conf["extra_hops"])
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
+                   extra_hops=conf["extra_hops"])
         elif conf["path_heuristic"] == "nielsens_heuristic":
-            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"])
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
+                   max_stretch=conf["max_stretch"])
         elif conf["path_heuristic"] == "essence":
-            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"], population=conf["population"], crossover=conf["crossover"], mutation=conf["mutation"])
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
+                   max_stretch=conf["max_stretch"], population=conf["population"], crossover=conf["crossover"],
+                   mutation=conf["mutation"], generations=conf["generations"])
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 
@@ -343,17 +383,17 @@ if __name__ == "__main__":
     if not (args.keep_failure_chunks and os.path.exists(os.path.join(folder, "failure_chunks"))):
         # Generate failures
         if conf["fail_lengths"]:
-            F_list = generate_failures_percent(G, threshold, division = division, random_seed = random_seed)
+            F_list = generate_failures_percent(G, threshold, division=division, random_seed=random_seed)
         elif math.comb(G.number_of_edges(), K) > threshold:
-            F_list = generate_failures_random(G, threshold, division = division, random_seed = random_seed)
+            F_list = generate_failures_random(G, threshold, division=division, random_seed=random_seed)
         else:
-            F_list = generate_failures_all(G,  division = division, random_seed = random_seed)
+            F_list = generate_failures_all(G, division=division, random_seed=random_seed)
 
         failure_folder = os.path.join(folder, "failure_chunks")
-        os.makedirs(failure_folder, exist_ok = True)
+        os.makedirs(failure_folder, exist_ok=True)
         i = 0
         for F_chunk in F_list:
-            pathf = os.path.join(failure_folder, str(i)+".yml")
-            i+=1
+            pathf = os.path.join(failure_folder, str(i) + ".yml")
+            i += 1
             with open(pathf, "w") as file:
-                file.write(str(F_chunk).replace("'", "").replace("(","[").replace(")", "]"))
+                file.write(str(F_chunk).replace("'", "").replace("(", "[").replace(")", "]"))
