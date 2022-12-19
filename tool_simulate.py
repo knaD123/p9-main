@@ -159,6 +159,7 @@ def main(conf):
     results["ft_gen_time"] = stats["fwd_gen_time"]
     results["simulation_time"] = None
     results["runs"] = list()
+    results["packets#"] = sum(list(map(lambda x: x[2], flows_with_load)))
 
     time_before_sim = time.time_ns()
     for failed_set in failed_set_chunk:
@@ -259,9 +260,7 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     normalization_factor = 0
     util_dict_abs = {}
     successful_packets = 0
-    total_packets = 0
     for (src, tgt, load), (trace, res) in s.trace_routes.items():
-        total_packets += load
         if res:
             successful_packets += load
             shortest_path = nx.shortest_path_length(view, source=src, target=tgt)
@@ -272,7 +271,7 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
                 # utilization
                 util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
 
-    success_rate = successful_packets / total_packets
+    success_rate = successful_packets / results["packets#"]
 
     if normalization_factor:
         path_stretch = path_stretch / normalization_factor
