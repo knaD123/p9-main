@@ -136,7 +136,7 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
     conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (
         f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
                     f"{extra_hops}" if extra_hops is not None else "") + (
-                    # f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (
+                    f"_max_s={max_stretch}" if max_stretch is not None else "") + (
                     f"_p={population}" if population is not None else "") + (
                     f"_c={crossover}" if crossover is not None else "") + (
                     f"_m={mutation}" if mutation is not None else "") + (
@@ -329,7 +329,7 @@ if __name__ == "__main__":
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
             f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
                         f"{extra_hops}" if extra_hops is not None else "") + (
-                        # f"_max_stretch={max_stretch}" if max_stretch is not None else "") + (
+                        f"_max_s={max_stretch}" if max_stretch is not None else "") + (
                         f"_p={population}" if population is not None else "") + (
                         f"_c={crossover}" if crossover is not None else "") + (
                         f"_m={mutation}" if mutation is not None else "") + (

@@ -640,15 +640,17 @@ def calculate_fitness(individual, capacities, loads):
 
 def mutate(individual, mutation_rate, viable_paths):
     # Determine if the individual should be mutated
-    if random.uniform(0, 1) < mutation_rate:
-        # Choose a random source-destination pair to mutate
-        source, destination = random.choice(list(individual.keys()))
+    if random.random() > mutation_rate:
+        return individual
 
-        # Choose a new path for the pair from the viable paths
-        new_path = random.choice(viable_paths[(source, destination)])
+    # Choose a random source-destination pair to mutate
+    source, destination = random.choice(list(individual.keys()))
 
-        # Mutate the individual
-        individual[(source, destination)] = new_path
+    # Choose a new path for the pair from the viable paths
+    new_path = random.choice(viable_paths[(source, destination)])
+
+    # Mutate the individual
+    individual[(source, destination)] = new_path
 
     return individual
 
@@ -694,8 +696,8 @@ def essence(client):
     G = client.router.network.topology.to_directed()
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
-        for edge in graph.edges:
-            graph[edge[0]][edge[1]]["weight"] = 1
+        for src,tgt in graph.edges:
+            graph[src][tgt]["weight"] = 1000 / client.link_caps[src,tgt]
 
     pathdict = dict()
     loads = dict()
@@ -709,7 +711,7 @@ def essence(client):
         path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
-            w = w * 2 + 1
+            w = w * 2
             flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
         # if path not in pathdict[(src, tgt)]:
         pathdict[(src, tgt)].append(path)
