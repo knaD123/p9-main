@@ -104,21 +104,18 @@ def compute_normalization_sum(runs, num_edges):
 
 def generate_data_points(variable, data, topology_info):
     # Map an algorithm to a set of data points
-    # First compute normalization sum for each topology
-    alg_to_topo_to_norm_sum = {}
-    for alg, topologies in data.items():
-        topo_to_norm_sum = {}
-        for topology, topology_data in topologies.items():
-            topo_to_norm_sum[topology] = compute_normalization_sum(topology_data["runs"], topology_info[topology]["num_edges"])
-        alg_to_topo_to_norm_sum[alg] = topo_to_norm_sum
 
     alg_to_data_points = {}
     for alg, topologies in data.items():
         connectivity_unsorted = []
         for topology, topology_data in topologies.items():
             connectivity = 0
+            norm_sum = 0
             for run in topology_data["runs"]:
-                connectivity += (run[variable] * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
+                _scenario_probability = scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])
+                connectivity += (run[variable] * _scenario_probability)
+                norm_sum += 0
+            connectivity /= norm_sum
             connectivity_unsorted.append(connectivity)
         data_points = [f"({i}, {con})" for i, con in enumerate(sorted(connectivity_unsorted), start=0)]
         alg_to_data_points[alg] = data_points
