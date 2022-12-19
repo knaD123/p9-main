@@ -183,7 +183,7 @@ def generate_conf(n, conf_type: str, topofile = None, random_seed = 1, per_flow_
             base_config["max_stretch"] = conf["max_stretch"]
             base_config["max_utilization"] = conf["max_utilization"]
         if path_heuristic == "essence":
-            base_config["pop"] = conf["pop"]
+            base_config["population"] = conf["population"]
             base_config["crossover"] = conf["crossover"]
             base_config["mutation"] = conf["mutation"]
         if extra_hops is not None:
@@ -248,7 +248,7 @@ if __name__ == "__main__":
 
     p.add_argument("--max_utilization", type=float, default=10000, help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
 
-    p.add_argument("--pop", type=int, default=100, help="Population size")
+    p.add_argument("--population", type=int, default=100, help="Population size")
 
     p.add_argument("--crossover", type=int, default=0.5, help="crossover for genetic algo")
 
@@ -331,7 +331,7 @@ if __name__ == "__main__":
         elif conf["path_heuristic"] == "nielsens_heuristic":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"])
         elif conf["path_heuristic"] == "essence":
-            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"], population=conf["pop"], crossover=conf["crossover"], mutation=conf["mutation"])
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"], max_stretch=conf["max_stretch"], population=conf["population"], crossover=conf["crossover"], mutation=conf["mutation"])
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 

@@ -664,7 +664,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
         # Generate the children
         children = []
-        while len(children) < len(population):
+        while len(children) < population_size:
             parent1, parent2 = random.sample(parents, 2)
             child1, child2 = crossover(parent1, parent2, crossover_rate)
             child1 = mutate(child1, mutation_rate, viable_paths)
@@ -715,7 +715,7 @@ def essence(client):
         pathdict[(src, tgt)].append(path)
 
     genetic_paths = genetic_algorithm(viable_paths=pathdict, capacities=client.link_caps,
-                                      population_size=client.kwargs["pop"], crossover_rate=client.kwargs["crossover"],
+                                      population_size=client.kwargs["population"], crossover_rate=client.kwargs["crossover"],
                                       mutation_rate=client.kwargs["mutation"], loads=loads)
 
     for (src, tgt) in genetic_paths:
