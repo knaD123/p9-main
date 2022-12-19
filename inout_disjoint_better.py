@@ -611,15 +611,15 @@ def two_point_crossover(individual1, individual2, crossover_probability):
     offspring1 = {}
     offspring2 = {}
     i = 0
-    for (src, tgt) in individual1:
+    for (src, tgt), path in individual1.items():
         if i < point1:
-            offspring1[(src, tgt)] = individual1[(src, tgt)]
+            offspring1[(src, tgt)] = path
             offspring2[(src, tgt)] = individual2[(src, tgt)]
         elif i < point2:
             offspring1[(src, tgt)] = individual2[(src, tgt)]
-            offspring2[(src, tgt)] = individual1[(src, tgt)]
+            offspring2[(src, tgt)] = path
         else:
-            offspring1[(src, tgt)] = individual1[(src, tgt)]
+            offspring1[(src, tgt)] = path
             offspring2[(src, tgt)] = individual2[(src, tgt)]
         i += 1
 
@@ -638,13 +638,13 @@ def one_point_crossover(individual1, individual2, crossover_probability):
     offspring1 = {}
     offspring2 = {}
     i = 0
-    for (src, tgt) in individual1:
+    for (src, tgt), path in individual1.items():
         if i < point:
-            offspring1[(src, tgt)] = individual1[(src, tgt)]
+            offspring1[(src, tgt)] = path
             offspring2[(src, tgt)] = individual2[(src, tgt)]
         else:
             offspring1[(src, tgt)] = individual2[(src, tgt)]
-            offspring2[(src, tgt)] = individual1[(src, tgt)]
+            offspring2[(src, tgt)] = path
         i += 1
 
     return offspring1, offspring2
