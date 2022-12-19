@@ -589,7 +589,16 @@ def selection(population, capacities, loads):
     return parents
 
 
-def crossover(individual1, individual2, crossover_probability):
+def tournament_selection(population, capacities, loads, tournament_size=10):
+    # Randomly select a subset of individuals from the population
+    tournament = random.sample(population, tournament_size)
+
+    # Select the fittest individual from the subset
+    fittest = max(tournament, key=lambda x: calculate_fitness(x, capacities, loads))
+    return fittest
+
+
+def two_point_crossover(individual1, individual2, crossover_probability):
     # Check if crossover should happen
     if random.random() > crossover_probability:
         return individual1, individual2
@@ -602,16 +611,40 @@ def crossover(individual1, individual2, crossover_probability):
     offspring1 = {}
     offspring2 = {}
     i = 0
-    for (src,tgt), path in individual1.items():
+    for (src, tgt) in individual1:
         if i < point1:
-            offspring1[(src,tgt)] = path
-            offspring2[(src,tgt)] = individual2[(src,tgt)]
+            offspring1[(src, tgt)] = individual1[(src, tgt)]
+            offspring2[(src, tgt)] = individual2[(src, tgt)]
         elif i < point2:
-            offspring1[(src,tgt)] = individual2[(src,tgt)]
-            offspring2[(src,tgt)] = path
+            offspring1[(src, tgt)] = individual2[(src, tgt)]
+            offspring2[(src, tgt)] = individual1[(src, tgt)]
         else:
-            offspring1[(src,tgt)] = path
-            offspring2[(src,tgt)] = individual2[(src,tgt)]
+            offspring1[(src, tgt)] = individual1[(src, tgt)]
+            offspring2[(src, tgt)] = individual2[(src, tgt)]
+        i += 1
+
+    return offspring1, offspring2
+
+
+def one_point_crossover(individual1, individual2, crossover_probability):
+    # Check if crossover should happen
+    if random.random() > crossover_probability:
+        return individual1, individual2
+
+    # Select a random point in the individuals
+    point = random.randint(1, len(individual1) - 1)
+
+    # Create the offspring by exchanging the elements between the point
+    offspring1 = {}
+    offspring2 = {}
+    i = 0
+    for (src, tgt) in individual1:
+        if i < point:
+            offspring1[(src, tgt)] = individual1[(src, tgt)]
+            offspring2[(src, tgt)] = individual2[(src, tgt)]
+        else:
+            offspring1[(src, tgt)] = individual2[(src, tgt)]
+            offspring2[(src, tgt)] = individual1[(src, tgt)]
         i += 1
 
     return offspring1, offspring2
@@ -661,14 +694,19 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
-        # Select the parents
+        # Select parents
         parents = selection(population, capacities, loads)
+
+        # Select parents using tournament selection
+        # parents = []
+        # while len(parents) < int(population_size / 2):
+        #    parents.append(tournament_selection(population,capacities,loads))
 
         # Generate the children
         children = []
         while len(children) < population_size:
             parent1, parent2 = random.sample(parents, 2)
-            child1, child2 = crossover(parent1, parent2, crossover_rate)
+            child1, child2 = two_point_crossover(parent1, parent2, crossover_rate)
             child1 = mutate(child1, mutation_rate, viable_paths)
             child2 = mutate(child2, mutation_rate, viable_paths)
             children.extend([child1, child2])
@@ -696,8 +734,8 @@ def essence(client):
     G = client.router.network.topology.to_directed()
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
-        for src,tgt in graph.edges:
-            graph[src][tgt]["weight"] = 1000 / client.link_caps[src,tgt]
+        for src, tgt in graph.edges:
+            graph[src][tgt]["weight"] = 1000 / client.link_caps[src, tgt]
 
     pathdict = dict()
     loads = dict()
@@ -717,8 +755,10 @@ def essence(client):
         pathdict[(src, tgt)].append(path)
 
     genetic_paths = genetic_algorithm(viable_paths=pathdict, capacities=client.link_caps,
-                                      population_size=client.kwargs["population"], crossover_rate=client.kwargs["crossover"],
-                                      mutation_rate=client.kwargs["mutation"], loads=loads, generations=client.kwargs["generations"])
+                                      population_size=client.kwargs["population"],
+                                      crossover_rate=client.kwargs["crossover"],
+                                      mutation_rate=client.kwargs["mutation"], loads=loads,
+                                      generations=client.kwargs["generations"])
 
     for (src, tgt) in genetic_paths:
         pathdict[src, tgt].insert(0, genetic_paths[src, tgt])
