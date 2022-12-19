@@ -114,7 +114,7 @@ def generate_data_points(variable, data, topology_info):
             for run in topology_data["runs"]:
                 _scenario_probability = scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])
                 connectivity += (run[variable] * _scenario_probability)
-                norm_sum += 0
+                norm_sum += _scenario_probability
             connectivity /= norm_sum
             connectivity_unsorted.append(connectivity)
         data_points = [f"({i}, {con})" for i, con in enumerate(sorted(connectivity_unsorted), start=0)]
