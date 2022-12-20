@@ -149,16 +149,14 @@ def semi_disjoint_paths(client):
         for edge in graph.edges:
             graph[edge[0]][edge[1]]["weight"] = 1
 
-    # We hardcode number of iterations for the time being
-    iterations = 3
-
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * 2:
-        path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
-        for v1, v2 in zip(path[:-1], path[1:]):
-            w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
-            w = w * 2 + 1
-            flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
-        yield ((src, tgt), path)
+    while True:
+        for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+            path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
+            for v1, v2 in zip(path[:-1], path[1:]):
+                w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
+                w = w * 2 + 1
+                flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
+            yield ((src, tgt), path)
 
 
 def greedy_min_congestion(client):
@@ -895,7 +893,7 @@ class InOutDisjoint(MPLS_Client):
     def compute_forwarding_table(self):
         flow_to_paths = defaultdict(list)
 
-        total_yields = self.mem_limit_per_router * 2 * len(self.flows)
+        total_yields = self.mem_limit_per_router * 2
         path_heuristic = self.path_heuristic(self)
         yields = 0
         while yields < total_yields:
