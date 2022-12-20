@@ -307,7 +307,8 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     # Compute median and maximum congestion
     median_cong = median(util_dict_rel.values())
     max_cong = max(util_dict_rel.values())
-    ft_score = sum([fortz_and_thorup(u) for u in util_dict_rel.values()])
+    # ftz sum weighted by capacity, to represent that bigger links should count for more
+    ft_score = sum([link_caps[link] * fortz_and_thorup(u) for (link, u) in util_dict_rel.items()])
 
     res_dir["failed_links"] = F
     res_dir["failed_links#"] = len(F)

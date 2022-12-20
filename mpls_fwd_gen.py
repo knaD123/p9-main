@@ -41,6 +41,7 @@ import grafting_client
 import keep_forwarding_client
 import target_based_arborescence.tba_client as tba
 import inout_disjoint_better
+import inout_disjoint_old
 from mpls_classes import MPLS_Client
 
 from networkx.algorithms.shortest_paths.weighted import _weight_function, _dijkstra_multisource
@@ -149,6 +150,9 @@ def generate_fwd_rules(G, conf, enable_PHP = True, numeric_labels = False, enabl
         protocol_name = 'kf'
     elif method == 'inout-disjoint':
         network.start_client(inout_disjoint_better.InOutDisjoint, **conf)
+        protocol_name = 'inout-disjoint'
+    elif method == 'inout-disjoint-old':
+        network.start_client(inout_disjoint_old.InOutDisjoint, **conf)
         protocol_name = 'inout-disjoint'
     # Start RSVP-TE process in each router
     elif conf['method'] == 'rsvp' and conf['protection'] is not None and conf['protection'].startswith("plinko"):
