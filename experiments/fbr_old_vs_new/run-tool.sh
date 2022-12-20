@@ -7,7 +7,7 @@
 #SBATCH --partition=naples
 #SBATCH --mem=20G
 #SBATCH --cpus-per-task=1
-#SBATCH --time=06:00:00
+#SBATCH --time=02:00:00
 
 source venv/bin/activate
 
