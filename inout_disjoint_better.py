@@ -899,15 +899,14 @@ class InOutDisjoint(MPLS_Client):
         path_heuristic = self.path_heuristic(self)
         yields = 0
         while yields < total_yields:
-            try:
-                # Generate next path
-                flow, path = next(path_heuristic)
-                yields += 1
-                # If path is already encoded we do not encode it again
-                if path in flow_to_paths[flow]:
-                    continue
-            except:
-                # No more paths can be generated
+            # Generate next path
+            flow, path = next(path_heuristic, (None,None))
+            yields += 1
+            # If path is already encoded we do not encode it again
+            if path in flow_to_paths[flow]:
+                continue
+            # Break when generator is empty
+            if path == None:
                 break
             flow_to_paths[flow].append(path)
 
