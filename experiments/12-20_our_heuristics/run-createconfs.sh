@@ -18,15 +18,14 @@ if [[ $TOPO =~ $TOPO_RE ]] ; then
   DEMAND="demands/"${BASH_REMATCH[1]}"_0000.yml"
 fi
 
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic shortest_path
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic greedy_min_congestion
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic semi_disjoint_paths
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic nielsens_heuristic
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic benjamins_heuristic --extra_hops 5
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic essence --population 100 --crossover 0.7 --mutation 0.1 --generations 100
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm gft
-python3 create_confs.py --topology ${TOPO} --conf confs --result_folder results --demand_file ${DEMAND} --algorithm rmpls
-
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic shortest_path
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic greedy_min_congestion
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic semi_disjoint_paths
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic nielsens_heuristic
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic benjamins_heuristic --extra_hops 5
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic essence --population 100 --crossover 0.7 --mutation 0.1 --generations 100
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm gft
+python3 create_confs.py --topology ${TOPO} --conf confs_12-20_our_heuristics --result_folder results_12-20_our_heuristics --demand_file ${DEMAND} --algorithm rmpls
 
 
 
