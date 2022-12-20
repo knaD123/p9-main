@@ -152,7 +152,7 @@ def semi_disjoint_paths(client):
     # We hardcode number of iterations for the time being
     iterations = 3
 
-    for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * 2:
         path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
@@ -167,7 +167,7 @@ def greedy_min_congestion(client):
     # Absolute link utilization under current path set
     link_to_util = {e: 0 for e in client.link_caps.keys()}
 
-    for src, tgt, load in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * 2:
         # Select greedily the path that imposes least max utilization (the utilization of the most utilized link)
         imposed_util = dict()
         for (u, v), util in link_to_util.items():
@@ -201,7 +201,7 @@ def shortest_paths(client):
 
     path_gens = {(src, tgt): nx.shortest_simple_paths(G, src, tgt, weight="weight") for src, tgt in client.flows}
 
-    for src, tgt, _ in cycle(sorted(client.loads, key=lambda x: x[2], reverse=True)):
+    for src, tgt, _ in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow * 2:
         if len(path_gens) < 1:
             break
         if (src, tgt) in path_gens:
