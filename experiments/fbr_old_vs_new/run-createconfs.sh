@@ -20,8 +20,3 @@ fi
 
 python3 create_confs.py --topology ${TOPO} --conf confs_fbr_old_vs_new --result_folder results_fbr_old_vs_new --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic semi_disjoint_paths
 python3 create_confs.py --topology ${TOPO} --conf confs_fbr_old_vs_new --result_folder results_fbr_old_vs_new --demand_file ${DEMAND} --algorithm inout-disjoint-old --max_memory 4
-
-
-
-
-
