@@ -11,6 +11,8 @@ alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_conge
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
+alg_to_name.update({f"inout-disjoint-old_max-mem={i}": f"FBR({i}) OLD" for i in range(50)})
+
 
 
 for i in range(50):
