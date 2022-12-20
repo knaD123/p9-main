@@ -10,6 +10,7 @@ from collections import defaultdict
 import os
 from ortools.linear_solver import pywraplp
 import random
+#from random import *
 
 from itertools import islice, cycle
 
@@ -469,7 +470,7 @@ def congestion_lp(graph, capacities, demands,
         pathdict = dict()
 
         for src, tgt, load in demands:
-            pathdict[(src, tgt, load)] = []
+            pathdict[(src, tgt)] = []
 
         for d in range(len(demands)):
             src, tgt, load = demands[d]
@@ -487,7 +488,7 @@ def congestion_lp(graph, capacities, demands,
                     else:
                         continue
 
-            pathdict[src, tgt, load] = [new_pta]
+            pathdict[src, tgt] = [new_pta]
 
         return pathdict
     else:
@@ -496,7 +497,7 @@ def congestion_lp(graph, capacities, demands,
         pathdict = dict()
 
         for src, tgt, load in demands:
-            pathdict[(src, tgt, load)] = []
+            pathdict[(src, tgt)] = []
         return pathdict
 
 
@@ -510,17 +511,16 @@ def nielsens_heuristic(client):
     # pathdict = dict()
     pathdict = congestion_lp(G, client.link_caps, client.loads, client.kwargs['max_stretch'])
 
-    # for src, tgt, load in client.loads:
-    #    pathdict[(src,tgt,load)] = []
+    #for src, tgt, load in client.loads:
+    #   pathdict[(src,tgt,load)] = []
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2],
-                                 reverse=True) * client.mem_limit_per_router_per_flow * 2:
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True) * client.mem_limit_per_router_per_flow:
         path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
         for v1, v2 in zip(path[:-1], path[1:]):
             w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
             w = w * 2 + 1
             flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
-        pathdict[(src, tgt, load)].append(path)
+        pathdict[src, tgt].append(path)
 
     '''
     new_pathdict = dict()
@@ -772,7 +772,76 @@ def essence(client):
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         for path in pathdict[src, tgt]:
             yield ((src, tgt), path)
+'''
+def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations):
+    # Initialize the population
+    population = [{k: v for k, v in viable_paths.items()} for i in range(population_size)]
 
+    # Run the genetic algorithm
+    for generation in range(generations):
+        # Select parents
+        parents = selection(population, capacities, loads)
+
+        # Select parents using tournament selection
+        # parents = []
+        # while len(parents) < int(population_size / 2):
+        #    parents.append(tournament_selection(population,capacities,loads))
+
+        # Generate the children
+        children = []
+        while len(children) < population_size:
+            parent1, parent2 = random.sample(parents, 2)
+            child1, child2 = two_point_crossover(parent1, parent2, crossover_rate)
+            child1 = mutate(child1, mutation_rate, viable_paths)
+            child2 = mutate(child2, mutation_rate, viable_paths)
+            children.extend([child1, child2])
+
+        # Replace the population with the children
+        population = children
+
+    # Sort the population by fitness
+    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+
+    # Return the fittest individual
+    return population[0]
+
+def essence_v2(client):
+    G = client.router.network.topology.to_directed()
+    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    for graph in flow_to_graph.values():
+        for src, tgt in graph.edges:
+            graph[src][tgt]["weight"] = 1000 / client.link_caps[src, tgt]
+
+    pathdict = dict()
+    loads = dict()
+
+    for src, tgt, load in client.loads:
+        pathdict[(src, tgt)] = []
+        loads[(src, tgt)] = load
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2],
+                                 reverse=True) * client.mem_limit_per_router_per_flow:
+        path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
+            w = w * 2
+            flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
+        # if path not in pathdict[(src, tgt)]:
+        pathdict[(src, tgt)].append(path)
+
+    for (src, tgt) in pathdict:
+        pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
+
+    pathdict = genetic_algorithm_v2(viable_paths=pathdict, capacities=client.link_caps,
+                                      population_size=client.kwargs["population"],
+                                      crossover_rate=client.kwargs["crossover"],
+                                      mutation_rate=client.kwargs["mutation"], loads=loads,
+                                      generations=client.kwargs["generations"])
+
+    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+        for path in pathdict[src, tgt]:
+            yield ((src, tgt), path)
+'''
 
 class InOutDisjoint(MPLS_Client):
     protocol = "inout-disjoint"
@@ -801,6 +870,7 @@ class InOutDisjoint(MPLS_Client):
             'benjamins_heuristic': benjamins_heuristic,
             'nielsens_heuristic': nielsens_heuristic,
             'essence': essence,
+            #'essence_v2': essence_v2,
         }
 
         "self.path_heuristic = semi_disjoint_paths"
