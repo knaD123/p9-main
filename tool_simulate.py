@@ -212,27 +212,11 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
 
     ### OUTPUT RESULTS
 
-    def fortz_and_thorup(u):
-        if u < 1 / 20:
-            return u * 0.1
-        if u < 1 / 10:
-            return u * 0.3 - 0.01
-        if u < 1 / 6:
-            return u * 1 - 0.08
-        if u < 1 / 3:
-            return u * 2 - 0.24666
-        if u < 1 / 2:
-            return u * 5 - 1.24666
-        if u < 2 / 3:
-            return u * 10 - 3.74666
-        if u < 9 / 10:
-            return u * 20 - 10.41333
-        if u < 1:
-            return u * 70 - 55.41333
-        if u < 11 / 10:
-            return u * 500 - 485.41333
-        else:
-            return u * 5000 - 5435.41333
+    def util_poly(u):
+        return u*u
+
+    def util_exp(u):
+        return
 
     res_dir = dict()
 
@@ -307,8 +291,9 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     # Compute median and maximum congestion
     median_cong = median(util_dict_rel.values())
     max_cong = max(util_dict_rel.values())
-    # ftz sum weighted by capacity, to represent that bigger links should count for more
-    ft_score = sum([link_caps[link] * fortz_and_thorup(u) for (link, u) in util_dict_rel.items()])
+
+    util_poly_score = sum([link_caps[link] * util_poly(u) for (link, u) in util_dict_rel.items()])
+    util_exp_score = sum([link_caps[link] * util_exp(u) for (link, u) in util_dict_rel.items()])
 
     res_dir["failed_links"] = F
     res_dir["failed_links#"] = len(F)
@@ -320,7 +305,8 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     res_dir["median_congestion"] = median_cong
     res_dir["max_congestion"] = max_cong
     res_dir["path_stretch"] = path_stretch
-    res_dir["fortz_thorup_sum"] = ft_score
+    res_dir["util_poly_score"] = util_poly_score
+    res_dir["util_exp_score"] = util_exp_score
 
     results["runs"].append(res_dir)
 
