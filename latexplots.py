@@ -9,9 +9,18 @@ alg_to_name = dict()
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths": f"FBR({i}) SD" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion": f"FBR({i}) GC" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
 alg_to_name.update({f"inout-disjoint-old_max-mem={i}": f"FBR({i}) OLD" for i in range(50)})
+
+for i in range(100):
+    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths"] = f"FBR({i}) SD"
+    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion"] = f"FBR({i}) GC"
+    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path"] = f"FBR({i}) SP"
+    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic"] = f"FBR({i}) Nielsens"
+    alg_to_name[f"inout-disjoint-old_max-mem={i}"] = f"FBR({i}) OLD"
+    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p=100_c=0.7_m=0.1_g=100"] = f"FBR({i}) essence"
+    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic_max_s=10000"] = f"FBR({i}) Nielsens"
+
 
 
 
@@ -62,7 +71,7 @@ get_latex_packages = defaultdict(default_packages)
 def tex_string(variable, data_points, args, topologies):
 
     latex_packages = get_latex_packages[variable]
-    legend_order = sorted([alg_to_name[alg] for alg in data_points.keys()])
+    legend_order = sorted([alg_to_name.get(alg, "null") for alg in data_points.keys()])
 
     # Add all graph styling
     output = ""
@@ -77,7 +86,7 @@ def tex_string(variable, data_points, args, topologies):
 
     # Add each line
     line_options_gen = (x for x in line_options)
-    alphabetical_order = sorted(data_points.keys())
+    alphabetical_order = sorted(data_points.keys(), key=lambda x: alg_to_name.get(x, "null"))
     for alg in alphabetical_order:
         output += rf"\addplot[{next(line_options_gen)}] coordinates{{" + \
                   r"".join(data_points[alg]) + \
@@ -177,7 +186,7 @@ if __name__ == "__main__":
     parser.add_argument("--max_congestion_normalized", action="store_true", help="normalized by connectivity")
     parser.add_argument("--delivered_packet_rate", action="store_true")
     parser.add_argument("--fortz_thorup_sum", action="store_true")
-    parser.add_argument("--dont_filter_unfinished_topologies", action="store_true", help="Filter a topology from the data if not all algorithms finished")
+    parser.add_argument("--dont_filter_unfinished_topologies", action="store_true", help="Don't Filter a topology from the data if not all algorithms finished")
     parser.add_argument("--topology_info", default="topology_info.json", help="Json file describing the topologies")
     parser.add_argument("--num_failed_links", type=int, help='Results for failure scenarios with exactly <num_failed_links> failed links')
     parser.add_argument("--max_nodes", type=int, help='Results for networks with up to <max_nodes> nodes')
