@@ -40,6 +40,13 @@ variable_to_label["max_congestion_normalized"] = "Weighted Max Single Link Utili
 variable_to_label["delivered_packet_rate"] = "Weighted Connectivity"
 variable_to_label["path_stretch"] = "Weighted Path Stretch"
 variable_to_label["fortz_thorup_sum"] = "Weighted Ftz Thrp"
+variable_to_label["clean_packets"] = "Clean Packet Ratio"
+variable_to_label["util_poly_score"] = "Polynomic congestion u*u"
+variable_to_label["util_exp_score_2"] = "Exponential congestion 2^u"
+variable_to_label["util_exp_score_4"] = "Exponential congestion 4^u"
+
+
+
 
 # Plot options generator
 line_options = [
@@ -60,6 +67,11 @@ axis_option = {
     "max_congestion_normalized": r"ylabel={Weighted Average Max Utilization*}, legend pos= {north west}, legend style = {legend cell align=left}",
     "path_stretch": r"ylabel={Weighted Average Path Stretch}, legend pos= {north west}, legend style = {legend cell align=left}",
     "fortz_thorup_sum": r"ylabel={Weighted Average Fortz Thorup Sum}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "clean_packets": r"ylabel={Clean Packet Ratio}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "util_poly_score": r"ylabel={Polynomic congestion u*u}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "util_exp_score_2": r"ylabel={Exponential congestion 2^u}, legend pos= {north west}, legend style = {legend cell align=left}",
+    "util_exp_score_4": r"ylabel={Exponential congestion 4^u}, legend pos= {north west}, legend style = {legend cell align=left}",
+
 }
 
 def default_packages():
@@ -186,6 +198,11 @@ if __name__ == "__main__":
     parser.add_argument("--max_congestion_normalized", action="store_true", help="normalized by connectivity")
     parser.add_argument("--delivered_packet_rate", action="store_true")
     parser.add_argument("--fortz_thorup_sum", action="store_true")
+    parser.add_argument("--clean_packets", action="store_true")
+    parser.add_argument("--util_poly_score", action="store_true")
+    parser.add_argument("--util_exp_score_2", action="store_true")
+    parser.add_argument("--util_exp_score_4", action="store_true")
+
     parser.add_argument("--dont_filter_unfinished_topologies", action="store_true", help="Don't Filter a topology from the data if not all algorithms finished")
     parser.add_argument("--topology_info", default="topology_info.json", help="Json file describing the topologies")
     parser.add_argument("--num_failed_links", type=int, help='Results for failure scenarios with exactly <num_failed_links> failed links')
@@ -276,6 +293,26 @@ if __name__ == "__main__":
         data_points = generate_data_points("fortz_thorup_sum", data, topology_info)
         _tex_string = tex_string("fortz_thorup_sum", data_points, args, topologies)
         with open(os.path.join(args.output_dir, "fortz_thorup_sum.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.clean_packets:
+        data_points = generate_data_points("clean_packets_ratio", data, topology_info)
+        _tex_string = tex_string("clean_packets", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "clean_packets.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.util_poly_score:
+        data_points = generate_data_points("util_poly_score", data, topology_info)
+        _tex_string = tex_string("util_poly_score", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "util_poly_score.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.util_exp_score_2:
+        data_points = generate_data_points("util_exp_score_2", data, topology_info)
+        _tex_string = tex_string("util_exp_score_2", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "util_exp_score_2.tex"), "w") as f:
+            f.write(_tex_string)
+    if args.util_exp_score_4:
+        data_points = generate_data_points("util_exp_score_4", data, topology_info)
+        _tex_string = tex_string("util_exp_score_4", data_points, args, topologies)
+        with open(os.path.join(args.output_dir, "util_exp_score_4.tex"), "w") as f:
             f.write(_tex_string)
 
 
