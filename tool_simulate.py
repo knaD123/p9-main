@@ -215,8 +215,11 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     def util_poly(u):
         return u*u
 
-    def util_exp(u):
-        return
+    def util_exp_2(u):
+        return 2**u
+
+    def util_exp_4(u):
+        return 4**u
 
     res_dir = dict()
 
@@ -252,13 +255,13 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
             shortest_path = nx.shortest_path_length(view, source=src, target=tgt)
             normalization_factor += load
             path_stretch += (len(trace) - 1) / shortest_path * load
-            trace_fixed = zip(trace, trace[1:])
-            for u, v, in trace_fixed:
-                # utilization
-                util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
         elif has_path(view, src, tgt):
             possible_packets += load
 
+        trace_fixed = zip(trace, trace[1:])
+        for u, v, in trace_fixed:
+            # utilization
+            util_dict_abs[(u, v)] = util_dict_abs.get((u, v), 0) + load
 
     if possible_packets > 0:
         success_rate = successful_packets / possible_packets
@@ -293,7 +296,8 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     max_cong = max(util_dict_rel.values())
 
     util_poly_score = sum([link_caps[link] * util_poly(u) for (link, u) in util_dict_rel.items()])
-    util_exp_score = sum([link_caps[link] * util_exp(u) for (link, u) in util_dict_rel.items()])
+    util_exp_score_2 = sum([link_caps[link] * util_exp_2(u) for (link, u) in util_dict_rel.items()])
+    util_exp_score_4 = sum([link_caps[link] * util_exp_4(u) for (link, u) in util_dict_rel.items()])
 
     res_dir["failed_links"] = F
     res_dir["failed_links#"] = len(F)
@@ -306,7 +310,9 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     res_dir["max_congestion"] = max_cong
     res_dir["path_stretch"] = path_stretch
     res_dir["util_poly_score"] = util_poly_score
-    res_dir["util_exp_score"] = util_exp_score
+    res_dir["util_exp_score_2"] = util_exp_score_2
+    res_dir["util_exp_score_4"] = util_exp_score_4
+
 
     results["runs"].append(res_dir)
 
