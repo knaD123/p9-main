@@ -13,6 +13,6 @@ source venv/bin/activate
 rm confs/*/conf*
 
 for TOPO in $(ls topologies/${FILTER}*) ; do
-  $EXECUTOR experiments/12-14/run-createconfs.sh ${TOPO}
+  $EXECUTOR experiments/12-22_existing_algorithms/run-createconfs.sh ${TOPO}
 done
 
