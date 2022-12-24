@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --output=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs/%j.out
-#SBATCH --error=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs/%j.err
-#SBATCH --partition=naples
+#SBATCH --output=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs-%j.out
+#SBATCH --error=/nfs/home/student.aau.dk/lkar18/slurm-output/createconfs-%j.err
+#SBATCH --partition=naples,dhabi
 #SBATCH --time=12:00:00
 #SBATCH --mem=20G
 #SBATCH --cpus-per-task=1
