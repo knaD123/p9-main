@@ -52,7 +52,8 @@ def powerset(iterable, m=0):
     # note we return an iterator rather than a list
     return chain.from_iterable(combinations(xs, n) for n in range(m + 1))
 
-def generate_failures(G, threshold = 1000, division=None, random_seed=1):
+
+def generate_failures(G, threshold=1000, division=None, random_seed=1):
     edges = [list(x) for x in G.edges()]
 
     _k = K
@@ -61,7 +62,7 @@ def generate_failures(G, threshold = 1000, division=None, random_seed=1):
         _k = len(edges)
     if conf["only_K_failed_links"]:
         F_list = combinations(edges, _k)
-    for k in range(_k+1):
+    for k in range(_k + 1):
 
         number_of_scenarios_of_len_k = math.comb(len(edges), k)
         number_of_choices_to_threshold_ratio = number_of_scenarios_of_len_k / threshold
@@ -71,7 +72,7 @@ def generate_failures(G, threshold = 1000, division=None, random_seed=1):
 
             while len(new_scenarios) < threshold:
                 scenario_to_try = list(random.sample(edges, k))
-                scenario_to_try.sort(key = lambda x: f"{x[0]}{x[1]})")
+                scenario_to_try.sort(key=lambda x: f"{x[0]}{x[1]})")
 
                 if scenario_to_try not in new_scenarios:
                     new_scenarios.append(scenario_to_try)
@@ -87,6 +88,7 @@ def generate_failures(G, threshold = 1000, division=None, random_seed=1):
         P = partition([list(x) for x in F_list], division)
         return P
     return [F_list]
+
 
 def generate_failures_percent(G, threshold, division, random_seed):
     def return_0():
@@ -109,7 +111,8 @@ def generate_failures_percent(G, threshold, division, random_seed):
 
 
 def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memory=None, path_heuristic=None,
-                  extra_hops=None, max_stretch=None, population=None, crossover=None, mutation=None, generations=None):
+                  extra_hops=None, max_stretch=None, population=None, crossover=None, mutation=None, generations=None,
+                  congestion_weight=None, stretch_weight=None, connectedness_weight=None):
     conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (
         f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
                     f"{extra_hops}" if extra_hops is not None else "") + (
@@ -117,7 +120,10 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
                     f"_p={population}" if population is not None else "") + (
                     f"_c={crossover}" if crossover is not None else "") + (
                     f"_m={mutation}" if mutation is not None else "") + (
-                    f"_g={generations}" if generations is not None else "")
+                    f"_g={generations}" if generations is not None else "") + (
+                    f"_uw={congestion_weight}" if congestion_weight is not None else "") + (
+                    f"_sw={stretch_weight}" if stretch_weight is not None else "") + (
+                    f"_cw={connectedness_weight}" if connectedness_weight is not None else "")
     base_config = {
         # we need extra configuration here!!!!
         "topology": topofile,
@@ -173,6 +179,14 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
             base_config["max_stretch"] = conf["max_stretch"]
             base_config["max_utilization"] = conf["max_utilization"]
         if path_heuristic == "essence":
+            base_config["population"] = conf["population"]
+            base_config["crossover"] = conf["crossover"]
+            base_config["mutation"] = conf["mutation"]
+            base_config["generations"] = conf["generations"]
+        if path_heuristic == "essence_v2":
+            base_config["congestion_weight"] = conf["congestion_weight"]
+            base_config["stretch_weight"] = conf["stretch_weight"]
+            base_config["connectedness_weight"] = conf["connectedness_weight"]
             base_config["population"] = conf["population"]
             base_config["crossover"] = conf["crossover"]
             base_config["mutation"] = conf["mutation"]
@@ -240,7 +254,7 @@ if __name__ == "__main__":
 
     p.add_argument("--path_heuristic", default="shortest_path",
                    choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
-                            "nielsens_heuristic", "essence"])
+                            "nielsens_heuristic", "essence", "essence_v2"])
 
     p.add_argument("--extra_hops", type=int)
 
@@ -261,6 +275,10 @@ if __name__ == "__main__":
     p.add_argument("--mutation", type=float, default=0.1, help="chance for mutation for genetic algorithm")
 
     p.add_argument("--generations", type=int, default=100, help="number of generations for genetic algorithm")
+
+    p.add_argument("--congestion_weight", type=float, default=0, help="congestion weight")
+    p.add_argument("--stretch_weight", type=float, default=0, help="stretch weight")
+    p.add_argument("--connectedness_weight", type=float, default=0, help="connectedness weight")
 
     args = p.parse_args()
     conf = vars(args)
@@ -306,11 +324,13 @@ if __name__ == "__main__":
     #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
 
     def create(conf_type, max_memory=None, path_heuristic=None, extra_hops=None, max_stretch=None, population=None,
-               crossover=None, mutation=None, generations=None):
+               crossover=None, mutation=None, generations=None, congestion_weight=None, stretch_weight=None,
+               connectedness_weight=None):
         dict_conf = generate_conf(n, conf_type=conf_type, topofile=topofile, random_seed=random_seed,
                                   per_flow_memory=max_memory, path_heuristic=path_heuristic, extra_hops=extra_hops,
                                   max_stretch=max_stretch, population=population, crossover=crossover,
-                                  mutation=mutation, generations=generations)
+                                  mutation=mutation, generations=generations, congestion_weight=congestion_weight,
+                                  stretch_weight=stretch_weight, connectedness_weight=connectedness_weight)
         conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
             f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
                         f"{extra_hops}" if extra_hops is not None else "") + (
@@ -318,7 +338,10 @@ if __name__ == "__main__":
                         f"_p={population}" if population is not None else "") + (
                         f"_c={crossover}" if crossover is not None else "") + (
                         f"_m={mutation}" if mutation is not None else "") + (
-                        f"_g={generations}" if generations is not None else "") + ".yml"
+                        f"_g={generations}" if generations is not None else "") + (
+                        f"_uw={congestion_weight}" if congestion_weight is not None else "") + (
+                        f"_sw={stretch_weight}" if stretch_weight is not None else "") + (
+                        f"_cw={connectedness_weight}" if connectedness_weight is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
         # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
@@ -357,6 +380,12 @@ if __name__ == "__main__":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
                    max_stretch=conf["max_stretch"], population=conf["population"], crossover=conf["crossover"],
                    mutation=conf["mutation"], generations=conf["generations"])
+        elif conf["path_heuristic"] == "essence_v2":
+            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
+                   max_stretch=conf["max_stretch"], population=conf["population"], crossover=conf["crossover"],
+                   mutation=conf["mutation"], generations=conf["generations"],
+                   congestion_weight=conf["congestion_weight"], stretch_weight=conf["stretch_weight"],
+                   connectedness_weight=conf["connectedness_weight"])
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 
