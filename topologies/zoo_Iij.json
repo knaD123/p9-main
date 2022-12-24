@@ -1,0 +1,1319 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 2488320,
+        "from_router": "0_Tokyo_DC1",
+        "to_router": "30_Tokyo",
+        "latency": 5,
+        "weight": 160,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "0_Tokyo_DC1",
+        "to_router": "6_Shibuya_DC",
+        "latency": 25,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "1_Tokyo_DC2",
+        "to_router": "30_Tokyo",
+        "latency": 5,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "1_Tokyo_DC2",
+        "to_router": "6_Shibuya_DC",
+        "latency": 25,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "2_Sendai_DC",
+        "to_router": "30_Tokyo",
+        "latency": 1597,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "2_Sendai_DC",
+        "to_router": "6_Shibuya_DC",
+        "latency": 1617,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "3_Saitama_DC",
+        "to_router": "30_Tokyo",
+        "latency": 60,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "3_Saitama_DC",
+        "to_router": "6_Shibuya_DC",
+        "latency": 51,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "4_Nerima_DC",
+        "to_router": "6_Shibuya_DC",
+        "latency": 21,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "5_Yokohama_DC1",
+        "to_router": "30_Tokyo",
+        "latency": 37,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "5_Yokohama_DC1",
+        "to_router": "6_Shibuya_DC",
+        "latency": 44,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "7_Ikebukuro_DC",
+        "latency": 18,
+        "weight": 40,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "8_Yokohama_DC2",
+        "latency": 44,
+        "weight": 160,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "9_Nagoya_DC",
+        "latency": 436,
+        "weight": 40,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "34_Osaka",
+        "latency": 665,
+        "weight": 40,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "21_Shinsaibashi_DC",
+        "latency": 666,
+        "weight": 40,
+        "from_interface": "i10",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "24_LA_DC",
+        "latency": 18233,
+        "weight": 40,
+        "from_interface": "i11",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "28_Sappora_DC",
+        "latency": 1396,
+        "weight": 40,
+        "from_interface": "i12",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "29_Chiba",
+        "latency": 68,
+        "weight": 200,
+        "from_interface": "i13",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "30_Tokyo",
+        "latency": 25,
+        "weight": 200,
+        "from_interface": "i14",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "6_Shibuya_DC",
+        "to_router": "30_Tokyo",
+        "latency": 25,
+        "weight": 40,
+        "from_interface": "i15",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "7_Ikebukuro_DC",
+        "to_router": "34_Osaka",
+        "latency": 670,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "7_Ikebukuro_DC",
+        "to_router": "30_Tokyo",
+        "latency": 33,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "7_Ikebukuro_DC",
+        "to_router": "13_JPNAP_Tokyo_2",
+        "latency": 1772,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "8_Yokohama_DC2",
+        "to_router": "30_Tokyo",
+        "latency": 37,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "9_Nagoya_DC",
+        "to_router": "33_Hamamatsu",
+        "latency": 158,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "9_Nagoya_DC",
+        "to_router": "34_Osaka",
+        "latency": 236,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "9_Nagoya_DC",
+        "to_router": "30_Tokyo",
+        "latency": 416,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i9",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 30000000.0,
+        "from_router": "10_JPNAP_Tokyo_1",
+        "to_router": "30_Tokyo",
+        "latency": 1772,
+        "weight": 13,
+        "from_interface": "i0",
+        "to_interface": "i10",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "11_China",
+        "to_router": "34_Osaka",
+        "latency": 1772,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 40000000.0,
+        "from_router": "12_JPNAP_Osaka",
+        "to_router": "34_Osaka",
+        "latency": 1772,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "14_NYIIX",
+        "to_router": "19_Newyork_DC",
+        "latency": 1772,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "15_PAIX",
+        "to_router": "19_Newyork_DC",
+        "latency": 1772,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "16_LAIIX",
+        "to_router": "24_LA_DC",
+        "latency": 1772,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 11000000.0,
+        "from_router": "17_dix-ie",
+        "to_router": "30_Tokyo",
+        "latency": 1772,
+        "weight": 36,
+        "from_interface": "i0",
+        "to_interface": "i11",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "18_Equinix_exchange",
+        "to_router": "24_LA_DC",
+        "latency": 1772,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "18_Equinix_exchange",
+        "to_router": "25_San_Jose_DC",
+        "latency": 1772,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "18_Equinix_exchange",
+        "to_router": "23_Ashburn_DC",
+        "latency": 1772,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "19_Newyork_DC",
+        "to_router": "24_LA_DC",
+        "latency": 3201,
+        "weight": 160,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "19_Newyork_DC",
+        "to_router": "25_San_Jose_DC",
+        "latency": 6837,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "19_Newyork_DC",
+        "to_router": "23_Ashburn_DC",
+        "latency": 588,
+        "weight": 160,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "20_Fukuoka_DC",
+        "to_router": "34_Osaka",
+        "latency": 809,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "20_Fukuoka_DC",
+        "to_router": "27_Okinawa",
+        "latency": 1415,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "20_Fukuoka_DC",
+        "to_router": "21_Shinsaibashi_DC",
+        "latency": 808,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "21_Shinsaibashi_DC",
+        "to_router": "32_Kanazawa",
+        "latency": 398,
+        "weight": 160,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "21_Shinsaibashi_DC",
+        "to_router": "34_Osaka",
+        "latency": 8,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "21_Shinsaibashi_DC",
+        "to_router": "35_Okayama",
+        "latency": 243,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "21_Shinsaibashi_DC",
+        "to_router": "36_Hiroshima",
+        "latency": 471,
+        "weight": 40,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "21_Shinsaibashi_DC",
+        "to_router": "22_Kyoto_DC",
+        "latency": 79,
+        "weight": 200,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "21_Shinsaibashi_DC",
+        "to_router": "30_Tokyo",
+        "latency": 646,
+        "weight": 40,
+        "from_interface": "i7",
+        "to_interface": "i12",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "22_Kyoto_DC",
+        "to_router": "34_Osaka",
+        "latency": 76,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "23_Ashburn_DC",
+        "to_router": "24_LA_DC",
+        "latency": 2618,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "23_Ashburn_DC",
+        "to_router": "25_San_Jose_DC",
+        "latency": 6411,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "24_LA_DC",
+        "to_router": "34_Osaka",
+        "latency": 18786,
+        "weight": 40,
+        "from_interface": "i5",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "24_LA_DC",
+        "to_router": "25_San_Jose_DC",
+        "latency": 4875,
+        "weight": 40,
+        "from_interface": "i6",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "24_LA_DC",
+        "to_router": "26_PaloAlto_DC",
+        "latency": 4913,
+        "weight": 160,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "25_San_Jose_DC",
+        "to_router": "26_PaloAlto_DC",
+        "latency": 46,
+        "weight": 160,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "25_San_Jose_DC",
+        "to_router": "30_Tokyo",
+        "latency": 13909,
+        "weight": 40,
+        "from_interface": "i5",
+        "to_interface": "i13",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "28_Sappora_DC",
+        "to_router": "30_Tokyo",
+        "latency": 1407,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i14",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "29_Chiba",
+        "to_router": "30_Tokyo",
+        "latency": 86,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i15",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "30_Tokyo",
+        "to_router": "34_Osaka",
+        "latency": 645,
+        "weight": 40,
+        "from_interface": "i16",
+        "to_interface": "i9",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "30_Tokyo",
+        "to_router": "33_Hamamatsu",
+        "latency": 332,
+        "weight": 200,
+        "from_interface": "i17",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "30_Tokyo",
+        "to_router": "31_Toyama",
+        "latency": 411,
+        "weight": 160,
+        "from_interface": "i18",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2488320,
+        "from_router": "31_Toyama",
+        "to_router": "32_Kanazawa",
+        "latency": 94,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "34_Osaka",
+        "to_router": "35_Okayama",
+        "latency": 243,
+        "weight": 200,
+        "from_interface": "i10",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9953280,
+        "from_router": "34_Osaka",
+        "to_router": "36_Hiroshima",
+        "latency": 472,
+        "weight": 40,
+        "from_interface": "i11",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Iij",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "0_Tokyo_DC1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "1_Tokyo_DC2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "2_Sendai_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "3_Saitama_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "4_Nerima_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "5_Yokohama_DC1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12",
+              "i13",
+              "i14",
+              "i15"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "6_Shibuya_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "7_Ikebukuro_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "8_Yokohama_DC2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "9_Nagoya_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "10_JPNAP_Tokyo_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "11_China"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "12_JPNAP_Osaka"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "13_JPNAP_Tokyo_2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "14_NYIIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "15_PAIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "16_LAIIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "17_dix-ie"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "18_Equinix_exchange"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "19_Newyork_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "20_Fukuoka_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "21_Shinsaibashi_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "22_Kyoto_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "23_Ashburn_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "24_LA_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "25_San_Jose_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "26_PaloAlto_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "27_Okinawa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "28_Sappora_DC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "29_Chiba"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12",
+              "i13",
+              "i14",
+              "i15",
+              "i16",
+              "i17",
+              "i18"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "30_Tokyo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "31_Toyama"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "32_Kanazawa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "33_Hamamatsu"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "34_Osaka"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "35_Okayama"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "36_Hiroshima"
+      }
+    ]
+  }
+}
