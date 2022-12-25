@@ -18,7 +18,7 @@ from ForwardingTable import ForwardingTable
 from benjamins_heuristic_file import initializenetwork, pathfind
 from typing import Dict, Tuple, List, Callable
 from essence import *
-
+from heuristics.inverse_cap import inverse_cap
 
 def label(ingress, egress, path_index: int):
     return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
@@ -518,6 +518,7 @@ class InOutDisjoint(MPLS_Client):
             'nielsens_heuristic': nielsens_heuristic,
             'essence': essence,
             'essence_v2': essence_v2,
+            'inverse_cap': inverse_cap
         }
 
         "self.path_heuristic = semi_disjoint_paths"
