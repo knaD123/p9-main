@@ -113,9 +113,9 @@ def tex_string(variable, data_points, args, topologies):
 
 def scenario_probability(num_failed_links, num_edges, fp=0.001):
     if num_failed_links < num_edges:
-        return (num_failed_links ** fp) * ((num_edges - num_failed_links) ** (1 - fp))
+        return (fp ** num_failed_links) * ((1 - fp) ** (num_edges - num_failed_links))
     elif num_failed_links == num_edges:
-        return (num_failed_links ** fp)
+        return (fp ** num_failed_links)
     else:
         raise Exception(f"Error: There was {num_failed_links} failed links, but only {num_edges} in the network")
 
