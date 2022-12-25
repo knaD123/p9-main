@@ -4,13 +4,16 @@ import json
 with open("topology_info.json", "r") as f:
     all_topologies = json.load(f).keys()
 
-experiments = [x for x in listdir("results") if isdir(join("results", x))]
+res_dir = "results"
+
+experiments = [x for x in listdir(res_dir) if isdir(join(res_dir, x))]
 
 unfinished_topologies = []
 for topology in all_topologies:
     for experiment in experiments:
-        if not topology in listdir(join("results", experiment)):
-            unfinished_topologies.append(topology)
+        for alg in [x for x in listdir(join(res_dir, experiment)) if isdir(join(res_dir, experiment, x))]:
+            if not topology in listdir(join(res_dir, experiment)):
+                unfinished_topologies.append(topology)
 
 finished_topologies = [x for x in all_topologies if x not in unfinished_topologies]
 
