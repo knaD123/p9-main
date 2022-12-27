@@ -5,11 +5,9 @@ import json
 from mpls_fwd_gen import topology_from_aalwines_json
 parser = argparse.ArgumentParser()
 parser.add_argument("--topology",type=str, required = True)
-parser.add_argument("--directory",type=str, default="topologies")
 args = parser.parse_args()
 
-path = os.path.join(args.directory, args.topology)
-with open(path, "r") as topo:
+with open(args.topology, "r") as topo:
     aalwines_top = json.load(topo)
 
 G = graphviz.Graph()
