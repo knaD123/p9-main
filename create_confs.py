@@ -254,7 +254,7 @@ if __name__ == "__main__":
 
     p.add_argument("--path_heuristic", default="shortest_path",
                    choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
-                            "nielsens_heuristic", "essence", "essence_v2"])
+                            "nielsens_heuristic", "essence", "essence_v2", "inverse_cap", "placeholder"])
 
     p.add_argument("--extra_hops", type=int)
 
