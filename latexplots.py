@@ -1,6 +1,6 @@
 from os.path import isdir, join
 import os
-import statistics
+from os import listdir
 import json
 import argparse
 import yaml
@@ -176,7 +176,7 @@ def max_congestion_normalized_data(data, topology_info):
 def data_subset(topologies, input_dir, algorithms):
     data = {}
     # Jargon line below simply says to only use subset of algorithms, unless "all" is specified
-    for alg_dir in ([alg for alg in os.listdir(input_dir) if alg in algorithms] if algorithms != "all" else [x for x in os.listdir(input_dir) if x in alg_to_name]):
+    for alg_dir in ([alg for alg in os.listdir(input_dir) if alg in algorithms] if algorithms != "all" else [x for x in listdir(input_dir) if isdir(join(input_dir, x))]):
         alg_data = dict()
         for topology in [x for x in os.listdir(os.path.join(input_dir, alg_dir)) if x in topologies]:
             topo_file = os.path.join(input_dir, alg_dir, topology, "results.json")
