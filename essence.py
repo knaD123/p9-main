@@ -157,7 +157,6 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
-        print(generation)
         # Select parents
         parents = selection(population, capacities, loads)
 
@@ -234,15 +233,15 @@ def essence(client):
     for (src, tgt) in genetic_paths:
         pathdict[src, tgt].insert(0, genetic_paths[src, tgt])
 
-    #for (src, tgt) in pathdict:
-    #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
+    for (src, tgt) in pathdict:
+        pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
 
     pathdict = prefixsort(client, pathdict)
-    pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
+    #pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
-        for path in pathdict[src, tgt]:
-            yield ((src, tgt), path)
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            yield ((src,tgt), pathdict[src,tgt][i])
 
 
 def normalize(value):
@@ -466,3 +465,8 @@ def essence_v2(client):
     for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
         for path in pathdict[src, tgt]:
             yield ((src, tgt), path)
+
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            x=pathdict[src,tgt][i]
+            yield ((src,tgt), pathdict[src,tgt][i])
