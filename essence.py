@@ -6,7 +6,7 @@ import networkx.exception
 from prefix_sorting_max_hops import *
 from mpls_classes import *
 from functools import *
-from networkx import shortest_path, diameter
+from networkx import shortest_path, diameter, shortest_simple_paths
 import networkx as nx
 from collections import defaultdict
 import os
@@ -157,6 +157,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
+        print(generation)
         # Select parents
         parents = selection(population, capacities, loads)
 
@@ -195,10 +196,11 @@ def remove_duplicates(lst):
 
 def essence(client):
     G = client.router.network.topology.to_directed()
-    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
-    for graph in flow_to_graph.values():
-        for src, tgt in graph.edges:
-            graph[src][tgt]["weight"] = 1  # 1000 / client.link_caps[src, tgt]
+    #flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    #for graph in flow_to_graph.values():
+    #    for src, tgt in graph.edges:
+    #        graph[src][tgt]["weight"] = 1  # 1000 / client.link_caps[src, tgt]
+
 
     pathdict = dict()
     loads = dict()
@@ -207,16 +209,21 @@ def essence(client):
         pathdict[(src, tgt)] = []
         loads[(src, tgt)] = load
 
+    for src,tgt in G.edges:
+        G[src][tgt]["weight"] = 1
+
     for src, tgt, load in client.loads:
-        while True:
-            path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
-            for v1, v2 in zip(path[:-1], path[1:]):
-                w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
-                w = w * 2 + 1
-                flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
-            pathdict[(src, tgt)].append(path)
-            if pathdict[(src, tgt)].count(path) == 3:
-                break
+        pathdict[(src,tgt)] = list(islice(shortest_simple_paths(G, src, tgt, weight='weight'), client.mem_limit_per_router_per_flow))
+
+    '''while True:
+        path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
+        for v1, v2 in zip(path[:-1], path[1:]):
+            w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
+            w = w * 2 + 1
+            flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
+        pathdict[(src, tgt)].append(path)
+        if pathdict[(src, tgt)].count(path) == 3:
+            break'''
 
     genetic_paths = genetic_algorithm(viable_paths=pathdict, capacities=client.link_caps,
                                       population_size=client.kwargs["population"],
@@ -227,8 +234,8 @@ def essence(client):
     for (src, tgt) in genetic_paths:
         pathdict[src, tgt].insert(0, genetic_paths[src, tgt])
 
-    for (src, tgt) in pathdict:
-        pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
+    #for (src, tgt) in pathdict:
+    #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
 
     pathdict = prefixsort(client, pathdict)
     pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
@@ -410,10 +417,10 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
 
 def essence_v2(client):
     G = client.router.network.topology.to_directed()
-    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
-    for graph in flow_to_graph.values():
-        for src, tgt in graph.edges:
-            graph[src][tgt]["weight"] = 0  # 1000 / client.link_caps[src, tgt]
+    #flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    #for graph in flow_to_graph.values():
+    #    for src, tgt in graph.edges:
+    #        graph[src][tgt]["weight"] = 0  # 1000 / client.link_caps[src, tgt]
 
     pathdict = dict()
     loads = dict()
@@ -424,7 +431,13 @@ def essence_v2(client):
         loads[(src, tgt)] = load
         shortest_paths_len[(src, tgt)] = len(shortest_path(G, src, tgt))
 
+    for src, tgt in G.edges:
+        G[src][tgt]["weight"] = 1
+
     for src, tgt, load in client.loads:
+        pathdict[(src, tgt)] = list(islice(shortest_simple_paths(G, src, tgt, weight='weight'), client.mem_limit_per_router_per_flow))
+
+    '''for src, tgt, load in client.loads:
         while True:
             path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
             for v1, v2 in zip(path[:-1], path[1:]):
@@ -433,10 +446,10 @@ def essence_v2(client):
                 flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
             pathdict[(src, tgt)].append(path)
             if pathdict[(src, tgt)].count(path) == 3:
-                break
+                break'''
 
-    for (src, tgt) in pathdict:
-        pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
+    #for (src, tgt) in pathdict:
+    #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
 
     maximum_number_of_paths_for_demand = len(max(pathdict.values(), key=lambda x: len(x)))
 
