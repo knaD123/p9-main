@@ -13,9 +13,11 @@ alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": 
 alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
 alg_to_name.update({f"inout-disjoint-old_max-mem={i}": f"FBR({i}) OLD" for i in range(50)})
 
-for i in range(1000):
-    for j in range(1000):
-        for k in range(1000):
+numbers = [100, 250, 500, 1000]
+
+for i in range(100):
+    for j in numbers:
+        for k in numbers:
             alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c=0.7_m=0.1_g={k}"] = f"FBR({i}) p:{j} g:{k} essence"
 
 for i in range(100):
