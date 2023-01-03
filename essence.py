@@ -323,7 +323,7 @@ def selection_v2(population, capacities, loads, stretch_dict, congestion_weight,
                  connectedness_weight, path_weights):
     congestion, stretch, connectedness = zip(
         *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
-        population])
+          population])
 
     normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
                                                                                            connectedness)
