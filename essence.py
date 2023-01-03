@@ -200,7 +200,6 @@ def essence(client):
         for src, tgt in graph.edges:
             graph[src][tgt]["weight"] = 0  # 1000 / client.link_caps[src, tgt]
 
-
     pathdict = dict()
     loads = dict()
 
@@ -208,10 +207,10 @@ def essence(client):
         pathdict[(src, tgt)] = []
         loads[(src, tgt)] = load
 
-    #for src,tgt in G.edges:
+    # for src,tgt in G.edges:
     #    G[src][tgt]["weight"] = 1
 
-    #for src, tgt, load in client.loads:
+    # for src, tgt, load in client.loads:
     #    pathdict[(src,tgt)] = list(islice(shortest_simple_paths(G, src, tgt, weight='weight'), client.mem_limit_per_router_per_flow))
 
     for src, tgt, load in client.loads:
@@ -237,15 +236,16 @@ def essence(client):
     for (src, tgt) in genetic_paths:
         pathdict[src, tgt].insert(0, genetic_paths[src, tgt])
 
-    #for (src, tgt) in pathdict:
+    # for (src, tgt) in pathdict:
     #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
 
     pathdict = prefixsort(client, pathdict)
-    #pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
+    # pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
     for src, tgt, load in client.loads:
         for path in pathdict[src, tgt]:
             yield ((src, tgt), path)
+
 
 def normalize(value):
     min_value = min(value)
@@ -272,7 +272,7 @@ def calculate_weights(num_paths):
     return weights
 
 
-def calculate_fitness_v2(individual, capacities, loads, shortest_paths_len, path_weights):
+def calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights):
     # Initialize the utilization of each link to 0
     utilization = {link: 0 for link in capacities.keys()}
 
@@ -299,14 +299,11 @@ def calculate_fitness_v2(individual, capacities, loads, shortest_paths_len, path
     # Calculate the stretch component of the fitness
     stretch = 0
     for (source, destination), paths in individual.items():
-        shortest_path_len = shortest_paths_len[source, destination]
         if len(paths) == 1:
-            path_len = len(paths)
-            stretch += (path_len / shortest_path_len)
+            stretch += stretch_dict[tuple(paths[0])]
         else:
             for path, weight in zip(paths, path_weights):
-                path_len = len(path)
-                stretch += (path_len / shortest_path_len) * weight
+                stretch += stretch_dict[tuple(path)] * weight
 
     # Calculate the connectedness component of the fitness
     connectedness = 0
@@ -322,11 +319,11 @@ def calculate_fitness_v2(individual, capacities, loads, shortest_paths_len, path
     return congestion, stretch, connectedness
 
 
-def selection_v2(population, capacities, loads, shortest_paths_len, congestion_weight, stretch_weight,
+def selection_v2(population, capacities, loads, stretch_dict, congestion_weight, stretch_weight,
                  connectedness_weight, path_weights):
     congestion, stretch, connectedness = zip(
-        *[calculate_fitness_v2(individual, capacities, loads, shortest_paths_len, path_weights) for individual in
-          population])
+        *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
+        population])
 
     normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
                                                                                            connectedness)
@@ -368,17 +365,16 @@ def mutate_v2(individual, mutation_rate, viable_paths):
 
 
 def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations,
-                         shortest_paths_len, maximum_number_of_paths_for_demand, congestion_weight, stretch_weight,
+                         path_weights, stretch_dict, congestion_weight, stretch_weight,
                          connectedness_weight):
     # Initialize the population
     population = [{k: random.sample(v, len(v)) for k, v in viable_paths.items()} for i in range(population_size)]
 
-    path_weights = calculate_weights(maximum_number_of_paths_for_demand)
-
     # Run the genetic algorithm
     for generation in range(generations):
         # Select parents
-        parents = selection_v2(population, capacities, loads, shortest_paths_len, congestion_weight=congestion_weight,
+        parents = selection_v2(population, capacities, loads, stretch_dict=stretch_dict,
+                               congestion_weight=congestion_weight,
                                stretch_weight=stretch_weight, connectedness_weight=connectedness_weight,
                                path_weights=path_weights)
 
@@ -395,14 +391,14 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
         population = children
 
     congestion, stretch, connectedness = zip(
-        *[calculate_fitness_v2(individual, capacities, loads, shortest_paths_len, path_weights) for individual in
+        *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
           population])
 
     normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
                                                                                            connectedness)
 
     fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight +
-                      normalized_connectedness[i] * congestion_weight for i in range(len(population))]
+                      normalized_connectedness[i] * connectedness_weight for i in range(len(population))]
 
     # Zip the fitness values and the population together
     fitness_population = zip(fitness_values, population)
@@ -419,27 +415,23 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
 
 def essence_v2(client):
     G = client.router.network.topology.to_directed()
-    #flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
-    #for graph in flow_to_graph.values():
-    #    for src, tgt in graph.edges:
-    #        graph[src][tgt]["weight"] = 0  # 1000 / client.link_caps[src, tgt]
+    flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
+    for graph in flow_to_graph.values():
+        for src, tgt in graph.edges:
+            graph[src][tgt]["weight"] = 0  # 1000 / client.link_caps[src, tgt]
 
     pathdict = dict()
     loads = dict()
     shortest_paths_len = dict()
+    stretch_dict = {}
 
     for src, tgt, load in client.loads:
         pathdict[(src, tgt)] = []
         loads[(src, tgt)] = load
         shortest_paths_len[(src, tgt)] = len(shortest_path(G, src, tgt))
 
-    for src, tgt in G.edges:
-        G[src][tgt]["weight"] = 1
-
     for src, tgt, load in client.loads:
-        pathdict[(src, tgt)] = list(islice(shortest_simple_paths(G, src, tgt, weight='weight'), client.mem_limit_per_router_per_flow))
-
-    '''for src, tgt, load in client.loads:
+        unique_paths = []
         while True:
             path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
             for v1, v2 in zip(path[:-1], path[1:]):
@@ -447,29 +439,40 @@ def essence_v2(client):
                 w = w * 2 + 1
                 flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
             pathdict[(src, tgt)].append(path)
-            if pathdict[(src, tgt)].count(path) == 3:
-                break'''
+            if path not in unique_paths:
+                unique_paths.append(path)
+            if pathdict[(src, tgt)].count(path) == 5 or len(unique_paths) == client.mem_limit_per_router_per_flow:
+                break
 
-    #for (src, tgt) in pathdict:
-    #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
+    # Create stretch dictionary, so it does not have to be recomputed in the genetic algorithm
+    for src, tgt, load in client.loads:
+        # Get shortest path
+        shortest_path_len = shortest_paths_len[src, tgt]
 
+        # Calculate the stretch value for each path between the source and destination
+        for path in pathdict[src, tgt]:
+            path_tuple = tuple(path)
+            path_len = len(path)
+            stretch_dict[path_tuple] = (path_len / shortest_path_len) * load
+
+    # Get the path weights such that backup paths are weighted less than primary path
     maximum_number_of_paths_for_demand = len(max(pathdict.values(), key=lambda x: len(x)))
+    path_weights = calculate_weights(maximum_number_of_paths_for_demand)
 
     pathdict = genetic_algorithm_v2(viable_paths=pathdict, capacities=client.link_caps,
                                     population_size=client.kwargs["population"],
                                     crossover_rate=client.kwargs["crossover"],
                                     mutation_rate=client.kwargs["mutation"], loads=loads,
-                                    generations=client.kwargs["generations"], shortest_paths_len=shortest_paths_len,
-                                    maximum_number_of_paths_for_demand=maximum_number_of_paths_for_demand,
+                                    generations=client.kwargs["generations"],
+                                    path_weights=path_weights, stretch_dict=stretch_dict,
                                     congestion_weight=client.kwargs["congestion_weight"],
                                     stretch_weight=client.kwargs["stretch_weight"],
                                     connectedness_weight=client.kwargs["connectedness_weight"])
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+    for src, tgt, load in client.loads:
         for path in pathdict[src, tgt]:
             yield ((src, tgt), path)
 
-    for i in range(client.mem_limit_per_router_per_flow):
-        for src, tgt, load in client.loads:
-            x=pathdict[src,tgt][i]
-            yield ((src,tgt), pathdict[src,tgt][i])
+    # for i in range(client.mem_limit_per_router_per_flow):
+    #    for src, tgt, load in client.loads:
+    #        yield ((src,tgt), pathdict[src,tgt][i])
