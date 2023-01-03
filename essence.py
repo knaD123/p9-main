@@ -225,6 +225,7 @@ def essence(client):
             if path not in unique_paths:
                 unique_paths.append(path)
             if pathdict[(src, tgt)].count(path) == 3 or len(unique_paths) == client.mem_limit_per_router_per_flow:
+                pathdict[(src, tgt)] = unique_paths
                 break
 
     genetic_paths = genetic_algorithm(viable_paths=pathdict, capacities=client.link_caps,
@@ -234,12 +235,13 @@ def essence(client):
                                       generations=client.kwargs["generations"])
 
     for (src, tgt) in genetic_paths:
+        pathdict[src, tgt].remove(genetic_paths[src, tgt])
         pathdict[src, tgt].insert(0, genetic_paths[src, tgt])
 
     # for (src, tgt) in pathdict:
     #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
 
-    pathdict = prefixsort(client, pathdict)
+    pathdict = prefixsort(pathdict)
     # pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
     for src, tgt, load in client.loads:
@@ -267,7 +269,7 @@ def calculate_weights(num_paths):
 
     # Iterate over the weights and assign the weight of each path as a fifth of the weight of the previous path
     for i in range(1, num_paths):
-        weights.append(weights[i - 1] / 5)
+        weights.append(weights[i - 1] / 10)
 
     return weights
 

@@ -1,20 +1,21 @@
 import math
 from networkx import shortest_path
 
-def prefixsort(client, pathdict):
+def prefixsort(pathdict):
     new_pathdict = dict()
-    for src, tgt, load in client.loads:
+    for src, tgt in pathdict.keys():
         new_pathdict[(src, tgt)] = []
         new_pathdict[src, tgt].append(pathdict[src, tgt][0])
+        del pathdict[src, tgt][0]
 
-    for i in range(len(client.loads)):
-        for src, tgt, load in client.loads:
-            if new_pathdict[src, tgt][-1] in pathdict[src, tgt]:
-                pathdict[src, tgt].remove(new_pathdict[src, tgt][-1])
-            if pathdict[src, tgt] != []:
-                max_common_prefix_path = max(pathdict[src, tgt],
-                                             key=lambda x: common_prefix_length(new_pathdict[src, tgt][-1], x))
-                new_pathdict[src, tgt].append(max_common_prefix_path)
+    for src, tgt in pathdict.keys():
+        while pathdict[src,tgt] != []:
+            max_common_prefix_path = max(pathdict[src, tgt],
+                                         key=lambda x: common_prefix_length(new_pathdict[src, tgt][-1], x))
+            if common_prefix_length(new_pathdict[src, tgt][-1], max_common_prefix_path) == 1:
+                max_common_prefix_path = min(pathdict[src, tgt], key=len)
+            new_pathdict[src, tgt].append(max_common_prefix_path)
+            pathdict[src, tgt].remove(new_pathdict[src, tgt][-1])
 
     pathdict = new_pathdict
 
