@@ -157,6 +157,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
+        print(generation)
         # Select parents
         parents = selection(population, capacities, loads)
 
@@ -254,11 +255,10 @@ def normalize(value):
     return normalized_values
 
 
-def normalize_values(congestion, stretch, connectedness):
+def normalize_values(congestion, stretch):
     normalized_congestion = normalize(congestion)
     normalized_stretch = normalize(stretch)
-    normalized_connectedness = normalize(connectedness)
-    return normalized_congestion, normalized_stretch, normalized_connectedness
+    return normalized_congestion, normalized_stretch
 
 
 def calculate_weights(num_paths):
@@ -305,31 +305,16 @@ def calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weigh
             for path, weight in zip(paths, path_weights):
                 stretch += stretch_dict[tuple(path)] * weight
 
-    # Calculate the connectedness component of the fitness
-    connectedness = 0
-    for (source, destination), paths in individual.items():
-        if len(paths) == 1:
-            path_len = len(paths)
-            connectedness += path_len * 0.01
-        else:
-            for path, weight in zip(paths, path_weights):
-                path_len = len(path)
-                connectedness += path_len * 0.01 * weight
-
-    return congestion, stretch, connectedness
+    return congestion, stretch
 
 
-def selection_v2(population, capacities, loads, stretch_dict, congestion_weight, stretch_weight,
-                 connectedness_weight, path_weights):
-    congestion, stretch, connectedness = zip(
-        *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
+def selection_v2(population, capacities, loads, stretch_dict, congestion_weight, stretch_weight, path_weights):
+    congestion, stretch = zip(*[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
           population])
 
-    normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
-                                                                                           connectedness)
+    normalized_congestion, normalized_stretch = normalize_values(congestion, stretch)
 
-    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight +
-                      normalized_connectedness[i] * connectedness_weight for i in range(len(population))]
+    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight for i in range(len(population))]
 
     # Zip the fitness values and the population together
     fitness_population = zip(fitness_values, population)
@@ -365,17 +350,17 @@ def mutate_v2(individual, mutation_rate, viable_paths):
 
 
 def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations,
-                         path_weights, stretch_dict, congestion_weight, stretch_weight,
-                         connectedness_weight):
+                         path_weights, stretch_dict, congestion_weight, stretch_weight):
     # Initialize the population
     population = [{k: random.sample(v, len(v)) for k, v in viable_paths.items()} for i in range(population_size)]
 
     # Run the genetic algorithm
     for generation in range(generations):
+        print(generation)
         # Select parents
         parents = selection_v2(population, capacities, loads, stretch_dict=stretch_dict,
                                congestion_weight=congestion_weight,
-                               stretch_weight=stretch_weight, connectedness_weight=connectedness_weight,
+                               stretch_weight=stretch_weight,
                                path_weights=path_weights)
 
         # Generate the children
@@ -394,11 +379,9 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
         *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
           population])
 
-    normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
-                                                                                           connectedness)
+    normalized_congestion, normalized_stretch = normalize_values(congestion, stretch)
 
-    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight +
-                      normalized_connectedness[i] * connectedness_weight for i in range(len(population))]
+    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight for i in range(len(population))]
 
     # Zip the fitness values and the population together
     fitness_population = zip(fitness_values, population)
@@ -466,8 +449,7 @@ def essence_v2(client):
                                     generations=client.kwargs["generations"],
                                     path_weights=path_weights, stretch_dict=stretch_dict,
                                     congestion_weight=client.kwargs["congestion_weight"],
-                                    stretch_weight=client.kwargs["stretch_weight"],
-                                    connectedness_weight=client.kwargs["connectedness_weight"])
+                                    stretch_weight=client.kwargs["stretch_weight"])
 
     for src, tgt, load in client.loads:
         for path in pathdict[src, tgt]:

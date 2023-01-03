@@ -396,6 +396,7 @@ if __name__ == "__main__":
     p.add_argument("--verbose", action="store_true", help="Remove verbosity")
     p.add_argument("--take_percent", type=float, default=0.20, help="What percentage of biggest flows to take")
     p.add_argument("--print_fails", action="store_true", help="Print failed traces")
+    p.add_argument("--abtest", action="store_true", help="Do ab testing :D")
 
     args = p.parse_args()
 

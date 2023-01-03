@@ -124,6 +124,7 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
                     f"_uw={congestion_weight}" if congestion_weight is not None else "") + (
                     f"_sw={stretch_weight}" if stretch_weight is not None else "") + (
                     f"_cw={connectedness_weight}" if connectedness_weight is not None else "")
+    print(conf_name)
     base_config = {
         # we need extra configuration here!!!!
         "topology": topofile,
