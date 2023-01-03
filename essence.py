@@ -375,7 +375,7 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
         # Replace the population with the children
         population = children
 
-    congestion, stretch, connectedness = zip(
+    congestion, stretch = zip(
         *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
           population])
 
