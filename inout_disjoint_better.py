@@ -236,9 +236,18 @@ def benjamins_heuristic(client):
         nodepaths = linktonode(kpaths(paths,1,G,(src,tgt,load),k))
         pathdict[src,tgt] = nodepaths
 
+    path_indices = {}
     for src, tgt, load in client.loads:
-        for path in pathdict[src, tgt]:
-            yield ((src, tgt), path)
+        path_indices[src, tgt] = 0
+        yield ((src, tgt), pathdict[src, tgt][0])
+
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            path_index = path_indices[src, tgt]
+            if path_index >= len(pathdict[src, tgt]):
+                continue
+            path_indices[src, tgt] += 1
+            yield ((src, tgt), pathdict[src, tgt][path_index])
 
 # Insert lowest utility path first in semi disjoint paths
 def lowestutilitypathinsert(client, pathdict):
@@ -291,8 +300,7 @@ def find_unused_paths(paths, G, src, tgt):
     return paths_to_add
 
 
-def congestion_lp(graph, capacities, demands,
-                  max_stretch):  # Inputs networkx directed graph, dict of capacities, dict of demands
+def congestion_lp(graph, capacities, demands):  # Inputs networkx directed graph, dict of capacities, dict of demands
     def demand(i, d):
         if demands[d][0] == i:  # source
             return 1
@@ -332,12 +340,6 @@ def congestion_lp(graph, capacities, demands,
     # l = {(i, j): solver.NumVar(0, solver.infinity(), "load:{}->{}".format(i, j)) for (i, j) in graph.edges}
 
     func = {(i, j): solver.NumVar(0, solver.infinity(), "func:{}->{}".format(i, j)) for (i, j) in graph.edges}
-
-    # max stretch constraint
-    for d in range(len(demands)):
-        src, tgt, load = demands[d]
-        max_hops = math.floor(len(shortest_path(graph, src, tgt)) - 1) * max_stretch
-        solver.Add(sum(f[i, j, d] for (i, j) in graph.edges) <= max_hops)
 
     for (i, j) in graph.edges:
         solver.Add(func[i, j] >= (sum(demands[d][2] * f[i, j, d] for d in range(len(demands)))))
@@ -414,7 +416,7 @@ def nielsens_heuristic(client):
             graph[edge[0]][edge[1]]["weight"] = 1
 
     # pathdict = dict()
-    pathdict = congestion_lp(G, client.link_caps, client.loads, client.kwargs['max_stretch'])
+    pathdict = congestion_lp(G, client.link_caps, client.loads)
 
     #for src, tgt, load in client.loads:
     #   pathdict[(src,tgt,load)] = []
@@ -453,11 +455,19 @@ def nielsens_heuristic(client):
     '''
 
     pathdict = prefixsort(pathdict)
-    pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
-    for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
-        for path in pathdict[src, tgt]:
-            yield ((src, tgt), path)
+    path_indices = {}
+    for src, tgt, load in client.loads:
+        path_indices[src, tgt] = 0
+        yield ((src, tgt), pathdict[src, tgt][0])
+
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            path_index = path_indices[src, tgt]
+            if path_index >= len(pathdict[src, tgt]):
+                continue
+            path_indices[src, tgt] += 1
+            yield ((src, tgt), pathdict[src, tgt][path_index])
 
 
 class InOutDisjoint(MPLS_Client):

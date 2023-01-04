@@ -63,7 +63,7 @@ def main(conf):
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
 
     #Sort the flows
-    flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[:100]#[:math.ceil(len(flows_with_load) * conf["take_percent"])]
+    flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[:math.ceil(len(flows_with_load) * conf["take_percent"])]
     conf["loads"] = flows_with_load
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]

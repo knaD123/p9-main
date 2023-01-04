@@ -40,6 +40,21 @@ def fortz_func(u):
     else:
         return u * 5000 - 5435.41333
 
+def elitism(population, elite_percent, capacities, loads):
+  # Sort the population by fitness in descending order
+  population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+
+  # Calculate the number of solutions to select
+  elite_size = int(len(population) * elite_percent)
+
+  # get the elite
+  elite = population[:elite_size]
+
+  # Replace the worst solutions with the elite solutions
+  population[-len(elite):] = elite
+
+  return population
+
 
 def selection(population, capacities, loads):
     # Sort the population by fitness
@@ -151,12 +166,13 @@ def mutate(individual, mutation_rate, viable_paths):
     return individual
 
 
-def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations):
+def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations, elite_percent):
     # Initialize the population
     population = [{k: random.choice(v) for k, v in viable_paths.items()} for i in range(population_size)]
 
     # Run the genetic algorithm
     for generation in range(generations):
+        print(generation)
         # Select parents
         parents = selection(population, capacities, loads)
 
@@ -174,6 +190,9 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
             child2 = mutate(child2, mutation_rate, viable_paths)
             children.extend([child1, child2])
 
+        # Replace the worst solutions in the children with the elite solutions
+        children = elitism(children, elite_percent, capacities, loads)
+
         # Replace the population with the children
         population = children
 
@@ -182,6 +201,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Return the fittest individual
     return population[0]
+
 
 
 def remove_duplicates(lst):
@@ -232,7 +252,7 @@ def essence(client):
                                       population_size=client.kwargs["population"],
                                       crossover_rate=client.kwargs["crossover"],
                                       mutation_rate=client.kwargs["mutation"], loads=loads,
-                                      generations=client.kwargs["generations"])
+                                      generations=client.kwargs["generations"], elite_percent=0.2)
 
     for (src, tgt) in genetic_paths:
         pathdict[src, tgt].remove(genetic_paths[src, tgt])
@@ -242,11 +262,19 @@ def essence(client):
     #    pathdict[src, tgt] = remove_duplicates(pathdict[src, tgt])
 
     pathdict = prefixsort(pathdict)
-    # pathdict = max_hops(client.kwargs["max_stretch"], pathdict, client, G)
 
+    path_indices = {}
     for src, tgt, load in client.loads:
-        for path in pathdict[src, tgt]:
-            yield ((src, tgt), path)
+        path_indices[src, tgt] = 0
+        yield ((src, tgt), pathdict[src, tgt][0])
+
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            path_index = path_indices[src, tgt]
+            if path_index >= len(pathdict[src, tgt]):
+                continue
+            path_indices[src, tgt] += 1
+            yield ((src, tgt), pathdict[src, tgt][path_index])
 
 
 def normalize(value):
@@ -471,9 +499,18 @@ def essence_v2(client):
                                     stretch_weight=client.kwargs["stretch_weight"],
                                     connectedness_weight=client.kwargs["connectedness_weight"])
 
+    path_indices = {}
     for src, tgt, load in client.loads:
-        for path in pathdict[src, tgt]:
-            yield ((src, tgt), path)
+        path_indices[src, tgt] = 0
+        yield ((src, tgt), pathdict[src, tgt][0])
+
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            path_index = path_indices[src, tgt]
+            if path_index >= len(pathdict[src, tgt]):
+                continue
+            path_indices[src, tgt] += 1
+            yield ((src, tgt), pathdict[src, tgt][path_index])
 
     # for i in range(client.mem_limit_per_router_per_flow):
     #    for src, tgt, load in client.loads:
