@@ -128,7 +128,6 @@ def kpaths(paths, k, graph, demand, extrasteps = 0):
         tempList2 = []
         for link in path:
             paffa = tempList.copy()
-            print(tempList2)
             tempList.append(link)
             tempList2.append(link)
             tempList2.append((link[1],link[0]))
@@ -151,6 +150,22 @@ def kpaths(paths, k, graph, demand, extrasteps = 0):
 
 
     return extrapoPaths
+
+def linktonode(paths):
+    pucks = []
+    for path in paths:
+
+        puck = []
+        for link in path:
+            if puck == []:
+                puck.append(link[0])
+            puck.append(link[1])
+        pucks.append(puck)
+
+    return pucks
+
+
+
 
 #todo: fix paranthesis values such that they don't affect the first path
 def printtestvalues(test, demand, grapher):
@@ -185,9 +200,10 @@ if __name__ == '__main__':
     test2 =pathfind(demands[1], G, 0)
 
     trial = kpaths(test,2,G,demands[0],5)
-    print(demands[0])
-    print(trial)
-    print(test)
 
-    #printtestvalues(test, demands[0], G)
-    #printtestvalues(test2, demands[1], G)
+    print(linktonode(trial))
+
+
+   # for demand in Demands:
+    #    paths = pathfind(demand, graph, extrahops)
+     #   fullpaths = kpaths(paths, k, graph, demand, extrahops)
