@@ -17,7 +17,12 @@ numbers = [100, 250, 500, 1000]
 crossover = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
 mutation = [0.01,0.03,0.05,0.1,0.2,0.3,0.4]
 
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c={c}_m={m}_g={k}" for i in range(50) for j in numbers for k in numbers for c in crossover for m in mutation})
+for i in range(10):
+    for j in numbers:
+        for k in numbers:
+            for c in crossover:
+                for m in mutation:
+                    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
 
 for i in range(10):
     for j in numbers:
