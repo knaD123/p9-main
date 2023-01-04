@@ -20,6 +20,7 @@ from typing import Dict, Tuple, List, Callable
 from essence import *
 from heuristics.inverse_cap import inverse_cap
 from heuristics.placeholder import placeholder
+from benj_heuristic import *
 
 def label(ingress, egress, path_index: int):
     return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
@@ -218,58 +219,26 @@ def benjamins_heuristic(client):
     k = client.kwargs["extra_hops"]
 
     G = client.router.network.topology
+    nx.set_node_attributes(G, 0, "jumpsfromtarget")
+
+    nx.set_edge_attributes(G, 0, "usage")
+
     for (src, tgt), cap in client.link_caps.items():
         G[src][tgt]["weight"] = cap
 
-    demands, grapher = initializenetwork(G, sorted(client.loads, key=lambda x: x[2], reverse=True))
-    demand_to_paths = dict()
+    pathdict = dict()
 
-    def benja_path_to_juan_path(benja_path, src):
-        juan_path = []
+    for src, tgt, load in client.loads:
+        pathdict[(src, tgt)] = []
 
-        # Add first node
-        first_link = benja_path[0]
-        node1 = first_link.node1.identity
-        node2 = first_link.node2.identity
+    for src, tgt, load in client.loads:
+        paths = pathfind((src,tgt,load), G, k)
+        nodepaths = linktonode(kpaths(paths,1,G,(src,tgt,load),k))
+        pathdict[src,tgt] = nodepaths
 
-        if node1 == src:
-            juan_path.append(node1)
-        elif node2 == src:
-            juan_path.append(node2)
-        else:
-            raise Exception()
-
-        for link in benja_path:
-            node1 = link.node1.identity
-            node2 = link.node2.identity
-            if juan_path[-1] == node1:
-                juan_path.append(node2)
-            elif juan_path[-1] == node2:
-                juan_path.append(node1)
-            else:
-                raise Exception()
-
-        return juan_path
-
-    for d in demands:
-        paths = pathfind(d, grapher, k)
-        demand_to_paths[(d.source.identity, d.target.identity)] = [benja_path_to_juan_path(x, d.source.identity) for x
-                                                                   in paths]
-
-    demand_num = len(demand_to_paths.items())
-    i = 0
-    for (src, tgt), paths in cycle(demand_to_paths.items()):
-        if len(paths) > 0:
-            i = 0
-            path = paths[0]
-            paths.remove(path)
+    for src, tgt, load in client.loads:
+        for path in pathdict[src, tgt]:
             yield ((src, tgt), path)
-        else:
-            i += 1
-        # If all paths have been yielded
-        if i == demand_num:
-            break
-
 
 # Insert lowest utility path first in semi disjoint paths
 def lowestutilitypathinsert(client, pathdict):
