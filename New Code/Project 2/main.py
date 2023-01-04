@@ -6,8 +6,22 @@ import networkx as nx
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 #consider thinking about this as a lambda function for your framework type of thing
-def valuation(demand, link, G):
-    return ((demand[2] + G.edges[link[0],link[1]]['usage'])/G.edges[link[0],link[1]]['cap'])
+def valuation(demand, G, paths):
+    value = None
+    bestpath = []
+    tempRemoved = []
+
+    for path in paths:
+        tempvalue = 0
+        for link in path:
+            tempvalue += ((demand[2] + G.edges[link[0],link[1]]['usage'])/G.edges[link[0],link[1]]['cap'])
+
+        if value == None or tempvalue < value:
+            tempRemoved = path.copy()
+            bestpath = path
+            value = tempvalue
+
+    return bestpath, tempRemoved
 
 def initializenetwork():
     G = nx.DiGraph()
@@ -47,18 +61,7 @@ def pathfind(demand, grapher, extrasteps = 0):
         grapher.nodes[node]["jumpsfromtarget"] = 0
 
     while paths != []:
-        value = None
-        bestpath = None
-
-        for path in paths:
-            tempvalue = 0
-            for link in path:
-                tempvalue += valuation(demand, link, grapher)
-
-            if value == None or tempvalue < value:
-                tempRemoved = path.copy()
-                bestpath = path
-                value = tempvalue
+        bestpath, tempRemoved =valuation(demand, grapher, paths)
 
         removedPath += tempRemoved
         bestpaths.append(bestpath.copy())
@@ -67,6 +70,7 @@ def pathfind(demand, grapher, extrasteps = 0):
         paths = pathfindrecursion(demand[0], demand[1], grapher, extrasteps, removedPath)
         for node in grapher:
             grapher.nodes[node]['jumpsfromtarget'] = 0
+
 
     for link in bestpaths[0]:
         grapher.edges[link[0], link[1]]['usage'] += demand[2]
@@ -111,6 +115,43 @@ def pathfindrecursion(source, target, graph, i=0, removedlinks =[], removednodes
 
     return paths
 
+#make sure no identical backup paths are made
+def kpaths(paths, k, graph, demand, extrasteps = 0):
+
+    extrapoPaths =[]
+    srilist = []
+    srilist.append(demand[1])
+
+    for path in paths:
+        extrapoPaths.append(path)
+        tempList = []
+        tempList2 = []
+        for link in path:
+            paffa = tempList.copy()
+            print(tempList2)
+            tempList.append(link)
+            tempList2.append(link)
+            tempList2.append((link[1],link[0]))
+            i =0
+            while i <k:
+                kaffa = paffa.copy()
+                i +=1
+                shortestrouteindex2(link[0], demand[1], graph, srilist, tempList2)
+                p = pathfindrecursion(link[0], demand[1], graph, extrasteps, tempList2)
+                for node in graph:
+                    graph.nodes[node]['jumpsfromtarget'] = 0
+
+                tu, ti = valuation(demand, graph, p)
+
+                if tu != []:
+                    kaffa += tu
+                    if kaffa not in extrapoPaths and kaffa not in paths:
+                        extrapoPaths.append(kaffa)
+
+
+
+    return extrapoPaths
+
 #todo: fix paranthesis values such that they don't affect the first path
 def printtestvalues(test, demand, grapher):
     counter = 0
@@ -140,19 +181,13 @@ def printtestvalues(test, demand, grapher):
 if __name__ == '__main__':
     demands, G = initializenetwork()
 
-    test = pathfind(demands[0], G, 0)
+    test = pathfind(demands[0], G, 5)
     test2 =pathfind(demands[1], G, 0)
 
-    printtestvalues(test, demands[0], G)
-    printtestvalues(test2, demands[1], G)
+    trial = kpaths(test,2,G,demands[0],5)
+    print(demands[0])
+    print(trial)
+    print(test)
 
-    #[[(1, 2), (2, 5), (5, 9), (9, 12)], [(1, 3), (3, 5), (5, 9), (9, 12)],---- [(1, 3), (3, 7), (7, 10), (10, 12)]]
-    #[[(1, 3), (3, 7), (7, 10), (10, 12)]]
-
-    #[[(7, 3)]]
-    #[[(7, 5), (5, 3)]]
-
-    #[[(7, 8), (8, 9), (9, 5), (5, 2), (2, 1), (1, 3)], [(7, 10), (10, 9), (9, 5), (5, 2), (2, 1), (1, 3)]]
-    #[]
-    #[[(1, 2), (2, 5), (5, 9), (9, 12)], [(1, 3), (3, 5), (5, 9), (9, 12)]]
-    #[]
+    #printtestvalues(test, demands[0], G)
+    #printtestvalues(test2, demands[1], G)
