@@ -14,11 +14,22 @@ alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heurist
 alg_to_name.update({f"inout-disjoint-old_max-mem={i}": f"FBR({i}) OLD" for i in range(50)})
 
 numbers = [100, 250, 500, 1000]
+crossover = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
+mutation = [0.01,0.03,0.05,0.1,0.2,0.3,0.4]
 
-for i in range(100):
+for i in range(10):
     for j in numbers:
         for k in numbers:
-            alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c=0.7_m=0.1_g={k}"] = f"FBR({i}) p:{j} g:{k} essence"
+            for c in crossover:
+                for m in mutation:
+                    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
+
+for i in range(10):
+    for j in numbers:
+        for k in numbers:
+            for c in crossover:
+                for m in mutation:
+                    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c={c}_m={m}_g={k}"] = f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"
 
 for i in range(100):
     alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths"] = f"FBR({i}) SD"
@@ -58,14 +69,140 @@ variable_to_label["util_exp_score_4"] = "Exponential congestion 4^u"
 # Plot options generator
 line_options = [
     "mark=none, color=orange, loosely dashed, thick",
+    "mark=none, color=orange, densely dashed, thick",
+    "mark=none, color=orange, solid, thick",
+    "mark=none, color=orange, dash dot, thick",
+    "mark=none, color=orange, dotted, thick",
+    "mark=none, color=magenta, loosely dashed, thick",
+    "mark=none, color=magenta, densely dashed, thick",
     "mark=none, color=magenta, solid, thick",
+    "mark=none, color=magenta, dash dot, thick",
+    "mark=none, color=magenta, dotted, thick",
+    "mark=none, color=red, loosely dashed, thick",
+    "mark=none, color=red, densely dashed, thick",
     "mark=none, color=red, solid, thick",
+    "mark=none, color=red, dash dot, thick",
+    "mark=none, color=red, dotted, thick",
+    "mark=none, color=gray, loosely dashed, thick",
     "mark=none, color=gray, densely dashed, thick",
+    "mark=none, color=gray, solid, thick",
+    "mark=none, color=gray, dash dot, thick",
+    "mark=none, color=gray, dotted, thick",
+    "mark=none, color=green, loosely dashed, thick",
+    "mark=none, color=green, densely dashed, thick",
+    "mark=none, color=green, solid, thick",
+    "mark=none, color=green, dash dot, thick",
     "mark=none, color=green, dotted, thick",
+    "mark=none, color=blue, loosely dashed, thick",
+    "mark=none, color=blue, densely dashed, thick",
+    "mark=none, color=blue, solid, thick",
     "mark=none, color=blue, dashed, thick",
+    "mark=none, color=blue, dotted, thick",
+    "mark=none, color=black, loosely dashed, thick",
+    "mark=none, color=black, densely dashed, thick",
+    "mark=none, color=black, solid, thick",
     "mark=none, color=black, dash dot, thick",
+    "mark=none, color=black, dotted, thick",
+    "mark=none, color=yellow, loosely dashed, thick",
+    "mark=none, color=yellow, densely dashed, thick",
+    "mark=none, color=yellow, solid, thick",
     "mark=none, color=yellow, dash dot, thick",
+    "mark=none, color=yellow, dotted, thick",
+    "mark=none, color=purple, loosely dashed, thick"
+    "mark=none, color=purple, densely dashed, thick"
+    "mark=none, color=purple, solid, thick"
     "mark=none, color=purple, dash dot, thick"
+    "mark=none, color=purple, dotted, thick"
+    "mark=none, color=orange, loosely dashed, thick",
+    "mark=none, color=orange, densely dashed, thick",
+    "mark=none, color=orange, solid, thick",
+    "mark=none, color=orange, dash dot, thick",
+    "mark=none, color=orange, dotted, thick",
+    "mark=none, color=magenta, loosely dashed, thick",
+    "mark=none, color=magenta, densely dashed, thick",
+    "mark=none, color=magenta, solid, thick",
+    "mark=none, color=magenta, dash dot, thick",
+    "mark=none, color=magenta, dotted, thick",
+    "mark=none, color=red, loosely dashed, thick",
+    "mark=none, color=red, densely dashed, thick",
+    "mark=none, color=red, solid, thick",
+    "mark=none, color=red, dash dot, thick",
+    "mark=none, color=red, dotted, thick",
+    "mark=none, color=gray, loosely dashed, thick",
+    "mark=none, color=gray, densely dashed, thick",
+    "mark=none, color=gray, solid, thick",
+    "mark=none, color=gray, dash dot, thick",
+    "mark=none, color=gray, dotted, thick",
+    "mark=none, color=green, loosely dashed, thick",
+    "mark=none, color=green, densely dashed, thick",
+    "mark=none, color=green, solid, thick",
+    "mark=none, color=green, dash dot, thick",
+    "mark=none, color=green, dotted, thick",
+    "mark=none, color=blue, loosely dashed, thick",
+    "mark=none, color=blue, densely dashed, thick",
+    "mark=none, color=blue, solid, thick",
+    "mark=none, color=blue, dashed, thick",
+    "mark=none, color=blue, dotted, thick",
+    "mark=none, color=black, loosely dashed, thick",
+    "mark=none, color=black, densely dashed, thick",
+    "mark=none, color=black, solid, thick",
+    "mark=none, color=black, dash dot, thick",
+    "mark=none, color=black, dotted, thick",
+    "mark=none, color=yellow, loosely dashed, thick",
+    "mark=none, color=yellow, densely dashed, thick",
+    "mark=none, color=yellow, solid, thick",
+    "mark=none, color=yellow, dash dot, thick",
+    "mark=none, color=yellow, dotted, thick",
+    "mark=none, color=purple, loosely dashed, thick"
+    "mark=none, color=purple, densely dashed, thick"
+    "mark=none, color=purple, solid, thick"
+    "mark=none, color=purple, dash dot, thick"
+    "mark=none, color=purple, dotted, thick"
+    "mark=none, color=orange, loosely dashed, thick",
+    "mark=none, color=orange, densely dashed, thick",
+    "mark=none, color=orange, solid, thick",
+    "mark=none, color=orange, dash dot, thick",
+    "mark=none, color=orange, dotted, thick",
+    "mark=none, color=magenta, loosely dashed, thick",
+    "mark=none, color=magenta, densely dashed, thick",
+    "mark=none, color=magenta, solid, thick",
+    "mark=none, color=magenta, dash dot, thick",
+    "mark=none, color=magenta, dotted, thick",
+    "mark=none, color=red, loosely dashed, thick",
+    "mark=none, color=red, densely dashed, thick",
+    "mark=none, color=red, solid, thick",
+    "mark=none, color=red, dash dot, thick",
+    "mark=none, color=red, dotted, thick",
+    "mark=none, color=gray, loosely dashed, thick",
+    "mark=none, color=gray, densely dashed, thick",
+    "mark=none, color=gray, solid, thick",
+    "mark=none, color=gray, dash dot, thick",
+    "mark=none, color=gray, dotted, thick",
+    "mark=none, color=green, loosely dashed, thick",
+    "mark=none, color=green, densely dashed, thick",
+    "mark=none, color=green, solid, thick",
+    "mark=none, color=green, dash dot, thick",
+    "mark=none, color=green, dotted, thick",
+    "mark=none, color=blue, loosely dashed, thick",
+    "mark=none, color=blue, densely dashed, thick",
+    "mark=none, color=blue, solid, thick",
+    "mark=none, color=blue, dashed, thick",
+    "mark=none, color=blue, dotted, thick",
+    "mark=none, color=black, loosely dashed, thick",
+    "mark=none, color=black, densely dashed, thick",
+    "mark=none, color=black, solid, thick",
+    "mark=none, color=black, dash dot, thick",
+    "mark=none, color=black, dotted, thick",
+    "mark=none, color=yellow, loosely dashed, thick",
+    "mark=none, color=yellow, densely dashed, thick",
+    "mark=none, color=yellow, solid, thick",
+    "mark=none, color=yellow, dash dot, thick",
+    "mark=none, color=yellow, dotted, thick",
+    "mark=none, color=purple, loosely dashed, thick"
+    "mark=none, color=purple, densely dashed, thick"
+    "mark=none, color=purple, solid, thick"
+    "mark=none, color=purple, dash dot, thick"
+    "mark=none, color=purple, dotted, thick"
 ]
 
 axis_option = {
