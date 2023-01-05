@@ -24,14 +24,14 @@ for i in range(10):
         for k in generations:
             for c in crossover:
                 for m in mutation:
-                    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
+                    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
 
 for i in range(10):
     for j in population:
         for k in generations:
             for c in crossover:
                 for m in mutation:
-                    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_max_s=10000_p={j}_c={c}_m={m}_g={k}"] = f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"
+                    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}"] = f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"
 
 for i in range(100):
     alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths"] = f"FBR({i}) SD"
