@@ -13,7 +13,7 @@ import os
 from ortools.linear_solver import pywraplp
 import random
 from itertools import islice, cycle
-
+import itertools
 from ForwardingTable import ForwardingTable
 from typing import Dict, Tuple, List, Callable
 
@@ -39,22 +39,6 @@ def fortz_func(u):
         return u * 500 - 485.41333
     else:
         return u * 5000 - 5435.41333
-
-def elitism(population, elite_percent, capacities, loads):
-  # Sort the population by fitness in descending order
-  population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
-
-  # Calculate the number of solutions to select
-  elite_size = int(len(population) * elite_percent)
-
-  # get the elite
-  elite = population[:elite_size]
-
-  # Replace the worst solutions with the elite solutions
-  population[-len(elite):] = elite
-
-  return population
-
 
 def selection(population, capacities, loads):
     # Sort the population by fitness
@@ -172,7 +156,6 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
-        print(generation)
         # Select parents
         parents = selection(population, capacities, loads)
 
@@ -190,11 +173,10 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
             child2 = mutate(child2, mutation_rate, viable_paths)
             children.extend([child1, child2])
 
-        # Replace the worst solutions in the children with the elite solutions
-        children = elitism(children, elite_percent, capacities, loads)
-
         # Replace the population with the children
         population = children
+
+        #population[-len(elite):] = elite
 
     # Sort the population by fitness
     population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
@@ -402,6 +384,7 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
 
     # Run the genetic algorithm
     for generation in range(generations):
+        print(generation)
         # Select parents
         parents = selection_v2(population, capacities, loads, stretch_dict=stretch_dict,
                                congestion_weight=congestion_weight,
