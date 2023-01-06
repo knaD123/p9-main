@@ -295,9 +295,9 @@ def simulation(network, failed_set, flows: List[Tuple[str, str, int]], link_caps
     median_cong = median(util_dict_rel.values())
     max_cong = max(util_dict_rel.values())
 
-    util_poly_score = sum([link_caps[link] * util_poly(u) for (link, u) in util_dict_rel.items()])
-    util_exp_score_2 = sum([link_caps[link] * util_exp_2(u) for (link, u) in util_dict_rel.items()])
-    util_exp_score_4 = sum([link_caps[link] * util_exp_4(u) for (link, u) in util_dict_rel.items()])
+    util_poly_score = sum([util_poly(u) for (link, u) in util_dict_rel.items()])
+    util_exp_score_2 = sum([util_exp_2(u) for (link, u) in util_dict_rel.items()])
+    util_exp_score_4 = sum([util_exp_4(u) for (link, u) in util_dict_rel.items()])
 
     res_dir["failed_links"] = F
     res_dir["failed_links#"] = len(F)
