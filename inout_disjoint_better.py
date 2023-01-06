@@ -150,17 +150,35 @@ def semi_disjoint_paths(client):
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
         for edge in graph.edges:
-            graph[edge[0]][edge[1]]["weight"] = 1
+            graph[edge[0]][edge[1]]["weight"] = 0
 
-    while True:
-        for src, tgt, load in sorted(client.loads, key=lambda x: x[2], reverse=True):
+    for src, tgt, load in client.loads:
+        unique_paths = []
+        while True:
             path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
             for v1, v2 in zip(path[:-1], path[1:]):
                 w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
                 w = w * 2 + 1
                 flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
-            yield ((src, tgt), path)
+            pathdict[(src, tgt)].append(path)
+            if path not in unique_paths:
+                unique_paths.append(path)
+            if len(unique_paths) == client.mem_limit_per_router_per_flow or pathdict[(src, tgt)].count(path) == 3:
+                pathdict[(src, tgt)] = unique_paths
+                break
 
+    path_indices = {}
+    for src, tgt, load in client.loads:
+        path_indices[src, tgt] = 0
+        yield ((src, tgt), pathdict[src, tgt][0])
+
+    for i in range(client.mem_limit_per_router_per_flow):
+        for src, tgt, load in client.loads:
+            path_index = path_indices[src, tgt]
+            if path_index >= len(pathdict[src, tgt]):
+                continue
+            path_indices[src, tgt] += 1
+            yield ((src, tgt), pathdict[src, tgt][path_index])
 
 def greedy_min_congestion(client):
     G = client.router.network.topology.to_directed()
