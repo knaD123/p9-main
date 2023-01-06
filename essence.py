@@ -50,14 +50,55 @@ def selection(population, capacities, loads):
 
     return parents
 
+def class_selection(population, capacities, loads):
+    # Sort the population by fitness
+    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
 
-def tournament_selection(population, capacities, loads, tournament_size=10):
+    # Select the top 50% of the population as parents
+    a_class = population[:int(len(population) * 0.2)]
+    b_class = population[int(len(population) * 0.2):int(len(population) * 0.9)]
+    c_class = population[int(len(population) * 0.9):]
+
+    return a_class, b_class, c_class
+
+def roulette_selection(population, normalized_fitness):
+    # Generate a random number between 0 and 1
+    rand = random.random()
+
+    # Find the individual corresponding to the random number
+    current_sum = 0
+    for i, individual in enumerate(population):
+        current_sum += normalized_fitness[i]
+        if current_sum > rand:
+            return individual
+
+def tournament_selection(population, capacities, loads, tournament_size=4):
     # Randomly select a subset of individuals from the population
     tournament = random.sample(population, tournament_size)
 
     # Select the fittest individual from the subset
     fittest = max(tournament, key=lambda x: calculate_fitness(x, capacities, loads))
     return fittest
+
+def uniform_crossover(parent1, parent2, crossover_probability):
+    if random.random() > crossover_probability:
+        return parent1, parent2
+
+    child1 = dict()
+    child2 = dict()
+
+    for (src,tgt) in parent1:
+        if random.random() < 0.5:
+            child1[src,tgt] = parent1[src,tgt]
+        else:
+            child1[src,tgt] = parent2[src,tgt]
+
+        if random.random() < 0.5:
+            child2[src,tgt] = parent1[src,tgt]
+        else:
+            child2[src,tgt] = parent2[src,tgt]
+
+    return child1, child2
 
 
 def two_point_crossover(individual1, individual2, crossover_probability):
@@ -137,7 +178,7 @@ def mutate(individual, mutation_rate, viable_paths):
     # Determine if the individual should be mutated
     if random.random() > mutation_rate:
         return individual
-
+    x = individual
     # Choose a random source-destination pair to mutate
     source, destination = random.choice(list(individual.keys()))
 
@@ -156,18 +197,33 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
+        print(generation)
         # Select parents
-        parents = selection(population, capacities, loads)
+        #parents = selection(population, capacities, loads)
+
+        a_class, b_class, c_class = class_selection(population, capacities, loads)
+
+        '''
+        # Calculate the fitness of each individual
+        fitness_values = [calculate_fitness(individual, capacities, loads) for individual in population]
+
+        # Normalize the fitness values
+        min_fitness = min(fitness_values)
+        normalized_fitness = [f - min_fitness for f in fitness_values]
+        total_fitness = sum(normalized_fitness)
+        normalized_fitness = [f / total_fitness for f in normalized_fitness]
 
         # Select parents using tournament selection
-        # parents = []
-        # while len(parents) < int(population_size / 2):
-        #    parents.append(tournament_selection(population,capacities,loads))
-
+        parents = []
+        while len(parents) < int(population_size / 2):
+           parents.append(roulette_selection(population, normalized_fitness))
+        '''
         # Generate the children
-        children = []
+        children = a_class
         while len(children) < population_size:
-            parent1, parent2 = random.sample(parents, 2)
+            #parent1, parent2 = random.sample(parents, 2)
+            parent1 = random.choice(a_class)
+            parent2 = random.choice(b_class + c_class)
             child1, child2 = two_point_crossover(parent1, parent2, crossover_rate)
             child1 = mutate(child1, mutation_rate, viable_paths)
             child2 = mutate(child2, mutation_rate, viable_paths)
