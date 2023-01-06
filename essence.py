@@ -256,7 +256,7 @@ def essence(client):
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
         for src, tgt in graph.edges:
-            graph[src][tgt]["weight"] = 0  # 1000 / client.link_caps[src, tgt]
+            graph[src][tgt]["weight"] = 1 / client.link_caps[src, tgt]
 
     pathdict = dict()
     loads = dict()
@@ -268,21 +268,18 @@ def essence(client):
     # for src,tgt in G.edges:
     #    G[src][tgt]["weight"] = 1
 
-    # for src, tgt, load in client.loads:
-    #    pathdict[(src,tgt)] = list(islice(shortest_simple_paths(G, src, tgt, weight='weight'), client.mem_limit_per_router_per_flow))
-
     for src, tgt, load in client.loads:
         unique_paths = []
         while True:
             path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
             for v1, v2 in zip(path[:-1], path[1:]):
                 w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
-                w = w * 2 + 1
+                w = w * 2 #+ 1
                 flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
             pathdict[(src, tgt)].append(path)
             if path not in unique_paths:
                 unique_paths.append(path)
-            if pathdict[(src, tgt)].count(path) == 3 or len(unique_paths) == client.mem_limit_per_router_per_flow:
+            if len(unique_paths) == client.mem_limit_per_router_per_flow or pathdict[(src, tgt)].count(path) == 3:
                 pathdict[(src, tgt)] = unique_paths
                 break
 
