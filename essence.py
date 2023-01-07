@@ -103,7 +103,7 @@ def mutate(individual, mutation_rate, viable_paths):
     # Determine if the individual should be mutated
     if random.random() > mutation_rate:
         return individual
-    x = individual
+
     # Choose a random source-destination pair to mutate
     source, destination = random.choice(list(individual.keys()))
 
@@ -114,7 +114,6 @@ def mutate(individual, mutation_rate, viable_paths):
     individual[(source, destination)] = new_path
 
     return individual
-
 
 def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations, elite_percent):
     # Initialize the population
@@ -128,7 +127,6 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
         # Generate the children
         children = a_class
         while len(children) < population_size:
-            #parent1, parent2 = random.sample(parents, 2)
             parent1 = random.choice(a_class)
             parent2 = random.choice(b_class + c_class)
             child1, child2 = two_point_crossover(parent1, parent2, crossover_rate)
@@ -139,15 +137,11 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
         # Replace the population with the children
         population = children
 
-        #population[-len(elite):] = elite
-
     # Sort the population by fitness
     population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
 
     # Return the fittest individual
     return population[0]
-
-
 
 def remove_duplicates(lst):
     # Create a new list with the unique elements
