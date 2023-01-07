@@ -1,3 +1,4 @@
+from random import shuffle
 from os.path import isdir, join
 import os
 from os import listdir
@@ -243,6 +244,7 @@ def tex_string(variable, data_points, args, topologies):
     output += rf"\legend{{{', '.join(legend_order)}}}"
 
     # Add each line
+    shuffle(line_options)
     line_options_gen = (x for x in line_options)
     alphabetical_order = sorted(data_points.keys(), key=lambda x: alg_to_name.get(x, "null"))
     for alg in alphabetical_order:
