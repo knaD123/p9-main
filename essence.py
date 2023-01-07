@@ -40,16 +40,6 @@ def fortz_func(u):
     else:
         return u * 5000 - 5435.41333
 
-def selection(population, capacities, loads):
-    # Sort the population by fitness
-    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
-
-    # Select the top 50% of the population as parents
-    num_parents = int(len(population) * 0.5)
-    parents = population[:num_parents]
-
-    return parents
-
 def class_selection(population, capacities, loads):
     # Sort the population by fitness
     population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
@@ -60,46 +50,6 @@ def class_selection(population, capacities, loads):
     c_class = population[int(len(population) * 0.9):]
 
     return a_class, b_class, c_class
-
-def roulette_selection(population, normalized_fitness):
-    # Generate a random number between 0 and 1
-    rand = random.random()
-
-    # Find the individual corresponding to the random number
-    current_sum = 0
-    for i, individual in enumerate(population):
-        current_sum += normalized_fitness[i]
-        if current_sum > rand:
-            return individual
-
-def tournament_selection(population, capacities, loads, tournament_size=4):
-    # Randomly select a subset of individuals from the population
-    tournament = random.sample(population, tournament_size)
-
-    # Select the fittest individual from the subset
-    fittest = max(tournament, key=lambda x: calculate_fitness(x, capacities, loads))
-    return fittest
-
-def uniform_crossover(parent1, parent2, crossover_probability):
-    if random.random() > crossover_probability:
-        return parent1, parent2
-
-    child1 = dict()
-    child2 = dict()
-
-    for (src,tgt) in parent1:
-        if random.random() < 0.5:
-            child1[src,tgt] = parent1[src,tgt]
-        else:
-            child1[src,tgt] = parent2[src,tgt]
-
-        if random.random() < 0.5:
-            child2[src,tgt] = parent1[src,tgt]
-        else:
-            child2[src,tgt] = parent2[src,tgt]
-
-    return child1, child2
-
 
 def two_point_crossover(individual1, individual2, crossover_probability):
     # Check if crossover should happen
@@ -127,31 +77,6 @@ def two_point_crossover(individual1, individual2, crossover_probability):
         i += 1
 
     return offspring1, offspring2
-
-
-def one_point_crossover(individual1, individual2, crossover_probability):
-    # Check if crossover should happen
-    if random.random() > crossover_probability:
-        return individual1, individual2
-
-    # Select a random point in the individuals
-    point = random.randint(1, len(individual1) - 1)
-
-    # Create the offspring by exchanging the elements between the point
-    offspring1 = {}
-    offspring2 = {}
-    i = 0
-    for (src, tgt), path in individual1.items():
-        if i < point:
-            offspring1[(src, tgt)] = path
-            offspring2[(src, tgt)] = individual2[(src, tgt)]
-        else:
-            offspring1[(src, tgt)] = individual2[(src, tgt)]
-            offspring2[(src, tgt)] = path
-        i += 1
-
-    return offspring1, offspring2
-
 
 def calculate_fitness(individual, capacities, loads):
     fitness = 0
@@ -197,27 +122,9 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
 
     # Run the genetic algorithm
     for generation in range(generations):
-        print(generation)
         # Select parents
-        #parents = selection(population, capacities, loads)
-
         a_class, b_class, c_class = class_selection(population, capacities, loads)
-
-        '''
-        # Calculate the fitness of each individual
-        fitness_values = [calculate_fitness(individual, capacities, loads) for individual in population]
-
-        # Normalize the fitness values
-        min_fitness = min(fitness_values)
-        normalized_fitness = [f - min_fitness for f in fitness_values]
-        total_fitness = sum(normalized_fitness)
-        normalized_fitness = [f / total_fitness for f in normalized_fitness]
-
-        # Select parents using tournament selection
-        parents = []
-        while len(parents) < int(population_size / 2):
-           parents.append(roulette_selection(population, normalized_fitness))
-        '''
+        #print(str(generation) + ": " + str(calculate_fitness(a_class[0], capacities, loads)))
         # Generate the children
         children = a_class
         while len(children) < population_size:
@@ -256,7 +163,7 @@ def essence(client):
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
         for src, tgt in graph.edges:
-            graph[src][tgt]["weight"] = 1 / client.link_caps[src, tgt]
+            graph[src][tgt]["weight"] = 0#1 / client.link_caps[src, tgt]
 
     pathdict = dict()
     loads = dict()
@@ -274,7 +181,7 @@ def essence(client):
             path = nx.shortest_path(flow_to_graph[(src, tgt)], src, tgt, weight="weight")
             for v1, v2 in zip(path[:-1], path[1:]):
                 w = flow_to_graph[(src, tgt)][v1][v2]["weight"]
-                w = w * 2 #+ 1
+                w = w * 2 + 1
                 flow_to_graph[(src, tgt)][v1][v2]["weight"] = w
             pathdict[(src, tgt)].append(path)
             if path not in unique_paths:
@@ -319,11 +226,10 @@ def normalize(value):
     return normalized_values
 
 
-def normalize_values(congestion, stretch, connectedness):
+def normalize_values(congestion, stretch):
     normalized_congestion = normalize(congestion)
     normalized_stretch = normalize(stretch)
-    normalized_connectedness = normalize(connectedness)
-    return normalized_congestion, normalized_stretch, normalized_connectedness
+    return normalized_congestion, normalized_stretch
 
 
 def calculate_weights(num_paths):
@@ -370,31 +276,16 @@ def calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weigh
             for path, weight in zip(paths, path_weights):
                 stretch += stretch_dict[tuple(path)] * weight
 
-    # Calculate the connectedness component of the fitness
-    connectedness = 0
-    for (source, destination), paths in individual.items():
-        if len(paths) == 1:
-            path_len = len(paths)
-            connectedness += path_len * 0.01
-        else:
-            for path, weight in zip(paths, path_weights):
-                path_len = len(path)
-                connectedness += path_len * 0.01 * weight
-
-    return congestion, stretch, connectedness
+    return congestion, stretch
 
 
-def selection_v2(population, capacities, loads, stretch_dict, congestion_weight, stretch_weight,
-                 connectedness_weight, path_weights):
-    congestion, stretch, connectedness = zip(
-        *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
+def selection_v2(population, capacities, loads, stretch_dict, congestion_weight, stretch_weight, path_weights):
+    congestion, stretch = zip(*[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
           population])
 
-    normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
-                                                                                           connectedness)
+    normalized_congestion, normalized_stretch = normalize_values(congestion, stretch)
 
-    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight +
-                      normalized_connectedness[i] * connectedness_weight for i in range(len(population))]
+    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight for i in range(len(population))]
 
     # Zip the fitness values and the population together
     fitness_population = zip(fitness_values, population)
@@ -403,13 +294,13 @@ def selection_v2(population, capacities, loads, stretch_dict, congestion_weight,
     sorted_fitness_population = sorted(fitness_population, key=lambda x: x[0])
 
     # Extract the individuals from the sorted list of tuples
-    population = [individual for fitness, individual in sorted_fitness_population]
+    #population = [individual for fitness, individual in sorted_fitness_population]
 
     # Select the top 50% of the population as parents
-    num_parents = int(len(population) * 0.5)
-    parents = population[:num_parents]
+    #num_parents = int(len(population) * 0.5)
+    #parents = population[:num_parents]
 
-    return parents
+    return sorted_fitness_population
 
 
 def mutate_v2(individual, mutation_rate, viable_paths):
@@ -428,26 +319,40 @@ def mutate_v2(individual, mutation_rate, viable_paths):
 
     return individual
 
+def class_selection_v2(population, capacities, loads):
+    # Sort the population by fitness
+    #population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+    population = [individual for fitness, individual in population]
+
+    # Select the top 50% of the population as parents
+    a_class = population[:int(len(population) * 0.2)]
+    b_class = population[int(len(population) * 0.2):int(len(population) * 0.9)]
+    c_class = population[int(len(population) * 0.9):]
+
+    return a_class, b_class, c_class
+
 
 def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_rate, mutation_rate, loads, generations,
-                         path_weights, stretch_dict, congestion_weight, stretch_weight,
-                         connectedness_weight):
+                         path_weights, stretch_dict, congestion_weight, stretch_weight):
     # Initialize the population
     population = [{k: random.sample(v, len(v)) for k, v in viable_paths.items()} for i in range(population_size)]
 
     # Run the genetic algorithm
     for generation in range(generations):
-        print(generation)
         # Select parents
         parents = selection_v2(population, capacities, loads, stretch_dict=stretch_dict,
                                congestion_weight=congestion_weight,
-                               stretch_weight=stretch_weight, connectedness_weight=connectedness_weight,
+                               stretch_weight=stretch_weight,
                                path_weights=path_weights)
 
+        a_class, b_class, c_class = class_selection_v2(parents, capacities, loads)
+        print(str(generation) + ": " + str(parents[0][0]))
+
         # Generate the children
-        children = []
+        children = a_class
         while len(children) < population_size:
-            parent1, parent2 = random.sample(parents, 2)
+            parent1 = random.choice(a_class)
+            parent2 = random.choice(b_class + c_class)
             child1, child2 = two_point_crossover(parent1, parent2, crossover_rate)
             child1 = mutate_v2(child1, mutation_rate, viable_paths)
             child2 = mutate_v2(child2, mutation_rate, viable_paths)
@@ -456,15 +361,13 @@ def genetic_algorithm_v2(viable_paths, capacities, population_size, crossover_ra
         # Replace the population with the children
         population = children
 
-    congestion, stretch, connectedness = zip(
+    congestion, stretch = zip(
         *[calculate_fitness_v2(individual, capacities, loads, stretch_dict, path_weights) for individual in
           population])
 
-    normalized_congestion, normalized_stretch, normalized_connectedness = normalize_values(congestion, stretch,
-                                                                                           connectedness)
+    normalized_congestion, normalized_stretch = normalize_values(congestion, stretch)
 
-    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight +
-                      normalized_connectedness[i] * connectedness_weight for i in range(len(population))]
+    fitness_values = [normalized_congestion[i] * congestion_weight + normalized_stretch[i] * stretch_weight for i in range(len(population))]
 
     # Zip the fitness values and the population together
     fitness_population = zip(fitness_values, population)
@@ -532,8 +435,7 @@ def essence_v2(client):
                                     generations=client.kwargs["generations"],
                                     path_weights=path_weights, stretch_dict=stretch_dict,
                                     congestion_weight=client.kwargs["congestion_weight"],
-                                    stretch_weight=client.kwargs["stretch_weight"],
-                                    connectedness_weight=client.kwargs["connectedness_weight"])
+                                    stretch_weight=client.kwargs["stretch_weight"])
 
     path_indices = {}
     for src, tgt, load in client.loads:
