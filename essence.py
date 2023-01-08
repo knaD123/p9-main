@@ -42,7 +42,7 @@ def fortz_func(u):
 
 def class_selection(population, capacities, loads):
     # Sort the population by fitness
-    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+    population.sort(key=lambda x: calculate_fitnessv2(x, capacities, loads))
 
     # Select the top 50% of the population as parents
     a_class = population[:int(len(population) * 0.2)]
@@ -98,6 +98,25 @@ def calculate_fitness(individual, capacities, loads):
 
     return fitness
 
+def calculate_fitnessv2(individual, capacities, loads):
+    fitness = 0
+    util_lst = {link: 0 for link in capacities.keys()}
+
+    # Initialize the utilization of each link to 0
+    utilization = {link: 0 for link in capacities.keys()}
+
+    # Calculate the utilization of each link
+    for (source, destination), path in individual.items():
+        load = loads[source, destination]
+        for i in range(len(path) - 1):
+            link = (path[i], path[i + 1])
+            utilization[link] += load
+
+    # Calculate the fitness using the fortz_func
+    for link, capacity in capacities.items():
+        util_lst[link] = utilization[link] / capacity
+
+    return max(util_lst.values())
 
 def mutate(individual, mutation_rate, viable_paths):
     # Determine if the individual should be mutated
@@ -123,7 +142,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
     for generation in range(generations):
         # Select parents
         a_class, b_class, c_class = class_selection(population, capacities, loads)
-        #print(str(generation) + ": " + str(calculate_fitness(a_class[0], capacities, loads)))
+        print(str(generation) + ": " + str(calculate_fitnessv2(a_class[0], capacities, loads)))
         # Generate the children
         children = a_class
         while len(children) < population_size:
@@ -138,7 +157,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
         population = children
 
     # Sort the population by fitness
-    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
+    population.sort(key=lambda x: calculate_fitnessv2(x, capacities, loads))
 
     # Return the fittest individual
     return population[0]
@@ -157,7 +176,7 @@ def essence(client):
     flow_to_graph = {f: client.router.network.topology.to_directed() for f in client.flows}
     for graph in flow_to_graph.values():
         for src, tgt in graph.edges:
-            graph[src][tgt]["weight"] = 0#1 / client.link_caps[src, tgt]
+            graph[src][tgt]["weight"] = 0 #1 / client.link_caps[src, tgt]
 
     pathdict = dict()
     loads = dict()
@@ -165,9 +184,6 @@ def essence(client):
     for src, tgt, load in client.loads:
         pathdict[(src, tgt)] = []
         loads[(src, tgt)] = load
-
-    # for src,tgt in G.edges:
-    #    G[src][tgt]["weight"] = 1
 
     for src, tgt, load in client.loads:
         unique_paths = []
@@ -404,7 +420,7 @@ def essence_v2(client):
             pathdict[(src, tgt)].append(path)
             if path not in unique_paths:
                 unique_paths.append(path)
-            if pathdict[(src, tgt)].count(path) == 5 or len(unique_paths) == client.mem_limit_per_router_per_flow:
+            if pathdict[(src, tgt)].count(path) == 3 or len(unique_paths) == client.mem_limit_per_router_per_flow:
                 break
 
     # Create stretch dictionary, so it does not have to be recomputed in the genetic algorithm
