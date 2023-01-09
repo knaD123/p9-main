@@ -144,8 +144,8 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
         a_class, b_class, c_class = class_selection(population, capacities, loads)
         #print(str(generation) + ": " + str(calculate_fitness(a_class[0], capacities, loads)))
         # Generate the children
-        random_solutions = [{k: random.choice(v) for k, v in viable_paths.items()} for _ in range(int(population_size * 0.1))]
-        children = a_class + random_solutions
+        #random_solutions = [{k: random.choice(v) for k, v in viable_paths.items()} for _ in range(int(population_size * 0.1))]
+        children = a_class #+ random_solutions
         while len(children) < population_size:
             parent1 = random.choice(a_class)
             parent2 = random.choice(b_class + c_class)
