@@ -289,7 +289,7 @@ def generate_data_points(variable, data, topology_info):
             connectivity /= norm_sum
             connectivity_unsorted.append(connectivity)
         for i in range(len(connectivity_unsorted)):
-            print(f"{i}: {connectivity_unsorted[i]} = {topologies[i]}")
+            print(f"{i}: {connectivity_unsorted[i]} = {list(topologies)[i]}")
         data_points = [f"({i}, {con})" for i, con in enumerate(connectivity_unsorted)]
         alg_to_data_points[alg] = data_points
 
@@ -318,7 +318,7 @@ def max_congestion_normalized_data(data, topology_info):
 
             values_unsorted.append(value)
         for i in range(len(values_unsorted)):
-            print(f"{i}: {values_unsorted[i]} = {topologies[i]}")
+            print(f"{i}: {values_unsorted[i]} = {list(topologies)[i]}")
         data_points = [f"({i}, {con})" for i, con in enumerate(values_unsorted)]
         alg_to_data_points[alg] = data_points
 
