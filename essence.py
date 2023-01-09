@@ -42,7 +42,7 @@ def fortz_func(u):
 
 def class_selection(population, capacities, loads):
     # Sort the population by fitness
-    population.sort(key=lambda x: calculate_fitnessv2(x, capacities, loads))
+    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
 
     # Select the top 50% of the population as parents
     a_class = population[:int(len(population) * 0.2)]
@@ -142,9 +142,10 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
     for generation in range(generations):
         # Select parents
         a_class, b_class, c_class = class_selection(population, capacities, loads)
-        print(str(generation) + ": " + str(calculate_fitnessv2(a_class[0], capacities, loads)))
+        print(str(generation) + ": " + str(calculate_fitness(a_class[0], capacities, loads)))
         # Generate the children
-        children = a_class
+        random_solutions = [{k: random.choice(v) for k, v in viable_paths.items()} for _ in range(int(population_size * 0.1))]
+        children = a_class + random_solutions
         while len(children) < population_size:
             parent1 = random.choice(a_class)
             parent2 = random.choice(b_class + c_class)
@@ -157,7 +158,7 @@ def genetic_algorithm(viable_paths, capacities, population_size, crossover_rate,
         population = children
 
     # Sort the population by fitness
-    population.sort(key=lambda x: calculate_fitnessv2(x, capacities, loads))
+    population.sort(key=lambda x: calculate_fitness(x, capacities, loads))
 
     # Return the fittest individual
     return population[0]
