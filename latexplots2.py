@@ -288,6 +288,8 @@ def generate_data_points(variable, data, topology_info):
                 norm_sum += _scenario_probability
             connectivity /= norm_sum
             connectivity_unsorted.append(connectivity)
+        for i in range(len(connectivity_unsorted)):
+            print(f"{i}: {connectivity_unsorted[i]}")
         data_points = [f"({i}, {con})" for i, con in enumerate(connectivity_unsorted)]
         alg_to_data_points[alg] = data_points
 
@@ -315,8 +317,9 @@ def max_congestion_normalized_data(data, topology_info):
                     value += (10 * scenario_probability(run["failed_links#"], topology_info[topology]["num_edges"])) / alg_to_topo_to_norm_sum[alg][topology]
 
             values_unsorted.append(value)
+        for i in range(len(values_unsorted)):
+            print(f"{i}: {values_unsorted[i]}")
         data_points = [f"({i}, {con})" for i, con in enumerate(values_unsorted)]
-        print(f"{i} {con}"  for i, con in enumerate(values_unsorted))
         alg_to_data_points[alg] = data_points
 
     return alg_to_data_points
