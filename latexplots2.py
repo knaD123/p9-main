@@ -316,6 +316,7 @@ def max_congestion_normalized_data(data, topology_info):
 
             values_unsorted.append(value)
         data_points = [f"({i}, {con})" for i, con in enumerate(values_unsorted)]
+        print(f"{i} {con}"  for i, con in enumerate(values_unsorted))
         alg_to_data_points[alg] = data_points
 
     return alg_to_data_points
