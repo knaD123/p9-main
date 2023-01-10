@@ -197,7 +197,7 @@ def essence(client):
             pathdict[(src, tgt)].append(path)
             if path not in unique_paths:
                 unique_paths.append(path)
-            if len(unique_paths) == client.mem_limit_per_router_per_flow * 2 or pathdict[(src, tgt)].count(path) == 5:
+            if len(unique_paths) == client.mem_limit_per_router_per_flow or pathdict[(src, tgt)].count(path) == 3:
                 pathdict[(src, tgt)] = unique_paths
                 break
 
