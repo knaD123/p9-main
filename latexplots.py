@@ -72,11 +72,10 @@ variable_to_label["util_exp_score_4"] = "Exponential congestion 4^u"
 # Plot options generator
 line_options = [
     "mark=none, color=orange, densely dashed, thick",
-    "mark=none, color=magenta, solid, thick",
     "mark=none, color=red, dotted, thick",
     "mark=none, color=green, dash dot, thick",
     "mark=none, color=blue, densely dashed, thick",
-    "mark=none, color=yellow, dotted, thick",
+    "mark=none, color=grey, dotted, thick",
     "mark=none, color=purple, dash dot, thick"
 ]
 
