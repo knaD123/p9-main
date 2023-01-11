@@ -247,7 +247,7 @@ def calculate_fitness_v2(individual, capacities, loads, stretch_dict):
     # Calculate the stretch component of the fitness
     stretch = 0
     for (source, destination), paths in individual.items():
-        stretch = stretch_dict[tuple(paths)]
+        stretch += stretch_dict[tuple(paths)]
 
     return congestion, stretch
 
