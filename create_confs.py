@@ -133,10 +133,10 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
         "rsvp_tunnels_per_pair": 1,
         "vpn": False,
         "random_seed": random_seed,
-        "result_folder": os.path.join(conf["result_folder"], conf_name, topofile.split('/')[-1].split('.')[0]),
+        "result_folder": os.path.join(conf["result_folder"], conf_name, topofile.split('/')[-1].split('.')[0] + f"_treshold={threshold}_seed={random_seed}"),
         # "flows": [os.path.join(folder, toponame.split("_")[1] + f"_000{x}.yml") for x in range(0,4)]
         "demands": conf["demand_file"],
-        "failure_chunk_file": os.path.join(folder, "failure_chunks", "0.yml")
+        "failure_chunk_file": os.path.join(folder, "failure_chunks", f"{random_seed}.yml")
     }
     if per_flow_memory is not None:
         base_config['per_flow_memory'] = per_flow_memory
@@ -326,7 +326,7 @@ if __name__ == "__main__":
                                   population=population, crossover=crossover,
                                   mutation=mutation, generations=generations, congestion_weight=congestion_weight,
                                   stretch_weight=stretch_weight, connectedness_weight=connectedness_weight)
-        conf_name = "conf_" + conf_type + (f"_random_seed={random_seed}" if random_seed != 1 else "") + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
+        conf_name = "conf_" + conf_type + (f"_threshold={threshold}" if threshold != 1000 else "") + (f"_random_seed={random_seed}" if random_seed != 1 else "") + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
             f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
                         f"{extra_hops}" if extra_hops is not None else "") + (
                         f"_p={population}" if population is not None else "") + (
@@ -396,9 +396,7 @@ if __name__ == "__main__":
 
         failure_folder = os.path.join(folder, "failure_chunks")
         os.makedirs(failure_folder, exist_ok=True)
-        i = 0
-        for F_chunk in F_list:
-            pathf = os.path.join(failure_folder, str(i) + ".yml")
-            i += 1
-            with open(pathf, "w") as file:
-                file.write(str(F_chunk).replace("'", "").replace("(", "[").replace(")", "]"))
+
+        pathf = os.path.join(failure_folder, str(random_seed) + ".yml")
+        with open(pathf, "w") as file:
+            file.write(str(F_list[0]).replace("'", "").replace("(", "[").replace(")", "]"))
