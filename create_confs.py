@@ -326,7 +326,7 @@ if __name__ == "__main__":
                                   population=population, crossover=crossover,
                                   mutation=mutation, generations=generations, congestion_weight=congestion_weight,
                                   stretch_weight=stretch_weight, connectedness_weight=connectedness_weight)
-        conf_name = "conf_" + conf_type + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
+        conf_name = "conf_" + conf_type + (f"_random_seed={random_seed}" if random_seed != 1 else "") + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
             f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
                         f"{extra_hops}" if extra_hops is not None else "") + (
                         f"_p={population}" if population is not None else "") + (
