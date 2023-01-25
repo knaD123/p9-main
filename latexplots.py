@@ -69,6 +69,37 @@ if __name__ == "__main__":
     alg_to_name["tba-simple"] = "TBA-S"
     alg_to_name["rmpls"] = "RMPLS"
 
+    population = [100, 200]
+    crossover = [0.9, 0.95]
+    mutation = [0.7, 0.8]
+    generations = [100, 200, 500, 1000]
+    congestion_weight = [0.0, 0.25, 0.50, 0.75, 1.0]
+    stretch_weight = [0.0, 0.25, 0.50, 0.75, 1.0]
+
+    for i in range(10):
+        for j in population:
+            for k in generations:
+                for c in crossover:
+                    for m in mutation:
+                        alg_to_name.update({
+                                               f"inout-disjoint_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
+
+    for i in range(10):
+        for j in population:
+            for k in generations:
+                for c in crossover:
+                    for m in mutation:
+                        alg_to_name[
+                            f"inout-disjoint_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}"] = f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"
+
+    for i in range(10):
+        for j in population:
+            for k in generations:
+                for c in congestion_weight:
+                    for s in stretch_weight:
+                        alg_to_name[
+                            f"inout-disjoint_max-mem=4_path-heuristic=essence_v2_p=200_c=0.9_m=0.7_g=1000_uw={c}_sw={s}_cw=0"] = f"FBR({i}) p:{j} g:{k} cw:{c} sw:{s} essence"
+
     variable_to_label = dict()
     variable_to_label["max_congestion"] = "Weighted Max Single Link Utilization"
     variable_to_label["max_congestion_normalized"] = "Weighted Max Single Link Utilization*"
