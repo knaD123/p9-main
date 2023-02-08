@@ -3,8 +3,8 @@
     "links": [
       {
         "bandwidth": 1000000,
-        "from_router": "0_Chugoku",
-        "to_router": "1_Kinki",
+        "from_router": "a0_Chugoku",
+        "to_router": "a1_Kinki",
         "latency": 396,
         "weight": 10,
         "from_interface": "i0",
@@ -13,8 +13,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "0_Chugoku",
-        "to_router": "2_Kyushu",
+        "from_router": "a0_Chugoku",
+        "to_router": "a2_Kyushu",
         "latency": 419,
         "weight": 10,
         "from_interface": "i1",
@@ -23,8 +23,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "1_Kinki",
-        "to_router": "3_Shikoku",
+        "from_router": "a1_Kinki",
+        "to_router": "a3_Shikoku",
         "latency": 388,
         "weight": 10,
         "from_interface": "i1",
@@ -33,8 +33,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "1_Kinki",
-        "to_router": "6_Tokai",
+        "from_router": "a1_Kinki",
+        "to_router": "a6_Tokai",
         "latency": 217,
         "weight": 10,
         "from_interface": "i2",
@@ -43,8 +43,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "2_Kyushu",
-        "to_router": "9_Okinawa",
+        "from_router": "a2_Kyushu",
+        "to_router": "a9_Okinawa",
         "latency": 1341,
         "weight": 10,
         "from_interface": "i1",
@@ -53,8 +53,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "2_Kyushu",
-        "to_router": "5_Busan",
+        "from_router": "a2_Kyushu",
+        "to_router": "a5_Busan",
         "latency": 671,
         "weight": 10,
         "from_interface": "i2",
@@ -63,8 +63,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "4_Shinetsu",
-        "to_router": "12_Tokyo",
+        "from_router": "a4_Shinetsu",
+        "to_router": "a12_Tokyo",
         "latency": 1690,
         "weight": 10,
         "from_interface": "i0",
@@ -73,8 +73,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "6_Tokai",
-        "to_router": "12_Tokyo",
+        "from_router": "a6_Tokai",
+        "to_router": "a12_Tokyo",
         "latency": 424,
         "weight": 10,
         "from_interface": "i1",
@@ -83,8 +83,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "7_Hokuriku",
-        "to_router": "12_Tokyo",
+        "from_router": "a7_Hokuriku",
+        "to_router": "a12_Tokyo",
         "latency": 407,
         "weight": 10,
         "from_interface": "i0",
@@ -93,8 +93,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "8_Hongkong",
-        "to_router": "12_Tokyo",
+        "from_router": "a8_Hongkong",
+        "to_router": "a12_Tokyo",
         "latency": 671,
         "weight": 10,
         "from_interface": "i0",
@@ -103,8 +103,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "10_Hokkaido",
-        "to_router": "11_Tohoku",
+        "from_router": "a10_Hokkaido",
+        "to_router": "a11_Tohoku",
         "latency": 895,
         "weight": 10,
         "from_interface": "i0",
@@ -113,8 +113,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "11_Tohoku",
-        "to_router": "12_Tokyo",
+        "from_router": "a11_Tohoku",
+        "to_router": "a12_Tokyo",
         "latency": 532,
         "weight": 10,
         "from_interface": "i1",
@@ -123,8 +123,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "12_Tokyo",
-        "to_router": "15_None",
+        "from_router": "a12_Tokyo",
+        "to_router": "a15_None",
         "latency": 671,
         "weight": 10,
         "from_interface": "i5",
@@ -133,8 +133,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "12_Tokyo",
-        "to_router": "16_Singapore",
+        "from_router": "a12_Tokyo",
+        "to_router": "a16_Singapore",
         "latency": 671,
         "weight": 10,
         "from_interface": "i6",
@@ -143,8 +143,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "12_Tokyo",
-        "to_router": "17_Bangkok",
+        "from_router": "a12_Tokyo",
+        "to_router": "a17_Bangkok",
         "latency": 671,
         "weight": 10,
         "from_interface": "i7",
@@ -153,8 +153,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "13_Chicago",
-        "to_router": "15_None",
+        "from_router": "a13_Chicago",
+        "to_router": "a15_None",
         "latency": 671,
         "weight": 10,
         "from_interface": "i0",
@@ -163,8 +163,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "14_Los_Angeles",
-        "to_router": "15_None",
+        "from_router": "a14_Los_Angeles",
+        "to_router": "a15_None",
         "latency": 671,
         "weight": 10,
         "from_interface": "i0",
@@ -188,7 +188,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "0_Chugoku"
+        "name": "a0_Chugoku"
       },
       {
         "interfaces": [
@@ -205,7 +205,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "1_Kinki"
+        "name": "a1_Kinki"
       },
       {
         "interfaces": [
@@ -222,7 +222,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "2_Kyushu"
+        "name": "a2_Kyushu"
       },
       {
         "interfaces": [
@@ -237,7 +237,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "3_Shikoku"
+        "name": "a3_Shikoku"
       },
       {
         "interfaces": [
@@ -252,7 +252,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "4_Shinetsu"
+        "name": "a4_Shinetsu"
       },
       {
         "interfaces": [
@@ -267,7 +267,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "5_Busan"
+        "name": "a5_Busan"
       },
       {
         "interfaces": [
@@ -283,7 +283,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "6_Tokai"
+        "name": "a6_Tokai"
       },
       {
         "interfaces": [
@@ -298,7 +298,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "7_Hokuriku"
+        "name": "a7_Hokuriku"
       },
       {
         "interfaces": [
@@ -313,7 +313,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "8_Hongkong"
+        "name": "a8_Hongkong"
       },
       {
         "interfaces": [
@@ -328,7 +328,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "9_Okinawa"
+        "name": "a9_Okinawa"
       },
       {
         "interfaces": [
@@ -343,7 +343,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "10_Hokkaido"
+        "name": "a10_Hokkaido"
       },
       {
         "interfaces": [
@@ -359,7 +359,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "11_Tohoku"
+        "name": "a11_Tohoku"
       },
       {
         "interfaces": [
@@ -381,7 +381,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "12_Tokyo"
+        "name": "a12_Tokyo"
       },
       {
         "interfaces": [
@@ -396,7 +396,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "13_Chicago"
+        "name": "a13_Chicago"
       },
       {
         "interfaces": [
@@ -411,7 +411,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "14_Los_Angeles"
+        "name": "a14_Los_Angeles"
       },
       {
         "interfaces": [
@@ -428,7 +428,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "15_None"
+        "name": "a15_None"
       },
       {
         "interfaces": [
@@ -443,7 +443,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "16_Singapore"
+        "name": "a16_Singapore"
       },
       {
         "interfaces": [
@@ -458,7 +458,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "17_Bangkok"
+        "name": "a17_Bangkok"
       }
     ]
   }

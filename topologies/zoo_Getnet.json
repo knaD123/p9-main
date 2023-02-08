@@ -3,8 +3,8 @@
     "links": [
       {
         "bandwidth": 45000,
-        "from_router": "0_Seattle",
-        "to_router": "1_Santa_Clara",
+        "from_router": "a0_Seattle",
+        "to_router": "a1_Santa_Clara",
         "latency": 1904,
         "weight": 10,
         "from_interface": "i0",
@@ -13,8 +13,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "1_Santa_Clara",
-        "to_router": "2_Phoenix",
+        "from_router": "a1_Santa_Clara",
+        "to_router": "a2_Phoenix",
         "latency": 1661,
         "weight": 10,
         "from_interface": "i1",
@@ -23,8 +23,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "1_Santa_Clara",
-        "to_router": "4_Washington_DC",
+        "from_router": "a1_Santa_Clara",
+        "to_router": "a4_Washington_DC",
         "latency": 6488,
         "weight": 10,
         "from_interface": "i2",
@@ -33,8 +33,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "1_Santa_Clara",
-        "to_router": "6_Pittsburgh",
+        "from_router": "a1_Santa_Clara",
+        "to_router": "a6_Pittsburgh",
         "latency": 6022,
         "weight": 10,
         "from_interface": "i3",
@@ -43,8 +43,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "2_Phoenix",
-        "to_router": "3_Tucson",
+        "from_router": "a2_Phoenix",
+        "to_router": "a3_Tucson",
         "latency": 293,
         "weight": 10,
         "from_interface": "i1",
@@ -53,8 +53,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "2_Phoenix",
-        "to_router": "4_Washington_DC",
+        "from_router": "a2_Phoenix",
+        "to_router": "a4_Washington_DC",
         "latency": 5305,
         "weight": 10,
         "from_interface": "i2",
@@ -63,8 +63,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "4_Washington_DC",
-        "to_router": "5_Baltimore",
+        "from_router": "a4_Washington_DC",
+        "to_router": "a5_Baltimore",
         "latency": 100,
         "weight": 10,
         "from_interface": "i2",
@@ -73,8 +73,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "5_Baltimore",
-        "to_router": "6_Pittsburgh",
+        "from_router": "a5_Baltimore",
+        "to_router": "a6_Pittsburgh",
         "latency": 530,
         "weight": 10,
         "from_interface": "i1",
@@ -97,7 +97,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "0_Seattle"
+        "name": "a0_Seattle"
       },
       {
         "interfaces": [
@@ -115,7 +115,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "1_Santa_Clara"
+        "name": "a1_Santa_Clara"
       },
       {
         "interfaces": [
@@ -132,7 +132,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "2_Phoenix"
+        "name": "a2_Phoenix"
       },
       {
         "interfaces": [
@@ -147,7 +147,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "3_Tucson"
+        "name": "a3_Tucson"
       },
       {
         "interfaces": [
@@ -164,7 +164,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "4_Washington_DC"
+        "name": "a4_Washington_DC"
       },
       {
         "interfaces": [
@@ -180,7 +180,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "5_Baltimore"
+        "name": "a5_Baltimore"
       },
       {
         "interfaces": [
@@ -196,7 +196,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "6_Pittsburgh"
+        "name": "a6_Pittsburgh"
       }
     ]
   }

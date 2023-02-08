@@ -16,6 +16,7 @@ from networkx import Graph
 from networkx.algorithms.shortest_paths.weighted import _weight_function, _dijkstra_multisource
 
 from typing import *
+import xml.etree.ElementTree as ET
 
 # Auxiliary functions
 def rand_name():
@@ -543,7 +544,8 @@ class Network(object):
 
     """
     def __init__(self, topology, name=None):
-
+        # omnet
+        self.flows_for_omnet = None
         # load network topology (a networkx graph)
         self.topology: Graph = topology
         if not name:
@@ -664,6 +666,222 @@ class Network(object):
 
         return net_dict
 
+    def to_omnetpp(self, name = 'test_export', output_dir = './export'):
+        """
+        Generates all files for OMNeT++.
+        """
+        self.build_flows_for_export()
+
+        with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
+            self.to_omnetpp_ini(name=name, file=f)
+
+        with open(f'{output_dir}/package.ned', mode='w') as f:
+            self.to_omnetpp_ned(name=name, file=f)
+
+        self.to_omnetpp_lib(output_dir)
+        self.to_omnetpp_classification(output_dir)
+
+    def to_omnetpp_ned(self, name, file):
+        # Values between the routers, if not included in the edge data
+        DEFAULT_BANDWIDTH = 1048576 # kbps = 1 Gbps
+        DEFAULT_LATENCY = 10 # ms
+        # Values from the hosts to the routers
+        DEFAULT_HOST_BANDWIDTH = 600  # kbps
+        DEFAULT_HOST_LATENCY = 10  # ms
+
+        #from service import MPLS_Service
+        file.write("package inet.examples.mpls.frrtest;\n")
+        file.write("import inet.common.scenario.ScenarioManager;\n")
+        file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
+        file.write("import inet.node.inet.StandardHost;\n")
+        file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
+        file.write("\n")
+        file.write(f"network {name}\n")
+        file.write("{\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
+        for router_name, router in self.routers.items():
+
+            # calculate number of flows at this router
+            nr_flows_from_router = sum(entry['ingress'] == router_name for entry in self.export_flows)
+            nr_flows_to_router = sum(entry['egress'] == router_name for entry in self.export_flows)
+
+            # Create router in NED file.
+            file.write(f"        {router_name}: MplsRouter "+"{\n")
+
+            # peers are the interfaces for internal links
+            router.interface_ids = {}
+            id = 0
+            for interface in router.get_interfaces():
+                if interface != router_name:
+                    router.interface_ids[interface] = id
+                    id += 1
+            file.write("            parameters:\n")
+            file.write("                peers = \""+" ".join([f"ppp{i}" for i in range(id)])+"\";\n")
+
+            # outside interfaces are added to the total list of ppp interfaces
+            # TODO: Why?
+            """
+            for interface in router.get_interfaces(outside_interfaces = True):
+                router.interface_ids[interface] = id
+                id += 1
+            """
+
+            file.write("            gates:\n")
+            # + connections to source and target nodes
+            file.write(f"                pppg[{id+nr_flows_from_router+nr_flows_to_router}];\n")
+            file.write("        }\n")
+
+            ### TODO: What about this section? ###
+            """
+            host_id = 0
+            service_client = router.get_client(MPLS_Service)
+            if service_client:
+                for vpn_name, vpn in service_client.services.items():
+                    for ce in vpn["ces"]:
+                        pass
+            from rsvpte import ProcRSVPTE
+            rsvp_client = router.get_client(ProcRSVPTE)
+            if rsvp_client:
+                for host in rsvp_client.headended_lsps:
+                    pass
+                    file.write(f"        host{host_id}: StandardHost;\n")
+                    host_id += 1
+            """
+            ### TODO: End -- What about this section? ###
+
+            # External edges (to hosts)
+            # Assign interface ids
+            host_interface_id = 0
+            for flow in self.export_flows:
+                if flow['ingress'] == router_name:
+                    flow['in_interface'] = f"{id + host_interface_id}"
+                    host_interface_id = host_interface_id + 1
+                if flow['egress'] == router_name:
+                    flow['out_interface'] = f"{id + host_interface_id}"
+                    host_interface_id = host_interface_id + 1
+
+        # Add StandardHosts for all flows
+        for flow in self.export_flows:
+            file.write(
+                f"""        {flow['source_host']}: StandardHost {{
+            gates:
+                pppg[1];
+        }}\n"""
+            )
+            # Add target host
+            file.write(
+                f"""        {flow['target_host']}: StandardHost {{
+            gates:
+                pppg[1];
+        }}\n"""
+            )
+
+        file.write("\tconnections:\n")
+        # Internal edges (router to router)
+        for edge in self.topology.edges():
+            # Either use default values for bandwidth and latency or use the edge values if present
+            data = self.topology.get_edge_data(edge[0], edge[1])
+            bandwidth = data['bandwidth'] if 'bandwidth' in data else DEFAULT_BANDWIDTH
+            latency = data['latency'] if 'latency' in data else DEFAULT_LATENCY
+
+            file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
+            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth}kbps; }} <--> ")
+            file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
+        # Edges to source and target nodes.
+        for flow in self.export_flows:
+            # TODO: Eventually use other values ...
+            file.write(
+                f"""        {flow['ingress']}.pppg[{flow['in_interface']}] <--> {{ delay = {DEFAULT_HOST_LATENCY}ms; datarate = {DEFAULT_HOST_BANDWIDTH}kbps; }} <--> {flow['source_host']}.pppg[0];\n""")
+            file.write(
+                f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = {DEFAULT_HOST_LATENCY}ms; datarate = {DEFAULT_HOST_BANDWIDTH}kbps; }} <--> {flow['target_host']}.pppg[0];\n""")
+
+        file.write("}\n")
+
+    def to_omnetpp_ini(self, name, file):
+        file.write("[General]\n")
+        file.write(f"network = {name}\n")
+        file.write(f"sim-time-limit = 6s\n")
+        for router_name, router in self.routers.items():
+            # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
+            file.write(f"**.{router_name}.libTable.config = xmldoc(\"{router_name}_lib.xml\")\n")
+        file.write("**.rsvp.helloInterval = 0.2s\n")
+        file.write("**.rsvp.helloTimeout = 0.5s\n")
+        file.write("**.ppp[*].queue.typename = \"DropTailQueue\"\n")
+        file.write("**.ppp[*].queue.packetCapacity = 10\n")  # This value is taken from example files in INET.
+        # file.write("**.scenarioManager.script = xmldoc(\"scenario.xml\")\n")
+        file.write("\n")
+        # Add classification files
+        for router_name, router in self.routers.items():
+            file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_classification.xml\")\n")
+
+        file.write("\n[Config UDP]\n")
+        # Add applications (to send packets) at the source nodes.
+        for flow in self.export_flows:
+            file.write(f'''**.{flow['source_host']}.numApps = 1\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].typename = "UdpBasicApp"\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].localPort = 1000\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].destPort = 1000\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].messageLength = 64 bytes\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].sendInterval = 0.01s\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].destAddresses = "{flow['target_host']}"\n''')
+            file.write("\n")
+        # Add applications at target nodes.
+        # I intended to use only a single target node. However, this did not work, so I currently use one for each
+        # flow. This conversion to a set is here to allow to "reuse" target nodes without breaking this code.
+        targets = set(map(lambda entry: entry['target_host'], self.export_flows))
+        for target in targets:
+            file.write(f'''**.{target}.numApps = 1\n''')
+            file.write(f'''**.{target}.app[0].typename = "UdpSinkApp"\n''')
+            file.write(f'''**.{target}.app[0].io.localPort = 1000\n''')
+            file.write("\n")
+
+    def to_omnetpp_lib(self, export_dir):
+        for router_name, router in self.routers.items():
+            table_xml = router.to_omnetpp_lib_xml()
+            ET.indent(table_xml) # NOTE: Requires >= Python 3.9
+            ET.ElementTree(table_xml).write(f"{export_dir}/{router_name}_lib.xml")
+
+    def build_flows_for_export(self):
+        """
+        Returns an array with the data of all flows (as a dictionary).
+        """
+        flows = self.flows_for_omnet
+        pprint(flows)
+        export_flows = []
+        i = 0
+        for router_name, lbl_items in flows.items():
+            for in_label, tup in lbl_items.items():
+                good_sources, good_targets, load = tup
+                # TODO: Ask whether to add new clients for every good_targets entry
+                for target in good_targets:
+                    i = i + 1
+                    export_flows.append({
+                        'in_label': in_label,
+                        'ingress' : router_name,
+                        'egress'  : target,
+                        'in_interface': None,
+                        'out_interface': None,
+                        'source_host': f"host{i}",
+                        'target_host': f'target{i}'
+                    })
+        self.export_flows = export_flows
+        return export_flows
+
+    def to_omnetpp_classification(self, export_dir):
+        for router_name in self.routers.keys():
+            flows_at_router = list(filter(lambda entry: entry['ingress'] == router_name, self.export_flows))
+
+            id = 0
+            table_xml = ET.Element("fectable")
+            for entry in flows_at_router:
+                id = id + 1
+                entry_xml = ET.SubElement(table_xml, "fecentry")
+                ET.SubElement(entry_xml, "id").text = str(id)
+                ET.SubElement(entry_xml, "label").text = str(entry['in_label'])
+                ET.SubElement(entry_xml, "destination").text = entry['target_host']
+                ET.SubElement(entry_xml, "source").text = entry['source_host']
+
+            ET.indent(table_xml)  # NOTE: Requires >= Python 3.9
+            ET.ElementTree(table_xml).write(f"{export_dir}/{router_name}_classification.xml")
     def build_flow_table(self, flows: List[Tuple[str, str, int]], verbose = False):
         # Build dict of flows for each routable FEC the routers know, in the sense
         # of only initiating packets that could actually be generated from the router.
@@ -1206,6 +1424,31 @@ class Router(object):
             r_dict["location"]["latitude"] = round(loc["latitude"], 4)     #fixed precision
             r_dict["location"]["longitude"] = round(loc["longitude"], 4)
         return r_dict
+
+    def to_omnetpp_lib_xml(self):
+        table_xml = ET.Element("libtable")
+        for label, entries in self.LFIB.items():
+            for entry in entries:
+                entry_xml = ET.SubElement(table_xml, "libentry")
+                ET.SubElement(entry_xml, "priority").text = str(entry["priority"])
+                ET.SubElement(entry_xml, "inLabel").text = str(label)
+                ET.SubElement(entry_xml, "inInterface").text = "any"
+                if (entry["out"] == self.LOCAL_LOOKUP):
+                    ET.SubElement(entry_xml, "outInterface").text = "mlo0"  # custom loopback interface
+                elif entry['out'].startswith("CE"):
+                    # TODO: Check -- correct?!?
+                    ET.SubElement(entry_xml, "outInterface").text = "mlo0"  # custom loopback interface
+                else:
+                    ET.SubElement(entry_xml, "outInterface").text = "ppp"+str(self.interface_ids[entry["out"]])
+                ops = ET.SubElement(entry_xml, "outLabel")
+                for op in entry["ops"]:
+                    op_code, op_label = [(x,y) for x,y in op.items()][0]
+                    if op_code == 'pop':
+                        # pop should not contain a value attribute (violates an assertion in DEBUG mode)
+                        ET.SubElement(ops, "op", code=op_code)
+                    else:
+                        ET.SubElement(ops, "op", code = op_code, value = str(op_label))
+        return table_xml
 
 class oFEC(object):
     """
@@ -3030,6 +3273,7 @@ class Simulator(object):
                 self.traces[router_name][in_label] = [{"trace": p, "result": res}]
 
     def run(self, flows, verbose = False):
+        self.flows2 = flows
         loop_links = set()
         # Forward a packet for each flow in the 'flows' list, and return results and stats.
 

@@ -3,8 +3,8 @@
     "links": [
       {
         "bandwidth": 1000000,
-        "from_router": "0_Seattle",
-        "to_router": "1_San_Francisco",
+        "from_router": "a0_Seattle",
+        "to_router": "a1_San_Francisco",
         "latency": 1825,
         "weight": 10,
         "from_interface": "i0",
@@ -13,8 +13,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "1_San_Francisco",
-        "to_router": "2_Los_Angeles",
+        "from_router": "a1_San_Francisco",
+        "to_router": "a2_Los_Angeles",
         "latency": 936,
         "weight": 10,
         "from_interface": "i1",
@@ -23,8 +23,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "1_San_Francisco",
-        "to_router": "3_Chicago",
+        "from_router": "a1_San_Francisco",
+        "to_router": "a3_Chicago",
         "latency": 4973,
         "weight": 10,
         "from_interface": "i2",
@@ -33,8 +33,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "1_San_Francisco",
-        "to_router": "5_Washington_DC",
+        "from_router": "a1_San_Francisco",
+        "to_router": "a5_Washington_DC",
         "latency": 6531,
         "weight": 10,
         "from_interface": "i3",
@@ -43,8 +43,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "3_Chicago",
-        "to_router": "4_New_York_City",
+        "from_router": "a3_Chicago",
+        "to_router": "a4_New_York_City",
         "latency": 1913,
         "weight": 10,
         "from_interface": "i1",
@@ -53,8 +53,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "3_Chicago",
-        "to_router": "5_Washington_DC",
+        "from_router": "a3_Chicago",
+        "to_router": "a5_Washington_DC",
         "latency": 1597,
         "weight": 10,
         "from_interface": "i2",
@@ -63,8 +63,8 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "4_New_York_City",
-        "to_router": "5_Washington_DC",
+        "from_router": "a4_New_York_City",
+        "to_router": "a5_Washington_DC",
         "latency": 552,
         "weight": 10,
         "from_interface": "i1",
@@ -87,7 +87,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "0_Seattle"
+        "name": "a0_Seattle"
       },
       {
         "interfaces": [
@@ -105,7 +105,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "1_San_Francisco"
+        "name": "a1_San_Francisco"
       },
       {
         "interfaces": [
@@ -120,7 +120,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "2_Los_Angeles"
+        "name": "a2_Los_Angeles"
       },
       {
         "interfaces": [
@@ -137,7 +137,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "3_Chicago"
+        "name": "a3_Chicago"
       },
       {
         "interfaces": [
@@ -153,7 +153,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "4_New_York_City"
+        "name": "a4_New_York_City"
       },
       {
         "interfaces": [
@@ -170,7 +170,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "5_Washington_DC"
+        "name": "a5_Washington_DC"
       }
     ]
   }

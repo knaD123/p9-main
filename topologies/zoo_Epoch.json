@@ -3,8 +3,8 @@
     "links": [
       {
         "bandwidth": 45000,
-        "from_router": "0_Palo_Alto",
-        "to_router": "1_Los_Angeles",
+        "from_router": "a0_Palo_Alto",
+        "to_router": "a1_Los_Angeles",
         "latency": 863,
         "weight": 10,
         "from_interface": "i0",
@@ -13,8 +13,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "0_Palo_Alto",
-        "to_router": "2_Denver",
+        "from_router": "a0_Palo_Alto",
+        "to_router": "a2_Denver",
         "latency": 2520,
         "weight": 10,
         "from_interface": "i1",
@@ -23,8 +23,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "0_Palo_Alto",
-        "to_router": "4_Vienna",
+        "from_router": "a0_Palo_Alto",
+        "to_router": "a4_Vienna",
         "latency": 6477,
         "weight": 10,
         "from_interface": "i2",
@@ -33,8 +33,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "1_Los_Angeles",
-        "to_router": "5_Atlanta",
+        "from_router": "a1_Los_Angeles",
+        "to_router": "a5_Atlanta",
         "latency": 5184,
         "weight": 10,
         "from_interface": "i1",
@@ -43,8 +43,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "2_Denver",
-        "to_router": "3_Chicago",
+        "from_router": "a2_Denver",
+        "to_router": "a3_Chicago",
         "latency": 2462,
         "weight": 10,
         "from_interface": "i1",
@@ -53,8 +53,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "3_Chicago",
-        "to_router": "4_Vienna",
+        "from_router": "a3_Chicago",
+        "to_router": "a4_Vienna",
         "latency": 1567,
         "weight": 10,
         "from_interface": "i1",
@@ -63,8 +63,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "4_Vienna",
-        "to_router": "5_Atlanta",
+        "from_router": "a4_Vienna",
+        "to_router": "a5_Atlanta",
         "latency": 1432,
         "weight": 10,
         "from_interface": "i2",
@@ -89,7 +89,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "0_Palo_Alto"
+        "name": "a0_Palo_Alto"
       },
       {
         "interfaces": [
@@ -105,7 +105,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "1_Los_Angeles"
+        "name": "a1_Los_Angeles"
       },
       {
         "interfaces": [
@@ -121,7 +121,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "2_Denver"
+        "name": "a2_Denver"
       },
       {
         "interfaces": [
@@ -137,7 +137,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "3_Chicago"
+        "name": "a3_Chicago"
       },
       {
         "interfaces": [
@@ -154,7 +154,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "4_Vienna"
+        "name": "a4_Vienna"
       },
       {
         "interfaces": [
@@ -170,7 +170,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "5_Atlanta"
+        "name": "a5_Atlanta"
       }
     ]
   }

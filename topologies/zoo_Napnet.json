@@ -3,8 +3,8 @@
     "links": [
       {
         "bandwidth": 45000,
-        "from_router": "0_Seattle",
-        "to_router": "1_San_Jose",
+        "from_router": "a0_Seattle",
+        "to_router": "a1_San_Jose",
         "latency": 1907,
         "weight": 10,
         "from_interface": "i0",
@@ -13,8 +13,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "0_Seattle",
-        "to_router": "3_Chicago",
+        "from_router": "a0_Seattle",
+        "to_router": "a3_Chicago",
         "latency": 4649,
         "weight": 10,
         "from_interface": "i1",
@@ -23,8 +23,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "1_San_Jose",
-        "to_router": "3_Chicago",
+        "from_router": "a1_San_Jose",
+        "to_router": "a3_Chicago",
         "latency": 4929,
         "weight": 10,
         "from_interface": "i1",
@@ -33,8 +33,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "1_San_Jose",
-        "to_router": "4_Vienna",
+        "from_router": "a1_San_Jose",
+        "to_router": "a4_Vienna",
         "latency": 6448,
         "weight": 10,
         "from_interface": "i2",
@@ -43,8 +43,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "2_Minneapolis",
-        "to_router": "3_Chicago",
+        "from_router": "a2_Minneapolis",
+        "to_router": "a3_Chicago",
         "latency": 956,
         "weight": 10,
         "from_interface": "i0",
@@ -53,8 +53,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "3_Chicago",
-        "to_router": "4_Vienna",
+        "from_router": "a3_Chicago",
+        "to_router": "a4_Vienna",
         "latency": 1567,
         "weight": 10,
         "from_interface": "i3",
@@ -63,8 +63,8 @@
       },
       {
         "bandwidth": 45000,
-        "from_router": "3_Chicago",
-        "to_router": "5_Dallas",
+        "from_router": "a3_Chicago",
+        "to_router": "a5_Dallas",
         "latency": 2155,
         "weight": 10,
         "from_interface": "i4",
@@ -88,7 +88,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "0_Seattle"
+        "name": "a0_Seattle"
       },
       {
         "interfaces": [
@@ -105,7 +105,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "1_San_Jose"
+        "name": "a1_San_Jose"
       },
       {
         "interfaces": [
@@ -120,7 +120,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "2_Minneapolis"
+        "name": "a2_Minneapolis"
       },
       {
         "interfaces": [
@@ -139,7 +139,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "3_Chicago"
+        "name": "a3_Chicago"
       },
       {
         "interfaces": [
@@ -155,7 +155,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "4_Vienna"
+        "name": "a4_Vienna"
       },
       {
         "interfaces": [
@@ -170,7 +170,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "5_Dallas"
+        "name": "a5_Dallas"
       }
     ]
   }

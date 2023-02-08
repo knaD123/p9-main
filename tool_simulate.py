@@ -100,6 +100,10 @@ def main(conf):
                                  )
     ## Generate MPLS forwarding rules
 
+    # omnet
+    network.flows_for_omnet = network.build_flow_table(flows_with_load)
+    network.to_omnetpp()
+
     stats['fwd_gen_time'] = time.time_ns() - before_fwd_gen
 
     # save config
