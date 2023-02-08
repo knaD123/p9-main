@@ -13,6 +13,9 @@ from itertools import chain, count, islice
 import numpy as np
 from networkx import Graph
 
+import os
+from os import path
+
 from networkx.algorithms.shortest_paths.weighted import _weight_function, _dijkstra_multisource
 
 from typing import *
@@ -666,16 +669,20 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name = 'test_export', output_dir = './export'):
+    def to_omnetpp(self, name = 'default', output_dir = './omnet_files/default'):
         """
         Generates all files for OMNeT++.
         """
+
+        if not path.exists(output_dir):
+            os.makedirs(output_dir)
+
         self.build_flows_for_export()
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
             self.to_omnetpp_ini(name=name, file=f)
 
-        with open(f'{output_dir}/package.ned', mode='w') as f:
+        with open(f'{output_dir}/{name}.ned', mode='w') as f:
             self.to_omnetpp_ned(name=name, file=f)
 
         self.to_omnetpp_lib(output_dir)
@@ -690,7 +697,7 @@ class Network(object):
         DEFAULT_HOST_LATENCY = 10  # ms
 
         #from service import MPLS_Service
-        file.write("package inet.examples.mpls.frrtest;\n")
+        file.write(f"package inet.examples.mpls.{name};\n")
         file.write("import inet.common.scenario.ScenarioManager;\n")
         file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
         file.write("import inet.node.inet.StandardHost;\n")
@@ -813,7 +820,7 @@ class Network(object):
         for router_name, router in self.routers.items():
             file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_classification.xml\")\n")
 
-        file.write("\n[Config UDP]\n")
+        #file.write("\n[Config UDP]\n")
         # Add applications (to send packets) at the source nodes.
         for flow in self.export_flows:
             file.write(f'''**.{flow['source_host']}.numApps = 1\n''')
