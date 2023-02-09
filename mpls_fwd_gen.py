@@ -371,7 +371,7 @@ def topology_from_aalwines_json(filename, visualize = True):
             w = 1
 
         #random weights
-        G.add_edge(a[u], a[v], weight = w)
+        G.add_edge(a[u], a[v], weight = w, bandwidth=data["bandwidth"], latency=data["latency"])
 
     # deal with coordinates
     for r_dict in net_dict_2["network"]["routers"]:

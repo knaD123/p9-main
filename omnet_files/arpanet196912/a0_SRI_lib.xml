@@ -1,0 +1,191 @@
+<libtable>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50510</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp0</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50511</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp0</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>1</priority>
+    <inLabel>50511</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>mlo0</outInterface>
+    <outLabel>
+      <op code="swap" value="50512" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50512</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp1</outInterface>
+    <outLabel>
+      <op code="swap" value="50515" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50513</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp0</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>1</priority>
+    <inLabel>50513</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>mlo0</outInterface>
+    <outLabel>
+      <op code="swap" value="50514" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50514</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp1</outInterface>
+    <outLabel>
+      <op code="swap" value="50516" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50515</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp1</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50516</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp1</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>1</priority>
+    <inLabel>50516</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>mlo0</outInterface>
+    <outLabel>
+      <op code="swap" value="50517" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50517</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp0</outInterface>
+    <outLabel>
+      <op code="swap" value="50515" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50518</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp1</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>1</priority>
+    <inLabel>50518</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>mlo0</outInterface>
+    <outLabel>
+      <op code="swap" value="50519" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50519</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp0</outInterface>
+    <outLabel>
+      <op code="swap" value="50516" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50520</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp2</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>1</priority>
+    <inLabel>50520</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>mlo0</outInterface>
+    <outLabel>
+      <op code="swap" value="50521" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50521</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp2</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50522</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp2</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>1</priority>
+    <inLabel>50522</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>mlo0</outInterface>
+    <outLabel>
+      <op code="swap" value="50523" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50523</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp2</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+  <libentry>
+    <priority>0</priority>
+    <inLabel>50524</inLabel>
+    <inInterface>any</inInterface>
+    <outInterface>ppp2</outInterface>
+    <outLabel>
+      <op code="pop" />
+    </outLabel>
+  </libentry>
+</libtable>

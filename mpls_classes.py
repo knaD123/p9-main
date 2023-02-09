@@ -794,12 +794,20 @@ class Network(object):
             file.write(f"{{ delay = {latency}ms; datarate = {bandwidth}kbps; }} <--> ")
             file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
         # Edges to source and target nodes.
+
+        '''
         for flow in self.export_flows:
             # TODO: Eventually use other values ...
             file.write(
                 f"""        {flow['ingress']}.pppg[{flow['in_interface']}] <--> {{ delay = {DEFAULT_HOST_LATENCY}ms; datarate = {DEFAULT_HOST_BANDWIDTH}kbps; }} <--> {flow['source_host']}.pppg[0];\n""")
             file.write(
                 f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = {DEFAULT_HOST_LATENCY}ms; datarate = {DEFAULT_HOST_BANDWIDTH}kbps; }} <--> {flow['target_host']}.pppg[0];\n""")
+        '''
+        for flow in self.export_flows:
+            file.write(
+                f"""        {flow['ingress']}.pppg[{flow['in_interface']}] <--> {{ delay = 0ms; datarate = 100kbps; }} <--> {flow['source_host']}.pppg[0];\n""")
+            file.write(
+                f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = 0ms; datarate = 100kbps; }} <--> {flow['target_host']}.pppg[0];\n""")
 
         file.write("}\n")
 
@@ -810,8 +818,8 @@ class Network(object):
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
             file.write(f"**.{router_name}.libTable.config = xmldoc(\"{router_name}_lib.xml\")\n")
-        file.write("**.rsvp.helloInterval = 0.2s\n")
-        file.write("**.rsvp.helloTimeout = 0.5s\n")
+        file.write("**.rsvp.helloInterval = 0s\n")
+        file.write("**.rsvp.helloTimeout = 0s\n")
         file.write("**.ppp[*].queue.typename = \"DropTailQueue\"\n")
         file.write("**.ppp[*].queue.packetCapacity = 10\n")  # This value is taken from example files in INET.
         # file.write("**.scenarioManager.script = xmldoc(\"scenario.xml\")\n")
@@ -828,7 +836,7 @@ class Network(object):
             file.write(f'''**.{flow['source_host']}.app[0].localPort = 1000\n''')
             file.write(f'''**.{flow['source_host']}.app[0].destPort = 1000\n''')
             file.write(f'''**.{flow['source_host']}.app[0].messageLength = 64 bytes\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].sendInterval = 0.01s\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].sendInterval = {'%.5f'%(1 / (flow['load'] / 10000))}s\n''')
             file.write(f'''**.{flow['source_host']}.app[0].destAddresses = "{flow['target_host']}"\n''')
             file.write("\n")
         # Add applications at target nodes.
@@ -868,7 +876,8 @@ class Network(object):
                         'in_interface': None,
                         'out_interface': None,
                         'source_host': f"host{i}",
-                        'target_host': f'target{i}'
+                        'target_host': f'target{i}',
+                        'load': load,
                     })
         self.export_flows = export_flows
         return export_flows
