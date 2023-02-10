@@ -11,6 +11,7 @@ import copy
 from pprint import pprint
 from itertools import chain, count, islice
 import numpy as np
+import yaml
 from networkx import Graph
 
 import os
@@ -679,11 +680,22 @@ class Network(object):
 
         self.build_flows_for_export()
 
-        with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f)
-
+        link_to_ppp_dict = dict()
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
-            self.to_omnetpp_ned(name=name, file=f)
+            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f)
+
+        with open("confs/zoo_" + self.name + "/failure_chunks/0.yml", 'r') as f:
+            failed_set_chunk = yaml.safe_load(f)
+
+        if not path.exists(output_dir + "/failure_scenarios"):
+            os.makedirs(output_dir + "/failure_scenarios")
+
+        for scenario in range(1,len(failed_set_chunk)):
+            with open(f'{output_dir}/failure_scenarios/scenario_{scenario}.xml', mode='w') as f:
+                self.to_omnetpp_scenario(file=f, failure_scenario=failed_set_chunk[scenario], link_to_ppp=link_to_ppp_dict)
+
+        with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1,len(failed_set_chunk)))
 
         self.to_omnetpp_lib(output_dir)
         self.to_omnetpp_classification(output_dir)
@@ -695,6 +707,9 @@ class Network(object):
         # Values from the hosts to the routers
         DEFAULT_HOST_BANDWIDTH = 600  # kbps
         DEFAULT_HOST_LATENCY = 10  # ms
+
+        # Link -> pppgate dictionary
+        link_to_ppp = dict()
 
         #from service import MPLS_Service
         file.write(f"package inet.examples.mpls.{name};\n")
@@ -789,6 +804,8 @@ class Network(object):
             data = self.topology.get_edge_data(edge[0], edge[1])
             bandwidth = data['bandwidth'] if 'bandwidth' in data else DEFAULT_BANDWIDTH
             latency = data['latency'] if 'latency' in data else DEFAULT_LATENCY
+            link_to_ppp[(edge[0], edge[1])] = self.routers[edge[0]].interface_ids[edge[1]]
+            link_to_ppp[(edge[1], edge[0])] = self.routers[edge[1]].interface_ids[edge[0]]
 
             file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
             file.write(f"{{ delay = {latency}ms; datarate = {bandwidth}bps; @statistic[utilization](record=max,timeavg,vector); }} <--> ")
@@ -810,11 +827,13 @@ class Network(object):
                 f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['target_host']}.pppg[0];\n""")
 
         file.write("}\n")
+        return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum):
         file.write("[General]\n")
         file.write(f"network = {name}\n")
-        file.write(f"sim-time-limit = 6s\n")
+        file.write(f"warmup-period = 20s\n")
+        file.write(f"sim-time-limit = 60s\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
             file.write(f"**.{router_name}.libTable.config = xmldoc(\"{router_name}_lib.xml\")\n")
@@ -850,11 +869,25 @@ class Network(object):
             file.write(f'''**.{target}.app[0].io.localPort = 1000\n''')
             file.write("\n")
 
+        for scenario in failure_scenarios_enum:
+            file.write(f'[Config Scenario{scenario}]\n')
+            file.write(f'**.scenarioManager.script = xmldoc("failure_scenarios/scenario_{scenario}.xml")\n')
+            file.write("\n")
+
     def to_omnetpp_lib(self, export_dir):
         for router_name, router in self.routers.items():
             table_xml = router.to_omnetpp_lib_xml()
             ET.indent(table_xml) # NOTE: Requires >= Python 3.9
             ET.ElementTree(table_xml).write(f"{export_dir}/{router_name}_lib.xml")
+
+    def to_omnetpp_scenario(self, file, failure_scenario, link_to_ppp):
+        file.write('<?xml version="1.0"?>\n')
+        file.write("<scenario>\n")
+        file.write('<at t="20s">\n')
+        for fail in failure_scenario:
+            file.write(f'	<disconnect src-module="{fail[0]}" src-gate="{link_to_ppp[tuple(fail)]}" />\n')
+        file.write("</at>\n")
+        file.write("</scenario>\n")
 
     def build_flows_for_export(self):
         """
