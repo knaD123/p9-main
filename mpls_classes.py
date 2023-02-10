@@ -830,13 +830,14 @@ class Network(object):
 
         #file.write("\n[Config UDP]\n")
         # Add applications (to send packets) at the source nodes.
+        packet_size = 64
         for flow in self.export_flows:
             file.write(f'''**.{flow['source_host']}.numApps = 1\n''')
             file.write(f'''**.{flow['source_host']}.app[0].typename = "UdpBasicApp"\n''')
             file.write(f'''**.{flow['source_host']}.app[0].localPort = 1000\n''')
             file.write(f'''**.{flow['source_host']}.app[0].destPort = 1000\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].messageLength = 64 bytes\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].sendInterval = {'%.5f'%(1 / (flow['load'] / 64))}s\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].messageLength = {packet_size} bytes\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].sendInterval = {'%.5f'%(1 / (flow['load'] / packet_size))}s\n''')
             file.write(f'''**.{flow['source_host']}.app[0].destAddresses = "{flow['target_host']}"\n''')
             file.write("\n")
         # Add applications at target nodes.
