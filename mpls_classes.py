@@ -791,7 +791,7 @@ class Network(object):
             latency = data['latency'] if 'latency' in data else DEFAULT_LATENCY
 
             file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
-            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth}kbps; }} <--> ")
+            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth}kbps; @statistic[utilization](record=max,timeavg,vector); }} <--> ")
             file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
         # Edges to source and target nodes.
 
@@ -805,9 +805,9 @@ class Network(object):
         '''
         for flow in self.export_flows:
             file.write(
-                f"""        {flow['ingress']}.pppg[{flow['in_interface']}] <--> {{ delay = 0ms; datarate = 100kbps; }} <--> {flow['source_host']}.pppg[0];\n""")
+                f"""        {flow['ingress']}.pppg[{flow['in_interface']}] <--> {{ delay = 0ms; datarate = 100kbps; @statistic[utilization](record=max,timeavg,vector); }} <--> {flow['source_host']}.pppg[0];\n""")
             file.write(
-                f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = 0ms; datarate = 100kbps; }} <--> {flow['target_host']}.pppg[0];\n""")
+                f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = 0ms; datarate = 100kbps; @statistic[utilization](record=max,timeavg,vector); }} <--> {flow['target_host']}.pppg[0];\n""")
 
         file.write("}\n")
 
