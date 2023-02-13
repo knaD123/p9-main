@@ -870,7 +870,7 @@ class Network(object):
             file.write("\n")
 
         for scenario in failure_scenarios_enum:
-            file.write(f'[Config Scenario{scenario}]\n')
+            file.write(f'[Config Scenario_{scenario}]\n')
             file.write(f'**.scenarioManager.script = xmldoc("failure_scenarios/scenario_{scenario}.xml")\n')
             file.write("\n")
 
