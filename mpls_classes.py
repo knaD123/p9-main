@@ -699,7 +699,7 @@ class Network(object):
         self.to_omnetpp_lib(output_dir)
         self.to_omnetpp_classification(output_dir)
 
-    def to_omnetpp_ned(self, name, file):
+    def to_omnetpp_ned(self, name, file, bandwidth_multiplier=3):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576 # kbps = 1 Gbps
         DEFAULT_LATENCY = 10 # ms
@@ -795,6 +795,7 @@ class Network(object):
                 pppg[1];
         }}\n"""
             )
+        file.write("        scenarioManager: ScenarioManager;")
 
         file.write("\tconnections:\n")
         # Internal edges (router to router)
@@ -807,7 +808,7 @@ class Network(object):
             link_to_ppp[(edge[1], edge[0])] = self.routers[edge[1]].interface_ids[edge[0]]
 
             file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
-            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth}bps; @statistic[utilization](record=max,timeavg,vector); }} <--> ")
+            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector); }} <--> ")
             file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
         # Edges to source and target nodes.
 
@@ -828,7 +829,7 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=2048):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=4096):
         warmup_time = 20
         sim_time = 60
         file.write("[General]\n")
@@ -888,7 +889,7 @@ class Network(object):
         file.write("<scenario>\n")
         file.write('<at t="20s">\n')
         for fail in failure_scenario:
-            file.write(f'	<disconnect src-module="{fail[0]}" src-gate="{link_to_ppp[tuple(fail)]}" />\n')
+            file.write(f'	<disconnect src-module="{fail[0]}" src-gate="pppg[{link_to_ppp[tuple(fail)]}]" />\n')
         file.write("</at>\n")
         file.write("</scenario>\n")
 
