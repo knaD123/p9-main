@@ -828,7 +828,7 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=2048):
         warmup_time = 20
         sim_time = 60
         file.write("[General]\n")
@@ -853,7 +853,6 @@ class Network(object):
 
         #file.write("\n[Config UDP]\n")
         # Add applications (to send packets) at the source nodes.
-        packet_size = 64
         for flow in self.export_flows:
             file.write(f'''**.{flow['source_host']}.numApps = 1\n''')
             file.write(f'''**.{flow['source_host']}.app[0].typename = "UdpBasicApp"\n''')
@@ -905,18 +904,19 @@ class Network(object):
             for in_label, tup in lbl_items.items():
                 good_sources, good_targets, load = tup
                 # TODO: Ask whether to add new clients for every good_targets entry
-                for target in good_targets:
-                    i = i + 1
-                    export_flows.append({
-                        'in_label': in_label,
-                        'ingress' : router_name,
-                        'egress'  : target,
-                        'in_interface': None,
-                        'out_interface': None,
-                        'source_host': f"host{i}",
-                        'target_host': f'target{i}',
-                        'load': load,
-                    })
+                if load > 0:
+                    for target in good_targets:
+                        i = i + 1
+                        export_flows.append({
+                            'in_label': in_label,
+                            'ingress' : router_name,
+                            'egress'  : target,
+                            'in_interface': None,
+                            'out_interface': None,
+                            'source_host': f"host{i}",
+                            'target_host': f'target{i}',
+                            'load': load,
+                        })
         self.export_flows = export_flows
         return export_flows
 
