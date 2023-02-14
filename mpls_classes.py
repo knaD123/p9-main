@@ -680,7 +680,6 @@ class Network(object):
 
         self.build_flows_for_export()
 
-        link_to_ppp_dict = dict()
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
             link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f)
 
@@ -830,10 +829,15 @@ class Network(object):
         return link_to_ppp
 
     def to_omnetpp_ini(self, name, file, failure_scenarios_enum):
+        warmup_time = 20
+        sim_time = 60
         file.write("[General]\n")
         file.write(f"network = {name}\n")
-        file.write(f"warmup-period = 20s\n")
-        file.write(f"sim-time-limit = 60s\n")
+        file.write(f"warmup-period = {warmup_time}s\n")
+        file.write(f"sim-time-limit = {sim_time}s\n")
+        file.write(f"**.cmdenv-log-level = OFF\n")
+        file.write(f"**.utilization.statistic-recording = true\n")
+        file.write(f"**.statistic-recording = false\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
             file.write(f"**.{router_name}.libTable.config = xmldoc(\"{router_name}_lib.xml\")\n")
