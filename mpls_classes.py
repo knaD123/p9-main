@@ -699,7 +699,7 @@ class Network(object):
         self.to_omnetpp_lib(output_dir)
         self.to_omnetpp_classification(output_dir)
 
-    def to_omnetpp_ned(self, name, file, bandwidth_multiplier=3):
+    def to_omnetpp_ned(self, name, file, bandwidth_multiplier=1):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576 # kbps = 1 Gbps
         DEFAULT_LATENCY = 10 # ms
@@ -802,7 +802,8 @@ class Network(object):
         for edge in self.topology.edges():
             # Either use default values for bandwidth and latency or use the edge values if present
             data = self.topology.get_edge_data(edge[0], edge[1])
-            bandwidth = data['bandwidth'] if 'bandwidth' in data else DEFAULT_BANDWIDTH
+            # We multiply bandwidth by 8 to convert to bits
+            bandwidth = data['bandwidth'] * 8 if 'bandwidth' in data else DEFAULT_BANDWIDTH
             latency = data['latency'] if 'latency' in data else DEFAULT_LATENCY
             link_to_ppp[(edge[0], edge[1])] = self.routers[edge[0]].interface_ids[edge[1]]
             link_to_ppp[(edge[1], edge[0])] = self.routers[edge[1]].interface_ids[edge[0]]
@@ -829,7 +830,7 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=4096):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64):
         warmup_time = 20
         sim_time = 60
         file.write("[General]\n")
