@@ -798,6 +798,9 @@ class Network(object):
         file.write("        scenarioManager: ScenarioManager;")
 
         file.write("\tconnections:\n")
+
+        interface_dict = dict()
+
         # Internal edges (router to router)
         for edge in self.topology.edges():
             # Either use default values for bandwidth and latency or use the edge values if present
@@ -808,10 +811,23 @@ class Network(object):
             link_to_ppp[(edge[0], edge[1])] = self.routers[edge[0]].interface_ids[edge[1]]
             link_to_ppp[(edge[1], edge[0])] = self.routers[edge[1]].interface_ids[edge[0]]
 
+            src_interface = f"{edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"]"
+            dst_interface = f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"]"
+
+            interface_dict[src_interface] = str(src_interface) + " -> " + str(dst_interface)
+            interface_dict[dst_interface] = str(dst_interface) + " -> " + str(src_interface)
+
             file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
             file.write(f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector); }} <--> ")
             file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
         # Edges to source and target nodes.
+
+        link_interface_folder = "omnet_results_parser/link_interfaces"
+        if not os.path.exists(link_interface_folder):
+            os.makedirs(link_interface_folder)
+
+        with open(os.path.join(link_interface_folder, f'{name}_link_interfaces.json'), "w") as f:
+            json.dump(interface_dict, f)
 
         '''
         for flow in self.export_flows:
@@ -839,6 +855,7 @@ class Network(object):
         file.write(f"sim-time-limit = {sim_time}s\n")
         file.write(f"**.cmdenv-log-level = OFF\n")
         file.write(f"**.utilization.statistic-recording = true\n")
+        file.write(f"**.network.statistic-recording = true\n")
         file.write(f"**.statistic-recording = false\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
