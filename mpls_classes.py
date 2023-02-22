@@ -818,7 +818,7 @@ class Network(object):
             interface_dict[dst_interface] = str(dst_interface) + " -> " + str(src_interface)
 
             file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
-            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector); }} <--> ")
+            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector,last); }} <--> ")
             file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
         # Edges to source and target nodes.
 
