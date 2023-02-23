@@ -874,12 +874,15 @@ class Network(object):
         # Add applications (to send packets) at the source nodes.
         for flow in self.export_flows:
             file.write(f'''**.{flow['source_host']}.numApps = 1\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].typename = "UdpBasicApp"\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].typename = "UdpBasicBurst"\n''')
             file.write(f'''**.{flow['source_host']}.app[0].localPort = 1000\n''')
             file.write(f'''**.{flow['source_host']}.app[0].destPort = 1000\n''')
             file.write(f'''**.{flow['source_host']}.app[0].messageLength = {packet_size} bytes\n''')
             file.write(f'''**.{flow['source_host']}.app[0].sendInterval = {'%.5f'%(1 / (flow['load'] / packet_size))}s\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].burstDuration = {sim_time}s\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].sleepDuration = 0s\n''')
             file.write(f'''**.{flow['source_host']}.app[0].destAddresses = "{flow['target_host']}"\n''')
+            file.write(f'''**.{flow['source_host']}.app[0].chooseDestAddrMode = "perSend"\n''')
             file.write("\n")
         # Add applications at target nodes.
         # I intended to use only a single target node. However, this did not work, so I currently use one for each
