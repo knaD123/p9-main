@@ -5,16 +5,19 @@ import yaml
 import re
 import math
 def main(conf):
+    with open(conf["demands"],"r") as file:
+        flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
+        total_packets = num_packets(flows_with_load)
+        flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[
+                          :math.ceil(len(flows_with_load) * conf["take_percent"])]
+        flows = [flow[:2] for flow in flows_with_load]
+
+    print(f'Total number of packets over a second: {total_packets}')
+
     # Load topology
     G = mpls_fwd_gen.topology_from_aalwines_json(conf["topology"], visualize=False)
     print("*****************************")
     print(G.graph["name"])
-
-    with open(conf["demands"],"r") as file:
-        flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
-        flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[
-                          :math.ceil(len(flows_with_load) * conf["take_percent"])]
-        flows = [flow[:2] for flow in flows_with_load]
 
     # Generate MPLS forwarding rules
     network = mpls_fwd_gen.generate_fwd_rules(G, conf,
@@ -35,7 +38,14 @@ def main(conf):
     name = re.search(r".*zoo_(.*)\.json", conf["topology"]).group(1).lower()
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=name, output_dir=f"./omnet_files/{name}")
+    network.to_omnetpp(name=name, output_dir=f"./omnet_files/{name}", scaler=conf['scaler'])
+
+def num_packets(flows_with_load):
+    sum = 0
+    for (x,y,z) in flows_with_load:
+        sum += z
+
+    return sum / 64
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
@@ -50,6 +60,7 @@ if __name__ == "__main__":
     p.add_argument("--vpn_ces_per_pe", type=int, default=1,
                    help="Number of CE to attach to each PE serving a VPN, if enabled. Defaults to 1")
     p.add_argument("--take_percent", type=float, default=1, help="What percentage of biggest flows to take")
+    p.add_argument("--scaler", type=float, default=1, help="Multiplies the send interval by the scaler value and divides the link bandwidth by the same value")
 
     conf = vars(p.parse_args())
 
