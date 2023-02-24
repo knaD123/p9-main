@@ -22,6 +22,7 @@ from networkx.algorithms.shortest_paths.weighted import _weight_function, _dijks
 from typing import *
 import xml.etree.ElementTree as ET
 
+
 # Auxiliary functions
 def rand_name():
     """
@@ -31,13 +32,12 @@ def rand_name():
     vowels = 'aeiou'
     syllables = list(vowels)
 
-
     for c in consonants:
         for v in vowels:
-            syllables.append(v+c)
-            syllables.append(c+v)
+            syllables.append(v + c)
+            syllables.append(c + v)
             for cc in consonants:
-                syllables.append(c+v+cc)
+                syllables.append(c + v + cc)
 
     syllables = list(set(syllables))
     weights = list()
@@ -49,14 +49,16 @@ def rand_name():
         elif len(s) == 1:
             weights.append(300)
 
-    x = random.choices(syllables, weights = weights, k = random.randint(2,4))
-    return("".join(x))
+    x = random.choices(syllables, weights=weights, k=random.randint(2, 4))
+    return ("".join(x))
+
 
 def as_list(x):
-    if isinstance(x,list):
+    if isinstance(x, list):
         return x
     else:
         return [x]
+
 
 def dict_filter(_dict, callback):
     '''
@@ -71,25 +73,27 @@ def dict_filter(_dict, callback):
             new_dict[key] = value
     return new_dict
 
+
 def rec_int_val_to_str(d):
     # Goes through a dictionary or list (or combinations thereof)
     # changing numbers into strings.
 
-    if isinstance(d,dict):
-        for k,v in d.items():
+    if isinstance(d, dict):
+        for k, v in d.items():
             d[k] = rec_int_val_to_str(v)
         return d
 
-    elif isinstance(d,list):
+    elif isinstance(d, list):
         for i in range(len(d)):
             d[i] = rec_int_val_to_str(d[i])
         return d
 
-    elif isinstance(d,str) or isinstance(d,int) or isinstance(d, float):
+    elif isinstance(d, str) or isinstance(d, int) or isinstance(d, float):
         return str(d)
 
     else:
         return d
+
 
 # generation functions
 def gen_connected_random_graph(n, m, seed=0, directed=False, method=0):
@@ -131,7 +135,7 @@ def gen_connected_random_graph(n, m, seed=0, directed=False, method=0):
 
     if m >= max_edges:
         G = nx.complete_graph(n, create_using=G)
-        G = nx.relabel_nodes(G, lambda i: f"R{i}" , copy=False)
+        G = nx.relabel_nodes(G, lambda i: f"R{i}", copy=False)
         return G
 
     random.seed(seed)
@@ -143,8 +147,8 @@ def gen_connected_random_graph(n, m, seed=0, directed=False, method=0):
         edge_count = 0
         while edge_count < m:
             # generate random edge,u,v
-            u = router_names[random.randint(0,n-1)]
-            v = router_names[random.randint(0,n-1)]
+            u = router_names[random.randint(0, n - 1)]
+            v = router_names[random.randint(0, n - 1)]
             if u == v or G.has_edge(u, v):
                 continue
             else:
@@ -159,25 +163,25 @@ def gen_connected_random_graph(n, m, seed=0, directed=False, method=0):
         usable_range = 0
         while edge_count < m:
             # generate random edge,u,v
-            u = router_names[random.randint(0,usable_range)]
-            if edge_count < n-1:
+            u = router_names[random.randint(0, usable_range)]
+            if edge_count < n - 1:
                 v = router_names[edge_count + 1]
             else:
-                v = router_names[random.randint(0,n-1)]
+                v = router_names[random.randint(0, n - 1)]
 
             if u == v or G.has_edge(u, v):
                 continue
             else:
                 G.add_edge(u, v)
                 edge_count = edge_count + 1
-                if edge_count < n-1:
+                if edge_count < n - 1:
                     usable_range += 1
 
     return G
 
 
-def generate_topology(mode, n, weight_mode = "random", gen_method = 1,
-                      visualize = False, display_tables = False, random_seed = random.random() ):
+def generate_topology(mode, n, weight_mode="random", gen_method=1,
+                      visualize=False, display_tables=False, random_seed=random.random()):
     """
     Generates a topology, given a number of nodes and a edge generation mode.
 
@@ -202,70 +206,70 @@ def generate_topology(mode, n, weight_mode = "random", gen_method = 1,
 
     """
 
-
-    def _weight_fn(mode = "equal", **kwargs):
+    def _weight_fn(mode="equal", **kwargs):
         if mode == "random":
-            return random.randint(a=1,b=10)
+            return random.randint(a=1, b=10)
 
         elif mode == "distance":
             # we expect additional args p0 and p1
-            return _geo_distance( p0,  p1)
+            return _geo_distance(p0, p1)
 
         else:
             return 1
 
-    def _geo_distance( p0,  p1):
+    def _geo_distance(p0, p1):
         """
         Calculate distance (in kilometers) between p0 and p1.
         Each point must be represented as 2-tuples (longitude, latitude)
         long \in [-180,180], latitude \in [-90, 90]
         """
-        def _hav(theta): # Haversine formula
-            return (1 - math.cos(theta))/2
 
-        a = math.pi / 180 # factor for converting to radians
-        ER = 6371 # 6371 km is the earth radii
+        def _hav(theta):  # Haversine formula
+            return (1 - math.cos(theta)) / 2
+
+        a = math.pi / 180  # factor for converting to radians
+        ER = 6371  # 6371 km is the earth radii
 
         lo_0, la_0 = p0[0] * a, p0[1] * a
         lo_1, la_1 = p1[0] * a, p1[1] * a
         delta_la, delta_lo = la_1 - la_0, lo_1 - lo_0
         sum_la, sum_lo = la_1 + la_0, lo_1 + lo_0
 
-        h =  _hav(delta_la) + (1 - _hav(delta_la) - _hav(sum_la))*_hav(sum_lo)
-        theta = 2*math.sqrt(h)    # central angle in radians
+        h = _hav(delta_la) + (1 - _hav(delta_la) - _hav(sum_la)) * _hav(sum_lo)
+        theta = 2 * math.sqrt(h)  # central angle in radians
 
         return ER * theta
 
     if mode.startswith("random"):
-        #number of nodes
+        # number of nodes
         random.seed(random_seed)
 
         # uneven range for number of links
         if mode == "random.large_degree":
             # avg. degree proportional to n*n
-            beta_l = n/4 + 1/2
-            beta_u = n/2
+            beta_l = n / 4 + 1 / 2
+            beta_u = n / 2
 
         elif mode == "random.log_degree":
             # attempts to get an average degree proportional to log of (n-1)*log n
-            beta_l = 0.5*math.log2(n)  # belongs to [1,n/2]
-            beta_u = 1.16*math.log2(n)    # belongs to [1,n/2] and is ge than beta_l 1.16
+            beta_l = 0.5 * math.log2(n)  # belongs to [1,n/2]
+            beta_u = 1.16 * math.log2(n)  # belongs to [1,n/2] and is ge than beta_l 1.16
 
-        lower_b = int(beta_l*(n-1))
-        upper_b = int(beta_u*(n-1))
+        lower_b = int(beta_l * (n - 1))
+        upper_b = int(beta_u * (n - 1))
 
-        #pprint((lower_b, upper_b))
+        # pprint((lower_b, upper_b))
         e = random.randint(lower_b, upper_b)
         print(f"Number of edges: {e}")
-        G = gen_connected_random_graph(n, e, method = gen_method, seed = random_seed)
+        G = gen_connected_random_graph(n, e, method=gen_method, seed=random_seed)
 
         pos = nx.spring_layout(G)
 
-        for u,v in G.edges():
+        for u, v in G.edges():
             if weight_mode == "distance":
                 G[u][v]["weight"] = _weight_fn(weight_mode,
-                                            p0 = (u["longitude"], u["latitude"]),
-                                            p1 = (v["longitude"], v["latitude"]))
+                                               p0=(u["longitude"], u["latitude"]),
+                                               p1=(v["longitude"], v["latitude"]))
             else:
                 G[u][v]["weight"] = _weight_fn(weight_mode)
 
@@ -294,10 +298,10 @@ def generate_topology(mode, n, weight_mode = "random", gen_method = 1,
         nx.draw_networkx_nodes(G, pos, node_size=250, node_color="#210070", alpha=0.9)
         nx.draw_networkx_edges(G, pos, alpha=0.3, width=1, edge_color="m")
 
-        labels = nx.get_edge_attributes(G,'weight')
+        labels = nx.get_edge_attributes(G, 'weight')
         label_options = {"ec": "k", "fc": "white", "alpha": 0.7}
         nx.draw_networkx_labels(G, pos, font_size=14, bbox=label_options)
-        nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
+        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 
     return G
 
@@ -315,14 +319,14 @@ class MPLS_Client(object):
     For initialization indicate the router.
     """
 
-    #static attribute: start_mode
+    # static attribute: start_mode
     # if auto, the network will try to allocate labels to local resources right after initialization.
     start_mode = 'manual'
     EXPLICIT_IPV4_NULL = 0
     EXPLICIT_IPV6_NULL = 2
     IMPLICIT_NULL = 3
 
-    def __init__(self, router, build_order = 100, **kwargs):
+    def __init__(self, router, build_order=100, **kwargs):
         self.router: Router = router
         self.build_order = build_order
         self.LOCAL_LOOKUP = router.LOCAL_LOOKUP
@@ -336,7 +340,7 @@ class MPLS_Client(object):
     def alloc_labels_to_known_resources(self):
         # Asks the router for allocation of labels for each known FEC (resource)
         for fec in self.known_resources():
-             self.LIB_alloc(fec)
+            self.LIB_alloc(fec)
 
     def get_remote_label(self, router_name, fec, do_count=True):
         # Gets the label allocated by router <router_name> to the FEC <fec>
@@ -355,14 +359,14 @@ class MPLS_Client(object):
 
     def get_fec_by_name_matching(self, name_substring):
         # Return generator of all locally known FEC whose name contains name_substring
-        return [ fec for fec in self.router.LIB.keys() if name_substring in fec.name ]
+        return [fec for fec in self.router.LIB.keys() if name_substring in fec.name]
 
-    def LIB_alloc(self, FEC, literal = None):
+    def LIB_alloc(self, FEC, literal=None):
         # Wrapper for calling the routerś LIB_alloc function.
-        return self.router.LIB_alloc(self, FEC, literal = literal)
+        return self.router.LIB_alloc(self, FEC, literal=literal)
 
     # Abstract functions to be implemented by each client subclass.
-    def LFIB_compute_entry(self, fec, single = False):
+    def LFIB_compute_entry(self, fec, single=False):
         # Each client must provide an generator to compute routing entries given the fec.
         # optional parameter "single" forces the function to return just one routing entry.
         # returns tuple (label, routing_entry)
@@ -399,7 +403,7 @@ class MPLS_Client(object):
                     to_remove.add((l1, l2))
                     to_remove_aux.add(l2)
 
-                    #print(f'Removed tau({self.router.name}, {l2})')
+                    # print(f'Removed tau({self.router.name}, {l2})')
 
                     for n in self.router.topology.neighbors(self.router.name):
                         neighbour: Router = self.router.network.routers[n]
@@ -409,7 +413,7 @@ class MPLS_Client(object):
                                 if rd['out'] == self.router.name and [{'swap': l2}] == rd['ops']:
                                     pre_rd = str(rd)
                                     rd['ops'] = [{'swap': l1}]
-                                    #print(f'Changed tau({neighbour.name}, {l3}) entry from {pre_rd} to {rd}')
+                                    # print(f'Changed tau({neighbour.name}, {l3}) entry from {pre_rd} to {rd}')
                                     to_rerefine.add(neighbour)
 
         label_to_fec: Dict[str, oFEC] = {v['local_label']: fec for fec, v in self.router.LIB.items()}
@@ -429,6 +433,7 @@ class MPLS_Client(object):
     def self_sourced(self, FEC):
         # Returns True if the FEC is sourced or generated by this process.
         pass
+
 
 class ProcLDP(MPLS_Client):
     """
@@ -452,7 +457,7 @@ class ProcLDP(MPLS_Client):
     For initialization indicate the router.
     """
 
-    start_mode = "auto" # the network will try to allocate labels immediately.
+    start_mode = "auto"  # the network will try to allocate labels immediately.
     protocol = "LDP"
 
     def __init__(self, router):
@@ -468,18 +473,17 @@ class ProcLDP(MPLS_Client):
         G = self.router.topology
         # Return FECs for each loopback interface in the network.
         for node in G.nodes():
-            yield oFEC("loopback","lo_{}".format(node), node)
+            yield oFEC("loopback", "lo_{}".format(node), node)
 
         # Return FECs for each link in the network.
         for edge in G.edges():
             fec = edge
             # Use a canonical ordering in the undirected edges vertices.
             if edge[0] > edge[1]:
-                fec = (edge[1],edge[0])  # always ordered.
-            yield oFEC("link", "link_{}_{}".format(fec[0],fec[1]),fec)
+                fec = (edge[1], edge[0])  # always ordered.
+            yield oFEC("link", "link_{}_{}".format(fec[0], fec[1]), fec)
 
-
-    def LFIB_compute_entry(self, fec, single = False):
+    def LFIB_compute_entry(self, fec, single=False):
         # Return a generator for routing entries for the requested FEC.
         # The FEC is an IP prefix that we want to reach, so the computation
         # will require access to remote lables and to routing information.
@@ -488,39 +492,39 @@ class ProcLDP(MPLS_Client):
         network = router.network
 
         # Get root router object, the router we want to reach
-        if  fec.fec_type == "loopback":
+        if fec.fec_type == "loopback":
             root = network.routers[fec.value]  # a loopback fec value is its router name.
 
         elif fec.fec_type == "link":
-            e = fec.value   # a link fec is a (canonically) ordered 2-tuple of nodes.
+            e = fec.value  # a link fec is a (canonically) ordered 2-tuple of nodes.
             e0, e1 = network.routers[e[0]], network.routers[e[1]]
             # the root has to be the closest node in the link.
-            if e0.dist[router.name] <= e1.dist[router.name]:  #dist( router-> e0) vs. dist( router-> e1)
+            if e0.dist[router.name] <= e1.dist[router.name]:  # dist( router-> e0) vs. dist( router-> e1)
                 root = e0
             else:
                 root = e1
 
-        #access routing information on how to reach the root router.
+        # access routing information on how to reach the root router.
         if router.name == root.name:
             # access labels
             local_label = self.get_local_label(fec)
             # build routing entry
-            routing_entry = { "out": router.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0 }
+            routing_entry = {"out": router.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0}
             yield (local_label, routing_entry)
 
-        for predecessor_name in root.pred[router.name]:  #for each next_hop from router towards root...
+        for predecessor_name in root.pred[router.name]:  # for each next_hop from router towards root...
             # access labels
             local_label = self.get_local_label(fec)
             remote_label = self.get_remote_label(predecessor_name, fec)
-            cost = root.dist[router.name]   #IGP distance from router towards root
+            cost = root.dist[router.name]  # IGP distance from router towards root
             # build routing entry
             if remote_label == self.IMPLICIT_NULL:
-                routing_entry = { "out": predecessor_name, "ops": [{"pop": ""}], "weight": cost }
+                routing_entry = {"out": predecessor_name, "ops": [{"pop": ""}], "weight": cost}
             else:
-                routing_entry = { "out": predecessor_name, "ops": [{"swap": remote_label}], "weight": cost }
+                routing_entry = {"out": predecessor_name, "ops": [{"swap": remote_label}], "weight": cost}
             yield (local_label, routing_entry)
             if single:
-                break  #compute for one predecessor, no load balancing.
+                break  # compute for one predecessor, no load balancing.
 
     def self_sourced(self, fec):
         # Returns True if the FEC is sourced or generated by this process.
@@ -528,7 +532,7 @@ class ProcLDP(MPLS_Client):
         network = router.network
         self_sourced = False
         # Get root router object, the router we want to reach
-        if  fec.fec_type == "loopback" and router.name == fec.value:
+        if fec.fec_type == "loopback" and router.name == fec.value:
             # a loopback fec value is its router name.
             self_sourced = True
 
@@ -537,6 +541,7 @@ class ProcLDP(MPLS_Client):
             self_sourced = True
 
         return self_sourced
+
 
 # Classes
 class Network(object):
@@ -547,6 +552,7 @@ class Network(object):
     visualization of LIB and LFIB tables.
 
     """
+
     def __init__(self, topology, name=None):
         # omnet
         self.flows_for_omnet = None
@@ -560,7 +566,7 @@ class Network(object):
         else:
             self.name = name
 
-        self.service_registry = dict()   # hash table with sets of PE routers for each MPLS service.
+        self.service_registry = dict()  # hash table with sets of PE routers for each MPLS service.
         # create and keep track of all routers in the network
         routers = dict()
         self.routers: Dict[str, Router] = routers
@@ -571,7 +577,7 @@ class Network(object):
 
     def compute_dijkstra(self, weight="weight"):
         # compute the shortest-path directed acyclic graph for each node (how to reach it)
-        for n,r in self.routers.items():
+        for n, r in self.routers.items():
             # compute the shortest-path directed acyclic graph for router n
             # this can be computationally expensive!
             r.compute_dijkstra(weight=weight)
@@ -579,15 +585,14 @@ class Network(object):
     def start_client(self, client_class, **kwargs):
         # Create client_class clients on each router first,
         # then proceed to label allocation if required.
-        for n,r in self.routers.items():
+        for n, r in self.routers.items():
             # instantiate a client_class client on each router.
             client = r.create_client(client_class, **kwargs)
 
         if client_class.start_mode == 'auto':
-            for n,r in self.routers.items():
+            for n, r in self.routers.items():
                 # Allocate labels for known managed resources
                 client.alloc_labels_to_known_resources()
-
 
     def _get_build_order(self):
         # helper function to get the order of construction for forwarding rules
@@ -595,13 +600,13 @@ class Network(object):
         for router_name, router in self.routers.items():
             for client_name, client in router.clients.items():
                 if client.build_order not in prio.keys():
-                        prio[client.build_order] = set()
+                    prio[client.build_order] = set()
                 prio[client.build_order].add(router)
 
         order = sorted(list(prio.keys()))
 
         for o in order:
-            yield (o,prio[o])
+            yield (o, prio[o])
 
     def LFIB_build(self):
         # helper function to generate LFIB entries on each router.
@@ -612,9 +617,9 @@ class Network(object):
         # helper function to generate LFIB entries on each router, respecting priorities
         for build_order, router_list in self._get_build_order():
             print("Now building order {}".format(build_order))
-            #for router_name, router in router_list:
+            # for router_name, router in router_list:
             for router in router_list:
-                router.LFIB_build(build_order = build_order)
+                router.LFIB_build(build_order=build_order)
 
     def get_number_of_rules(self):
         N = 0
@@ -637,14 +642,14 @@ class Network(object):
             N += router.get_comm_count()
         return N
 
-    def to_aalwines_json(self, weigth = "weight"):
+    def to_aalwines_json(self, weigth="weight"):
         # This function generates a dictionary compatible with AalWiNes JSON schema.
-        net_dict = {"network":  {"links": [], "name": self.name, "routers": []} }
+        net_dict = {"network": {"links": [], "name": self.name, "routers": []}}
 
         # Topology
         links = net_dict["network"]["links"]
         G = self.topology
-        for from_router,to_router in G.edges():
+        for from_router, to_router in G.edges():
             links.append({
                 "bidirectional": True,
                 "from_interface": to_router,
@@ -652,7 +657,7 @@ class Network(object):
                 "to_interface": from_router,
                 "to_router": to_router,
                 "weight": G[from_router][to_router][weigth]
-              })
+            })
 
         for router_name in G.nodes():
             router = self.routers[router_name]
@@ -661,7 +666,7 @@ class Network(object):
                 "from_router": router_name,
                 "to_interface": router.LOOPBACK,
                 "to_router": router_name
-              })
+            })
 
         # Forwarding rules
         for idx, router in self.routers.items():
@@ -670,7 +675,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name = 'default', output_dir = './omnet_files/default'):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default'):
         """
         Generates all files for OMNeT++.
         """
@@ -689,20 +694,21 @@ class Network(object):
         if not path.exists(output_dir + "/failure_scenarios"):
             os.makedirs(output_dir + "/failure_scenarios")
 
-        for scenario in range(1,len(failed_set_chunk)):
+        for scenario in range(1, len(failed_set_chunk)):
             with open(f'{output_dir}/failure_scenarios/scenario_{scenario}.xml', mode='w') as f:
-                self.to_omnetpp_scenario(file=f, failure_scenario=failed_set_chunk[scenario], link_to_ppp=link_to_ppp_dict)
+                self.to_omnetpp_scenario(file=f, failure_scenario=failed_set_chunk[scenario],
+                                         link_to_ppp=link_to_ppp_dict)
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1,len(failed_set_chunk)))
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)))
 
         self.to_omnetpp_lib(output_dir)
         self.to_omnetpp_classification(output_dir)
 
     def to_omnetpp_ned(self, name, file, bandwidth_multiplier=1):
         # Values between the routers, if not included in the edge data
-        DEFAULT_BANDWIDTH = 1048576 # kbps = 1 Gbps
-        DEFAULT_LATENCY = 10 # ms
+        DEFAULT_BANDWIDTH = 1048576  # kbps = 1 Gbps
+        DEFAULT_LATENCY = 10  # ms
         # Values from the hosts to the routers
         DEFAULT_HOST_BANDWIDTH = 600  # kbps
         DEFAULT_HOST_LATENCY = 10  # ms
@@ -710,23 +716,23 @@ class Network(object):
         # Link -> pppgate dictionary
         link_to_ppp = dict()
 
-        #from service import MPLS_Service
+        # from service import MPLS_Service
         file.write(f"package inet.examples.mpls.{name};\n")
         file.write("import inet.common.scenario.ScenarioManager;\n")
         file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
         file.write("import inet.node.inet.StandardHost;\n")
-        file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
+        file.write("import inet.node.mpls.MplsRouter;\n")  # own, modified router class
         file.write("\n")
         file.write(f"network {name}\n")
         file.write("{\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
-            nr_flows_from_router = sum(entry['ingress'] == router_name for entry in self.export_flows)
-            nr_flows_to_router = sum(entry['egress'] == router_name for entry in self.export_flows)
+            nr_flows_from_router = 1 if sum(entry['ingress'] == router_name for entry in self.export_flows) >= 1 else 0
+            nr_flows_to_router = 1 if sum(entry['egress'] == router_name for entry in self.export_flows) >= 1 else 0
 
             # Create router in NED file.
-            file.write(f"        {router_name}: MplsRouter "+"{\n")
+            file.write(f"        {router_name}: MplsRouter " + "{\n")
 
             # peers are the interfaces for internal links
             router.interface_ids = {}
@@ -736,7 +742,7 @@ class Network(object):
                     router.interface_ids[interface] = id
                     id += 1
             file.write("            parameters:\n")
-            file.write("                peers = \""+" ".join([f"ppp{i}" for i in range(id)])+"\";\n")
+            file.write("                peers = \"" + " ".join([f"ppp{i}" for i in range(id)]) + "\";\n")
 
             # outside interfaces are added to the total list of ppp interfaces
             # TODO: Why?
@@ -748,7 +754,7 @@ class Network(object):
 
             file.write("            gates:\n")
             # + connections to source and target nodes
-            file.write(f"                pppg[{id+nr_flows_from_router+nr_flows_to_router}];\n")
+            file.write(f"                pppg[{id + nr_flows_from_router + nr_flows_to_router}];\n")
             file.write("        }\n")
 
             ### TODO: What about this section? ###
@@ -781,20 +787,24 @@ class Network(object):
                     host_interface_id = host_interface_id + 1
 
         # Add StandardHosts for all flows
+        added_hosts = []
         for flow in self.export_flows:
-            file.write(
-                f"""        {flow['source_host']}: StandardHost {{
-            gates:
-                pppg[1];
-        }}\n"""
-            )
+            if flow['source_host'] not in added_hosts:
+                file.write(
+                    f"""        {flow['source_host']}: StandardHost {{
+                gates:
+                    pppg[1];
+            }}\n""")
+                added_hosts.append(flow['source_host'])
             # Add target host
-            file.write(
-                f"""        {flow['target_host']}: StandardHost {{
-            gates:
-                pppg[1];
-        }}\n"""
-            )
+            if flow['target_host'] not in added_hosts:
+                file.write(
+                    f"""        {flow['target_host']}: StandardHost {{
+                gates:
+                    pppg[1];
+            }}\n""")
+                added_hosts.append(flow['target_host'])
+
         file.write("        scenarioManager: ScenarioManager;")
 
         file.write("\tconnections:\n")
@@ -808,18 +818,21 @@ class Network(object):
             # We multiply bandwidth by 8 to convert to bits
             bandwidth = data['bandwidth'] * 8 if 'bandwidth' in data else DEFAULT_BANDWIDTH
             latency = data['latency'] if 'latency' in data else DEFAULT_LATENCY
+
+            # Added for scenario manager
             link_to_ppp[(edge[0], edge[1])] = self.routers[edge[0]].interface_ids[edge[1]]
             link_to_ppp[(edge[1], edge[0])] = self.routers[edge[1]].interface_ids[edge[0]]
 
-            src_interface = f"{edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"]"
-            dst_interface = f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"]"
-
+            # Added for result parsing
+            src_interface = f"{edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "]"
+            dst_interface = f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "]"
             interface_dict[src_interface] = str(src_interface) + " -> " + str(dst_interface)
             interface_dict[dst_interface] = str(dst_interface) + " -> " + str(src_interface)
 
-            file.write(f"        {edge[0]}.pppg["+str(self.routers[edge[0]].interface_ids[edge[1]])+"] <--> ")
-            file.write(f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector,last); }} <--> ")
-            file.write(f"{edge[1]}.pppg["+str(self.routers[edge[1]].interface_ids[edge[0]])+"];\n")
+            file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
+            file.write(
+                f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector,last); }} <--> ")
+            file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
         link_interface_folder = "omnet_results_parser/link_interfaces"
@@ -837,11 +850,22 @@ class Network(object):
             file.write(
                 f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = {DEFAULT_HOST_LATENCY}ms; datarate = {DEFAULT_HOST_BANDWIDTH}kbps; }} <--> {flow['target_host']}.pppg[0];\n""")
         '''
+        router_ids = {}
+        for router in self.routers:
+            router_ids[router] = len(self.routers[router].interface_ids)
+
+        added_connections = []
         for flow in self.export_flows:
-            file.write(
-                f"""        {flow['ingress']}.pppg[{flow['in_interface']}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['source_host']}.pppg[0];\n""")
-            file.write(
-                f"""        {flow['egress']}.pppg[{flow['out_interface']}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['target_host']}.pppg[0];\n""")
+            if flow['source_host'] not in added_connections:
+                source_host_id = router_ids[flow['ingress']]
+                router_ids[flow['ingress']] += 1
+                file.write(f"""        {flow['ingress']}.pppg[{source_host_id}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['source_host']}.pppg[0];\n""")
+                added_connections.append(flow['source_host'])
+            if flow['target_host'] not in added_connections:
+                target_host_id = router_ids[flow['egress']]
+                router_ids[flow['egress']] += 1
+                file.write(f"""        {flow['egress']}.pppg[{target_host_id}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['target_host']}.pppg[0];\n""")
+                added_connections.append(flow['target_host'])
 
         file.write("}\n")
         return link_to_ppp
@@ -870,28 +894,55 @@ class Network(object):
         for router_name, router in self.routers.items():
             file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_classification.xml\")\n")
 
-        #file.write("\n[Config UDP]\n")
-        # Add applications (to send packets) at the source nodes.
+        # file.write("\n[Config UDP]\n")
+
+        # Create a dictionary to keep track of the app entries for each source host.
+        source_apps = {}
+        flow_idx = 0
         for flow in self.export_flows:
-            file.write(f'''**.{flow['source_host']}.numApps = 1\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].typename = "UdpBasicBurst"\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].localPort = 1000\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].destPort = 1000\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].messageLength = {packet_size} bytes\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].sendInterval = {'%.5f'%(1 / (flow['load'] / packet_size))}s\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].burstDuration = {sim_time}s\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].sleepDuration = 0s\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].destAddresses = "{flow['target_host']}"\n''')
-            file.write(f'''**.{flow['source_host']}.app[0].chooseDestAddrMode = "perSend"\n''')
+            flow_idx += 1
+            ingress = flow['ingress']
+            if ingress not in source_apps:
+                source_apps[ingress] = [{'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
+                                         'messageLength': f"{packet_size} bytes",
+                                         'sendInterval': f"{'%.5f' % (1 / (flow['load'] / packet_size))}s",
+                                         'destAddresses': flow['target_host'], 'source_host': flow['source_host']}]
+            else:
+                app_num = len(source_apps[ingress]) + 1
+                source_apps[ingress].append({'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
+                                             'messageLength': f"{packet_size} bytes",
+                                             'sendInterval': f"{'%.5f' % (1 / (flow['load'] / packet_size))}s",
+                                             'destAddresses': flow['target_host'], 'source_host': flow['source_host']})
+
+        for ingress, apps in source_apps.items():
+            file.write(f'''**.{apps[0]['source_host']}.numApps = {len(apps)}\n''')
+            for i, app in enumerate(apps):
+                file.write(f'''**.{app['source_host']}.app[{i}].typename = "{app['typename']}"\n''')
+                file.write(f'''**.{app['source_host']}.app[{i}].localPort = {app['localPort']}\n''')
+                file.write(f'''**.{app['source_host']}.app[{i}].destPort = {app['destPort']}\n''')
+                file.write(f'''**.{app['source_host']}.app[{i}].messageLength = {app['messageLength']}\n''')
+                file.write(f'''**.{app['source_host']}.app[{i}].sendInterval = {app['sendInterval']}\n''')
+                file.write(f'''**.{app['source_host']}.app[{i}].destAddresses = "{app['destAddresses']}"\n''')
             file.write("\n")
+
         # Add applications at target nodes.
-        # I intended to use only a single target node. However, this did not work, so I currently use one for each
-        # flow. This conversion to a set is here to allow to "reuse" target nodes without breaking this code.
         targets = set(map(lambda entry: entry['target_host'], self.export_flows))
-        for target in targets:
-            file.write(f'''**.{target}.numApps = 1\n''')
-            file.write(f'''**.{target}.app[0].typename = "UdpSinkApp"\n''')
-            file.write(f'''**.{target}.app[0].io.localPort = 1000\n''')
+        targets = sorted(list(targets))
+        # Group export flows by egress/target host
+        flows_by_target = {}
+        for source, apps in source_apps.items():
+            for app in apps:
+                target = app['destAddresses']
+                if target not in flows_by_target:
+                    flows_by_target[target] = []
+                flows_by_target[target].append(app)
+
+        # Add applications at target nodes
+        for target, apps in flows_by_target.items():
+            file.write(f'''**.{target}.numApps = {len(apps)}\n''')
+            for i, app in enumerate(apps):
+                file.write(f'''**.{target}.app[{i}].typename = "UdpSinkApp"\n''')
+                file.write(f'''**.{target}.app[{i}].io.localPort = {app['destPort']}\n''')
             file.write("\n")
 
         for scenario in failure_scenarios_enum:
@@ -902,7 +953,7 @@ class Network(object):
     def to_omnetpp_lib(self, export_dir):
         for router_name, router in self.routers.items():
             table_xml = router.to_omnetpp_lib_xml()
-            ET.indent(table_xml) # NOTE: Requires >= Python 3.9
+            ET.indent(table_xml)  # NOTE: Requires >= Python 3.9
             ET.ElementTree(table_xml).write(f"{export_dir}/{router_name}_lib.xml")
 
     def to_omnetpp_scenario(self, file, failure_scenario, link_to_ppp):
@@ -919,24 +970,32 @@ class Network(object):
         Returns an array with the data of all flows (as a dictionary).
         """
         flows = self.flows_for_omnet
-        pprint(flows)
+        #pprint(flows)
         export_flows = []
         i = 0
+        j = 0
+        source_nums = {}
+        target_nums = {}
         for router_name, lbl_items in flows.items():
+            if router_name not in source_nums:
+                j += 1
+                source_nums[router_name] = j
             for in_label, tup in lbl_items.items():
                 good_sources, good_targets, load = tup
                 # TODO: Ask whether to add new clients for every good_targets entry
                 if load > 0:
                     for target in good_targets:
-                        i = i + 1
+                        if target not in target_nums:
+                            i = i + 1
+                            target_nums[target] = i
                         export_flows.append({
                             'in_label': in_label,
-                            'ingress' : router_name,
-                            'egress'  : target,
-                            'in_interface': None,
-                            'out_interface': None,
-                            'source_host': f"host{i}",
-                            'target_host': f'target{i}',
+                            'ingress': router_name,
+                            'egress': target,
+                            'in_interface': f"{source_nums[router_name]}",
+                            'out_interface': f"{target_nums[target]}",
+                            'source_host': f"host{source_nums[router_name]}",
+                            'target_host': f'target{target_nums[target]}',
                             'load': load,
                         })
         self.export_flows = export_flows
@@ -958,12 +1017,13 @@ class Network(object):
 
             ET.indent(table_xml)  # NOTE: Requires >= Python 3.9
             ET.ElementTree(table_xml).write(f"{export_dir}/{router_name}_classification.xml")
-    def build_flow_table(self, flows: List[Tuple[str, str, int]], verbose = False):
+
+    def build_flow_table(self, flows: List[Tuple[str, str, int]], verbose=False):
         # Build dict of flows for each routable FEC the routers know, in the sense
         # of only initiating packets that could actually be generated from the router.
 
         # classify according to fec_type
-        print(f"Computing flows for simulation." )
+        print(f"Computing flows for simulation.")
 
         labeled_flows = dict()
 
@@ -990,19 +1050,19 @@ class Network(object):
 
                 elif fec.fec_type == "link":
                     good_sources = set(self.routers)
-                    if "_"+src_router+"_" in fec.name or fec.name.endswith("_"+src_router):
+                    if "_" + src_router + "_" in fec.name or fec.name.endswith("_" + src_router):
                         good_sources.difference_update([src_router])
                     good_targets = list(fec.value)
 
                 elif fec.fec_type == "TE_LSP":
-                    good_sources = [fec.value[0]]   #the headend router
-                    good_targets = [fec.value[1]]   #the tailend router
+                    good_sources = [fec.value[0]]  # the headend router
+                    good_targets = [fec.value[1]]  # the tailend router
 
                 elif fec.fec_type == "vpn_endpoint":
                     vpn_name = fec.value[0]
                     tgt_pe = fec.value[1]
                     tgt_ce = fec.value[2]
-                    good_targets = [tgt_pe]   #actually we don't have implemented a way of checking delivery to a CE
+                    good_targets = [tgt_pe]  # actually we don't have implemented a way of checking delivery to a CE
                     good_sources = []
                     for srv_inst in self.routers[src_router].get_FEC_owner(fec).locate_service_instances(vpn_name):
                         good_sources.append(srv_inst.router.name)
@@ -1052,49 +1112,48 @@ class Network(object):
                     continue
 
                 # I have good_sources and good_targets in memory currently...
-                labeled_flows[src_router][in_label] = ([src_router],[tgt_router], load)
-                break # Successfully found flow
+                labeled_flows[src_router][in_label] = ([src_router], [tgt_router], load)
+                break  # Successfully found flow
             else:
                 print(f"ERROR: Could not find flow from {src_router} to {tgt_router}", file=sys.stderr)
 
         return labeled_flows
-
 
     def visualize(self, router_list=None):
         # helper function to visualize LIB and LFIB tables of some router.
         # example:   router_list = [0,1,2]   , just provide the identifiers.
 
         if router_list:
-            routers =  { r: self.routers[r] for r in router_list }
+            routers = {r: self.routers[r] for r in router_list}
         else:
             routers = self.routers
 
         print(f"Number of forwarding rules in the Network:{self.get_number_of_rules()}")
-        print("-"*20)
-        for n,r in routers.items():
+        print("-" * 20)
+        for n, r in routers.items():
             # print LIB
             if r.LIB:
                 print("{}.LIB".format(n))
-                for a,b in r.LIB.items():
+                for a, b in r.LIB.items():
                     print("{}: {}".format(str(a), b))
                 print()
 
             # print LFIB
             if r.LFIB:
                 print("{}.LFIB".format(n))
-                for a,b in r.LFIB.items():
+                for a, b in r.LFIB.items():
                     print("{}: {}".format(str(a), b))
-                print("-"*20)
+                print("-" * 20)
 
     def visualize_fec_by_name(self, fec_name):
-        for n,r in self.routers.items():
+        for n, r in self.routers.items():
 
             if r.LIB:
-                LIB_entries_by_name = [ (fec,entry) for (fec,entry) in r.LIB.items() if fec_name in fec.name]
+                LIB_entries_by_name = [(fec, entry) for (fec, entry) in r.LIB.items() if fec_name in fec.name]
                 if LIB_entries_by_name:
-                    local_labels =  [i[1]['local_label'] for i in LIB_entries_by_name]
+                    local_labels = [i[1]['local_label'] for i in LIB_entries_by_name]
                     print("{}.LIB".format(n))
-                    for a,b in LIB_entries_by_name:
+                    for a, b in LIB_entries_by_name:
                         pprint("{}: {}".format(str(a), b))
                     print()
 
@@ -1103,13 +1162,16 @@ class Network(object):
                         for ll in local_labels:
                             if ll in r.LFIB.keys():
                                 pprint("{}: {}".format(str(ll), r.LFIB[ll]))
-                    print("-"*20)
+                    print("-" * 20)
+
 
 class Label_Manager(object):
     """
     A class that handles requests for new MPLS labels.
     """
-    def __init__(self, first_label=16, max_first_label = 9223372036854775807, final_value = 9223372036854775807, seed=0, numeric_labels=True):
+
+    def __init__(self, first_label=16, max_first_label=9223372036854775807, final_value=9223372036854775807, seed=0,
+                 numeric_labels=True):
 
         self.first_label = first_label
         self.max_first_label = max_first_label
@@ -1124,9 +1186,9 @@ class Label_Manager(object):
             raise Exception("First label can't be larger than final label.")
 
         random.seed(seed)
-        start = random.randint(first_label,max_first_label)
+        start = random.randint(first_label, max_first_label)
 
-        self._cur_label = count(start=start) # basic label alloc manager
+        self._cur_label = count(start=start)  # basic label alloc manager
 
     def next_label(self):
         # Allocates a new label in the MPLS range
@@ -1153,14 +1215,15 @@ class Router(object):
     def __str__(self):
         return self.name
 
-    def __init__(self, network, name, alternative_names=[], location = None, php = False, dist=None, pred=None, paths=None, first_label=16,
-                 max_first_label = 90000, seed=0, numeric_labels=True):
+    def __init__(self, network, name, alternative_names=[], location=None, php=False, dist=None, pred=None, paths=None,
+                 first_label=16,
+                 max_first_label=90000, seed=0, numeric_labels=True):
         self.name = name
         self.network = network
         self.topology: Graph = network.topology
         self.location = location  # "location": {"latitude": 25.7743, "longitude": -80.1937 }
         self.alternative_names = alternative_names
-        self.PHP = php   # Activate Penultimate Hop Popping
+        self.PHP = php  # Activate Penultimate Hop Popping
         self.numeric_labels = numeric_labels
 
         # Define the LOCAL_LOOKUP interface: the interface to which we should send packets that
@@ -1182,26 +1245,27 @@ class Router(object):
         self.clients = dict()
         self.label_managers = dict()
         self.main_label_manager = Label_Manager(first_label=16,
-                                                max_first_label = 90000,
-                                                final_value = 1048576,
+                                                max_first_label=90000,
+                                                final_value=1048576,
                                                 seed=0,
                                                 numeric_labels=True)
 
         # Attributes to store shortest path spanning tree
-        self.dist = dist                       # Distance from other nodes
-        self.paths = paths                     # Paths from other nodes
-        self.pred = pred                       # Predecesors (upstream nodes) for each router towards this
+        self.dist = dist  # Distance from other nodes
+        self.paths = paths  # Paths from other nodes
+        self.pred = pred  # Predecesors (upstream nodes) for each router towards this
         self.succ = self.get_successors(pred)  # next-hops
 
         random.seed(seed)
-        start = random.randint(first_label,max_first_label)
+        start = random.randint(first_label, max_first_label)
         # For debugging or demo purposes, you may comment the previous line and uncomment the next one.
-        #start = 100000+100*int(self.name[1:])
-        self._cur_label = count(start=start) # basic label alloc manager, could be replaced by instance of Label_Manager
+        # start = 100000+100*int(self.name[1:])
+        self._cur_label = count(
+            start=start)  # basic label alloc manager, could be replaced by instance of Label_Manager
 
     def get_location(self):
         # get geographical location of router.
-        #{"latitude": latitude, "longitude": longitude}
+        # {"latitude": latitude, "longitude": longitude}
         if self.location:
             return self.location
 
@@ -1209,7 +1273,7 @@ class Router(object):
 
         try:
             location = {"latitude": G.nodes[self.name]["latitude"],
-                    "longitude": G.nodes[self.name]["longitude"]}
+                        "longitude": G.nodes[self.name]["longitude"]}
             self.location = location
             return self.location
 
@@ -1224,24 +1288,23 @@ class Router(object):
         else:
             raise Exception("MPLS labels depleted in router {}".format(self.name))
 
-
     def compute_dijkstra(self, weight="weight"):
         # Compute the shortest-path directed acyclic graph in-tree (how to reach this node)
         # Relies on networkx._dijkstra_multisource()
 
         # Initializations
         paths = {self.name: [self.name]}  # dict of paths from each node
-        pred = {self.name: []}    # dict of predecessors from each node
+        pred = {self.name: []}  # dict of predecessors from each node
 
         # compute paths and distances
         G = self.topology
         weight = _weight_function(G, weight)
-        dist = _dijkstra_multisource( G, {self.name}, weight, pred=pred, paths=paths )
+        dist = _dijkstra_multisource(G, {self.name}, weight, pred=pred, paths=paths)
 
         # store results for this router.
         self.dist = dist  # dict of distances from each node
         self.pred = pred
-        self.succ = self.get_successors(pred) # dict of successors from each node
+        self.succ = self.get_successors(pred)  # dict of successors from each node
         self.paths = paths
 
     def get_successors(self, pred):
@@ -1259,14 +1322,14 @@ class Router(object):
 
         return succ
 
-    def get_interfaces(self, outside_interfaces = False):
+    def get_interfaces(self, outside_interfaces=False):
         # Returns generator of router interfaces (identified as router names).
         # If outside_interfaces is False (default) it will return all enabled MPLS
         # interfaces (internal interfaces). If outside_interfacs is True,
         # it will only return non-MPLS interfaces, for example the ones used on
         # VPN services as attachement circuits (AC).
 
-        #return chain(iter([self.name]), self.topology.neighbors(self.name))
+        # return chain(iter([self.name]), self.topology.neighbors(self.name))
         if not outside_interfaces:
             yield self.name
 
@@ -1288,9 +1351,9 @@ class Router(object):
             return None
 
     def create_client(self, client_class, **kwargs):
-        #Creates and registers in this router an MPLS client of class client_class.
-        #If a client of same class is already registered return error
-        #Only one client per protocol.
+        # Creates and registers in this router an MPLS client of class client_class.
+        # If a client of same class is already registered return error
+        # Only one client per protocol.
         if not issubclass(client_class, MPLS_Client):
             raise Exception("A subclass of MPLS_Client is required.")
 
@@ -1313,8 +1376,7 @@ class Router(object):
 
         if self.get_client(client_class):
             del self.clients[mpls_client.protocol]
-        raise  Exception("No registered client of class to remove...".format(type(client_class)))
-
+        raise Exception("No registered client of class to remove...".format(type(client_class)))
 
     def get_FEC_owner(self, FEC):
         # Return the process owning the FEC.
@@ -1323,8 +1385,7 @@ class Router(object):
         else:
             return self.LIB[FEC]["owner"]
 
-
-    def LIB_alloc(self, process, FEC, literal = None):
+    def LIB_alloc(self, process, FEC, literal=None):
         # Allocates a local MPLS label to the requested FEC and return the allocated label.
         # If already allocated, return the label.
         # If literal is not None and self.numeric is False, then literal must be a NON-NUMERIC
@@ -1335,14 +1396,14 @@ class Router(object):
         if FEC not in self.LIB.keys():
             # Allocate if it hasn't been yet
             if self.numeric_labels:
-                self.LIB[FEC] = {"owner": process, "local_label": lm.next_label() }
+                self.LIB[FEC] = {"owner": process, "local_label": lm.next_label()}
             elif literal and isinstance(literal, str) and not literal.isnumeric():
-                self.LIB[FEC] = {"owner": process, "local_label": literal }
+                self.LIB[FEC] = {"owner": process, "local_label": literal}
             else:
-                self.LIB[FEC] = {"owner": process, "local_label": str(lm.next_label()) }
+                self.LIB[FEC] = {"owner": process, "local_label": str(lm.next_label())}
             return self.LIB[FEC]["local_label"]
 
-        #FEC is already in binding database.
+        # FEC is already in binding database.
         if self.get_FEC_owner(FEC) != process:
             return "The FEC is under control of other mpls client process {}".format(self.LIB[FEC]["owner"])
 
@@ -1351,7 +1412,7 @@ class Router(object):
 
     def get_FEC_from_label(self, label):
         # Return the FEC corresponding to a label.
-        candidates =  [z[0] for z in self.LIB.items() if z[1]['local_label'] == label]  # 0 or 1 candidates only
+        candidates = [z[0] for z in self.LIB.items() if z[1]['local_label'] == label]  # 0 or 1 candidates only
         if candidates:
             return candidates[0]
         else:
@@ -1383,13 +1444,13 @@ class Router(object):
         else:
             self.LFIB[local_label] = [routing_entry]
 
-    def LFIB_build(self, build_order = None):
+    def LFIB_build(self, build_order=None):
         # Proc to build the LFIB from the information handled by each MPLS client
         # build_order = None (default) means attempt to build from all MPLS clients (ignore dependencies)
 
-        for mpls_client_name, mpls_client in self.clients.items():    #iterate through all registered clients
+        for mpls_client_name, mpls_client in self.clients.items():  # iterate through all registered clients
             if not build_order or build_order == mpls_client.build_order:
-                for fec in mpls_client.known_resources():  #iterate through the client resources
+                for fec in mpls_client.known_resources():  # iterate through the client resources
                     for label, routing_entry in mpls_client.LFIB_compute_entry(fec):  # for each computed entry...
                         if fec in self.LIB.keys() and self.LIB[fec]["owner"].protocol == mpls_client_name:
                             # If fec exists and is managed by this client, allocate the routing entry.
@@ -1405,13 +1466,13 @@ class Router(object):
 
     def LFIB_refine(self):
         # Proc to refine (post-process) the LFIB
-        for mpls_client_name, mpls_client in self.clients.items():    #iterate through all registered clients
+        for mpls_client_name, mpls_client in self.clients.items():  # iterate through all registered clients
             mpls_client.LFIB_fullrefine()
             for label in self.LFIB.keys():
                 new_rules = mpls_client.LFIB_refine(label)
                 if new_rules:
                     for new_rule in new_rules:
-                        self.LFIB_alloc(label,new_rule)
+                        self.LFIB_alloc(label, new_rule)
 
     def get_number_of_rules(self):
         return len(self.LFIB.keys())
@@ -1432,10 +1493,9 @@ class Router(object):
         except:
             return False
 
-
     def to_aalwines_json(self):
         # Generates an aalwines json schema compatible view of the router.
-        r_dict= {"interfaces": [], "name": str(self.name)}
+        r_dict = {"interfaces": [], "name": str(self.name)}
 
         if self.alternative_names is list and len(self.alternative_names) > 0:
             r_dict["alias"] = [str(a) for a in self.alternative_names]
@@ -1444,12 +1504,12 @@ class Router(object):
         # We will just copy it on each interface.
 
         def _call(t):
-            if isinstance(t[0],str) and t[0].startswith("NL_"):
+            if isinstance(t[0], str) and t[0].startswith("NL_"):
                 return False
             return True
 
         def _call2(t):
-            if isinstance(t[0],str) and t[0].startswith("NL_"):
+            if isinstance(t[0], str) and t[0].startswith("NL_"):
                 return False
             return True
 
@@ -1459,7 +1519,7 @@ class Router(object):
         ifaces = []
         for x in self.get_interfaces():
             if x == self.name:
-                iface = "i"+str(x)
+                iface = "i" + str(x)
             else:
                 iface = str(x)
             ifaces.append(iface)
@@ -1467,37 +1527,37 @@ class Router(object):
             #   - entries outputing to LOCAL_LOOKUP
             #   - multiple loopback interfaces
 
-
         ifaces.append(self.LOOPBACK)
-        r_dict["interfaces"].append({"names":ifaces, "routing_table": regular_LFIB})
+        r_dict["interfaces"].append({"names": ifaces, "routing_table": regular_LFIB})
 
-        r_dict["interfaces"].append({"name":self.LOCAL_LOOKUP, "routing_table": {}   })
+        r_dict["interfaces"].append({"name": self.LOCAL_LOOKUP, "routing_table": {}})
 
         # process outside interfaces (non-MPLS)
-        for x in self.get_interfaces(outside_interfaces = True):
+        for x in self.get_interfaces(outside_interfaces=True):
             iface = str(x)
             # get service for this interface...
 
             s = self.get_client(MPLS_Service)
             vdict = s.get_service_from_ce(iface)
             vpn_name = list(vdict.keys())[0]
+
             def _call3(t):
-                if isinstance(t[0],str) and vpn_name in t[0]:
+                if isinstance(t[0], str) and vpn_name in t[0]:
                     return True
                 return False
 
             srv_iface_LFIB = dict_filter(service_LFIB, _call3)
 
             rt = {"null": []}
-            for _,re_list in srv_iface_LFIB.items():
+            for _, re_list in srv_iface_LFIB.items():
                 for re in re_list:
                     rt["null"].append(re)
-            r_dict["interfaces"].append({"name":iface, "routing_table": rt })
+            r_dict["interfaces"].append({"name": iface, "routing_table": rt})
 
         loc = self.get_location()
         if loc:
             r_dict["location"] = dict()
-            r_dict["location"]["latitude"] = round(loc["latitude"], 4)     #fixed precision
+            r_dict["location"]["latitude"] = round(loc["latitude"], 4)  # fixed precision
             r_dict["location"]["longitude"] = round(loc["longitude"], 4)
         return r_dict
 
@@ -1515,16 +1575,17 @@ class Router(object):
                     # TODO: Check -- correct?!?
                     ET.SubElement(entry_xml, "outInterface").text = "mlo0"  # custom loopback interface
                 else:
-                    ET.SubElement(entry_xml, "outInterface").text = "ppp"+str(self.interface_ids[entry["out"]])
+                    ET.SubElement(entry_xml, "outInterface").text = "ppp" + str(self.interface_ids[entry["out"]])
                 ops = ET.SubElement(entry_xml, "outLabel")
                 for op in entry["ops"]:
-                    op_code, op_label = [(x,y) for x,y in op.items()][0]
+                    op_code, op_label = [(x, y) for x, y in op.items()][0]
                     if op_code == 'pop':
                         # pop should not contain a value attribute (violates an assertion in DEBUG mode)
                         ET.SubElement(ops, "op", code=op_code)
                     else:
-                        ET.SubElement(ops, "op", code = op_code, value = str(op_label))
+                        ET.SubElement(ops, "op", code=op_code, value=str(op_label))
         return table_xml
+
 
 class oFEC(object):
     """
@@ -1550,7 +1611,7 @@ class oFEC(object):
     The class allows to check equality of two oFEC objects directly.
     """
 
-    def __init__(self, fec_type, name, value = None):
+    def __init__(self, fec_type, name, value=None):
         self.fec_type = fec_type
         self.name = name
         self.value = value
@@ -1559,13 +1620,15 @@ class oFEC(object):
         return hash((self.fec_type, self.name, self.value if not isinstance(self.value, dict) else 0))
 
     def __eq__(self, other):
-        return isinstance(other, oFEC) and self.value == other.value and self.name == other.name and self.fec_type == other.fec_type
+        return isinstance(other,
+                          oFEC) and self.value == other.value and self.name == other.name and self.fec_type == other.fec_type
 
     def __str__(self):
         return "{}".format(self.name)
 
     def __repr__(self):
         return self.__str__()
+
 
 class ProcRSVPTE(MPLS_Client):
     """
@@ -1622,23 +1685,22 @@ class ProcRSVPTE(MPLS_Client):
     For initialization indicate the router.
     """
 
-    start_mode = 'manual'   # we must wait until all RSPV clients are initializated
-                            # before starting to negotiate tunnels.
+    start_mode = 'manual'  # we must wait until all RSPV clients are initializated
+    # before starting to negotiate tunnels.
     protocol = "RSVP-TE"
 
-    def __init__(self, router, max_hops = 3, **kwargs):
+    def __init__(self, router, max_hops=3, **kwargs):
         super().__init__(router, **kwargs)
-#         self.protocol = "RSVP-TE"
+        #         self.protocol = "RSVP-TE"
         self.build_order = 100
 
-        self.bypass_cost = 16385          # Cost/weight allocated to bypass routes.
-        self.frr_max_hops = max_hops      # Max number of additionals hops a FRR bypass may have.
-        self.headended_lsps = dict()      # Table of tunnels configured to start in this router.
-        self.requested_lsps = dict()      # Table of tunnels passing through this router.
+        self.bypass_cost = 16385  # Cost/weight allocated to bypass routes.
+        self.frr_max_hops = max_hops  # Max number of additionals hops a FRR bypass may have.
+        self.headended_lsps = dict()  # Table of tunnels configured to start in this router.
+        self.requested_lsps = dict()  # Table of tunnels passing through this router.
         self.requested_bypasses = dict()  # Table of FRR backup paths passing through this router.
 
-
-    def define_lsp(self, tailend, tunnel_local_id = 0, weight='weight',protection = None, **kwargs):
+    def define_lsp(self, tailend, tunnel_local_id=0, weight='weight', protection=None, **kwargs):
         # Store a request for a new tunnel; a headended LSP.
         # Compute the main path for it.
         # kwargs are reserved for future use, to pass restrictions for LSP creation.
@@ -1658,12 +1720,12 @@ class ProcRSVPTE(MPLS_Client):
 
         G = self.router.topology
 
-        constraints = None  #for future use
+        constraints = None  # for future use
         if constraints:
             # Constraints can be a tuple of function allowing to build a view (subgraph)
             filter_node, filter_edge = constraints
             # Compute subgraph
-            G = nx.subgraph_view(G, filter_node = filter_node, filter_edge = filter_edge)
+            G = nx.subgraph_view(G, filter_node=filter_node, filter_edge=filter_edge)
             # There could also be the 'subgraph_view' object itself
             # To consider link's delay, loss, price, or color, the topology itself should be already
             # labeled and the filter functions leverage that information.
@@ -1671,8 +1733,8 @@ class ProcRSVPTE(MPLS_Client):
         try:
             headend = self.router.name
             # compute spath: find the shortest path from headend to tailend.
-            spath = nx.shortest_path(G, headend, tailend, weight=weight) #find shortest path, stored as list.
-            length = len(spath) #numer of routers in path, including extremes.
+            spath = nx.shortest_path(G, headend, tailend, weight=weight)  # find shortest path, stored as list.
+            length = len(spath)  # numer of routers in path, including extremes.
 
             # Placeholder: attempt to find secondary path (To be implemented)
             sec_path = None
@@ -1701,17 +1763,17 @@ class ProcRSVPTE(MPLS_Client):
             #         continue   #No path found, try with fewer constraints.
 
             cost = 0
-            for i in range(length-1):
-                cost += G.edges[spath[i],spath[i+1]][weight]
+            for i in range(length - 1):
+                cost += G.edges[spath[i], spath[i + 1]][weight]
 
-            #create a FEC object for this tunnel and store it in the pending configuration .
-            self.headended_lsps[lsp_name] = { 'FEC': oFEC("TE_LSP",
-                                                          lsp_name,
-                                                          (self.router.name, tailend, protection)
+            # create a FEC object for this tunnel and store it in the pending configuration .
+            self.headended_lsps[lsp_name] = {'FEC': oFEC("TE_LSP",
+                                                         lsp_name,
+                                                         (self.router.name, tailend, protection)
                                                          ),
-                                              'path': spath,
-                                              'sec_path': sec_path,
-                                              'cost': cost }
+                                             'path': spath,
+                                             'sec_path': sec_path,
+                                             'cost': cost}
             return lsp_name
 
         except nx.NetworkXNoPath as err_nopath:
@@ -1729,50 +1791,49 @@ class ProcRSVPTE(MPLS_Client):
 
         for lsp_name, lsp_data in self.headended_lsps.items():
 
-            G = self.router.topology   #change G to add restrictions...
-            spath = lsp_data['path']   #shortest path result, as list of hops..
-            sec_path = lsp_data['sec_path']   #alternative shortest path result, as list of hops..
-            paths = [spath,sec_path]
-            fec = lsp_data['FEC']      #an oFEC object with type="TE_LSP"
-            protection = fec.value[2]  #protection mode
+            G = self.router.topology  # change G to add restrictions...
+            spath = lsp_data['path']  # shortest path result, as list of hops..
+            sec_path = lsp_data['sec_path']  # alternative shortest path result, as list of hops..
+            paths = [spath, sec_path]
+            fec = lsp_data['FEC']  # an oFEC object with type="TE_LSP"
+            protection = fec.value[2]  # protection mode
 
             length = len(spath)
 
             # create entry in local requested_lsps. value should be spath (a list object)
-            self.requested_lsps[lsp_name] = {'FEC':fec, 'tuple': (spath[0],spath[1]), 'path': spath}
+            self.requested_lsps[lsp_name] = {'FEC': fec, 'tuple': (spath[0], spath[1]), 'path': spath}
             # a bad patch (not 100% RFC compliant) but if we don't make it, poor success
-            if ((spath[0],spath[1]) not in self.requested_bypasses.keys()) and protection:
-                self.requested_bypasses[(spath[0],spath[1])] = dict()
+            if ((spath[0], spath[1]) not in self.requested_bypasses.keys()) and protection:
+                self.requested_bypasses[(spath[0], spath[1])] = dict()
 
-            #create entry in tailend
+            # create entry in tailend
             tailend_pRSVP = network.routers[spath[-1]].clients["RSVP-TE"]
             self.comm_count += 1
-            tailend_pRSVP.requested_lsps[lsp_name] = {'FEC':fec, 'path': spath}
+            tailend_pRSVP.requested_lsps[lsp_name] = {'FEC': fec, 'path': spath}
 
             # create entry in requested_lsps of downstream nodes.
             # Value should be a 3-tuple or a 2-tuple only.
             # iterate on upstream direction.
-            for i in range(length-2, 0, -1):
+            for i in range(length - 2, 0, -1):
                 # compute protections only for intermediate nodes.
-                PLR = spath[i]       #PLR: Point of Local Repair
+                PLR = spath[i]  # PLR: Point of Local Repair
                 pRSVP = network.routers[PLR].clients["RSVP-TE"]
 
-                if i == length-2 or protection == "facility-link":
-                    #penultimate node in LSP, circumvent the last edge
-                    MP = spath[i+1]  # MP: Merge Point
-                    protected_tuple = (PLR, MP) # the last edge
+                if i == length - 2 or protection == "facility-link":
+                    # penultimate node in LSP, circumvent the last edge
+                    MP = spath[i + 1]  # MP: Merge Point
+                    protected_tuple = (PLR, MP)  # the last edge
 
                 else:
-                    #circumvent next node
-                    facility = spath[i+1] #original next node
-                    MP = spath[i+2]
-                    protected_tuple = (PLR,facility,MP)
-
+                    # circumvent next node
+                    facility = spath[i + 1]  # original next node
+                    MP = spath[i + 2]
+                    protected_tuple = (PLR, facility, MP)
 
                 # create a protection for all LSPs that traverse the protected_tuple
                 if protection in ["facility-link", "facility-node"]:
                     self.comm_count += 1
-                    pRSVP.requested_lsps[lsp_name] = {'FEC':fec, 'tuple': protected_tuple,  'path': spath}
+                    pRSVP.requested_lsps[lsp_name] = {'FEC': fec, 'tuple': protected_tuple, 'path': spath}
 
                     # create entry in requested_bypasses (if it doent's exist) of
                     # downstream nodes.
@@ -1784,7 +1845,7 @@ class ProcRSVPTE(MPLS_Client):
                 elif protection == "one-to-one":
                     # use tailend as MP
                     self.comm_count += 1
-                    pRSVP.requested_lsps[lsp_name] = {'FEC':fec, 'tuple': (PLR,spath[-1]),  'path': spath}
+                    pRSVP.requested_lsps[lsp_name] = {'FEC': fec, 'tuple': (PLR, spath[-1]), 'path': spath}
 
                     # create entry in requested_bypasses (if it doent's exist) of
                     # downstream nodes.
@@ -1796,9 +1857,7 @@ class ProcRSVPTE(MPLS_Client):
                 elif not protection:
                     # use tailend as MP
                     self.comm_count += 1
-                    pRSVP.requested_lsps[lsp_name] = {'FEC':fec, 'tuple': protected_tuple,  'path': spath}
-
-
+                    pRSVP.requested_lsps[lsp_name] = {'FEC': fec, 'tuple': protected_tuple, 'path': spath}
 
     def compute_bypasses(self):
         # Compute all requested bypasses LSPs from the formation of LSPs during commit_config().
@@ -1812,7 +1871,7 @@ class ProcRSVPTE(MPLS_Client):
             # No ProcRSVPTE requested bypasses for this router.
             return None
 
-        def _get_path(view, head, tail, weight='weight', max_hops = self.frr_max_hops):
+        def _get_path(view, head, tail, weight='weight', max_hops=self.frr_max_hops):
             # Auxiliary function.
             # Returns a shortest path from node "head" to node "tail" on
             # subgraph "view" of the full topology if exists. Subject to
@@ -1821,11 +1880,11 @@ class ProcRSVPTE(MPLS_Client):
                 bypass_path = nx.shortest_path(view, head, tail, weight=weight)
 
                 if bypass_path and len(bypass_path) >= max_hops + 2:
-                    #bypass too large
+                    # bypass too large
                     bypass_path = None
 
             except nx.NetworkXNoPath as err_nopath:
-                #No path!
+                # No path!
                 bypass_path = None
 
             finally:
@@ -1836,81 +1895,80 @@ class ProcRSVPTE(MPLS_Client):
         bypass_path = None
         for protected_tuple in self.requested_bypasses.keys():
 
-            G = self.router.topology   #change G to add constraints
-            PLR = protected_tuple[0]   # Point of Local Repair
-            MP = protected_tuple[-1]   # Merge Point
+            G = self.router.topology  # change G to add constraints
+            PLR = protected_tuple[0]  # Point of Local Repair
+            MP = protected_tuple[-1]  # Merge Point
 
             if len(protected_tuple) == 3:
-            #Node failure / NextNextHop  protection
-                facility = protected_tuple[1] # potentially failed node
+                # Node failure / NextNextHop  protection
+                facility = protected_tuple[1]  # potentially failed node
 
                 # Auxiliary filter functions for this case
                 def filter_node(n):
                     # Remove potentially failed node from the graph.
                     return True if n != facility else False
-                def filter_edge(n1,n2):
+
+                def filter_edge(n1, n2):
                     return True
 
                 # Compute subgraph
-                view = nx.subgraph_view(G, filter_node = filter_node, filter_edge = filter_edge)
+                view = nx.subgraph_view(G, filter_node=filter_node, filter_edge=filter_edge)
                 # Get bypass path
-                bypass_path = _get_path(view, PLR, MP, weight='weight', max_hops = self.frr_max_hops)
+                bypass_path = _get_path(view, PLR, MP, weight='weight', max_hops=self.frr_max_hops)
 
                 if not bypass_path:
                     # if we can't protect the next node, attempt to protect the link.
                     MP = facility  # We will merge on the next node downstream instead of skipping it.
 
-
             if len(protected_tuple) == 2 or not bypass_path:
-            #Link failure / NextHop  protection
+                # Link failure / NextHop  protection
 
                 # Auxiliary filter functions for this case
                 def filter_node(n):
                     return True
-                def filter_edge(n1,n2):
+
+                def filter_edge(n1, n2):
                     # Remove potentially failed link from the graph.
-                    return False if (n1,n2) == (PLR, MP) or (n2,n1) == (PLR, MP) else True
+                    return False if (n1, n2) == (PLR, MP) or (n2, n1) == (PLR, MP) else True
 
                 # Compute subgraph
-                view = nx.subgraph_view(G, filter_node = filter_node, filter_edge = filter_edge)
+                view = nx.subgraph_view(G, filter_node=filter_node, filter_edge=filter_edge)
                 # Get bypass path
-                bypass_path = _get_path(view, PLR, MP, weight='weight', max_hops = self.frr_max_hops)
+                bypass_path = _get_path(view, PLR, MP, weight='weight', max_hops=self.frr_max_hops)
 
                 if not bypass_path:
                     # We could not find a valid protection, move on to next request.
                     # Nevertheless an empty entry would remain in requested_bypasses.
                     continue
 
-
             # Found an usable bypass path! Create a FEC object for it.
-            bypass_name = "bypass_{}".format("_".join([str(item) for item in protected_tuple ]))
+            bypass_name = "bypass_{}".format("_".join([str(item) for item in protected_tuple]))
             bypass = oFEC("bypass", bypass_name, protected_tuple)
 
             # Iterate through the bypass path
             length = len(bypass_path)
             for i in range(0, length):
                 # Note: we compute protections only for intermediate nodes.
-                #Get current router in path, and its RSVP process.
+                # Get current router in path, and its RSVP process.
                 curr_router = bypass_path[i]
                 pRSVP = network.routers[curr_router].clients["RSVP-TE"]
 
                 # Get its nexthop, it is needed to set up the path.
-                if i+1 < length:
-                    next_hop = bypass_path[i+1]
+                if i + 1 < length:
+                    next_hop = bypass_path[i + 1]
                 else:
-                    #for the MP, we will need a local label.
+                    # for the MP, we will need a local label.
                     next_hop = None
 
                 # Insert a bypass request on the router.
                 if protected_tuple not in pRSVP.requested_bypasses.keys():
-                    pRSVP.requested_bypasses[protected_tuple] = dict()  #initialize if necesary
+                    pRSVP.requested_bypasses[protected_tuple] = dict()  # initialize if necesary
 
                 pRSVP.requested_bypasses[protected_tuple] = {'FEC': bypass,
                                                              'next_hop': next_hop,
-                                                             'bypass_path': bypass_path }
+                                                             'bypass_path': bypass_path}
                 if curr_router != self.router.name:
                     self.comm_count += 1
-
 
     def known_resources(self):
         # Returns a generator to iterate over all tunnels and bypasses (RSVP-TE resources).
@@ -1919,7 +1977,7 @@ class ProcRSVPTE(MPLS_Client):
             # ProcRSVPTE in not initialized.
             return None
 
-        #First return the bypases
+        # First return the bypases
         for bypass_tuple, bypass_data in self.requested_bypasses.items():
             if 'FEC' not in bypass_data.keys():
                 # The requested bypass was impossible/unsolvable.
@@ -1932,8 +1990,7 @@ class ProcRSVPTE(MPLS_Client):
             fec = lsp_data['FEC']
             yield fec
 
-
-    def LFIB_compute_entry(self, fec, single = False):
+    def LFIB_compute_entry(self, fec, single=False):
         # Return a generator for routing entries for the requested FEC.
         # The FEC is a tunnel or bypass identifier
         # The next_hop is already in the path information, but we will
@@ -1943,86 +2000,83 @@ class ProcRSVPTE(MPLS_Client):
         network = router.network
 
         # Starting with bypasses
-        if  fec.fec_type == "bypass":
+        if fec.fec_type == "bypass":
             if not fec.value:
-                return   # this case should never happen.
+                return  # this case should never happen.
 
             # recover the intended protected tuple.
             tuple_data = fec.value
             if router.name not in tuple_data:
-                #intermediate router, process the bypass like a regular LSP
+                # intermediate router, process the bypass like a regular LSP
                 next_hop_name = self.requested_bypasses[tuple_data]['next_hop']
 
-                next_hop =  network.routers[next_hop_name]
+                next_hop = network.routers[next_hop_name]
                 local_label = self.get_local_label(fec)
-                remote_label = self.get_remote_label(next_hop_name, fec, do_count = False) #We cached it
+                remote_label = self.get_remote_label(next_hop_name, fec, do_count=False)  # We cached it
                 cost = self.bypass_cost
 
                 # A swap op will do.
                 if remote_label == self.IMPLICIT_NULL:
-                    routing_entry = { "out": next_hop.name, "ops": [{"pop": ""}], "weight": cost  }
+                    routing_entry = {"out": next_hop.name, "ops": [{"pop": ""}], "weight": cost}
                 else:
-                    routing_entry = { "out": next_hop.name, "ops": [{"swap": remote_label}], "weight": cost  }
+                    routing_entry = {"out": next_hop.name, "ops": [{"swap": remote_label}], "weight": cost}
                 yield (local_label, routing_entry)
 
 
             elif router.name == tuple_data[-1]:
-                #this is the MP for the requested bypass. No next_hop, just pop.
+                # this is the MP for the requested bypass. No next_hop, just pop.
                 local_label = self.get_local_label(fec)
-                routing_entry = { "out": self.LOCAL_LOOKUP, "ops": [{"pop": "" }], "weight": 0  }
+                routing_entry = {"out": self.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0}
                 yield (local_label, routing_entry)
 
-            #there is another possibility: that the router is the intermediate node. If this is the case it is because only a
+            # there is another possibility: that the router is the intermediate node. If this is the case it is because only a
             # link protection could be found  #FIX attempt number 1. #DEADLINE
             elif len(tuple_data) == 3 and router.name == tuple_data[1]:
-                    #this is the MP for the requested bypass. No next_hop, just pop.
-                    local_label = self.get_local_label(fec)
-                    routing_entry = { "out": self.LOCAL_LOOKUP, "ops": [{"pop": "" }], "weight": 0  }
-                    yield (local_label, routing_entry)
+                # this is the MP for the requested bypass. No next_hop, just pop.
+                local_label = self.get_local_label(fec)
+                routing_entry = {"out": self.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0}
+                yield (local_label, routing_entry)
 
-
-
-        if  fec.fec_type == "TE_LSP":
+        if fec.fec_type == "TE_LSP":
             headend, tailend, protection = fec.value
 
             # if 'tuple' not in self.requested_lsps[fec.name].keys():  #There should be a tidier way
             if router.name == tailend:
-                #Then I am the tailend for this LSP.
+                # Then I am the tailend for this LSP.
                 local_label = self.get_local_label(fec)
-                routing_entry = { "out": self.LOCAL_LOOKUP, "ops": [{"pop": "" }], "weight": 0  }
+                routing_entry = {"out": self.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0}
                 yield (local_label, routing_entry)
 
             else:
                 # Regular case
                 # Recover the protected tuple (subpath).
                 tuple_data = self.requested_lsps[fec.name]['tuple']
-                if len(tuple_data) == 3:     # Node protection
+                if len(tuple_data) == 3:  # Node protection
                     _, next_hop_name, MP_name = tuple_data
-                elif len(tuple_data) == 2:   # Link protection
+                elif len(tuple_data) == 2:  # Link protection
                     _, next_hop_name = tuple_data
                     MP_name = next_hop_name
 
                 # Gather next_hop forwarding information
-                next_hop =  network.routers[next_hop_name]
+                next_hop = network.routers[next_hop_name]
                 local_label = self.get_local_label(fec)
-                remote_label = self.get_remote_label(next_hop_name, fec, do_count = False) #we cached it
+                remote_label = self.get_remote_label(next_hop_name, fec, do_count=False)  # we cached it
                 headend_name = fec.value[0]
                 headend_proc = network.routers[headend_name].get_client(type(self))
                 cost = headend_proc.headended_lsps[fec.name]["cost"]
 
                 # A swap is enough to build the main tunnel
                 if remote_label == self.IMPLICIT_NULL:
-                    main_entry = { "out": next_hop.name, "ops": [{"pop": ""}], "weight": cost  }
+                    main_entry = {"out": next_hop.name, "ops": [{"pop": ""}], "weight": cost}
                 else:
-                    main_entry = { "out": next_hop.name, "ops": [{"swap": remote_label}], "weight": cost  }
+                    main_entry = {"out": next_hop.name, "ops": [{"swap": remote_label}], "weight": cost}
 
                 yield (local_label, main_entry)
 
                 # If there is no bypass requested for the tuple/subpath, we are done.
                 if not protection or tuple_data not in self.requested_bypasses.keys():
-                # if tuple_data not in self.requested_bypasses.keys():
+                    # if tuple_data not in self.requested_bypasses.keys():
                     return
-
 
                 # FRR -- Fast Re Route requirements.
 
@@ -2039,24 +2093,24 @@ class ProcRSVPTE(MPLS_Client):
                 bypass_path = bypass_data["bypass_path"]
 
                 if MP_name != bypass_path:
-                    MP_name = bypass_path[-1]  #force it
+                    MP_name = bypass_path[-1]  # force it
                 # We need to know the label that the MP expects
                 merge_label = self.get_remote_label(MP_name, fec)
                 # And the bypass label for the FRR next hop
-                bypass_label = self.get_remote_label(bypass_next_hop_name, bypass_fec, do_count = False) #we cahced it
+                bypass_label = self.get_remote_label(bypass_next_hop_name, bypass_fec, do_count=False)  # we cahced it
                 # Fix the entry priority
                 cost = self.bypass_cost
 
                 # This is a backup entry. It must push down a label on the stack to
                 # encapsulate forwarding through the bypass path.
 
-                backup_entry = { "out": bypass_next_hop.name, "weight": cost  }
+                backup_entry = {"out": bypass_next_hop.name, "weight": cost}
                 if merge_label == self.IMPLICIT_NULL and bypass_label == self.IMPLICIT_NULL:
                     r_info = [{"pop": ""}]
                 elif merge_label == self.IMPLICIT_NULL:
-                    r_info = [{"swap": bypass_label} ] #we don't push an IMPNULL
+                    r_info = [{"swap": bypass_label}]  # we don't push an IMPNULL
                 else:
-                    r_info = [{"swap": merge_label}, {"push": bypass_label} ]
+                    r_info = [{"swap": merge_label}, {"push": bypass_label}]
 
                 backup_entry["ops"] = r_info
 
@@ -2069,7 +2123,7 @@ class ProcRSVPTE(MPLS_Client):
 
         self_sourced = False
 
-        if  fec.fec_type == "bypass":
+        if fec.fec_type == "bypass":
             tuple_data = fec.value
             if router.name == tuple_data[-1]:
                 # I am the MP.
@@ -2082,23 +2136,17 @@ class ProcRSVPTE(MPLS_Client):
         return self_sourced
 
 
-
-
-
-
-
 ########################
 ## WARNING! EXPERIMENTAL 4
 
 class ProcRMPLS(ProcRSVPTE):
-
     protocol = "RMPLS"
 
-    def __init__(self, router, max_hops = 999999999):
+    def __init__(self, router, max_hops=999999999):
         super().__init__(router, max_hops)
         self.build_order = 10000
         self.bad_edge_pairs = []
-        self.bad_edge_computations_covered = [] #We cache which edges we have done computation for
+        self.bad_edge_computations_covered = []  # We cache which edges we have done computation for
         self.path_cache = dict()
         print(f"Creating RMPLS process in router {router} )")
 
@@ -2106,7 +2154,7 @@ class ProcRMPLS(ProcRSVPTE):
 
         print(f"I am router {self.router.name} and will compute RMPLS bypasses for my own edges!")
 
-        def _get_path(view, head, tail, weight='weight', max_hops = self.frr_max_hops):
+        def _get_path(view, head, tail, weight='weight', max_hops=self.frr_max_hops):
             # Auxiliary function.
             # Returns a shortest path from node "head" to node "tail" on
             # subgraph "view" of the full topology if exists. Subject to
@@ -2115,11 +2163,11 @@ class ProcRMPLS(ProcRSVPTE):
                 bypass_path = nx.shortest_path(view, head, tail, weight=weight)
 
                 if bypass_path and len(bypass_path) >= max_hops + 2:
-                    #bypass too large
+                    # bypass too large
                     bypass_path = None
 
             except nx.NetworkXNoPath as err_nopath:
-                #No path!
+                # No path!
                 bypass_path = None
 
             finally:
@@ -2131,16 +2179,17 @@ class ProcRMPLS(ProcRSVPTE):
         # for e in G.edges():
         for neig in G.neighbors(self.router.name):
             # Auxiliary filter functions for this case
-            e = (self.router.name, neig )
+            e = (self.router.name, neig)
+
             def filter_node(n):
                 # Remove potentially failed node from the graph.
                 # return False if n in L else True
                 return True
 
-            def filter_edge(n1,n2):
+            def filter_edge(n1, n2):
                 # Remove potentially failed link from the graph.
                 # return False if (n1,n2) == (PLR, MP) or (n2,n1) == (PLR, MP) else True
-                return False if ((n1,n2) == e or (n2,n1) == e) else True
+                return False if ((n1, n2) == e or (n2, n1) == e) else True
 
             def plug(e, bypass_path):
                 if not bypass_path:
@@ -2148,7 +2197,7 @@ class ProcRMPLS(ProcRSVPTE):
                     return
 
                 pprint(f"candidate rmpls bypass_path computed at {self.router.name} to protect {e}")
-                bypass_name = "bypass_rmpls_{}".format("_".join([str(item) for item in e ]))
+                bypass_name = "bypass_rmpls_{}".format("_".join([str(item) for item in e]))
                 bypass = oFEC("bypass_rmpls", bypass_name, e)
 
                 # Iterate through the bypass path
@@ -2156,27 +2205,27 @@ class ProcRMPLS(ProcRSVPTE):
                 for i in range(0, length):
                     curr_router = bypass_path[i]
                     pRSVP = network.routers[curr_router].clients["RMPLS"]
-                    if i+1 < length:
-                        next_hop = bypass_path[i+1]
+                    if i + 1 < length:
+                        next_hop = bypass_path[i + 1]
                     else:
-                        #for the MP, we will need a local label.
+                        # for the MP, we will need a local label.
                         next_hop = None
 
                     # Insert a bypass request on the router.
                     # not pRSVP.requested_bypasses[protected_tuple]
                     if e not in pRSVP.requested_bypasses.keys():
-                        pRSVP.requested_bypasses[e] = dict()  #initialize if necesary
+                        pRSVP.requested_bypasses[e] = dict()  # initialize if necesary
 
                     pRSVP.requested_bypasses[e] = {'FEC': bypass,
                                                    'next_hop': next_hop,
-                                                   'bypass_path': bypass_path }
+                                                   'bypass_path': bypass_path}
                     if curr_router != self.router.name:
                         self.comm_count += 1
 
             # Compute subgraph
-            view = nx.subgraph_view(G, filter_node = filter_node, filter_edge = filter_edge)
+            view = nx.subgraph_view(G, filter_node=filter_node, filter_edge=filter_edge)
             # Get bypass path
-            bypass_path = _get_path(view, e[0], e[1], weight='weight', max_hops = self.frr_max_hops)
+            bypass_path = _get_path(view, e[0], e[1], weight='weight', max_hops=self.frr_max_hops)
 
             plug(e, bypass_path)
 
@@ -2195,7 +2244,7 @@ class ProcRMPLS(ProcRSVPTE):
             fec = bypass_data['FEC']
             yield fec
 
-    def LFIB_compute_entry(self, fec, single = False):
+    def LFIB_compute_entry(self, fec, single=False):
         # Return a generator for routing entries for the requested FEC.
         # The FEC is a tunnel or bypass identifier
         # The next_hop is already in the path information, but we will
@@ -2207,21 +2256,20 @@ class ProcRMPLS(ProcRSVPTE):
         # Starting with bypasses
         try:
             if fec not in used_ifaces.keys():
-                used_ifaces[fec] = []   #for each FEC an interface can appear in at most a single entry.
+                used_ifaces[fec] = []  # for each FEC an interface can appear in at most a single entry.
         except:
-            used_ifaces = dict()  #initialize
+            used_ifaces = dict()  # initialize
             used_ifaces[fec] = []
 
-
-        if  fec.fec_type == "bypass_rmpls":
+        if fec.fec_type == "bypass_rmpls":
             if not fec.value:
-                return   # this case should never happen.
+                return  # this case should never happen.
 
             # recover the intended protected tuple.
             tuple_data = fec.value
 
             if (router.name not in tuple_data) or router.name == tuple_data[0]:
-                #intermediate router or PLR,
+                # intermediate router or PLR,
 
                 data = self.requested_bypasses[tuple_data]
                 bypass_path = data['bypass_path']
@@ -2230,29 +2278,29 @@ class ProcRMPLS(ProcRSVPTE):
                     # interface fec already used for this FEC, we can't allocate it again.
                     return
 
-                next_hop =  network.routers[next_hop_name]
+                next_hop = network.routers[next_hop_name]
 
                 local_label = self.get_local_label(fec)
-                remote_label = self.get_remote_label(next_hop_name, fec, do_count = False) # We already know this
+                remote_label = self.get_remote_label(next_hop_name, fec, do_count=False)  # We already know this
                 cost = self.bypass_cost
 
                 # A swap op will do in the normal case.
                 if router.name == tuple_data[0]:
                     # re_ops = [{"push": remote_label} ]
-                    re_ops = [{"swap": remote_label} ]
+                    re_ops = [{"swap": remote_label}]
                 elif remote_label == self.IMPLICIT_NULL:
                     re_ops = [{"pop": ""}]
                 else:
                     re_ops = [{"swap": remote_label}]
 
-                routing_entry = { "out": next_hop_name, "ops": re_ops, "weight": cost  }
+                routing_entry = {"out": next_hop_name, "ops": re_ops, "weight": cost}
                 used_ifaces[fec].append(next_hop_name)
                 yield (local_label, routing_entry)
 
             elif router.name == tuple_data[-1]:
-                #this is the MP for the requested bypass. No next_hop, just pop.
+                # this is the MP for the requested bypass. No next_hop, just pop.
                 local_label = self.get_local_label(fec)
-                routing_entry = { "out": self.LOCAL_LOOKUP, "ops": [{"pop": "" }], "weight": 0  }
+                routing_entry = {"out": self.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0}
                 yield (local_label, routing_entry)
 
     def get_protection_path(self, edge):
@@ -2288,11 +2336,11 @@ class ProcRMPLS(ProcRSVPTE):
             return None
         new_present = set()
         for e in path:
-            if (current_edge,e) not in self.bad_edge_pairs:
+            if (current_edge, e) not in self.bad_edge_pairs:
                 back_track = self.bad_edge_dfs(e, present_set.union(new_present), visited.union({current_edge}))
                 if back_track is not None:
-                    if len(back_track) < 2 or back_track[0] != back_track[-1]: # back_track not yet contains full cycle
-                        back_track = [current_edge] + back_track # add current to back_track
+                    if len(back_track) < 2 or back_track[0] != back_track[-1]:  # back_track not yet contains full cycle
+                        back_track = [current_edge] + back_track  # add current to back_track
                     return back_track
             new_present.add(e)
         return None
@@ -2300,24 +2348,26 @@ class ProcRMPLS(ProcRSVPTE):
     def bad_edge_dfs_go(self, edge):
         cycle = self.bad_edge_dfs(edge, set(), set())
         if cycle is not None:
-            assert(len(cycle) > 0 and cycle[0] == cycle[-1])
-            potential_bad_edge_pairs = list(zip(cycle[:-1], cycle[1:])) # We need to remove at least one of these edge pairs to break the cycle.
-            if len(potential_bad_edge_pairs) == 2: # If cycle has length 2, we can safely remove both edge-pairs.
-                assert(len(set(self.bad_edge_pairs).intersection(set(potential_bad_edge_pairs))) == 0)
-                self.bad_edge_pairs += potential_bad_edge_pairs # Store and use in future computations
-            else: # For longer cycles, we only remove one edge-pair to break cycle, as these pairs can be good in some other scenarios.
-                chosen_bad_edge_pair = sorted(potential_bad_edge_pairs)[0] # Take smallest pair, given some global edge order.
-                assert(chosen_bad_edge_pair not in self.bad_edge_pairs)
-                self.bad_edge_pairs.append(chosen_bad_edge_pair) # Store and use in future computations
+            assert (len(cycle) > 0 and cycle[0] == cycle[-1])
+            potential_bad_edge_pairs = list(
+                zip(cycle[:-1], cycle[1:]))  # We need to remove at least one of these edge pairs to break the cycle.
+            if len(potential_bad_edge_pairs) == 2:  # If cycle has length 2, we can safely remove both edge-pairs.
+                assert (len(set(self.bad_edge_pairs).intersection(set(potential_bad_edge_pairs))) == 0)
+                self.bad_edge_pairs += potential_bad_edge_pairs  # Store and use in future computations
+            else:  # For longer cycles, we only remove one edge-pair to break cycle, as these pairs can be good in some other scenarios.
+                chosen_bad_edge_pair = sorted(potential_bad_edge_pairs)[
+                    0]  # Take smallest pair, given some global edge order.
+                assert (chosen_bad_edge_pair not in self.bad_edge_pairs)
+                self.bad_edge_pairs.append(chosen_bad_edge_pair)  # Store and use in future computations
             return True
         return False
 
     def compute_bad_edge_pairs_from(self, edge):
         # This function computes the pairs of links (A,B) such that when on the bypass_path for A, if B also fails, we will not enter B's bypass_path like we normally would with RMPLS.
         # We do this to avoid forwarding loops. The algorithm is designed to guarantee that no forwarding loops can occur when using the computer bad_edge_pairs.
-        if edge not in self.bad_edge_computations_covered: # Only compute once for each starting edge
+        if edge not in self.bad_edge_computations_covered:  # Only compute once for each starting edge
             self.bad_edge_computations_covered.append(edge)
-            while True: # Keep adding bad edge pairs as long as cycles are found.
+            while True:  # Keep adding bad edge pairs as long as cycles are found.
                 change = self.bad_edge_dfs_go(edge)
                 if not change:
                     break
@@ -2332,8 +2382,7 @@ class ProcRMPLS(ProcRSVPTE):
             return []
         protected_edge = fec_0.value
 
-
-        Q = sorted(entries, key = lambda x:x['priority'])
+        Q = sorted(entries, key=lambda x: x['priority'])
         max_prio = max([v['priority'] for v in Q]) + 1
         additional_entries = []
         for q in Q:
@@ -2342,31 +2391,32 @@ class ProcRMPLS(ProcRSVPTE):
             e_2 = (q["out"], r.name)
             if e_1 in self.requested_bypasses:
                 if "FEC" not in self.requested_bypasses[e_1]:
-                    #Couldn't find a protection or alternative path.
+                    # Couldn't find a protection or alternative path.
                     continue
                 fec = self.requested_bypasses[e_1]["FEC"]
                 bypass_path = self.requested_bypasses[e_1]["bypass_path"]
                 now_failing_edge = e_1
             elif e_2 in self.requested_bypasses:
                 if "FEC" not in self.requested_bypasses[e_2]:
-                    #Couldn't find a protection or alternative path.
+                    # Couldn't find a protection or alternative path.
                     continue
                 fec = self.requested_bypasses[e_2]["FEC"]
                 bypass_path = self.requested_bypasses[e_2]["bypass_path"]
-                now_failing_edge = e_2 #Not sure why e_2 is here, but meh..
+                now_failing_edge = e_2  # Not sure why e_2 is here, but meh..
             else:
                 continue
 
             self.compute_bad_edge_pairs_from(now_failing_edge)
 
-            protection_label = r.get_label(fec)   #fixme: get_local_label?
+            protection_label = r.get_label(fec)  # fixme: get_local_label?
             new_ops = q["ops"] + [{"push": protection_label}]
-            if (protected_edge, now_failing_edge) not in self.bad_edge_pairs:   # New Loop protection.
-                routing_entry = { "out": r.LOCAL_LOOKUP, "ops":new_ops , "priority": q["priority"] + max_prio  }
+            if (protected_edge, now_failing_edge) not in self.bad_edge_pairs:  # New Loop protection.
+                routing_entry = {"out": r.LOCAL_LOOKUP, "ops": new_ops, "priority": q["priority"] + max_prio}
                 print(f"MPLS: add entry {routing_entry}")
                 additional_entries.append(routing_entry)
 
         return additional_entries
+
 
 ## WARNING! EXPERIMENTAL 4
 ########################
@@ -2383,55 +2433,54 @@ class ProcPlinko(ProcRSVPTE):
     For initialization indicate the router.
     """
 
-    start_mode = "manual"   # we must wait until all clients are initializated
-                            # before starting to negotiate tunnels.
+    start_mode = "manual"  # we must wait until all clients are initializated
+    # before starting to negotiate tunnels.
     protocol = "ProcPlinko"
 
-    def __init__(self, router, max_hops = 9999999999999999):
+    def __init__(self, router, max_hops=9999999999999999):
         super().__init__(router)
-#         self.protocol = "RSVP-TE"
+        #         self.protocol = "RSVP-TE"
         self.build_order = 200
 
-        self.bypass_cost = 16385       # Cost/weight allocated to bypass routes.
-        self.frr_max_hops = max_hops   # Max number of additionals hops a FRR bypass may have.
-        self.headended_lsps = dict()   # Tunnels starting from this node.
-        self.routes = dict()           # store the route objects here.
+        self.bypass_cost = 16385  # Cost/weight allocated to bypass routes.
+        self.frr_max_hops = max_hops  # Max number of additionals hops a FRR bypass may have.
+        self.headended_lsps = dict()  # Tunnels starting from this node.
+        self.routes = dict()  # store the route objects here.
 
-
-    def define_lsp(self, tailend, tunnel_local_id = 0, weight='weight',protection = "plinko", **kwargs):
+    def define_lsp(self, tailend, tunnel_local_id=0, weight='weight', protection="plinko", **kwargs):
         # Store a request for a new tunnel; a headended LSP.
         # Compute the main path (0-resilient) for it.
 
         # define tunnel name
         lsp_name = "lsp_from_{}_to_{}-{}".format(self.router.name, tailend, tunnel_local_id)
 
-        #Check existence:
+        # Check existence:
         if lsp_name in self.headended_lsps.keys():
             raise Exception("Requested creation of preexisting tunnel {}!. \
                             You might want to use a different tunnel_local_id.".format(lsp_name))
 
-        G = self.router.topology    # change G to add restrictions...
+        G = self.router.topology  # change G to add restrictions...
 
         try:
             headend = self.router.name
             # compute spath: find the shortest path from headend to tailend.
-            spath = nx.shortest_path(G, headend, tailend, weight=weight) #find shortest path, stored as list.
-            length = len(spath) #numer of routers in path, including extremes.
+            spath = nx.shortest_path(G, headend, tailend, weight=weight)  # find shortest path, stored as list.
+            length = len(spath)  # numer of routers in path, including extremes.
 
-            cost = 0   #path cost
-            for i in range(length-1):
-                cost += G.edges[spath[i],spath[i+1]][weight]
+            cost = 0  # path cost
+            for i in range(length - 1):
+                cost += G.edges[spath[i], spath[i + 1]][weight]
 
-            #create a FEC object for this tunnel and store it in the pending configuration.
-            self.headended_lsps[lsp_name] = { 'FEC': oFEC("TE_LSP",
-                                                          lsp_name,
-                                                          (self.router.name, tailend, protection)
+            # create a FEC object for this tunnel and store it in the pending configuration.
+            self.headended_lsps[lsp_name] = {'FEC': oFEC("TE_LSP",
+                                                         lsp_name,
+                                                         (self.router.name, tailend, protection)
                                                          ),
-                                              'path': spath,
-                                              'cost': cost,
-                                              'r': 0,       # resiliency level.
-                                              'F': set() }  # Failed edges set.
-            #data is tuple (headend, tailend), to ease recognition.
+                                             'path': spath,
+                                             'cost': cost,
+                                             'r': 0,  # resiliency level.
+                                             'F': set()}  # Failed edges set.
+            # data is tuple (headend, tailend), to ease recognition.
             return lsp_name
 
         except nx.NetworkXNoPath as err_nopath:
@@ -2449,9 +2498,9 @@ class ProcPlinko(ProcRSVPTE):
 
         for lsp_name, lsp_data in self.headended_lsps.items():
 
-            G = self.router.topology   #change G to add restrictions...
-            spath = lsp_data['path']   #shortest path result, as list of hops..
-            fec = lsp_data['FEC']      #an oFEC object with type="TE_LSP"
+            G = self.router.topology  # change G to add restrictions...
+            spath = lsp_data['path']  # shortest path result, as list of hops..
+            fec = lsp_data['FEC']  # an oFEC object with type="TE_LSP"
             r = lsp_data['r']
             F = lsp_data['F']
             cost = lsp_data['cost']
@@ -2459,12 +2508,12 @@ class ProcPlinko(ProcRSVPTE):
             # create entries on all routers on path
             for v in spath:
                 pRSVP = network.routers[v].clients[self.protocol]
-                pRSVP.routes[lsp_name] = { 'FEC': fec,
-                                            'path': spath,
-                                            'cost': cost,
-                                            'r': r,
-                                            'F': F,
-                                            'match_on_FEC':  None }
+                pRSVP.routes[lsp_name] = {'FEC': fec,
+                                          'path': spath,
+                                          'cost': cost,
+                                          'r': r,
+                                          'F': F,
+                                          'match_on_FEC': None}
                 if v != self.router.name:
                     self.comm_count += 1
 
@@ -2478,7 +2527,7 @@ class ProcPlinko(ProcRSVPTE):
 
         assert resiliency > 0
 
-        def _get_path(view, head, tail, weight='weight', max_hops = self.frr_max_hops):
+        def _get_path(view, head, tail, weight='weight', max_hops=self.frr_max_hops):
             # Auxiliary function.
             # Returns a shortest path from node "head" to node "tail" on
             # subgraph "view" of the full topology if exists. Subject to
@@ -2487,11 +2536,11 @@ class ProcPlinko(ProcRSVPTE):
                 bypass_path = nx.shortest_path(view, head, tail, weight=weight)
 
                 if bypass_path and len(bypass_path) >= max_hops + 2:
-                    #bypass too large
+                    # bypass too large
                     bypass_path = None
 
             except nx.NetworkXNoPath as err_nopath:
-                #No path!
+                # No path!
                 bypass_path = None
 
             finally:
@@ -2502,23 +2551,23 @@ class ProcPlinko(ProcRSVPTE):
 
         # scan local routes and
         # only protect paths from the previous resiliency level!
-        to_be_protected = [x for x in self.routes.items() if x[1]['r'] == resiliency-1 ]
+        to_be_protected = [x for x in self.routes.items() if x[1]['r'] == resiliency - 1]
         for lsp_name, route_data in to_be_protected:
             fec = route_data["FEC"]
             path = route_data["path"]
             F = route_data["F"]
 
-            pos = path.index(me)   # position of self in path
+            pos = path.index(me)  # position of self in path
 
-            if pos == len(path)-1:
-                continue   #done, reached the tailend
+            if pos == len(path) - 1:
+                continue  # done, reached the tailend
 
             tailend = path[-1]
-            e = (path[pos],path[pos+1])  # next edge in the path.
-            if e in F or (path[pos+1],path[pos]) in F:
-                return #WE had already considered this failed link! THis should never happen. Raise alarm?
+            e = (path[pos], path[pos + 1])  # next edge in the path.
+            if e in F or (path[pos + 1], path[pos]) in F:
+                return  # WE had already considered this failed link! THis should never happen. Raise alarm?
 
-            new_F = F.union([e]) #new failed set, must pass as list to preserve tuple
+            new_F = F.union([e])  # new failed set, must pass as list to preserve tuple
 
             # compute the protection
             G = self.router.topology
@@ -2526,46 +2575,46 @@ class ProcPlinko(ProcRSVPTE):
             # Auxiliary filter functions for this case
             def filter_node(n):
                 return True
-            def filter_edge(n1,n2):
+
+            def filter_edge(n1, n2):
                 # Remove failed links from the graph.
-                return False if (n1,n2) in new_F or (n2,n1) in new_F else True
+                return False if (n1, n2) in new_F or (n2, n1) in new_F else True
 
             # Compute subgraph
-            view = nx.subgraph_view(G, filter_node = filter_node, filter_edge = filter_edge)
+            view = nx.subgraph_view(G, filter_node=filter_node, filter_edge=filter_edge)
             # Get bypass path
-            prot_path = _get_path(view, me, tailend, weight='weight', max_hops = self.frr_max_hops)
+            prot_path = _get_path(view, me, tailend, weight='weight', max_hops=self.frr_max_hops)
 
             if not prot_path:
                 # We could not find a valid protection, move on to next request.
                 # Nevertheless an empty entry would remain in requested_bypasses.
                 continue
 
-
             if lsp_name.startswith("plinko"):
                 prot_name = f"{lsp_name}-p{resiliency}-h{self.router.name}"
             else:
                 prot_name = f"plinko-{lsp_name}-p{resiliency}-h{self.router.name}"
 
-            cost = 0   #path cost
-            for i in range(len(prot_path)-1):
-                cost += G.edges[prot_path[i],prot_path[i+1]][weight]
+            cost = 0  # path cost
+            for i in range(len(prot_path) - 1):
+                cost += G.edges[prot_path[i], prot_path[i + 1]][weight]
 
-            prot_fec = oFEC("plinko_resilient", prot_name, (me, tailend, "plinko") )
+            prot_fec = oFEC("plinko_resilient", prot_name, (me, tailend, "plinko"))
 
             for v in prot_path:
                 pRSVP = network.routers[v].clients[self.protocol]
                 mofec = None
                 if v == me:
-                    mofec = route_data['match_on_FEC'] # the lowest resiliency being protected here...
+                    mofec = route_data['match_on_FEC']  # the lowest resiliency being protected here...
                     if not mofec:
                         mofec = fec
 
-                pRSVP.routes[prot_name] = { 'FEC': prot_fec,
-                                            'path': prot_path,
-                                            'cost': cost,
-                                            'r': resiliency,         # resiliency level.
-                                            'F': new_F,              # Failed edges set.
-                                            'match_on_FEC': mofec }   # What are we protecting?
+                pRSVP.routes[prot_name] = {'FEC': prot_fec,
+                                           'path': prot_path,
+                                           'cost': cost,
+                                           'r': resiliency,  # resiliency level.
+                                           'F': new_F,  # Failed edges set.
+                                           'match_on_FEC': mofec}  # What are we protecting?
                 if v != self.router.name:
                     self.comm_count += 1
 
@@ -2579,8 +2628,7 @@ class ProcPlinko(ProcRSVPTE):
         for route_data in self.routes.values():
             yield route_data['FEC']
 
-
-    def LFIB_compute_entry(self, fec, single = False):
+    def LFIB_compute_entry(self, fec, single=False):
         # Return a generator for routing entries for the requested FEC.
         # The FEC is a tunnel or bypass identifier
         # The next_hop is already in the path information, but we will
@@ -2596,20 +2644,20 @@ class ProcPlinko(ProcRSVPTE):
         local_label = self.get_local_label(fec)
         rpath = route_data["path"]
         pos = rpath.index(router.name)
-        r = route_data["r"]   #resiliency
+        r = route_data["r"]  # resiliency
 
         if router.name == tailend:
-            routing_entry = { "out": self.LOCAL_LOOKUP, "ops": [{"pop": "" }], "weight": 0  }
+            routing_entry = {"out": self.LOCAL_LOOKUP, "ops": [{"pop": ""}], "weight": 0}
             yield (local_label, routing_entry)
 
         else:
-            next_hop_name = rpath[pos+1]
-            remote_label = self.get_remote_label(next_hop_name, fec, do_count = False) # Already cached
+            next_hop_name = rpath[pos + 1]
+            remote_label = self.get_remote_label(next_hop_name, fec, do_count=False)  # Already cached
             if router.name == headend:
                 if remote_label == self.IMPLICIT_NULL:
-                    routing_entry = { "out": next_hop_name, "ops": [{"pop": ""}], "weight": r  }
+                    routing_entry = {"out": next_hop_name, "ops": [{"pop": ""}], "weight": r}
                 else:
-                    routing_entry = { "out": next_hop_name, "ops": [{"swap": remote_label}], "weight": r  }
+                    routing_entry = {"out": next_hop_name, "ops": [{"swap": remote_label}], "weight": r}
                 if r > 0:
                     # we need the label of the route boing protected
                     local_label = self.get_local_label(route_data['match_on_FEC'])
@@ -2619,13 +2667,11 @@ class ProcPlinko(ProcRSVPTE):
             else:
                 # A swap op will do.
                 if remote_label == self.IMPLICIT_NULL:
-                    routing_entry = { "out": next_hop_name, "ops": [{"pop": ""}], "weight": r  }
+                    routing_entry = {"out": next_hop_name, "ops": [{"pop": ""}], "weight": r}
                 else:
-                    routing_entry = { "out": next_hop_name, "ops": [{"swap": remote_label}], "weight": r  }
+                    routing_entry = {"out": next_hop_name, "ops": [{"swap": remote_label}], "weight": r}
 
                 yield (local_label, routing_entry)
-
-
 
     def self_sourced(self, fec):
         # Returns True if this router is the tailend/mergepoint for this FEC.
@@ -2636,11 +2682,12 @@ class ProcPlinko(ProcRSVPTE):
 
         route_name = fec.name
         headend, tailend, protection = fec.value
-        #route = self.routes[route_name]
+        # route = self.routes[route_name]
         if router.name == tailend:
             self_sourced = True
 
         return self_sourced
+
 
 ## WARNING! EXPERIMENTAL 5
 ########################
@@ -2678,12 +2725,12 @@ class ProcStatic(MPLS_Client):
 
     def __init__(self, router):
         super().__init__(router)
-#         self.protocol = "STATIC"
+        #         self.protocol = "STATIC"
         self.static_mpls_rules = dict()
-        self._cur_count = count()  #Counter for autogenerated names of static entries.
+        self._cur_count = count()  # Counter for autogenerated names of static entries.
 
-    def define_lsp(self, lsp_name, ops, outgoing_interface, incoming_interface = None,
-                   priority=0, label_override = None):
+    def define_lsp(self, lsp_name, ops, outgoing_interface, incoming_interface=None,
+                   priority=0, label_override=None):
         #
         # Define a static MPLS entry.
         # Inputs:
@@ -2701,14 +2748,14 @@ class ProcStatic(MPLS_Client):
         if lsp_name == "":
             lsp_name = "static_lsp_{}_{}".format(self.router.name, next(self._cur_count))
 
-        #compose the routing entry.
-        data = {'ops':ops, 'out': outgoing_interface, 'priority': priority}
+        # compose the routing entry.
+        data = {'ops': ops, 'out': outgoing_interface, 'priority': priority}
         if not incoming_interface:
             data['in'] = incoming_interface
 
         # Insert the request on the table
-        self.static_mpls_rules[lsp_name] = { 'FEC': oFEC("STATIC_LSP", lsp_name, value = data),
-                                             'label_override': label_override}
+        self.static_mpls_rules[lsp_name] = {'FEC': oFEC("STATIC_LSP", lsp_name, value=data),
+                                            'label_override': label_override}
         return lsp_name
 
     def known_resources(self):
@@ -2720,7 +2767,6 @@ class ProcStatic(MPLS_Client):
         for lsp_name, lsp_data in self.static_mpls_rules.items():
             fec = lsp_data['FEC']
             yield fec
-
 
     def alloc_labels_to_known_resources(self):
         # Requests the router for allocation of labels for each known FEC (resource).
@@ -2737,14 +2783,13 @@ class ProcStatic(MPLS_Client):
                     del self.router.LIB[prev_FEC]
 
                 # manual forced entry in LIB (a hack)
-                self.router.LIB[fec] = {'owner': self.process, 'local_label': local_label }
+                self.router.LIB[fec] = {'owner': self.process, 'local_label': local_label}
 
             else:
                 # Regular case
                 self.LIB_alloc(fec)
 
-
-    def LFIB_compute_entry(self, fec, single = False):
+    def LFIB_compute_entry(self, fec, single=False):
         # Each client must provide an implementation.
         # Return a generator for routing entries for the
         # requested static FEC: returns a generator of
@@ -2760,7 +2805,7 @@ class ProcStatic(MPLS_Client):
         ops = fec.value['ops']
         out = fec.value['out']
         priority = fec.value['priority']
-        routing_entry = { "out": next_hop.name, "ops": ops, "priority": priority  }
+        routing_entry = {"out": next_hop.name, "ops": ops, "priority": priority}
 
         # If required append incoming interface condition.
         if 'in' in fec.value.keys():
@@ -2794,11 +2839,10 @@ class MPLS_Service(MPLS_Client):
     For initialization indicate the router.
     """
 
-    start_mode = 'manual' # the network will try to allocate labels immediately.
+    start_mode = 'manual'  # the network will try to allocate labels immediately.
     protocol = "service"
 
-
-    def __init__(self, router, max_hops = 3):
+    def __init__(self, router, max_hops=3):
         super().__init__(router)
         self.build_order = 1000
 
@@ -2812,8 +2856,7 @@ class MPLS_Service(MPLS_Client):
 
         if vpn_name in self.services:
             raise Exception("VPN {} already defined".format(vpn_name))
-        self.services[vpn_name] = {"ces":[], "vpn_type":vpn_type, "vpn_descr": vpn_descr, "ack": False}
-
+        self.services[vpn_name] = {"ces": [], "vpn_type": vpn_type, "vpn_descr": vpn_descr, "ack": False}
 
     def remove_vpn(self, vpn_name, vpn_type="default", vpn_descr=""):
         if vpn_name not in self.services:
@@ -2830,7 +2873,7 @@ class MPLS_Service(MPLS_Client):
             raise Exception("VPN {} is not defined.".format(vpn_name))
         self.services[vpn_name]["ces"].remove(ce)
 
-    def get_service_from_ce(self,ce):
+    def get_service_from_ce(self, ce):
         def _call(t):
             return True if ce in t[1]["ces"] else False
 
@@ -2841,15 +2884,14 @@ class MPLS_Service(MPLS_Client):
 
         # Filter routers that have services 'vpn_name' instantiated
         s_objs = [s.clients[self.protocol] for s in network.routers.values() if self.protocol in s.clients.keys()]
-        s_instances = [s for s in s_objs if vpn_name in s.services.keys() ]
+        s_instances = [s for s in s_objs if vpn_name in s.services.keys()]
 
         return s_instances
-
 
     def known_resources(self):
         # Return FECs for each attached circuit (pe,ce) of each vpn instantiated on this router.
         for vpn_name, vpn_data in self.services.items():
-            for service in self.locate_service_instances(vpn_name):  #this includes me!!
+            for service in self.locate_service_instances(vpn_name):  # this includes me!!
                 vpn_data = service.services[vpn_name]
                 if not vpn_data["ack"]:
                     service.services[vpn_name]["ack"] = True
@@ -2857,7 +2899,7 @@ class MPLS_Service(MPLS_Client):
 
                 pe = service.router.name
                 for ce in vpn_data["ces"]:
-                    yield oFEC(self.fec_type,"vpn_ep_{}_{}_{}".format(vpn_name, pe, ce), (vpn_name, pe, ce))
+                    yield oFEC(self.fec_type, "vpn_ep_{}_{}_{}".format(vpn_name, pe, ce), (vpn_name, pe, ce))
 
     def alloc_labels_to_known_resources(self):
         # Asks the router for allocation of labels for each known FEC (resource)
@@ -2903,9 +2945,9 @@ class MPLS_Service(MPLS_Client):
 
         # 2. Find local LSP to each PE
         local_label = self.get_local_label(fec)
-        if pe == self.router.name  and self.self_sourced(fec):
+        if pe == self.router.name and self.self_sourced(fec):
             # compute entries for locally attached service interfaces (local ACs)
-            routing_entry = { "out": ce, "ops": [{"pop": "" }], "weight": 0  }
+            routing_entry = {"out": ce, "ops": [{"pop": ""}], "weight": 0}
             yield (local_label, routing_entry)
 
         else:
@@ -2921,7 +2963,7 @@ class MPLS_Service(MPLS_Client):
             if candidate_tunnel_fec:
                 # get list of fecs with lower weight (might be many)
                 refined = []
-                curr_weight = 9999999999999   # arbitrary initial high value
+                curr_weight = 9999999999999  # arbitrary initial high value
                 for cfec in candidate_tunnel_fec:
                     best = None
                     clabel = self.get_local_label(cfec)
@@ -2929,48 +2971,47 @@ class MPLS_Service(MPLS_Client):
                         if routing_entry["weight"] < curr_weight:
                             best = cfec
                             curr_weight = routing_entry["weight"]
-                    refined.append((best,curr_weight))
+                    refined.append((best, curr_weight))
 
-                curr_weight = min(refined,key=lambda x:x[1])[1]
-                refined = [ tupl[0] for tupl in refined if  tupl[1] == curr_weight]
+                curr_weight = min(refined, key=lambda x: x[1])[1]
+                refined = [tupl[0] for tupl in refined if tupl[1] == curr_weight]
 
                 # Choose first tunnel. (This introduces a non-determinism, I could have done other things...)
                 tunnel_label = self.get_local_label(refined[0])
 
             if not tunnel_label:
                 # try LDP:
-                candidate_tunnel_fec = oFEC("loopback","lo_{}".format(pe), pe)
+                candidate_tunnel_fec = oFEC("loopback", "lo_{}".format(pe), pe)
                 tunnel_label = self.get_local_label(candidate_tunnel_fec)
 
             if not tunnel_label:
                 # ?I don't know how to reach pe_router inside MPLS
                 return
 
-
             # 3. For each local fwd rule, add a new one swapping!! the service label.
             for routing_entry in as_list(self.router.get_routing_entry(tunnel_label)):
                 new_ops = routing_entry["ops"].copy()
                 if "swap" in new_ops[0].keys():
                     lsp_label = new_ops[0]["swap"]
-                    new_ops[0] = {"push": lsp_label} # recall: swap = pop + push, drop the pop.
+                    new_ops[0] = {"push": lsp_label}  # recall: swap = pop + push, drop the pop.
                     new_ops.insert(0, {"swap": service_label})
                 elif "pop" in new_ops[0].keys() and self.router.php:
                     # packet coming from AC (attached CE) don't have MPLS labels, drop the pop op.
                     # We know this can happen with PHP enabled.
-                    new_ops[0] = {"swap": service_label} # replace the pop.
+                    new_ops[0] = {"swap": service_label}  # replace the pop.
                 else:
                     new_ops.insert(0, {"swap": service_label})
 
-                new_routing_entry = { "out":routing_entry["out"],
-                                      "ops": new_ops,
-                                      "weight": routing_entry["weight"]  }
+                new_routing_entry = {"out": routing_entry["out"],
+                                     "ops": new_ops,
+                                     "weight": routing_entry["weight"]}
 
-                yield (local_label, new_routing_entry )
+                yield (local_label, new_routing_entry)
 
     def self_sourced(self, fec):
         # Returns True if the FEC is sourced or generated by this process.
         self_sourced = False
-        if  fec.fec_type == self.fec_type and type(fec.value) is tuple and len(fec.value) == 3:
+        if fec.fec_type == self.fec_type and type(fec.value) is tuple and len(fec.value) == 3:
             vpn_name, pe, ce = fec.value
             if vpn_name in self.services.keys():
                 if pe == self.router.name and ce in self.services[vpn_name]["ces"]:
@@ -3011,7 +3052,8 @@ class MPLS_packet(object):
     This is just a proof of concept, must be further developed.
     """
 
-    def __init__(self, network, init_router, targets, init_stack = [], restricted_topology = None, mode="packet", max_ttl = 2550, verbose = False):
+    def __init__(self, network, init_router, targets, init_stack=[], restricted_topology=None, mode="packet",
+                 max_ttl=2550, verbose=False):
         self.network = network
         self.ttl = max_ttl
         if restricted_topology is not None:
@@ -3022,7 +3064,7 @@ class MPLS_packet(object):
         self.stack = init_stack
         self.init_stack = init_stack.copy()
 
-        self.mode = mode   # options: packet, pathfinder.
+        self.mode = mode  # options: packet, pathfinder.
 
         if isinstance(init_router, str):
             self.init_router = network.routers[init_router]
@@ -3032,13 +3074,13 @@ class MPLS_packet(object):
             raise Exception("Unknown init_router")
 
         self.traceroute = [self.init_router]
-        self.link_traceroute = [(self.init_router,None)]
-        self.trace: list[tuple[str, str, str]] = [("",self.init_router.name, "|".join(self.init_stack))]
+        self.link_traceroute = [(self.init_router, None)]
+        self.trace: list[tuple[str, str, str]] = [("", self.init_router.name, "|".join(self.init_stack))]
         self.state = "uninitialized"
         self.verbose = verbose
         self.alternatives = []
         self.cause = ""
-        self.exit_code = None     # 0 means success, None is not finished yet, other are errors.
+        self.exit_code = None  # 0 means success, None is not finished yet, other are errors.
         self.success = None
         self.targets = targets
         self.num_hops = 0
@@ -3049,18 +3091,20 @@ class MPLS_packet(object):
                 return f()
             except:
                 return False
-        self.is_connected = any([except_false(lambda: nx.has_path(self.topology, self.init_router.name, tgt)) for tgt in self.targets])
+
+        self.is_connected = any(
+            [except_false(lambda: nx.has_path(self.topology, self.init_router.name, tgt)) for tgt in self.targets])
 
     def info(self):
         print(".....INFO.....")
-        print("Packet from {} with initial stack: [{}]" .format(self.init_router.name, "|".join(self.init_stack)))
+        print("Packet from {} with initial stack: [{}]".format(self.init_router.name, "|".join(self.init_stack)))
         print("   current state: {}".format(self.state))
         print("   current cause: {}".format(self.cause))
         print("   current path: {}".format(self.traceroute))
         print("   current stack: {}".format("|".join(self.stack)))
         print("...INFO END...")
 
-    def get_next_hop(self, outgoing_iface, verbose = True):
+    def get_next_hop(self, outgoing_iface, verbose=True):
         # this implementation depends explicitly on interfaces named after the connected router
         curr_r = self.traceroute[-1]
         if verbose:
@@ -3075,14 +3119,14 @@ class MPLS_packet(object):
             pprint(self.topology.edges())
 
             print(f"Let's see if we have a edge towards {outgoing_iface} ")
-            print(  self.topology.has_edge(curr_r.name,outgoing_iface))
-        if outgoing_iface in self.topology.neighbors(curr_r.name) and self.topology.has_edge(curr_r.name,outgoing_iface):
+            print(self.topology.has_edge(curr_r.name, outgoing_iface))
+        if outgoing_iface in self.topology.neighbors(curr_r.name) and self.topology.has_edge(curr_r.name,
+                                                                                             outgoing_iface):
             return self.network.routers[outgoing_iface]
         else:
             return None
 
     def step(self):
-
 
         # Simulate one step: send the packet to the next hop.
         if self.state == "uninitialized":
@@ -3122,7 +3166,7 @@ class MPLS_packet(object):
                 return (False, [])
             return False  # Time to live expired; possible loop.
         else:
-           self.ttl -= 1
+            self.ttl -= 1
 
         if self.trace[-1] in self.trace[:-1]:
             self.state = "finished"
@@ -3140,9 +3184,10 @@ class MPLS_packet(object):
         if outer_lbl in curr_r.LFIB:
             rules = curr_r.LFIB[outer_lbl]
         else:
-        # if there are no rules
+            # if there are no rules
             self.state = "finished"
-            self.cause = " FORWARDING Complete: No available forwarding rules at router {} for label {}, yet MPLS stack is not empty".format(curr_r.name, outer_lbl)
+            self.cause = " FORWARDING Complete: No available forwarding rules at router {} for label {}, yet MPLS stack is not empty".format(
+                curr_r.name, outer_lbl)
             self.exit_code = 2
             if self.verbose:
                 if self.targets is not None:
@@ -3153,37 +3198,37 @@ class MPLS_packet(object):
             return False  # Return false because there are no rules here yet the MPLS stack is not empty
 
         # get all available priorities in the rules
-        priorities = sorted(list(set([x['priority'] for x in rules ])))
+        priorities = sorted(list(set([x['priority'] for x in rules])))
 
         # code split here...
-        rule_list = []   # store here the acceptable forwarding rules.
+        rule_list = []  # store here the acceptable forwarding rules.
 
         # now consider only the routes from higher to lower priority
         for prio in priorities:
             f_rules = list(filter(lambda x: x["priority"] == prio, rules))
             if len(f_rules) > 1:
-                random.shuffle(f_rules)   #inplace random reorder, allows balancing, non determinism.
+                random.shuffle(f_rules)  # inplace random reorder, allows balancing, non determinism.
 
             for candidate in f_rules:
                 # determine validity of outgoing interface and next_hop
                 outgoing_iface = candidate["out"]
-                next_hop = self.get_next_hop(outgoing_iface, verbose = False)
+                next_hop = self.get_next_hop(outgoing_iface, verbose=False)
 
                 # if it points to LOCAL_LOOKUP then that's it, that SHOULD NOT be balanced.
                 # if not, but next_hop is reacheable in our topology, we also found a valid rule.
                 if outgoing_iface == curr_r.LOCAL_LOOKUP:
-                    #we found an usable route!
+                    # we found an usable route!
                     rule_list = [candidate]
                     break
                 elif next_hop:
                     rule_list.append(candidate)
                 elif not next_hop and outer_lbl:
-                    #MPLS stack still not empty, maybe a VPN service CE?
+                    # MPLS stack still not empty, maybe a VPN service CE?
 
                     try:
                         srvs = curr_r.clients["service"].services
                         y = [x['ces'] for x in srvs.values()]
-                        if outgoing_iface in chain(*y):  #check local CEs
+                        if outgoing_iface in chain(*y):  # check local CEs
                             candidate["x-leaving"] = True
                             rule_list.append(candidate)
                     except:
@@ -3192,7 +3237,8 @@ class MPLS_packet(object):
                 else:
                     # Exiting the MPLS domain.
                     self.state = "finished"
-                    self.cause = " FORWARDING Complete: Exiting the MPLS domain at router {} for label {}".format(curr_r.name, outer_lbl)
+                    self.cause = " FORWARDING Complete: Exiting the MPLS domain at router {} for label {}".format(
+                        curr_r.name, outer_lbl)
                     self.exit_code = 3
                     if self.verbose:
                         if self.targets is not None:
@@ -3209,7 +3255,8 @@ class MPLS_packet(object):
         # If we couldn't find a rule that is the end of the story.
         if not rule_list:
             self.state = "finished"
-            self.cause = " FORWARDING Complete: Can't find a forwarding rule at router {} for label {}.".format(curr_r.name, outer_lbl)
+            self.cause = " FORWARDING Complete: Can't find a forwarding rule at router {} for label {}.".format(
+                curr_r.name, outer_lbl)
             self.exit_code = 4
             if self.verbose:
                 if self.targets is not None:
@@ -3232,7 +3279,7 @@ class MPLS_packet(object):
 
             rule = rule_list[i]
             outgoing_iface = rule["out"]
-            next_hop = p.get_next_hop(outgoing_iface, verbose = False)
+            next_hop = p.get_next_hop(outgoing_iface, verbose=False)
 
             if "x-leaving" in candidate.keys():
                 # Exiting the MPLS domain to  a customr's CE
@@ -3252,7 +3299,6 @@ class MPLS_packet(object):
                 p.link_traceroute[-1] = (p.link_traceroute[-1][0], outgoing_iface)
                 p.link_traceroute.append((next_hop, None))
                 p.trace.append((curr_r.name, "|".join(self.stack), next_hop.name))
-
 
             # Processing the stack
             ops_list = rule["ops"]
@@ -3292,7 +3338,7 @@ class MPLS_packet(object):
             return True
         return False
 
-    def fwd(self, random_seed = None):
+    def fwd(self, random_seed=None):
         # Control high level forwarding logic.
         # we make sure that we can forward the packet.
         if not self.initialize():
@@ -3307,9 +3353,8 @@ class MPLS_packet(object):
         while not self.state == "finished":
             res = self.step()
 
-        self.success = res   # store the result in the packet.
+        self.success = res  # store the result in the packet.
         return res  # we return the result of the last step before finish
-
 
 
 class Simulator(object):
@@ -3318,18 +3363,19 @@ class Simulator(object):
 
     This is just a proof of concept, must be further developed.
     """
-    def __init__(self, network, trace_mode = "router", restricted_topology = None, random_seed = random.random()):
+
+    def __init__(self, network, trace_mode="router", restricted_topology=None, random_seed=random.random()):
 
         self.network = network
         self.traces = dict()
         # Map from load to list of switches
         self.trace_routes = dict()
         self.loads = dict()
-        self.trace_mode= trace_mode
+        self.trace_mode = trace_mode
         self.random_seed = random_seed
         self.count_connected = 0
         self.looping_links = 0
-        self.num_hops: dict[Tuple[str,str], int] = {}
+        self.num_hops: dict[Tuple[str, str], int] = {}
         self.num_ll: dict[Tuple[str, str], int] = {}
 
         if restricted_topology is not None:
@@ -3344,17 +3390,18 @@ class Simulator(object):
         for router_name, r in self.network.routers.items():
             self.traces[router_name] = dict()
             for in_label in r.LFIB:
-                p = MPLS_packet(self.network, init_router = router_name, targets = None, init_stack = [in_label], verbose = True)
+                p = MPLS_packet(self.network, init_router=router_name, targets=None, init_stack=[in_label],
+                                verbose=True)
                 res = p.fwd()
                 self.traces[router_name][in_label] = [{"trace": p, "result": res}]
 
-    def run(self, flows, verbose = False):
+    def run(self, flows, verbose=False):
         self.flows2 = flows
         loop_links = set()
         # Forward a packet for each flow in the 'flows' list, and return results and stats.
 
         # classify according to fec_type
-        print(f"running simulation with seed {self.random_seed}" )
+        print(f"running simulation with seed {self.random_seed}")
         random.seed(self.random_seed)
 
         labeled_flows = self.network.build_flow_table(flows)
@@ -3365,17 +3412,17 @@ class Simulator(object):
             self.traces[router_name] = dict()
 
             for in_label, tup in lbl_items.items():
-                good_sources, good_targets, load= tup
+                good_sources, good_targets, load = tup
                 if verbose:
                     print(f"\n processing router {router_name} with flow {good_sources} to {good_targets}")
 
-                p = MPLS_packet(self.network, init_router = router_name, targets = good_targets, init_stack = [in_label],
-                                verbose = verbose, restricted_topology = self.topology)
+                p = MPLS_packet(self.network, init_router=router_name, targets=good_targets, init_stack=[in_label],
+                                verbose=verbose, restricted_topology=self.topology)
                 res = p.fwd()
 
                 # Traces, and whether the destination was reached.
-                self.trace_routes[(good_sources[0], good_targets[0], load)] = ([router.name for router in p.traceroute], res)
-                 
+                self.trace_routes[(good_sources[0], good_targets[0], load)] = (
+                [router.name for router in p.traceroute], res)
 
                 last_router_name = p.traceroute[-1].name
 
@@ -3393,7 +3440,6 @@ class Simulator(object):
                     self.num_hops[(tup[0][0], tup[1][0])] = -1
                     self.num_ll[(tup[0][0], tup[1][0])] = -1
 
-
                 if verbose:
                     print(f"label: {in_label}, Initial result: {res}")
 
@@ -3409,7 +3455,7 @@ class Simulator(object):
                     print("Good Targets:")
                     pprint(good_targets)
                     pprint(last_router_name)
-                    #pprint(f"{fec.name}/{fec.fec_type}/{fec.value}")
+                    # pprint(f"{fec.name}/{fec.fec_type}/{fec.value}")
                     pprint(self.decode_trace(p.traceroute))
                     pprint(f"Result: {res}")
                     print(" ####################")
@@ -3417,9 +3463,9 @@ class Simulator(object):
                 if not res:
                     breakloop = False
                     for i in range(0, len(p.trace)):
-                        for j in range(i+1, len(p.trace)):
+                        for j in range(i + 1, len(p.trace)):
                             if p.trace[i] == p.trace[j]:
-                                loop_links = loop_links.union({(x[0], x[2]) for x in p.trace[i:j+1]})
+                                loop_links = loop_links.union({(x[0], x[2]) for x in p.trace[i:j + 1]})
                                 breakloop = True
                                 break
 
@@ -3442,8 +3488,6 @@ class Simulator(object):
 
         self.looping_links = self.initial_links - len(self.topology.edges)
 
-
-
     def decode_trace(self, trace):
         l = []
         for i in trace:
@@ -3453,7 +3497,7 @@ class Simulator(object):
                 l.append((i[0].name, i[1]))
         return l
 
-    def print_traces(self, store = False):
+    def print_traces(self, store=False):
         # Print traces from the simulations run.
         output = ""
         for router_name, r in self.network.routers.items():
@@ -3467,26 +3511,25 @@ class Simulator(object):
                     p = entry["trace"]
                     res = entry["result"]
                     if self.trace_mode == "router":
-                        #link_traceroute
+                        # link_traceroute
                         s = f"{res};{p.exit_code};{router_name};{in_label};{self.decode_trace(p.traceroute)};"
                     elif self.trace_mode == "links":
                         s = f"{res};{p.exit_code};{router_name};{in_label};{self.decode_trace(p.link_traceroute)};"
 
                     if store:
-                        output += "\n"+ s
+                        output += "\n" + s
                     else:
                         pprint(s)
         if store:
             return output
 
-
-    def success_rate(self, exit_codes = False):
+    def success_rate(self, exit_codes=False):
         # Find ratio of succesful traces.
         success = failures = 0
         codes = [0] * 6  # exit code counter list
 
-        for t_by_router, rtraces  in self.traces.items():
-            for in_label, xlist  in rtraces.items():
+        for t_by_router, rtraces in self.traces.items():
+            for in_label, xlist in rtraces.items():
                 for p in xlist:
                     if p["result"]:
                         success += 1
@@ -3498,8 +3541,8 @@ class Simulator(object):
                         codes[c] += 1
 
         total = success + failures
-        success_ratio = success/total
+        success_ratio = success / total
         if exit_codes:
-            return (success,total, codes)
+            return (success, total, codes)
 
-        return (success_ratio,total)
+        return (success_ratio, total)

@@ -223,7 +223,7 @@ def generate_fwd_rules(G, conf, enable_PHP = True, numeric_labels = False, enabl
         assert all(filter(lambda x: isinstance(x,(list,tuple)) and len(x)==2 ,num_lsps))
         c = dict()
         for h,t in num_lsps:
-            print(f"Manually build LSP from {h} to {t}")
+            #print(f"Manually build LSP from {h} to {t}")
             if (h,t) not in c.keys():
                 c[(h,t)] = 0
             else:
