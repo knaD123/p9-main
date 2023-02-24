@@ -675,7 +675,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name='default', output_dir='./omnet_files/default'):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1):
         """
         Generates all files for OMNeT++.
         """
@@ -686,7 +686,7 @@ class Network(object):
         self.build_flows_for_export()
 
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
-            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f)
+            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler)
 
         with open("confs/zoo_" + self.name + "/failure_chunks/0.yml", 'r') as f:
             failed_set_chunk = yaml.safe_load(f)
@@ -700,12 +700,12 @@ class Network(object):
                                          link_to_ppp=link_to_ppp_dict)
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)))
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), send_interval_multiplier=scaler)
 
         self.to_omnetpp_lib(output_dir)
         self.to_omnetpp_classification(output_dir)
 
-    def to_omnetpp_ned(self, name, file, bandwidth_multiplier=1):
+    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576  # kbps = 1 Gbps
         DEFAULT_LATENCY = 10  # ms
@@ -831,7 +831,7 @@ class Network(object):
 
             file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
             file.write(
-                f"{{ delay = {latency}ms; datarate = {bandwidth * bandwidth_multiplier}bps; @statistic[utilization](record=max,timeavg,vector,last); }} <--> ")
+                f"{{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](record=max,timeavg,vector,last); }} <--> ")
             file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
@@ -870,7 +870,7 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1):
         warmup_time = 20
         sim_time = 60
         file.write("[General]\n")
@@ -903,15 +903,17 @@ class Network(object):
             flow_idx += 1
             ingress = flow['ingress']
             if ingress not in source_apps:
+                send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
                 source_apps[ingress] = [{'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
                                          'messageLength': f"{packet_size} bytes",
-                                         'sendInterval': f"{'%.5f' % (1 / (flow['load'] / packet_size))}s",
+                                         'sendInterval': f"{send_interval}s",
                                          'destAddresses': flow['target_host'], 'source_host': flow['source_host']}]
             else:
                 app_num = len(source_apps[ingress]) + 1
+                send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
                 source_apps[ingress].append({'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
                                              'messageLength': f"{packet_size} bytes",
-                                             'sendInterval': f"{'%.5f' % (1 / (flow['load'] / packet_size))}s",
+                                             'sendInterval': f"{send_interval}s",
                                              'destAddresses': flow['target_host'], 'source_host': flow['source_host']})
 
         for ingress, apps in source_apps.items():
