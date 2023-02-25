@@ -902,16 +902,15 @@ class Network(object):
         for flow in self.export_flows:
             flow_idx += 1
             ingress = flow['ingress']
+            send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
             entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
                                          'messageLength': f"{packet_size} bytes",
                                          'sendInterval': f"{send_interval}s",
                                          'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
             if ingress not in source_apps:
-                send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
                 source_apps[ingress] = [entry]
             else:
                 app_num = len(source_apps[ingress]) + 1
-                send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
                 source_apps[ingress].append(entry)
 
         for ingress, apps in source_apps.items():
