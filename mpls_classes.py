@@ -675,7 +675,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64):
         """
         Generates all files for OMNeT++.
         """
@@ -700,7 +700,7 @@ class Network(object):
                                          link_to_ppp=link_to_ppp_dict)
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), send_interval_multiplier=scaler)
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler)
 
         self.to_omnetpp_lib(output_dir)
         self.to_omnetpp_classification(output_dir)
@@ -902,19 +902,17 @@ class Network(object):
         for flow in self.export_flows:
             flow_idx += 1
             ingress = flow['ingress']
-            if ingress not in source_apps:
-                send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
-                source_apps[ingress] = [{'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
+            entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
                                          'messageLength': f"{packet_size} bytes",
                                          'sendInterval': f"{send_interval}s",
-                                         'destAddresses': flow['target_host'], 'source_host': flow['source_host']}]
+                                         'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
+            if ingress not in source_apps:
+                send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
+                source_apps[ingress] = [entry]
             else:
                 app_num = len(source_apps[ingress]) + 1
                 send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
-                source_apps[ingress].append({'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
-                                             'messageLength': f"{packet_size} bytes",
-                                             'sendInterval': f"{send_interval}s",
-                                             'destAddresses': flow['target_host'], 'source_host': flow['source_host']})
+                source_apps[ingress].append(entry)
 
         for ingress, apps in source_apps.items():
             file.write(f'''**.{apps[0]['source_host']}.numApps = {len(apps)}\n''')
