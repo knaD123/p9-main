@@ -8,8 +8,7 @@ def main(conf):
     with open(conf["demands"],"r") as file:
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
         total_packets = num_packets(flows_with_load)
-        flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[
-                          :math.ceil(len(flows_with_load) * conf["take_percent"])]
+        flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
         flows = [flow[:2] for flow in flows_with_load]
 
     print(f'Total number of packets over a second: {total_packets}')
@@ -46,6 +45,20 @@ def num_packets(flows_with_load):
         sum += z
 
     return sum / 64
+
+def flows_take(flows_with_load, take_percent):
+    load_sum = sum(flow[2] for flow in flows_with_load)
+    target_sum = take_percent * load_sum
+    current_sum = 0
+    result_flows = []
+
+    for flow in flows_with_load:
+        current_sum += flow[2]
+        if current_sum >= target_sum:
+            break
+        result_flows.append(flow)
+
+    return result_flows
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
