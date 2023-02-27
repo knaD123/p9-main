@@ -904,7 +904,7 @@ class Network(object):
             ingress = flow['ingress']
             send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
             entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
-                                         'messageLength': f"{packet_size} bytes",
+                                         'messageLength': f"{packet_size - 39} bytes",
                                          'sendInterval': f"{send_interval}s",
                                          'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
             if ingress not in source_apps:
