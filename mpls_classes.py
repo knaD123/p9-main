@@ -888,7 +888,7 @@ class Network(object):
         file.write(f"**.statistic-recording = false\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
-            file.write(f"**.{router_name}.libTable.config = xmldoc(\"{router_name}_lib.xml\")\n")
+            file.write(f"**.{router_name}.libTable.config = xmldoc(\"lib_files/{router_name}_lib.xml\")\n")
         file.write("**.rsvp.helloInterval = 0s\n")
         file.write("**.rsvp.helloTimeout = 0s\n")
         file.write("**.ppp[*].queue.typename = \"DropTailQueue\"\n")
@@ -897,7 +897,7 @@ class Network(object):
         file.write("\n")
         # Add classification files
         for router_name, router in self.routers.items():
-            file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_classification.xml\")\n")
+            file.write(f"**.{router_name}.classifier.config = xmldoc(\"classification_files/{router_name}_classification.xml\")\n")
 
         # file.write("\n[Config UDP]\n")
 
