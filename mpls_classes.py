@@ -702,8 +702,13 @@ class Network(object):
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
             self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler)
 
-        self.to_omnetpp_lib(output_dir)
-        self.to_omnetpp_classification(output_dir)
+        if not path.exists(output_dir + "/lib_files"):
+            os.makedirs(output_dir + "/lib_files")
+        if not path.exists(output_dir + "/classification_files"):
+            os.makedirs(output_dir + "/classification_files")
+
+        self.to_omnetpp_lib(output_dir + "/lib_files")
+        self.to_omnetpp_classification(output_dir + "/classification_files")
 
     def to_omnetpp_ned(self, name, file, bandwidth_divisor=1):
         # Values between the routers, if not included in the edge data
