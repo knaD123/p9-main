@@ -675,7 +675,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False):
         """
         Generates all files for OMNeT++.
         """
@@ -686,7 +686,7 @@ class Network(object):
         self.build_flows_for_export()
 
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
-            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler)
+            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency)
 
         with open("confs/zoo_" + self.name + "/failure_chunks/0.yml", 'r') as f:
             failed_set_chunk = yaml.safe_load(f)
@@ -700,7 +700,7 @@ class Network(object):
                                          link_to_ppp=link_to_ppp_dict)
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler)
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler, zero_latency=zero_latency)
 
         if not path.exists(output_dir + "/lib_files"):
             os.makedirs(output_dir + "/lib_files")
@@ -710,10 +710,9 @@ class Network(object):
         self.to_omnetpp_lib(output_dir + "/lib_files")
         self.to_omnetpp_classification(output_dir + "/classification_files")
 
-    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1):
+    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576  # kbps = 1 Gbps
-        DEFAULT_LATENCY = 10  # ms
         # Values from the hosts to the routers
         DEFAULT_HOST_BANDWIDTH = 600  # kbps
         DEFAULT_HOST_LATENCY = 10  # ms
@@ -822,7 +821,7 @@ class Network(object):
             data = self.topology.get_edge_data(edge[0], edge[1])
             # We multiply bandwidth by 8 to convert to bits
             bandwidth = data['bandwidth'] * 8 if 'bandwidth' in data else DEFAULT_BANDWIDTH
-            latency = data['latency'] if 'latency' in data else DEFAULT_LATENCY
+            latency = data['latency'] if ('latency' in data and not zero_latency) else 0
 
             # Added for scenario manager
             link_to_ppp[(edge[0], edge[1])] = self.routers[edge[0]].interface_ids[edge[1]]
@@ -875,13 +874,11 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1):
-        warmup_time = 20
-        sim_time = 60
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1, zero_latency=False):
+        UTILIZATION_SAMPLE_SIZE = 250
+
         file.write("[General]\n")
         file.write(f"network = {name}\n")
-        file.write(f"warmup-period = {warmup_time}s\n")
-        file.write(f"sim-time-limit = {sim_time}s\n")
         file.write(f"**.cmdenv-log-level = OFF\n")
         file.write(f"**.utilization.statistic-recording = true\n")
         file.write(f"**.network.statistic-recording = true\n")
@@ -904,10 +901,12 @@ class Network(object):
         # Create a dictionary to keep track of the app entries for each source host.
         source_apps = {}
         flow_idx = 0
+        longest_send_interval = 0 # Used to find the simulation time limit
         for flow in self.export_flows:
             flow_idx += 1
             ingress = flow['ingress']
             send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
+            longest_send_interval = send_interval if send_interval > longest_send_interval else longest_send_interval
             entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
                                          'messageLength': f"{packet_size - 39} bytes",
                                          'sendInterval': f"{send_interval}s",
@@ -917,6 +916,16 @@ class Network(object):
             else:
                 app_num = len(source_apps[ingress]) + 1
                 source_apps[ingress].append(entry)
+
+        if zero_latency:
+            warmup_time = 0
+            sim_time = longest_send_interval * UTILIZATION_SAMPLE_SIZE * 2
+        else:
+            warmup_time = 20
+            sim_time = 60
+
+        file.write(f"warmup-period = {warmup_time}s\n")
+        file.write(f"sim-time-limit = {sim_time}s\n")
 
         for ingress, apps in source_apps.items():
             file.write(f'''**.{apps[0]['source_host']}.numApps = {len(apps)}\n''')
