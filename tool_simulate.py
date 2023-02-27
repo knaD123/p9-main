@@ -35,6 +35,7 @@ import sys, os
 from typing import Union, Set, List, Dict, Tuple
 import statistics
 import shutil
+from to_omnet import num_packets, flows_take
 
 from networkx import has_path
 
@@ -61,9 +62,8 @@ def main(conf):
 
     with open(conf["demands"],"r") as file:
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
-
-    #Sort the flows
-    flows_with_load = sorted(flows_with_load, key=lambda x: x[2], reverse=True)[:math.ceil(len(flows_with_load) * conf["take_percent"])]
+    total_packets = num_packets(flows_with_load)
+    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
     conf["loads"] = flows_with_load
     #Remove flow load
     flows = [flow[:2] for flow in flows_with_load]
