@@ -54,6 +54,8 @@ def powerset(iterable, m=0):
 
 
 def generate_failures(G, threshold=1000, division=None, random_seed=1):
+    if threshold == 0:
+        return [[[]]]
     edges = [list(x) for x in G.edges()]
 
     _k = K
