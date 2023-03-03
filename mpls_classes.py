@@ -875,7 +875,7 @@ class Network(object):
         return link_to_ppp
 
     def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1, zero_latency=False):
-        UTILIZATION_SAMPLE_SIZE = 250
+        UTILIZATION_SAMPLE_INTERVAL = 5 # seconds
 
         file.write("[General]\n")
         file.write(f"network = {name}\n")
@@ -919,13 +919,15 @@ class Network(object):
 
         if zero_latency:
             warmup_time = 0
-            sim_time = longest_send_interval * UTILIZATION_SAMPLE_SIZE * 2
+            sim_time = longest_send_interval * 1000
         else:
             warmup_time = 20
             sim_time = 60
 
         file.write(f"warmup-period = {warmup_time}s\n")
         file.write(f"sim-time-limit = {sim_time}s\n")
+        file.write(f"real-time-limit = 7200s\n")
+
 
         for ingress, apps in source_apps.items():
             file.write(f'''**.{apps[0]['source_host']}.numApps = {len(apps)}\n''')
