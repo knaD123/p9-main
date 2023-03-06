@@ -37,7 +37,7 @@ def main(conf):
     name = re.search(r".*zoo_(.*)\.json", conf["topology"]).group(1).lower()
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"])
+    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}/{conf['method']}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"])
 
 def num_packets(flows_with_load):
     sum = 0
