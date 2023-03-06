@@ -675,7 +675,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False, package_name="inet.zoo_topology", algorithm="none"):
         """
         Generates all files for OMNeT++.
         """
@@ -686,7 +686,7 @@ class Network(object):
         self.build_flows_for_export()
 
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
-            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency)
+            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency, package_name=package_name, algorithm=algorithm)
 
         with open("confs/zoo_" + self.name + "/failure_chunks/0.yml", 'r') as f:
             failed_set_chunk = yaml.safe_load(f)
@@ -700,7 +700,7 @@ class Network(object):
                                          link_to_ppp=link_to_ppp_dict)
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler, zero_latency=zero_latency)
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler, zero_latency=zero_latency, algorithm=algorithm)
 
         if not path.exists(output_dir + "/lib_files"):
             os.makedirs(output_dir + "/lib_files")
@@ -710,7 +710,7 @@ class Network(object):
         self.to_omnetpp_lib(output_dir + "/lib_files")
         self.to_omnetpp_classification(output_dir + "/classification_files")
 
-    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False):
+    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False, package_name="inet.zoo_topology", algorithm="none"):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576  # kbps = 1 Gbps
         # Values from the hosts to the routers
@@ -719,15 +719,14 @@ class Network(object):
 
         # Link -> pppgate dictionary
         link_to_ppp = dict()
-
         # from service import MPLS_Service
-        file.write(f"package inet.examples.mpls.{name};\n")
+        file.write(f"package {package_name}.{name}.{algorithm};\n")
         file.write("import inet.common.scenario.ScenarioManager;\n")
         file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
         file.write("import inet.node.inet.StandardHost;\n")
         file.write("import inet.node.mpls.MplsRouter;\n")  # own, modified router class
         file.write("\n")
-        file.write(f"network {name}\n")
+        file.write(f"network {name}_{algorithm}\n")
         file.write("{\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
         for router_name, router in self.routers.items():
 
@@ -874,11 +873,11 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1, zero_latency=False):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1, zero_latency=False, algorithm="none"):
         UTILIZATION_SAMPLE_INTERVAL = 5 # seconds
 
         file.write("[General]\n")
-        file.write(f"network = {name}\n")
+        file.write(f"network = {name}_{algorithm}\n")
         file.write(f"**.cmdenv-log-level = OFF\n")
         file.write(f"**.utilization.statistic-recording = true\n")
         file.write(f"**.network.statistic-recording = true\n")

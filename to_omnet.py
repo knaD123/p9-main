@@ -37,8 +37,11 @@ def main(conf):
     name = re.search(r".*zoo_(.*)\.json", conf["topology"]).group(1).lower()
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}/{conf['method']}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"])
+    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}/{conf['method']}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=conf["method"])
 
+    # Add package.ned
+    with open(f"{conf['output_dir']}/package.ned", "w") as f:
+        f.write(f"package {conf['package_name']};")
 def num_packets(flows_with_load):
     sum = 0
     for (x,y,z) in flows_with_load:
@@ -77,6 +80,7 @@ if __name__ == "__main__":
     p.add_argument("--packet_size", type=int, default=64, help="Size in bytes")
     p.add_argument("--zero_latency", action="store_true", help="Set latency to 0 for all links")
     p.add_argument("--output_dir", default="./omnet_files")
+    p.add_argument("--package_name", default="inet.zoo_topology")
 
     conf = vars(p.parse_args())
 
