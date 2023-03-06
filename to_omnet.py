@@ -32,12 +32,15 @@ def main(conf):
                                  CEs_per_PE=conf["vpn_ces_per_pe"],
                                  random_seed=conf["random_seed"]
                                  )
+    method = conf["method"]
+    if conf["method"] == "rsvp" and conf["enable_RMPLS"]:
+        method = "rmpls"
 
     # Omnet
     name = re.search(r".*zoo_(.*)\.json", conf["topology"]).group(1).lower()
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}/{conf['method']}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=conf["method"])
+    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method)
 
     # Add package.ned
     if conf["generate_package"]:
