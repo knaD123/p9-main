@@ -918,7 +918,7 @@ class Network(object):
 
         if zero_latency:
             warmup_time = 0
-            sim_time = longest_send_interval * 1000
+            sim_time = 8
         else:
             warmup_time = 20
             sim_time = 60
