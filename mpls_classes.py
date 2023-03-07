@@ -724,7 +724,7 @@ class Network(object):
         file.write("import inet.common.scenario.ScenarioManager;\n")
         file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
         file.write("import inet.node.inet.StandardHost;\n")
-        file.write("import inet.node.mpls.MplsRouter;\n")  # own, modified router class
+        file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
         file.write("\n")
         file.write(f"network {name}_{algorithm}\n")
         file.write("{\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
@@ -834,7 +834,7 @@ class Network(object):
 
             file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
             file.write(
-                f'{{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="movingAverage(channelBusy)"; record=max,last); }} <--> ')
+                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="movingAverage(channelBusy)"; record=max,last); }} <--> ')
             file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
