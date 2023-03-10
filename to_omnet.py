@@ -37,10 +37,9 @@ def main(conf):
         method = "rmpls"
 
     # Omnet
-    name = re.search(r".*zoo_(.*)\.json", conf["topology"]).group(1).lower()
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=name, output_dir=f"{conf['output_dir']}/{name}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method)
+    network.to_omnetpp(name=conf["topo_name"], output_dir=f"{conf['output_dir']}/{conf['topo_name']}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method)
 
     # Add package.ned
     if conf["generate_package"]:
@@ -86,6 +85,7 @@ if __name__ == "__main__":
     p.add_argument("--output_dir", default="./omnet_files")
     p.add_argument("--package_name", default="inet.zoo_topology")
     p.add_argument("--generate_package", action="store_true")
+    p.add_argument("--topo_name", type=str, required=True)
 
     conf = vars(p.parse_args())
 
