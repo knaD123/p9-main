@@ -29,7 +29,7 @@ fi
 #where X is a integer limit on the number of rules per router per demand.
 
 
-for CONF in "${CONFS_TO_RUN[@]}"
+for CONF in "${CONFS_TO_RUN[@]}
 do
     ./scripts/run-problems-subset.sh ${CONF} 300 ${FILTER}                #Simulate the CONFS. Second parameter is a limit on number of topologies to run on.
 done

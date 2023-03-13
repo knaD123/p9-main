@@ -1117,7 +1117,7 @@ class Network(object):
                     good_sources = fec.value['ingress']
                     good_targets = [fec.value['egress']]
 
-                elif fec.fec_type == "inout-disjoint":
+                elif fec.fec_type == "fbr":
                     if 'path_index' in fec.value and fec.value["path_index"] == 0:
                         good_sources = fec.value["ingress"]
                         good_targets = fec.value["egress"]

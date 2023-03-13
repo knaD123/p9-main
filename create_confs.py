@@ -38,12 +38,6 @@ class NoAliasDumper(yaml.SafeDumper):
     def ignore_aliases(self, data):
         return True
 
-
-def partition(lst, division):
-    n = math.ceil(len(lst) / division)
-    return [lst[round(division * i):round(division * (i + 1))] for i in range(n)]
-
-
 def powerset(iterable, m=0):
     """
     powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)
@@ -53,7 +47,7 @@ def powerset(iterable, m=0):
     return chain.from_iterable(combinations(xs, n) for n in range(m + 1))
 
 
-def generate_failures(G, threshold=1000, division=None, random_seed=1):
+def generate_failures(G, threshold=1000, random_seed=1):
     if threshold == 0:
         return [[[]]]
     edges = [list(x) for x in G.edges()]
@@ -86,38 +80,14 @@ def generate_failures(G, threshold=1000, division=None, random_seed=1):
             new_scenarios = list(combinations(edges, k))
 
         F_list.extend(new_scenarios)
-    if division:
-        P = partition([list(x) for x in F_list], division)
-        return P
-    return [F_list]
-
-
-def generate_failures_percent(G, threshold, division, random_seed):
-    def return_0():
-        return 0
-
-    F_list = []
-    edges = [list(x) for x in G.edges()]
-    num_edges = len(edges)
-    random.seed(random_seed)
-    num_fails_to_size_dict = defaultdict(return_0)
-    for percentage, size in conf["fail_lengths"]:
-        num_fails_to_size_dict[round(percentage * num_edges / 100)] += size
-    for num_to_fail, size in num_fails_to_size_dict.items():
-        if num_to_fail < num_edges:
-            all_possible_scenarios = list(combinations(edges, num_to_fail))
-            amount_of_scenarios = min(len(all_possible_scenarios), size)
-            F_list.extend(random.sample(all_possible_scenarios, amount_of_scenarios))
 
     return [F_list]
-
 
 def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memory=None, path_heuristic=None,
-                  extra_hops=None, population=None, crossover=None, mutation=None, generations=None,
+                  population=None, crossover=None, mutation=None, generations=None,
                   congestion_weight=None, stretch_weight=None, connectedness_weight=None):
     conf_name = conf_type + (f"_max-mem={per_flow_memory}" if per_flow_memory is not None else "") + (
         f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
-                    f"{extra_hops}" if extra_hops is not None else "") + (
                     f"_p={population}" if population is not None else "") + (
                     f"_c={crossover}" if crossover is not None else "") + (
                     f"_m={mutation}" if mutation is not None else "") + (
@@ -172,8 +142,8 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
         base_config['num_cycling_paths'] = 0
     elif conf_type == 'kf':
         base_config['method'] = 'kf'
-    elif conf_type == 'inout-disjoint':
-        base_config['method'] = 'inout-disjoint'
+    elif conf_type == 'fbr':
+        base_config['method'] = 'fbr'
         base_config['backtrack'] = 'partial'
         base_config['path_heuristic'] = path_heuristic
         if path_heuristic == "nielsens_heuristic" or path_heuristic == "essence":
@@ -191,20 +161,16 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
             base_config["crossover"] = conf["crossover"]
             base_config["mutation"] = conf["mutation"]
             base_config["generations"] = conf["generations"]
-        if extra_hops is not None:
-            base_config["extra_hops"] = extra_hops
-    elif conf_type == 'inout-disjoint-full':
-        base_config['method'] = 'inout-disjoint'
+    elif conf_type == 'fbr-full':
+        base_config['method'] = 'fbr'
         base_config['backtrack'] = 'full'
         base_config['path_heuristic'] = path_heuristic
-        if extra_hops is not None:
-            base_config["extra_hops"] = extra_hops
-    elif conf_type == "inout_disjoint_old":
-        base_config['method'] = 'inout_disjoint_old'
+    elif conf_type == "fbr_sd":
+        base_config['method'] = 'fbr_sd'
         base_config['backtrack'] = 'partial'
         base_config['epochs'] = 3
-    elif conf_type == "inout-disjoint-full-old":
-        base_config['method'] = 'inout-disjoint-full-old'
+    elif conf_type == "fbr_sd_backtrack":
+        base_config['method'] = 'fbr_sd_backtrack'
         base_config['backtrack'] = 'full'
         base_config['epochs'] = 3
     elif conf_type == 'rmpls':
@@ -232,35 +198,30 @@ if __name__ == "__main__":
     p.add_argument("--only_K_failed_links", action="store_true",
                    help="Only creates failure scenarios with K failed links")
 
-    p.add_argument("--fail_lengths", default="")
-
     p.add_argument("--threshold", type=int, default=1000, help="Maximum number of failures to generate")
-
-    p.add_argument("--division", type=int, default=None, help="chunk size; number of failure scenarios per worker.")
 
     p.add_argument("--random_seed", type=int, default=1, help="Random seed. Leave empty to pick a random one.")
 
     p.add_argument("--keep_failure_chunks", action="store_true", default=False,
                    help="Do not generate failure chunks if they already exist")
 
-    p.add_argument("--keep_flows", action="store_true", default=False,
-                   help="Do not generate flows if they already exist")
-
     p.add_argument("--result_folder", type=str, default='results', help="Folder to store results in")
 
     p.add_argument("--algorithm", required=True,
-                   choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor",
-                            "rsvp-fn", "all", "inout_disjoint_old", "inout-disjoint-full-old"])
+                   choices=["rmpls", "fbr", "cfor",
+                            "rsvp-fn", "all", "fbr_sd", "fbr_sd_backtrack"])
 
     p.add_argument("--path_heuristic", default="shortest_path",
                    choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
                             "nielsens_heuristic", "essence", "essence_v2", "inverse_cap", "placeholder"])
 
-    p.add_argument("--extra_hops", type=int)
-
     p.add_argument("--max_memory", type=int, default=3)
 
     p.add_argument("--demand_file", type=str, required=True)
+
+    p.add_argument("--conf_name", type=str, default="", help="Custom conf name")
+
+    # ESSENCE GENETIC ALGORITHM ARGUMENTS
 
     p.add_argument("--max_utilization", type=float, default=10000,
                    help="For Nielsens heuristic. Maximum utilization on every link given 0 failed links.")
@@ -279,14 +240,11 @@ if __name__ == "__main__":
 
     args = p.parse_args()
     conf = vars(args)
-    if conf["fail_lengths"]:
-        conf["fail_lengths"] = list(map(lambda x: tuple(list(map(int, x.split()))), conf["fail_lengths"].split(",")))
     topofile = conf["topology"]
     configs_dir = conf["conf"]
     K = conf["K"]
     # L = conf["L"]
     random_seed = conf["random_seed"]
-    division = conf["division"]
     threshold = conf["threshold"]
     # Ensure the topologies can be found:
     assert os.path.exists(topofile)
@@ -294,15 +252,8 @@ if __name__ == "__main__":
     # create main folder for our experiments
     os.makedirs(configs_dir, exist_ok=True)
 
-    # Load
-    if topofile.endswith(".graphml"):
-        gen = lambda x: nx.Graph(nx.read_graphml(x))
-    elif topofile.endswith(".json"):
-        gen = topology_from_aalwines_json
-    else:
-        exit(1)
+    gen = topology_from_aalwines_json
 
-    print(topofile)
     toponame = topofile.split('/')[-1].split(".")[0]
     folder = os.path.join(configs_dir, toponame)
     os.makedirs(folder, exist_ok=True)
@@ -310,34 +261,26 @@ if __name__ == "__main__":
     G = gen(topofile)
     n = G.number_of_nodes() * G.number_of_nodes()  # tentative number of LSPs
 
-
-    # Generate flows
-    # flows = []
-    # for src in list(G.nodes):
-    #    tgt = random.choice(list(set(G.nodes) - {src}))
-    #    flows.append((src, tgt))
-
-    # with open(os.path.join(folder, "flows.yml"), "w") as file:
-    #    yaml.dump(flows, file, default_flow_style=True, Dumper=NoAliasDumper)
-
-    def create(conf_type, max_memory=None, path_heuristic=None, extra_hops=None, population=None,
+    def create(conf_type, max_memory=None, path_heuristic=None, population=None,
                crossover=None, mutation=None, generations=None, congestion_weight=None, stretch_weight=None,
                connectedness_weight=None):
         dict_conf = generate_conf(n, conf_type=conf_type, topofile=topofile, random_seed=random_seed,
-                                  per_flow_memory=max_memory, path_heuristic=path_heuristic, extra_hops=extra_hops,
+                                  per_flow_memory=max_memory, path_heuristic=path_heuristic,
                                   population=population, crossover=crossover,
                                   mutation=mutation, generations=generations, congestion_weight=congestion_weight,
                                   stretch_weight=stretch_weight, connectedness_weight=connectedness_weight)
-        conf_name = "conf_" + conf_type + (f"_random_seed={random_seed}" if random_seed != 1 else "") + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
-            f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
-                        f"{extra_hops}" if extra_hops is not None else "") + (
-                        f"_p={population}" if population is not None else "") + (
-                        f"_c={crossover}" if crossover is not None else "") + (
-                        f"_m={mutation}" if mutation is not None else "") + (
-                        f"_g={generations}" if generations is not None else "") + (
-                        f"_uw={congestion_weight}" if congestion_weight is not None else "") + (
-                        f"_sw={stretch_weight}" if stretch_weight is not None else "") + (
-                        f"_cw={connectedness_weight}" if connectedness_weight is not None else "") + ".yml"
+        if conf["conf_name"]:
+            conf_name = conf["conf_name"]
+        else:
+            conf_name = "conf_" + conf_type + (f"_random_seed={random_seed}" if random_seed != 1 else "") + (f"_max-mem={max_memory}" if max_memory is not None else "") + (
+                f"_path-heuristic={path_heuristic}" if path_heuristic is not None else "") + (
+                            f"_p={population}" if population is not None else "") + (
+                            f"_c={crossover}" if crossover is not None else "") + (
+                            f"_m={mutation}" if mutation is not None else "") + (
+                            f"_g={generations}" if generations is not None else "") + (
+                            f"_uw={congestion_weight}" if congestion_weight is not None else "") + (
+                            f"_sw={stretch_weight}" if stretch_weight is not None else "") + (
+                            f"_cw={connectedness_weight}" if connectedness_weight is not None else "") + ".yml"
 
         path = os.path.join(folder, conf_name)
         # dict_conf["output_file"] = os.path.join(folder, "dp_{}.yml".format(conf_type))
@@ -363,13 +306,10 @@ if __name__ == "__main__":
         for mem in per_flow_memory:
             create('tba-complex', mem)
             for h in heuristics:
-                create('inout-disjoint', mem, h)
-                create('inout-disjoint-full', mem, h)
-    elif algorithm in ['inout-disjoint', 'inout-disjoint-full']:
-        if conf["path_heuristic"] == "benjamins_heuristic":
-            create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
-                   extra_hops=conf["extra_hops"])
-        elif conf["path_heuristic"] == "nielsens_heuristic":
+                create('fbr', mem, h)
+                create('fbr-full', mem, h)
+    elif algorithm in ['fbr', 'fbr-full']:
+        if conf["path_heuristic"] == "nielsens_heuristic":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
         elif conf["path_heuristic"] == "essence":
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"],
@@ -384,17 +324,14 @@ if __name__ == "__main__":
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 
-    elif algorithm == "tba-complex" or algorithm == "inout_disjoint_old" or algorithm == "inout-disjoint-full-old":
+    elif algorithm == "tba-complex" or algorithm == "fbr_sd" or algorithm == "fbr_sd_backtrack":
         create(algorithm, conf["max_memory"])
     else:
         create(algorithm)
 
     if not (args.keep_failure_chunks and os.path.exists(os.path.join(folder, "failure_chunks"))):
         # Generate failures
-        if conf["fail_lengths"]:
-            F_list = generate_failures_percent(G, threshold, division=division, random_seed=random_seed)
-        else:
-            F_list = generate_failures(G, threshold, division=division, random_seed=random_seed)
+        F_list = generate_failures(G, threshold, random_seed=random_seed)
 
         failure_folder = os.path.join(folder, "failure_chunks")
         os.makedirs(failure_folder, exist_ok=True)

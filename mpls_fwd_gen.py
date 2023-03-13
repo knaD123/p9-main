@@ -41,7 +41,7 @@ import grafting_client
 import keep_forwarding_client
 import target_based_arborescence.tba_client as tba
 import inout_disjoint_better
-import inout_disjoint_old
+import fbr_sd
 from mpls_classes import MPLS_Client
 
 from networkx.algorithms.shortest_paths.weighted import _weight_function, _dijkstra_multisource
@@ -148,12 +148,12 @@ def generate_fwd_rules(G, conf, enable_PHP = True, numeric_labels = False, enabl
     elif method == 'kf':
         network.start_client(keep_forwarding_client.KeepForwarding, **conf)
         protocol_name = 'kf'
-    elif method == 'inout-disjoint':
+    elif method == 'fbr':
         network.start_client(inout_disjoint_better.InOutDisjoint, **conf)
-        protocol_name = 'inout-disjoint'
-    elif method == 'inout_disjoint_old':
-        network.start_client(inout_disjoint_old.InOutDisjoint, **conf)
-        protocol_name = 'inout-disjoint'
+        protocol_name = 'fbr'
+    elif method == 'fbr_sd':
+        network.start_client(fbr_sd.InOutDisjoint, **conf)
+        protocol_name = 'fbr'
     # Start RSVP-TE process in each router
     elif conf['method'] == 'rsvp' and conf['protection'] is not None and conf['protection'].startswith("plinko"):
             network.start_client(ProcPlinko)
@@ -229,7 +229,7 @@ def generate_fwd_rules(G, conf, enable_PHP = True, numeric_labels = False, enabl
             else:
                 c[(h,t)] += 1
 
-            if protocol_name in ["tba","hop_distance","cfor","gft","kf","inout-disjoint"]:
+            if protocol_name in ["tba","hop_distance","cfor","gft","kf","fbr"]:
                 network.routers[t].clients[protocol_name].define_demand(h)
             else:
                 network.routers[h].clients[protocol_name].define_lsp(t,

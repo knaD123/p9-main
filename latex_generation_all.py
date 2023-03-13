@@ -28,17 +28,17 @@ alg_to_plot_config_dict: {str: AlgorithmPlotConfiguration} = {
     # "hd": AlgorithmPlotConfiguration("Hop Distance", "green", "loosely dotted"),
     "kf": AlgorithmPlotConfiguration("KF", "cyan", "densely dotted"),
     "gft": AlgorithmPlotConfiguration("GFT-CA", "orange", "loosely dashed", "x"),
-    "inout-disjoint": AlgorithmPlotConfiguration("FBR", "red", "solid", "square*"),
-    "inout-disjoint-full": AlgorithmPlotConfiguration('FBR-full', 'magenta', 'solid', 'circle*'),
+    "fbr": AlgorithmPlotConfiguration("FBR", "red", "solid", "square*"),
+    "fbr-full": AlgorithmPlotConfiguration('FBR-full', 'magenta', 'solid', 'circle*'),
     "rmpls": AlgorithmPlotConfiguration("R-MPLS", "gray", "densely dashed", "*"),
     "plinko4": AlgorithmPlotConfiguration('Plinko', 'purple', 'loosely dotted')
 }
 
 alg_to_bar_config_dict = {
     "tba-simple": "dots",
-    "inout-disjoint": "horizontal lines",
+    "fbr": "horizontal lines",
     "tba-complex": "north east lines",
-    "inout-disjoint-full": 'vertical lines'
+    "fbr-full": 'vertical lines'
 }
 
 parser = argparse.ArgumentParser()
@@ -127,7 +127,7 @@ def generate_all_latex():
     output_latex_content("memory_plot_data_no-kf.tex", latex_memory_plot(no_keep_forwarding_data, max_points), "memory plot without keep forwarding")
     output_latex_content("memory_failure_data.tex", latex_memory_failure_rate_plot(results_data), "memory bar chart")
     output_latex_content("loop_table_data.tex", latex_loop_table(results_data), "loop table")
-    # output_latex_content('scatter_tba_vs_inout_data.tex', latex_scatter_plot(results_data, 'tba-complex_max-mem=5', 'inout-disjoint_max-mem=5'), 'scatter plot')
+    # output_latex_content('scatter_tba_vs_inout_data.tex', latex_scatter_plot(results_data, 'tba-complex_max-mem=5', 'fbr_max-mem=5'), 'scatter plot')
     # output_latex_content("latency_average_max_data.tex", latex_average_max_latency_plot(results_data), "average max number of hops plot (latency)")
     # output_latex_content("latency_average_mean_data.tex", latex_average_mean_latency__plot(results_data), "average mean number of hops plot (latency)")
     output_latex_content("fwd_gen_time_data.tex", latex_gen_time_plot(results_data), "forwarding table generation time")

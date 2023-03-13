@@ -23,7 +23,7 @@ from heuristics.placeholder import placeholder
 from benj_heuristic import *
 
 def label(ingress, egress, path_index: int):
-    return oFEC("inout-disjoint", f"{ingress}_to_{egress}_path{path_index}",
+    return oFEC("fbr", f"{ingress}_to_{egress}_path{path_index}",
                 {"ingress": ingress, "egress": [egress], "path_index": path_index})
 
 
@@ -489,7 +489,7 @@ def nielsens_heuristic(client):
 
 
 class InOutDisjoint(MPLS_Client):
-    protocol = "inout-disjoint"
+    protocol = "fbr"
 
     def __init__(self, router: Router, **kwargs):
         super().__init__(router, **kwargs)
@@ -602,7 +602,7 @@ class InOutDisjoint(MPLS_Client):
         ft = self.compute_forwarding_table()
 
         for (src, fec), entries in ft.table.items():
-            src_client: InOutDisjoint = self.router.network.routers[src].clients["inout-disjoint"]
+            src_client: InOutDisjoint = self.router.network.routers[src].clients["fbr"]
 
             if (src, fec) not in src_client.partial_forwarding_table:
                 src_client.partial_forwarding_table[(src, fec)] = []
@@ -620,4 +620,4 @@ class InOutDisjoint(MPLS_Client):
             yield fec
 
     def self_sourced(self, fec: oFEC):
-        return 'inout-disjoint' in fec.fec_type and fec.value["egress"][0] == self.router.name
+        return 'fbr' in fec.fec_type and fec.value["egress"][0] == self.router.name
