@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
     p.add_argument("--algorithm", required=True,
                    choices=["rmpls", "fbr", "cfor",
-                            "rsvp-fn", "all", "fbr_sd", "fbr_sd_backtrack"])
+                            "rsvp-fn", "all", "fbr_sd", "fbr_sd_backtrack", "fbr_gmc", "fbr_essence"])
 
     p.add_argument("--path_heuristic", default="shortest_path",
                    choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
@@ -257,6 +257,22 @@ if __name__ == "__main__":
     toponame = topofile.split('/')[-1].split(".")[0]
     folder = os.path.join(configs_dir, toponame)
     os.makedirs(folder, exist_ok=True)
+
+    # Set path heuristic if using FBR
+
+    if conf["algorithm"] == "fbr_gmc":
+        conf["algorithm"] = "fbr"
+        conf["max_memory"] = 3
+        conf["path_heuristic"] = "greedy_min_congestion"
+    elif conf["algorithm"] == "fbr_essence":
+        conf["max_memory"] = 3
+        conf["algorithm"] = "fbr"
+        conf["path_heuristic"] = "essence"
+        conf["population"] = 200
+        conf["crossover"] = 0.9
+        conf["mutation"] = 0.7
+        conf["generations"] = 1000
+        conf["threshold"] = 100
 
     G = gen(topofile)
     n = G.number_of_nodes() * G.number_of_nodes()  # tentative number of LSPs

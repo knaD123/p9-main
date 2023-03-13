@@ -4,12 +4,29 @@ import argparse
 import yaml
 import re
 import math
+import json
 def main(conf):
     with open(conf["demands"],"r") as file:
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
-        total_packets = num_packets(flows_with_load)
-        flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
-        flows = [flow[:2] for flow in flows_with_load]
+    total_packets = num_packets(flows_with_load)
+    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
+    flows = [flow[:2] for flow in flows_with_load]
+    conf["loads"] = flows_with_load
+
+    # Load link capacities
+    with open(conf["topology"]) as f:
+        topo_data = json.load(f)
+
+    link_caps = {}
+    for f in topo_data["network"]["links"]:
+        src = f["from_router"]
+        tgt = f["to_router"]
+        if src != tgt:
+            link_caps[(src, tgt)] = f.get("bandwidth", 0)
+            if f["bidirectional"]:
+                link_caps[(tgt, src)] = f.get("bandwidth", 0)
+
+    conf["link_caps"] = link_caps
 
     print(f'Total number of packets over a second: {total_packets}')
 
@@ -32,9 +49,24 @@ def main(conf):
                                  CEs_per_PE=conf["vpn_ces_per_pe"],
                                  random_seed=conf["random_seed"]
                                  )
-    method = conf["method"]
-    if conf["method"] == "rsvp" and conf["enable_RMPLS"]:
-        method = "rmpls"
+    if conf["method_name"]:
+        method = conf["method_name"]
+    else:
+        if conf["method"] == "rsvp":
+            if conf["enable_RMPLS"]:
+                method = "rmpls"
+            else:
+                method = "rsvp-fn"
+        elif conf["method"] == "fbr":
+            if conf["path_heuristic"] == "greedy_min_congestion":
+                method = "fbr_gmc"
+            elif conf["path_heuristic"] == "essence":
+                method = "fbr_essence"
+            else:
+                method = "fbr"
+
+        else:
+            method = conf["method"]
 
     # Omnet
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
@@ -86,6 +118,7 @@ if __name__ == "__main__":
     p.add_argument("--package_name", default="inet.zoo_topology")
     p.add_argument("--generate_package", action="store_true")
     p.add_argument("--topo_name", type=str, required=True)
+    p.add_argument("--method_name", type=str, default="", help="Name of the algorithm that is used")
 
     conf = vars(p.parse_args())
 
