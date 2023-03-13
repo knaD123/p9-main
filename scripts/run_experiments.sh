@@ -10,7 +10,7 @@ FILTER="$1" #Filter for which
 
 
 #Which algorithms that should be run
-declare -a CONFS_TO_RUN=("rmpls" "gft" "rsvp-fn" "tba-simple" "inout-disjoint_max-mem=2" "inout-disjoint_max-mem=3" "inout-disjoint_max-mem=4" "inout-disjoint_max-mem=5" "inout-disjoint_max-mem=6" "inout-disjoint_max-mem=7" "inout-disjoint_max-mem=8" "inout-disjoint_max-mem=9" "inout-disjoint_max-mem=10" "inout-disjoint_max-mem=11" "inout-disjoint_max-mem=12" "inout-disjoint_max-mem=13" "inout-disjoint_max-mem=14" "inout-disjoint_max-mem=15" "inout-disjoint_max-mem=16" "inout-disjoint_max-mem=17" "inout-disjoint_max-mem=18" "inout-disjoint_max-mem=19" "inout-disjoint_max-mem=20" "inout-disjoint_max-mem=21" "inout-disjoint_max-mem=22" "inout-disjoint_max-mem=23" "inout-disjoint_max-mem=24" "inout-disjoint_max-mem=25" "tba-complex_max-mem=2" "tba-complex_max-mem=3" "tba-complex_max-mem=4" "tba-complex_max-mem=5" "tba-complex_max-mem=6" "tba-complex_max-mem=7" "tba-complex_max-mem=8" "tba-complex_max-mem=9" "tba-complex_max-mem=10" "tba-complex_max-mem=11" "tba-complex_max-mem=12" "tba-complex_max-mem=13" "tba-complex_max-mem=14" "tba-complex_max-mem=15" "tba-complex_max-mem=16" "tba-complex_max-mem=17" "tba-complex_max-mem=18" "tba-complex_max-mem=19" "tba-complex_max-mem=20" "tba-complex_max-mem=21" "tba-complex_max-mem=22" "tba-complex_max-mem=23" "tba-complex_max-mem=24" "tba-complex_max-mem=25")
+declare -a CONFS_TO_RUN=("rmpls" "gft" "rsvp_fn" "tba-simple" "inout-disjoint_max-mem=2" "inout-disjoint_max-mem=3" "inout-disjoint_max-mem=4" "inout-disjoint_max-mem=5" "inout-disjoint_max-mem=6" "inout-disjoint_max-mem=7" "inout-disjoint_max-mem=8" "inout-disjoint_max-mem=9" "inout-disjoint_max-mem=10" "inout-disjoint_max-mem=11" "inout-disjoint_max-mem=12" "inout-disjoint_max-mem=13" "inout-disjoint_max-mem=14" "inout-disjoint_max-mem=15" "inout-disjoint_max-mem=16" "inout-disjoint_max-mem=17" "inout-disjoint_max-mem=18" "inout-disjoint_max-mem=19" "inout-disjoint_max-mem=20" "inout-disjoint_max-mem=21" "inout-disjoint_max-mem=22" "inout-disjoint_max-mem=23" "inout-disjoint_max-mem=24" "inout-disjoint_max-mem=25" "tba-complex_max-mem=2" "tba-complex_max-mem=3" "tba-complex_max-mem=4" "tba-complex_max-mem=5" "tba-complex_max-mem=6" "tba-complex_max-mem=7" "tba-complex_max-mem=8" "tba-complex_max-mem=9" "tba-complex_max-mem=10" "tba-complex_max-mem=11" "tba-complex_max-mem=12" "tba-complex_max-mem=13" "tba-complex_max-mem=14" "tba-complex_max-mem=15" "tba-complex_max-mem=16" "tba-complex_max-mem=17" "tba-complex_max-mem=18" "tba-complex_max-mem=19" "tba-complex_max-mem=20" "tba-complex_max-mem=21" "tba-complex_max-mem=22" "tba-complex_max-mem=23" "tba-complex_max-mem=24" "tba-complex_max-mem=25")
 
 if [ "$2" != "all" ]
 then
@@ -23,7 +23,7 @@ fi
 # tba-complex_max-mem=X                     E-CA
 # rmpls                                     R-MPLS
 # gft                                       GFT-CA
-# rsvp-fn                                   RSVP-FN
+# rsvp_fn                                   RSVP_FN
 # tba-simple                                B-CA
 
 #where X is a integer limit on the number of rules per router per demand.

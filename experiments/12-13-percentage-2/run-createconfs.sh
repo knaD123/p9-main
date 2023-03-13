@@ -19,7 +19,7 @@ if [[ $TOPO =~ $TOPO_RE ]] ; then
 fi
 
 python3 create_confs.py --fail_lengths "15 1000,30 1000,45 1000,60 1000" --topology ${TOPO} --conf confs/percentage-2 --result_folder results/percentage-2 --demand_file ${DEMAND} --algorithm inout-disjoint --max_memory 4 --path_heuristic semi_disjoint_paths
-python3 create_confs.py --fail_lengths "15 1000,30 1000,45 1000,60 1000" --topology ${TOPO} --conf confs/percentage-2 --result_folder results/percentage-2 --demand_file ${DEMAND} --algorithm rsvp-fn
+python3 create_confs.py --fail_lengths "15 1000,30 1000,45 1000,60 1000" --topology ${TOPO} --conf confs/percentage-2 --result_folder results/percentage-2 --demand_file ${DEMAND} --algorithm rsvp_fn
 python3 create_confs.py --fail_lengths "15 1000,30 1000,45 1000,60 1000" --topology ${TOPO} --conf confs/percentage-2 --result_folder results/percentage-2 --demand_file ${DEMAND} --algorithm tba-simple
 python3 create_confs.py --fail_lengths "15 1000,30 1000,45 1000,60 1000" --topology ${TOPO} --conf confs/percentage-2 --result_folder results/percentage-2 --demand_file ${DEMAND} --max_memory 4 --algorithm tba-complex
 python3 create_confs.py --fail_lengths "15 1000,30 1000,45 1000,60 1000" --topology ${TOPO} --conf confs/percentage-2 --result_folder results/percentage-2 --demand_file ${DEMAND} --algorithm rmpls

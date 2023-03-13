@@ -112,7 +112,7 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
     }
     if per_flow_memory is not None:
         base_config['per_flow_memory'] = per_flow_memory
-    if conf_type == 'rsvp-fn':
+    if conf_type == 'rsvp_fn':
         base_config['method'] = 'rsvp'
         base_config['protection'] = 'facility-node'
     elif conf_type == "tba-simple":
@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
     p.add_argument("--algorithm", required=True,
                    choices=["rmpls", "fbr", "cfor",
-                            "rsvp-fn", "all", "fbr_sd", "fbr_sd_backtrack", "fbr_gmc", "fbr_essence"])
+                            "rsvp_fn", "all", "fbr_sd", "fbr_sd_backtrack", "fbr_gmc", "fbr_essence"])
 
     p.add_argument("--path_heuristic", default="shortest_path",
                    choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
@@ -306,7 +306,7 @@ if __name__ == "__main__":
 
     algorithm = conf["algorithm"]
     if algorithm == "all":
-        create('rsvp-fn')  # conf file with RSVP(FRR), no RMPLS
+        create('rsvp_fn')  # conf file with RSVP(FRR), no RMPLS
         create('tba-simple')
         #    create('hd')
         #    create('cfor-short')

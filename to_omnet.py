@@ -56,7 +56,7 @@ def main(conf):
             if conf["enable_RMPLS"]:
                 method = "rmpls"
             else:
-                method = "rsvp-fn"
+                method = "rsvp_fn"
         elif conf["method"] == "fbr":
             if conf["path_heuristic"] == "greedy_min_congestion":
                 method = "fbr_gmc"

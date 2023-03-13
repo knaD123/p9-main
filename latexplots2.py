@@ -49,7 +49,7 @@ for i in range(50):
     alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=benjamins_heuristic{j}": f"FBR({i}) Benj({j})" for j in range(50)})
 alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50)})
 
-alg_to_name["rsvp-fn"] = "RSVP"
+alg_to_name["rsvp_fn"] = "RSVP"
 alg_to_name["gft"] = "GFT"
 alg_to_name["tba-simple"] = "TBA-S"
 alg_to_name["rmpls"] = "RMPLS"
