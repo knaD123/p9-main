@@ -199,8 +199,8 @@ def generate_conf(n, conf_type: str, topofile=None, random_seed=1, per_flow_memo
         base_config['path_heuristic'] = path_heuristic
         if extra_hops is not None:
             base_config["extra_hops"] = extra_hops
-    elif conf_type == "inout-disjoint-old":
-        base_config['method'] = 'inout-disjoint-old'
+    elif conf_type == "inout_disjoint_old":
+        base_config['method'] = 'inout_disjoint_old'
         base_config['backtrack'] = 'partial'
         base_config['epochs'] = 3
     elif conf_type == "inout-disjoint-full-old":
@@ -250,7 +250,7 @@ if __name__ == "__main__":
 
     p.add_argument("--algorithm", required=True,
                    choices=["tba-simple", "tba-complex", "gft", "kf", "rmpls", "plinko4", "inout-disjoint", "cfor",
-                            "rsvp-fn", "all", "inout-disjoint-old", "inout-disjoint-full-old"])
+                            "rsvp-fn", "all", "inout_disjoint_old", "inout-disjoint-full-old"])
 
     p.add_argument("--path_heuristic", default="shortest_path",
                    choices=["shortest_path", "greedy_min_congestion", "semi_disjoint_paths", "benjamins_heuristic",
@@ -384,7 +384,7 @@ if __name__ == "__main__":
         else:
             create(algorithm, max_memory=conf["max_memory"], path_heuristic=conf["path_heuristic"])
 
-    elif algorithm == "tba-complex" or algorithm == "inout-disjoint-old" or algorithm == "inout-disjoint-full-old":
+    elif algorithm == "tba-complex" or algorithm == "inout_disjoint_old" or algorithm == "inout-disjoint-full-old":
         create(algorithm, conf["max_memory"])
     else:
         create(algorithm)

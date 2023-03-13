@@ -151,7 +151,7 @@ def generate_fwd_rules(G, conf, enable_PHP = True, numeric_labels = False, enabl
     elif method == 'inout-disjoint':
         network.start_client(inout_disjoint_better.InOutDisjoint, **conf)
         protocol_name = 'inout-disjoint'
-    elif method == 'inout-disjoint-old':
+    elif method == 'inout_disjoint_old':
         network.start_client(inout_disjoint_old.InOutDisjoint, **conf)
         protocol_name = 'inout-disjoint'
     # Start RSVP-TE process in each router
