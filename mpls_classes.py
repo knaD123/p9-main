@@ -726,8 +726,15 @@ class Network(object):
         file.write("import inet.node.inet.StandardHost;\n")
         file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
         file.write("\n")
-        file.write(f"network {name}_{algorithm}\n")
-        file.write("{\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
+        file.write(f"network {name}_{algorithm}{{\n")
+
+        # Global statistic
+        file.write("    parameters:\n")
+        file.write('        @statistic[packetsCreated](source="packetSentUDP"; record=count);\n')
+        file.write('        @statistic[packetsDelivered](source="packetReceivedUDP"; record=count);\n')
+        file.write('        @statistic[packetDropReasonIsQueueOverflow](source="packetDropReasonIsQueueOverflow(packetDropped)"; record=count);\n')
+        file.write('        @statistic[packetDropReasonIsNoRouteFound](source="packetDropReasonIsNoRouteFound(packetDropped)"; record=count);\n')
+        file.write("\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
@@ -880,7 +887,10 @@ class Network(object):
         file.write(f"network = {name}_{algorithm}\n")
         file.write(f"**.cmdenv-log-level = OFF\n")
         file.write(f"**.utilization.statistic-recording = true\n")
-        file.write(f"**.network.statistic-recording = true\n")
+        file.write(f"**.packetsCreated.statistic-recording = true\n")
+        file.write(f"**.packetsDelivered.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsQueueOverflow.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsNoRouteFound.statistic-recording = true\n")
         file.write(f"**.statistic-recording = false\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
