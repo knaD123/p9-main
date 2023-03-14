@@ -1,0 +1,821 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Hagerstown",
+        "to_router": "a1_Shepherdstown",
+        "latency": 45,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Hagerstown",
+        "to_router": "a6_Martinsburg",
+        "latency": 53,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Shepherdstown",
+        "to_router": "a3_Berryville",
+        "latency": 62,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Shepherdstown",
+        "to_router": "a6_Martinsburg",
+        "latency": 28,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Winchester",
+        "to_router": "a3_Berryville",
+        "latency": 31,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Winchester",
+        "to_router": "a20_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Winchester",
+        "to_router": "a6_Martinsburg",
+        "latency": 62,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Winchester",
+        "to_router": "a15_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_Berryville",
+        "to_router": "a25_Leesburg",
+        "latency": 65,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Petersburg",
+        "to_router": "a14_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_Franklin",
+        "to_router": "a14_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Edinburg",
+        "to_router": "a16_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Edinburg",
+        "to_router": "a21_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Harrisonburg",
+        "to_router": "a24_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Harrisonburg",
+        "to_router": "a9_Covington_Planned",
+        "latency": 209,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Harrisonburg",
+        "to_router": "a23_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a9_Covington_Planned",
+        "to_router": "a13_Charleston_Planned",
+        "latency": 265,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a10_Glenville",
+        "to_router": "a17_Weston",
+        "latency": 61,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a10_Glenville",
+        "to_router": "a11_Sutton",
+        "latency": 58,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a11_Sutton",
+        "to_router": "a12_Summersville",
+        "latency": 78,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a12_Summersville",
+        "to_router": "a13_Charleston_Planned",
+        "latency": 119,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a14_None",
+        "to_router": "a24_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a14_None",
+        "to_router": "a20_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_None",
+        "to_router": "a19_Front_Royal",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_None",
+        "to_router": "a20_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_None",
+        "to_router": "a21_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a16_None",
+        "to_router": "a23_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a16_None",
+        "to_router": "a22_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a18_Warrenton",
+        "to_router": "a27_Herndon",
+        "latency": 80,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a18_Warrenton",
+        "to_router": "a19_Front_Royal",
+        "latency": 73,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a20_None",
+        "to_router": "a22_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_None",
+        "to_router": "a24_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a23_None",
+        "to_router": "a24_None",
+        "latency": 79,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a25_Leesburg",
+        "to_router": "a26_Ashburn",
+        "latency": 22,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a26_Ashburn",
+        "to_router": "a27_Herndon",
+        "latency": 25,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Shentel",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Hagerstown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Shepherdstown"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Winchester"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Berryville"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_Petersburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_Franklin"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Martinsburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Edinburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Harrisonburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Covington_Planned"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_Glenville"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Sutton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Summersville"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_Charleston_Planned"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_Weston"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_Warrenton"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_Front_Royal"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a21_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a22_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a23_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a24_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a25_Leesburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a26_Ashburn"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a27_Herndon"
+      }
+    ]
+  }
+}

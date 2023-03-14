@@ -1,0 +1,255 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_HARVARD",
+        "to_router": "a8_BBN",
+        "latency": 6,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_SRI",
+        "to_router": "a2_UCSB",
+        "latency": 678,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_SRI",
+        "to_router": "a3_UCLA",
+        "latency": 869,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_UCSB",
+        "to_router": "a3_UCLA",
+        "latency": 237,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_UCLA",
+        "to_router": "a4_RAND",
+        "latency": 43,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_RAND",
+        "to_router": "a8_BBN",
+        "latency": 6979,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_RAND",
+        "to_router": "a5_SDC",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_SDC",
+        "to_router": "a6_UTAH",
+        "latency": 1585,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a6_UTAH",
+        "to_router": "a7_MIT",
+        "latency": 5611,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_MIT",
+        "to_router": "a8_BBN",
+        "latency": 8,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      }
+    ],
+    "name": "Arpanet19706",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_HARVARD"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_SRI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_UCSB"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_UCLA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_RAND"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_SDC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_UTAH"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_MIT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_BBN"
+      }
+    ]
+  }
+}

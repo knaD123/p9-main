@@ -1,0 +1,1091 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Karditsa",
+        "to_router": "a2_Larissa",
+        "latency": 92,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Volos",
+        "to_router": "a2_Larissa",
+        "latency": 95,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Larissa",
+        "to_router": "a3_Trikala",
+        "latency": 99,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a2_Larissa",
+        "to_router": "a20_Athens",
+        "latency": 364,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a2_Larissa",
+        "to_router": "a30_Thessaloniki",
+        "latency": 204,
+        "weight": 40,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Mytilini",
+        "to_router": "a27_Limnos",
+        "latency": 155,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Mytilini",
+        "to_router": "a5_Chios",
+        "latency": 155,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_Chios",
+        "to_router": "a8_Ermoupoli",
+        "latency": 249,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a6_Igoumenitsa",
+        "to_router": "a28_Ioannina",
+        "latency": 93,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a6_Igoumenitsa",
+        "to_router": "a7_Kerkira",
+        "latency": 58,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Ermoupoli",
+        "to_router": "a9_Mykonos",
+        "latency": 61,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Ermoupoli",
+        "to_router": "a34_Xanthi",
+        "latency": 690,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a8_Ermoupoli",
+        "to_router": "a20_Athens",
+        "latency": 210,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a8_Ermoupoli",
+        "to_router": "a15_Heraklio",
+        "latency": 397,
+        "weight": 40,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Ermoupoli",
+        "to_router": "a15_Heraklio",
+        "latency": 397,
+        "weight": 100,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 500000,
+        "from_router": "a9_Mykonos",
+        "to_router": "a22_Karlovassi",
+        "latency": 216,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a9_Mykonos",
+        "to_router": "a22_Karlovassi",
+        "latency": 216,
+        "weight": 100,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a10_Mesologgi",
+        "to_router": "a24_Patra",
+        "latency": 55,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2097826,
+        "from_router": "a11_AMSIX",
+        "to_router": "a20_Athens",
+        "latency": 226,
+        "weight": 47,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a12_GRIX",
+        "to_router": "a20_Athens",
+        "latency": 226,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a13_GEANT",
+        "to_router": "a20_Athens",
+        "latency": 226,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a14_Chania",
+        "to_router": "a20_Athens",
+        "latency": 464,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a14_Chania",
+        "to_router": "a15_Heraklio",
+        "latency": 178,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_Heraklio",
+        "to_router": "a16_Rethymno",
+        "latency": 106,
+        "weight": 100,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_Heraklio",
+        "to_router": "a20_Athens",
+        "latency": 539,
+        "weight": 100,
+        "from_interface": "i4",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a15_Heraklio",
+        "to_router": "a20_Athens",
+        "latency": 539,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_Heraklio",
+        "to_router": "a21_Rhodos",
+        "latency": 510,
+        "weight": 100,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a17_Pylos",
+        "to_router": "a18_Kalamata",
+        "latency": 71,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a18_Kalamata",
+        "to_router": "a24_Patra",
+        "latency": 235,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a19_Halkida",
+        "to_router": "a20_Athens",
+        "latency": 96,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a20_Athens",
+        "to_router": "a24_Patra",
+        "latency": 297,
+        "weight": 40,
+        "from_interface": "i9",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a20_Athens",
+        "to_router": "a24_Patra",
+        "latency": 297,
+        "weight": 10,
+        "from_interface": "i10",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a20_Athens",
+        "to_router": "a26_Korinthos",
+        "latency": 127,
+        "weight": 100,
+        "from_interface": "i11",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a20_Athens",
+        "to_router": "a30_Thessaloniki",
+        "latency": 510,
+        "weight": 10,
+        "from_interface": "i12",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a21_Rhodos",
+        "to_router": "a22_Karlovassi",
+        "latency": 340,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a23_Tripoli",
+        "to_router": "a26_Korinthos",
+        "latency": 110,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Patra",
+        "to_router": "a25_Kalavrita",
+        "latency": 72,
+        "weight": 100,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Patra",
+        "to_router": "a25_Kalavrita",
+        "latency": 72,
+        "weight": 100,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a24_Patra",
+        "to_router": "a28_Ioannina",
+        "latency": 297,
+        "weight": 40,
+        "from_interface": "i6",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a28_Ioannina",
+        "to_router": "a30_Thessaloniki",
+        "latency": 351,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a29_Serres",
+        "to_router": "a30_Thessaloniki",
+        "latency": 123,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a30_Thessaloniki",
+        "to_router": "a34_Xanthi",
+        "latency": 291,
+        "weight": 40,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a30_Thessaloniki",
+        "to_router": "a31_Edessa",
+        "latency": 134,
+        "weight": 100,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a31_Edessa",
+        "to_router": "a32_Kastoria",
+        "latency": 126,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a33_Kavala",
+        "to_router": "a34_Xanthi",
+        "latency": 81,
+        "weight": 100,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a34_Xanthi",
+        "to_router": "a35_Komotini",
+        "latency": 76,
+        "weight": 100,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a35_Komotini",
+        "to_router": "a36_Alexandroupoli",
+        "latency": 89,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      }
+    ],
+    "name": "Grnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Karditsa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Volos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Larissa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Trikala"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_Mytilini"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_Chios"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Igoumenitsa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Kerkira"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Ermoupoli"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Mykonos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_Mesologgi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_AMSIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_GRIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_GEANT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_Chania"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_Heraklio"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_Rethymno"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_Pylos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_Kalamata"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_Halkida"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_Athens"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a21_Rhodos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a22_Karlovassi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a23_Tripoli"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a24_Patra"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a25_Kalavrita"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a26_Korinthos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a27_Limnos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a28_Ioannina"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a29_Serres"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a30_Thessaloniki"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a31_Edessa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a32_Kastoria"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a33_Kavala"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a34_Xanthi"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a35_Komotini"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a36_Alexandroupoli"
+      }
+    ]
+  }
+}

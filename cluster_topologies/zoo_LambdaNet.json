@@ -1,0 +1,1149 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Magdeburg",
+        "to_router": "a1_Brunswick",
+        "latency": 134,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Magdeburg",
+        "to_router": "a3_Berlin",
+        "latency": 213,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Brunswick",
+        "to_router": "a40_Hanover",
+        "latency": 97,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Rostock",
+        "to_router": "a33_Copenhagen",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Rostock",
+        "to_router": "a11_None",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_Berlin",
+        "to_router": "a11_None",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_Berlin",
+        "to_router": "a5_Dresden",
+        "latency": 280,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Leipzig",
+        "to_router": "a5_Dresden",
+        "latency": 172,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Leipzig",
+        "to_router": "a6_Erfurt",
+        "latency": 173,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a6_Erfurt",
+        "to_router": "a7_Coburg",
+        "latency": 137,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Coburg",
+        "to_router": "a8_Nuremberg",
+        "latency": 157,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Nuremberg",
+        "to_router": "a9_Prague",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Nuremberg",
+        "to_router": "a26_Ingolstadt",
+        "latency": 138,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Nuremberg",
+        "to_router": "a29_Wurzburg",
+        "latency": 154,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a9_Prague",
+        "to_router": "a17_Brno",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a10_Stockholm",
+        "to_router": "a33_Copenhagen",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a11_None",
+        "to_router": "a41_Hamburg",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a12_Duren",
+        "to_router": "a13_Dusseldorf",
+        "latency": 90,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a13_Dusseldorf",
+        "to_router": "a16_Essen",
+        "latency": 55,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a13_Dusseldorf",
+        "to_router": "a34_Amsterdam",
+        "latency": 60,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a13_Dusseldorf",
+        "to_router": "a22_Aachen",
+        "latency": 120,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a13_Dusseldorf",
+        "to_router": "a14_Cologne",
+        "latency": 62,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a14_Cologne",
+        "to_router": "a15_Bonn",
+        "latency": 45,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_Bonn",
+        "to_router": "a30_Frankfurt",
+        "latency": 223,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a16_Essen",
+        "to_router": "a35_Dortmund",
+        "latency": 56,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a17_Brno",
+        "to_router": "a19_Bratislava",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a18_Vienna",
+        "to_router": "a19_Bratislava",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a18_Vienna",
+        "to_router": "a27_Munich",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a20_Paris",
+        "to_router": "a30_Frankfurt",
+        "latency": 8,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a21_Augsburg",
+        "to_router": "a25_Stuttgart",
+        "latency": 227,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a21_Augsburg",
+        "to_router": "a27_Munich",
+        "latency": 100,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a23_London",
+        "to_router": "a34_Amsterdam",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Karlsruhe",
+        "to_router": "a25_Stuttgart",
+        "latency": 109,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Karlsruhe",
+        "to_router": "a31_Mannheim",
+        "latency": 95,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a26_Ingolstadt",
+        "to_router": "a27_Munich",
+        "latency": 122,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a28_Zurich",
+        "to_router": "a30_Frankfurt",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a29_Wurzburg",
+        "to_router": "a30_Frankfurt",
+        "latency": 166,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a30_Frankfurt",
+        "to_router": "a31_Mannheim",
+        "latency": 124,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a32_Kiel",
+        "to_router": "a33_Copenhagen",
+        "latency": 125,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a32_Kiel",
+        "to_router": "a41_Hamburg",
+        "latency": 148,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a35_Dortmund",
+        "to_router": "a36_Gutersloh",
+        "latency": 133,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a36_Gutersloh",
+        "to_router": "a37_Bielefeld",
+        "latency": 35,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a37_Bielefeld",
+        "to_router": "a38_Hertford",
+        "latency": 30,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a38_Hertford",
+        "to_router": "a40_Hanover",
+        "latency": 131,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a39_Bremen",
+        "to_router": "a40_Hanover",
+        "latency": 171,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a39_Bremen",
+        "to_router": "a41_Hamburg",
+        "latency": 163,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      }
+    ],
+    "name": "LambdaNet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Magdeburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Brunswick"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Rostock"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Berlin"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_Leipzig"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_Dresden"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Erfurt"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Coburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Nuremberg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Prague"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_Stockholm"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Duren"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_Dusseldorf"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_Cologne"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_Bonn"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_Essen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_Brno"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_Vienna"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_Bratislava"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_Paris"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a21_Augsburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a22_Aachen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a23_London"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a24_Karlsruhe"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a25_Stuttgart"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a26_Ingolstadt"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a27_Munich"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a28_Zurich"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a29_Wurzburg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a30_Frankfurt"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a31_Mannheim"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a32_Kiel"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a33_Copenhagen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a34_Amsterdam"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a35_Dortmund"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a36_Gutersloh"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a37_Bielefeld"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a38_Hertford"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a39_Bremen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a40_Hanover"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a41_Hamburg"
+      }
+    ]
+  }
+}

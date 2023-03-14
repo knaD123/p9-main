@@ -1,0 +1,263 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Galway",
+        "to_router": "a3_CityWest",
+        "latency": 313,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Galway",
+        "to_router": "a6_Kilcarbery",
+        "latency": 313,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Limerick",
+        "to_router": "a2_Cork",
+        "latency": 147,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Limerick",
+        "to_router": "a3_CityWest",
+        "latency": 296,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Limerick",
+        "to_router": "a6_Kilcarbery",
+        "latency": 296,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Cork",
+        "to_router": "a3_CityWest",
+        "latency": 371,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_CityWest",
+        "to_router": "a4_DCU_Dublin_City_University",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_CityWest",
+        "to_router": "a5_TDC_Trinity_College_Dublin",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_CityWest",
+        "to_router": "a5_TDC_Trinity_College_Dublin",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_CityWest",
+        "to_router": "a6_Kilcarbery",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a3_CityWest",
+        "to_router": "a6_Kilcarbery",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_DCU_Dublin_City_University",
+        "to_router": "a6_Kilcarbery",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_TDC_Trinity_College_Dublin",
+        "to_router": "a6_Kilcarbery",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i5",
+        "bidirectional": true
+      }
+    ],
+    "name": "Heanet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Galway"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Limerick"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Cork"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_CityWest"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_DCU_Dublin_City_University"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_TDC_Trinity_College_Dublin"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Kilcarbery"
+      }
+    ]
+  }
+}

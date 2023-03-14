@@ -1,0 +1,585 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a0_KRLight",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a1_CANARIE",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9340000,
+        "from_router": "a2_NLR_FrameNet",
+        "to_router": "a9_CENIC",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a2_NLR_FrameNet",
+        "to_router": "a10_Pacific_Wave_Sunnyvale",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a3_CSTNet_HKEOEP",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a4_StarLight",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a4_StarLight",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a4_StarLight",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a5_Pacific_Northwest_Gigapop",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_Pacific_Northwest_Gigapop",
+        "to_router": "a6_NLR_FrameNet",
+        "latency": 1774,
+        "weight": 100,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a5_Pacific_Northwest_Gigapop",
+        "to_router": "a7_Internet2_DCN",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a6_NLR_FrameNet",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a7_Internet2_DCN",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 9340000,
+        "from_router": "a8_NLR_FrameNet",
+        "to_router": "a17_CENIC",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a8_NLR_FrameNet",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a9_CENIC",
+        "to_router": "a10_Pacific_Wave_Sunnyvale",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a10_Pacific_Wave_Sunnyvale",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1901,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i9",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a10_Pacific_Wave_Sunnyvale",
+        "to_router": "a11_Pacific_Wave_Seattle",
+        "latency": 1901,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i10",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a10_Pacific_Wave_Sunnyvale",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 842,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a10_Pacific_Wave_Sunnyvale",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 842,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a11_Pacific_Wave_Seattle",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 2578,
+        "weight": 10,
+        "from_interface": "i11",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a11_Pacific_Wave_Seattle",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 2578,
+        "weight": 10,
+        "from_interface": "i12",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a12_Internet2_DCN",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a13_Pacific_Wave_Hawaii",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a14_AARNET_Sydney",
+        "to_router": "a15_Pacific_Wave_Los_Angeles",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a15_Pacific_Wave_Los_Angeles",
+        "to_router": "a16_JGN2_Plus_Tokyo",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a15_Pacific_Wave_Los_Angeles",
+        "to_router": "a17_CENIC",
+        "latency": 1774,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Pacificwave",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_KRLight"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_CANARIE"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_NLR_FrameNet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_CSTNet_HKEOEP"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_StarLight"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_Pacific_Northwest_Gigapop"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_NLR_FrameNet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Internet2_DCN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_NLR_FrameNet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_CENIC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_Pacific_Wave_Sunnyvale"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Pacific_Wave_Seattle"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Internet2_DCN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_Pacific_Wave_Hawaii"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_AARNET_Sydney"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_Pacific_Wave_Los_Angeles"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_JGN2_Plus_Tokyo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_CENIC"
+      }
+    ]
+  }
+}

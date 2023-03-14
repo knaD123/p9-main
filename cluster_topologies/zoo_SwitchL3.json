@@ -1,0 +1,1353 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Fribourg",
+        "to_router": "a3_Bern",
+        "latency": 51,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a0_Fribourg",
+        "to_router": "a35_Lausanne_University",
+        "latency": 89,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Basel",
+        "to_router": "a33_Brugg",
+        "latency": 93,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Basel",
+        "to_router": "a2_Delemont",
+        "latency": 50,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a1_Basel",
+        "to_router": "a3_Bern",
+        "latency": 119,
+        "weight": 20,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Basel",
+        "to_router": "a6_Villigen_PSI",
+        "latency": 85,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a1_Basel",
+        "to_router": "a7_Zurich_ETH",
+        "latency": 132,
+        "weight": 20,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a1_Basel",
+        "to_router": "a20_SwissIX",
+        "latency": 121,
+        "weight": 200,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a2_Delemont",
+        "to_router": "a22_Neuchatel",
+        "latency": 91,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a3_Bern",
+        "to_router": "a35_Lausanne_University",
+        "latency": 135,
+        "weight": 20,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a3_Bern",
+        "to_router": "a30_Manno",
+        "latency": 257,
+        "weight": 20,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a4_Kreuzlingen",
+        "to_router": "a16_BelWue",
+        "latency": 121,
+        "weight": 20,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Kreuzlingen",
+        "to_router": "a5_St_Gallen",
+        "latency": 53,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a4_Kreuzlingen",
+        "to_router": "a31_Zurich_University",
+        "latency": 100,
+        "weight": 20,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_St_Gallen",
+        "to_router": "a8_Buchs_SG",
+        "latency": 168,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_St_Gallen",
+        "to_router": "a28_Liechtenstein",
+        "latency": 56,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a5_St_Gallen",
+        "to_router": "a41_Winterthur",
+        "latency": 84,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a6_Villigen_PSI",
+        "to_router": "a7_Zurich_ETH",
+        "latency": 56,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a32_Horw",
+        "latency": 76,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a35_Lausanne_University",
+        "latency": 294,
+        "weight": 20,
+        "from_interface": "i3",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a39_Birmensdorf",
+        "latency": 18,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a41_Winterthur",
+        "latency": 40,
+        "weight": 200,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a23_IXEurope_Zurich",
+        "latency": 5,
+        "weight": 20,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a29_Rapperswil",
+        "latency": 48,
+        "weight": 200,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a7_Zurich_ETH",
+        "to_router": "a30_Manno",
+        "latency": 256,
+        "weight": 20,
+        "from_interface": "i8",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Buchs_SG",
+        "to_router": "a9_Chur",
+        "latency": 214,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Buchs_SG",
+        "to_router": "a27_Davos",
+        "latency": 252,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_Buchs_SG",
+        "to_router": "a28_Liechtenstein",
+        "latency": 192,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a9_Chur",
+        "to_router": "a27_Davos",
+        "latency": 44,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a9_Chur",
+        "to_router": "a29_Rapperswil",
+        "latency": 118,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a10_GBLX",
+        "to_router": "a34_CERN",
+        "latency": 121,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a11_Swisscom",
+        "to_router": "a34_CERN",
+        "latency": 121,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a12_Swisscom",
+        "to_router": "a23_IXEurope_Zurich",
+        "latency": 121,
+        "weight": 20,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a13_TELIA",
+        "to_router": "a23_IXEurope_Zurich",
+        "latency": 121,
+        "weight": 20,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a14_SwissIX",
+        "to_router": "a23_IXEurope_Zurich",
+        "latency": 121,
+        "weight": 20,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a15_TIX",
+        "to_router": "a23_IXEurope_Zurich",
+        "latency": 121,
+        "weight": 20,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 20000000.0,
+        "from_router": "a17_CERN",
+        "to_router": "a34_CERN",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a18_CIXP",
+        "to_router": "a34_CERN",
+        "latency": 121,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a19_AMS_IX",
+        "to_router": "a34_CERN",
+        "latency": 121,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 20000000.0,
+        "from_router": "a21_GEANT2",
+        "to_router": "a34_CERN",
+        "latency": 121,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_Neuchatel",
+        "to_router": "a31_Zurich_University",
+        "latency": 220,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_Neuchatel",
+        "to_router": "a26_Grenchen",
+        "latency": 74,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_Neuchatel",
+        "to_router": "a38_Yverdon",
+        "latency": 58,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_Neuchatel",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 100,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a23_IXEurope_Zurich",
+        "to_router": "a40_Rueschlikon",
+        "latency": 16,
+        "weight": 200,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Brig",
+        "to_router": "a25_Martigny",
+        "latency": 128,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Brig",
+        "to_router": "a30_Manno",
+        "latency": 135,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a25_Martigny",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 99,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a26_Grenchen",
+        "to_router": "a31_Zurich_University",
+        "latency": 153,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a28_Liechtenstein",
+        "to_router": "a29_Rapperswil",
+        "latency": 95,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a29_Rapperswil",
+        "to_router": "a30_Manno",
+        "latency": 225,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a30_Manno",
+        "to_router": "a32_Horw",
+        "latency": 202,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a30_Manno",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 310,
+        "weight": 20,
+        "from_interface": "i5",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a31_Zurich_University",
+        "to_router": "a33_Brugg",
+        "latency": 171,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a31_Zurich_University",
+        "to_router": "a34_CERN",
+        "latency": 378,
+        "weight": 20,
+        "from_interface": "i4",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a31_Zurich_University",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 294,
+        "weight": 200,
+        "from_interface": "i5",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a34_CERN",
+        "to_router": "a35_Lausanne_University",
+        "latency": 90,
+        "weight": 20,
+        "from_interface": "i7",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a34_CERN",
+        "to_router": "a36_Geneva",
+        "latency": 5,
+        "weight": 20,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a34_CERN",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 90,
+        "weight": 20,
+        "from_interface": "i9",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a35_Lausanne_University",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 5,
+        "weight": 20,
+        "from_interface": "i4",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a36_Geneva",
+        "to_router": "a37_Lausanne_EPFL",
+        "latency": 90,
+        "weight": 20,
+        "from_interface": "i1",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a37_Lausanne_EPFL",
+        "to_router": "a38_Yverdon",
+        "latency": 53,
+        "weight": 200,
+        "from_interface": "i7",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a39_Birmensdorf",
+        "to_router": "a40_Rueschlikon",
+        "latency": 21,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "SwitchL3",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Fribourg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Basel"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Delemont"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Bern"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_Kreuzlingen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_St_Gallen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Villigen_PSI"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Zurich_ETH"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Buchs_SG"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Chur"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_GBLX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Swisscom"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Swisscom"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_TELIA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_SwissIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_TIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_BelWue"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_CERN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_CIXP"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_AMS_IX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_SwissIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a21_GEANT2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a22_Neuchatel"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a23_IXEurope_Zurich"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a24_Brig"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a25_Martigny"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a26_Grenchen"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a27_Davos"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a28_Liechtenstein"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a29_Rapperswil"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a30_Manno"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a31_Zurich_University"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a32_Horw"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a33_Brugg"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a34_CERN"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a35_Lausanne_University"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a36_Geneva"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a37_Lausanne_EPFL"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a38_Yverdon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a39_Birmensdorf"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a40_Rueschlikon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a41_Winterthur"
+      }
+    ]
+  }
+}

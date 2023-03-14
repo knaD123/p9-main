@@ -1,0 +1,449 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 62425,
+        "from_router": "a0_Marrkech",
+        "to_router": "a1_Fes",
+        "latency": 651,
+        "weight": 24,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a0_Marrkech",
+        "to_router": "a3_Agadir",
+        "latency": 342,
+        "weight": 24,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a1_Fes",
+        "to_router": "a4_Tanger",
+        "latency": 350,
+        "weight": 24,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a2_Rabat",
+        "to_router": "a7_Casa",
+        "latency": 148,
+        "weight": 24,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a2_Rabat",
+        "to_router": "a3_Agadir",
+        "latency": 798,
+        "weight": 24,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "a2_Rabat",
+        "to_router": "a15_None",
+        "latency": 464,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "a3_Agadir",
+        "to_router": "a5_University_2",
+        "latency": 464,
+        "weight": 45,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "a4_Tanger",
+        "to_router": "a10_University_1",
+        "latency": 464,
+        "weight": 45,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a4_Tanger",
+        "to_router": "a7_Casa",
+        "latency": 494,
+        "weight": 24,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "a6_None",
+        "to_router": "a8_Institution_1",
+        "latency": 464,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "a6_None",
+        "to_router": "a9_University_3",
+        "latency": 464,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "a6_None",
+        "to_router": "a7_Casa",
+        "latency": 464,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a6_None",
+        "to_router": "a15_None",
+        "latency": 464,
+        "weight": 24,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 62425,
+        "from_router": "a6_None",
+        "to_router": "a15_None",
+        "latency": 464,
+        "weight": 24,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "a11_GEANT",
+        "to_router": "a13_None",
+        "latency": 464,
+        "weight": 45,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 34000,
+        "from_router": "a12_Internet",
+        "to_router": "a13_None",
+        "latency": 464,
+        "weight": 45,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "a13_None",
+        "to_router": "a15_None",
+        "latency": 464,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 7750,
+        "from_router": "a14_University_4",
+        "to_router": "a15_None",
+        "latency": 464,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      }
+    ],
+    "name": "Marwan",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Marrkech"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Fes"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Rabat"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Agadir"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_Tanger"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_University_2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Casa"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Institution_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_University_3"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_University_1"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_GEANT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Internet"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_None"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_University_4"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_None"
+      }
+    ]
+  }
+}

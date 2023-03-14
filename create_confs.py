@@ -271,7 +271,7 @@ if __name__ == "__main__":
         conf["population"] = 200
         conf["crossover"] = 0.9
         conf["mutation"] = 0.7
-        conf["generations"] = 1000
+        conf["generations"] = 500
         conf["threshold"] = 100
 
     G = gen(topofile)

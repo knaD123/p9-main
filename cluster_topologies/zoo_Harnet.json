@@ -1,0 +1,603 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 938750,
+        "from_router": "a0_ASGCNET",
+        "to_router": "a2_HKIX",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a1_KREPNET2",
+        "to_router": "a2_HKIX",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a2_HKIX",
+        "to_router": "a3_APAN_JP",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a2_HKIX",
+        "to_router": "a6_ASNET",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a2_HKIX",
+        "to_router": "a7_GOOGLE",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a2_HKIX",
+        "to_router": "a15_HKU",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1500000,
+        "from_router": "a4_International",
+        "to_router": "a14_HKIEd",
+        "latency": 10,
+        "weight": 13,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "a5_CERNET",
+        "to_router": "a16_HKUST",
+        "latency": 10,
+        "weight": 129,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a8_TEIN3",
+        "to_router": "a18_CUHK",
+        "latency": 10,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a9_Vocational_Training_Council",
+        "to_router": "a18_CUHK",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a10_HKEAA",
+        "to_router": "a13_LU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a11_Open_Uni",
+        "to_router": "a15_HKU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a12_Technology_Park",
+        "to_router": "a18_CUHK",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a13_LU",
+        "to_router": "a14_HKIEd",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a13_LU",
+        "to_router": "a15_HKU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a14_HKIEd",
+        "to_router": "a16_HKUST",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a15_HKU",
+        "to_router": "a16_HKUST",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i3",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a15_HKU",
+        "to_router": "a17_PolyU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a15_HKU",
+        "to_router": "a17_PolyU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i5",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a16_HKUST",
+        "to_router": "a18_CUHK",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a16_HKUST",
+        "to_router": "a18_CUHK",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i4",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a17_PolyU",
+        "to_router": "a18_CUHK",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i2",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a17_PolyU",
+        "to_router": "a19_CityU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a18_CUHK",
+        "to_router": "a20_HKBU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i6",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 938750,
+        "from_router": "a19_CityU",
+        "to_router": "a20_HKBU",
+        "latency": 10,
+        "weight": 21,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      }
+    ],
+    "name": "Harnet",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_ASGCNET"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_KREPNET2"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_HKIX"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_APAN_JP"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_International"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_CERNET"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_ASNET"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_GOOGLE"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_TEIN3"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Vocational_Training_Council"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_HKEAA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Open_Uni"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Technology_Park"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_LU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_HKIEd"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_HKU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_HKUST"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_PolyU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_CUHK"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_CityU"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_HKBU"
+      }
+    ]
+  }
+}

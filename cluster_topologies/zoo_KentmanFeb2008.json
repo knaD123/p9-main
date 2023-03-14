@@ -1,0 +1,709 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 100000,
+        "from_router": "a0_UCCA_C",
+        "to_router": "a12_UoK_C",
+        "latency": 10,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a1_Canterbury_College",
+        "to_router": "a12_UoK_C",
+        "latency": 10,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a2_Medway_ACL",
+        "to_router": "a19_University_of_Greenwich",
+        "latency": 60,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a3_Mid_Kent_College",
+        "to_router": "a19_University_of_Greenwich",
+        "latency": 59,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a4_South_Kent_College___Ashford",
+        "to_router": "a21_IC_Wye",
+        "latency": 16,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a5_KIAD_O",
+        "to_router": "a22_EIS_Maidstone",
+        "latency": 11,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a6_Thanet_College",
+        "to_router": "a24_CCCU_T",
+        "latency": 8,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a7_Hilderstone_College",
+        "to_router": "a24_CCCU_T",
+        "latency": 7,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a8_Kent_ACL",
+        "to_router": "a19_University_of_Greenwich",
+        "latency": 65,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a9_Hadlow_College",
+        "to_router": "a23_CCCU_S",
+        "latency": 20,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a10_University_College_Folkestone",
+        "to_router": "a21_IC_Wye",
+        "latency": 39,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a11_Kent_Community_Network_Schools_etc",
+        "to_router": "a12_UoK_C",
+        "latency": 34,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a11_Kent_Community_Network_Schools_etc",
+        "to_router": "a22_EIS_Maidstone",
+        "latency": 34,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a12_UoK_C",
+        "to_router": "a15_IFS_School_of_Finance",
+        "latency": 9,
+        "weight": 200,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a12_UoK_C",
+        "to_router": "a19_University_of_Greenwich",
+        "latency": 122,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a12_UoK_C",
+        "to_router": "a20_CCCU_C",
+        "latency": 9,
+        "weight": 200,
+        "from_interface": "i5",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a12_UoK_C",
+        "to_router": "a21_IC_Wye",
+        "latency": 30,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 594629,
+        "from_router": "a12_UoK_C",
+        "to_router": "a24_CCCU_T",
+        "latency": 46,
+        "weight": 33,
+        "from_interface": "i7",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 155000,
+        "from_router": "a12_UoK_C",
+        "to_router": "a24_CCCU_T",
+        "latency": 46,
+        "weight": 129,
+        "from_interface": "i8",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a13_West_Kent_College",
+        "to_router": "a23_CCCU_S",
+        "latency": 12,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a14_Hadlow_College_Mottingham",
+        "to_router": "a18_UoG_AH",
+        "latency": 10,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a16_NW_Kent_College___Dartford",
+        "to_router": "a18_UoG_AH",
+        "latency": 21,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a17_KIAD_R",
+        "to_router": "a19_University_of_Greenwich",
+        "latency": 56,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a18_UoG_AH",
+        "to_router": "a19_University_of_Greenwich",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a19_University_of_Greenwich",
+        "to_router": "a22_EIS_Maidstone",
+        "latency": 69,
+        "weight": 10,
+        "from_interface": "i6",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a19_University_of_Greenwich",
+        "to_router": "a25_Dorton_College",
+        "latency": 39,
+        "weight": 200,
+        "from_interface": "i7",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2000000,
+        "from_router": "a21_IC_Wye",
+        "to_router": "a22_EIS_Maidstone",
+        "latency": 51,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 100000,
+        "from_router": "a22_EIS_Maidstone",
+        "to_router": "a23_CCCU_S",
+        "latency": 45,
+        "weight": 200,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      }
+    ],
+    "name": "KentmanFeb2008",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_UCCA_C"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Canterbury_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Medway_ACL"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Mid_Kent_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_South_Kent_College___Ashford"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_KIAD_O"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Thanet_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Hilderstone_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Kent_ACL"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Hadlow_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_University_College_Folkestone"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Kent_Community_Network_Schools_etc"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_UoK_C"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_West_Kent_College"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_Hadlow_College_Mottingham"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_IFS_School_of_Finance"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_NW_Kent_College___Dartford"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_KIAD_R"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_UoG_AH"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_University_of_Greenwich"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_CCCU_C"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a21_IC_Wye"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a22_EIS_Maidstone"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a23_CCCU_S"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a24_CCCU_T"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a25_Dorton_College"
+      }
+    ]
+  }
+}

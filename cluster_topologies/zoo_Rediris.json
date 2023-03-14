@@ -1,0 +1,659 @@
+{
+  "network": {
+    "links": [
+      {
+        "bandwidth": 622000,
+        "from_router": "a0_Navarra",
+        "to_router": "a3_Pais_Vasco",
+        "latency": 158,
+        "weight": 160,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a0_Navarra",
+        "to_router": "a6_Aragon",
+        "latency": 244,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 500000,
+        "from_router": "a1_Rioja",
+        "to_router": "a18_Castilla_Y_Leon",
+        "latency": 351,
+        "weight": 200,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 500000,
+        "from_router": "a1_Rioja",
+        "to_router": "a6_Aragon",
+        "latency": 268,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a2_Cantabria",
+        "to_router": "a10_Asturias",
+        "latency": 280,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a2_Cantabria",
+        "to_router": "a3_Pais_Vasco",
+        "latency": 171,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a3_Pais_Vasco",
+        "to_router": "a9_Galacia",
+        "latency": 790,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a3_Pais_Vasco",
+        "to_router": "a16_Nacional",
+        "latency": 501,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a4_Baleares",
+        "to_router": "a5_Valencia",
+        "latency": 437,
+        "weight": 160,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a4_Baleares",
+        "to_router": "a7_Cataluna",
+        "latency": 348,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 500000,
+        "from_router": "a4_Baleares",
+        "to_router": "a7_Cataluna",
+        "latency": 348,
+        "weight": 200,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a5_Valencia",
+        "to_router": "a8_Murcia",
+        "latency": 300,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a5_Valencia",
+        "to_router": "a12_Andalucia",
+        "latency": 906,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a5_Valencia",
+        "to_router": "a16_Nacional",
+        "latency": 508,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a5_Valencia",
+        "to_router": "a7_Cataluna",
+        "latency": 509,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a6_Aragon",
+        "to_router": "a16_Nacional",
+        "latency": 461,
+        "weight": 160,
+        "from_interface": "i2",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a6_Aragon",
+        "to_router": "a7_Cataluna",
+        "latency": 428,
+        "weight": 160,
+        "from_interface": "i3",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a7_Cataluna",
+        "to_router": "a16_Nacional",
+        "latency": 844,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i3",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a8_Murcia",
+        "to_router": "a12_Andalucia",
+        "latency": 727,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a9_Galacia",
+        "to_router": "a16_Nacional",
+        "latency": 815,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i4",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a9_Galacia",
+        "to_router": "a10_Asturias",
+        "latency": 380,
+        "weight": 40,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a9_Galacia",
+        "to_router": "a18_Castilla_Y_Leon",
+        "latency": 577,
+        "weight": 40,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a11_Extremadura",
+        "to_router": "a16_Nacional",
+        "latency": 550,
+        "weight": 40,
+        "from_interface": "i0",
+        "to_interface": "i5",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a11_Extremadura",
+        "to_router": "a12_Andalucia",
+        "latency": 318,
+        "weight": 40,
+        "from_interface": "i1",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a12_Andalucia",
+        "to_router": "a13_Canarias_las_palmas",
+        "latency": 2262,
+        "weight": 160,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a12_Andalucia",
+        "to_router": "a15_Castilla_La_Mancha",
+        "latency": 426,
+        "weight": 160,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a12_Andalucia",
+        "to_router": "a16_Nacional",
+        "latency": 656,
+        "weight": 10,
+        "from_interface": "i5",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 500000,
+        "from_router": "a13_Canarias_las_palmas",
+        "to_router": "a14_Canarias_tenerife",
+        "latency": 168,
+        "weight": 200,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a14_Canarias_tenerife",
+        "to_router": "a16_Nacional",
+        "latency": 2930,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 622000,
+        "from_router": "a15_Castilla_La_Mancha",
+        "to_router": "a16_Nacional",
+        "latency": 272,
+        "weight": 160,
+        "from_interface": "i1",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 10000000.0,
+        "from_router": "a16_Nacional",
+        "to_router": "a17_Madrid",
+        "latency": 5,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 2500000,
+        "from_router": "a16_Nacional",
+        "to_router": "a18_Castilla_Y_Leon",
+        "latency": 273,
+        "weight": 40,
+        "from_interface": "i10",
+        "to_interface": "i2",
+        "bidirectional": true
+      }
+    ],
+    "name": "Rediris",
+    "routers": [
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_Navarra"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a1_Rioja"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a2_Cantabria"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Pais_Vasco"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a4_Baleares"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_Valencia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Aragon"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a7_Cataluna"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a8_Murcia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Galacia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_Asturias"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Extremadura"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a12_Andalucia"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a13_Canarias_las_palmas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_Canarias_tenerife"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_Castilla_La_Mancha"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_Nacional"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_Madrid"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_Castilla_Y_Leon"
+      }
+    ]
+  }
+}
