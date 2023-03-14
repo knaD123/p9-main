@@ -3,9 +3,9 @@
     "links": [
       {
         "bandwidth": 1000000,
-        "from_router": "a0_Dubrovnik",
-        "to_router": "a1_Durres",
-        "latency": 312,
+        "from_router": "a0_",
+        "to_router": "a1_Drug_Agency",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i0",
         "to_interface": "i0",
@@ -13,9 +13,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a1_Durres",
-        "to_router": "a56_Corfu",
-        "latency": 327,
+        "from_router": "a0_",
+        "to_router": "a2_Inst_Radio_Meas",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
         "to_interface": "i0",
@@ -23,29 +23,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a2_Russe",
-        "to_router": "a73_Bucharest",
-        "latency": 113,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a2_Russe",
-        "to_router": "a3_Pleven",
-        "latency": 203,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a2_Russe",
-        "to_router": "a5_Stara_Zagora",
-        "latency": 272,
+        "from_router": "a0_",
+        "to_router": "a6_Inst_of_Health",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i2",
         "to_interface": "i0",
@@ -53,9 +33,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a3_Pleven",
-        "to_router": "a4_Sofia",
-        "latency": 224,
+        "from_router": "a2_Inst_Radio_Meas",
+        "to_router": "a55_Institute_of_Applied_Physics",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
         "to_interface": "i0",
@@ -63,19 +43,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a4_Sofia",
-        "to_router": "a49_Petrich",
-        "latency": 245,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a4_Sofia",
-        "to_router": "a79_Drobeta_Turnu_Sevenin",
-        "latency": 374,
+        "from_router": "a2_Inst_Radio_Meas",
+        "to_router": "a7_Inst_Informatics",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i2",
         "to_interface": "i0",
@@ -83,39 +53,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a4_Sofia",
-        "to_router": "a5_Stara_Zagora",
-        "latency": 324,
-        "weight": 10,
-        "from_interface": "i3",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a4_Sofia",
-        "to_router": "a17_Svilengrad",
-        "latency": 435,
-        "weight": 10,
-        "from_interface": "i4",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a10_Otranto",
-        "to_router": "a56_Corfu",
-        "latency": 261,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a11_Bitola",
-        "to_router": "a16_OPTEGLOBE_TBN",
-        "latency": 534,
+        "from_router": "a3_Isnt_Chemical_Physics",
+        "to_router": "a56_Inst_of_Molecular_Biology",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i0",
         "to_interface": "i0",
@@ -123,29 +63,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a13_Bar",
-        "to_router": "a56_Corfu",
-        "latency": 477,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i2",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a14_Edirne",
-        "to_router": "a17_Svilengrad",
-        "latency": 56,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a14_Edirne",
-        "to_router": "a15_Kastanies",
-        "latency": 870,
+        "from_router": "a3_Isnt_Chemical_Physics",
+        "to_router": "a4_Inst_Biochem",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
         "to_interface": "i0",
@@ -153,9 +73,19 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a15_Kastanies",
-        "to_router": "a17_Svilengrad",
-        "latency": 836,
+        "from_router": "a3_Isnt_Chemical_Physics",
+        "to_router": "a7_Inst_Informatics",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a4_Inst_Biochem",
+        "to_router": "a7_Inst_Informatics",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
         "to_interface": "i2",
@@ -163,249 +93,19 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a15_Kastanies",
-        "to_router": "a51_Alexandroupolis",
-        "latency": 717,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a16_OPTEGLOBE_TBN",
-        "to_router": "a34_Tirana",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a16_OPTEGLOBE_TBN",
-        "to_router": "a55_Thessaloniki",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a18_None",
-        "to_router": "a35_Ostend",
-        "latency": 534,
+        "from_router": "a5_Inst_Geophysics",
+        "to_router": "a7_Inst_Informatics",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a18_None",
-        "to_router": "a28_Cornwall_Stations",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a18_None",
-        "to_router": "a77_Norden",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a19_None",
-        "to_router": "a57_Chania",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a19_None",
-        "to_router": "a47_None",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a19_None",
-        "to_router": "a47_None",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a20_Genova",
-        "to_router": "a24_Rome",
-        "latency": 672,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a20_Genova",
-        "to_router": "a21_Marseille",
-        "latency": 521,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a20_Genova",
-        "to_router": "a22_Milan",
-        "latency": 203,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a21_Marseille",
-        "to_router": "a26_Lyon",
-        "latency": 464,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a22_Milan",
-        "to_router": "a84_Zurich",
-        "latency": 366,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a22_Milan",
-        "to_router": "a23_Venice",
-        "latency": 412,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a23_Venice",
-        "to_router": "a27_Bologna",
-        "latency": 222,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a24_Rome",
-        "to_router": "a25_Bari",
-        "latency": 627,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a25_Bari",
-        "to_router": "a56_Corfu",
-        "latency": 519,
-        "weight": 10,
-        "from_interface": "i1",
         "to_interface": "i3",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a25_Bari",
-        "to_router": "a56_Corfu",
-        "latency": 519,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i4",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a25_Bari",
-        "to_router": "a27_Bologna",
-        "latency": 980,
-        "weight": 10,
-        "from_interface": "i3",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a26_Lyon",
-        "to_router": "a88_Paris",
-        "latency": 659,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a28_Cornwall_Stations",
-        "to_router": "a39_Kilmore_Quay",
-        "latency": 404,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a28_Cornwall_Stations",
-        "to_router": "a40_Penmarch",
-        "latency": 455,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a28_Cornwall_Stations",
-        "to_router": "a85_London",
-        "latency": 688,
-        "weight": 10,
-        "from_interface": "i3",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a28_Cornwall_Stations",
-        "to_router": "a29_Valery",
-        "latency": 872,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a8_TV_station",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i4",
         "to_interface": "i0",
@@ -413,9 +113,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a28_Cornwall_Stations",
-        "to_router": "a30_USA",
-        "latency": 534,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a10_",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i5",
         "to_interface": "i0",
@@ -423,9 +123,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a28_Cornwall_Stations",
-        "to_router": "a63_Conil",
-        "latency": 2660,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a46_Astrophysical_Obs",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i6",
         "to_interface": "i0",
@@ -433,9 +133,69 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a29_Valery",
-        "to_router": "a78_Katwijk",
-        "latency": 559,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a46_Astrophysical_Obs",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i7",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a47_Inst_Microbiology",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i8",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a48_Molecular_Structure",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a53_Inst_Radiophysics",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i10",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i11",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a7_Inst_Informatics",
+        "to_router": "a56_Inst_of_Molecular_Biology",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i12",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a8_TV_station",
+        "to_router": "a9_Inst_Phylosophy",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
         "to_interface": "i0",
@@ -443,29 +203,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a31_None",
-        "to_router": "a64_Sesimbra",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a31_None",
-        "to_router": "a65_Mazara",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a31_None",
-        "to_router": "a66_Estepona",
-        "latency": 534,
+        "from_router": "a8_TV_station",
+        "to_router": "a25_National_Stats_science",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i2",
         "to_interface": "i0",
@@ -473,9 +213,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a31_None",
-        "to_router": "a68_Palermo",
-        "latency": 534,
+        "from_router": "a8_TV_station",
+        "to_router": "a26_EEMC_MNP",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i3",
         "to_interface": "i0",
@@ -483,39 +223,39 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a31_None",
-        "to_router": "a63_Conil",
-        "latency": 534,
+        "from_router": "a8_TV_station",
+        "to_router": "a27_",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i4",
-        "to_interface": "i1",
+        "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a32_Derna",
-        "to_router": "a57_Chania",
-        "latency": 555,
+        "from_router": "a8_TV_station",
+        "to_router": "a28_Museum",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i1",
+        "from_interface": "i5",
+        "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a33_None",
-        "to_router": "a65_Mazara",
-        "latency": 534,
+        "from_router": "a8_TV_station",
+        "to_router": "a61_Gallery",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i1",
+        "from_interface": "i6",
+        "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a33_None",
-        "to_router": "a42_None",
-        "latency": 534,
+        "from_router": "a10_",
+        "to_router": "a49_General_Chem",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
         "to_interface": "i0",
@@ -523,349 +263,389 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a33_None",
-        "to_router": "a57_Chania",
-        "latency": 534,
+        "from_router": "a10_",
+        "to_router": "a11_Organic_chem",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a12_Library",
+        "to_router": "a13_Lib_Net",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a12_Library",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a14_ICT",
+        "to_router": "a36_None",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a15_Geological",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
         "to_interface": "i2",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a36_To_USA",
-        "to_router": "a37_Blaabjerg",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a37_Blaabjerg",
-        "to_router": "a77_Norden",
-        "latency": 609,
+        "from_router": "a15_Geological",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a40_Penmarch",
-        "to_router": "a64_Sesimbra",
-        "latency": 1855,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a41_None",
-        "to_router": "a42_None",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a41_None",
-        "to_router": "a59_Yeroskipos",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a41_None",
-        "to_router": "a62_Suez",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a42_None",
-        "to_router": "a60_Marmaris",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a43_Kilkis",
-        "to_router": "a48_Gevgelija",
-        "latency": 63,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a43_Kilkis",
-        "to_router": "a55_Thessaloniki",
-        "latency": 70,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a44_None",
-        "to_router": "a50_Promachonas",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a44_None",
-        "to_router": "a46_Komotini",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a44_None",
-        "to_router": "a55_Thessaloniki",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i2",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a45_Haskavo",
-        "to_router": "a46_Komotini",
-        "latency": 158,
-        "weight": 10,
-        "from_interface": "i0",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a46_Komotini",
-        "to_router": "a51_Alexandroupolis",
-        "latency": 89,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a47_None",
-        "to_router": "a58_Athens",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a47_None",
-        "to_router": "a58_Athens",
-        "latency": 534,
-        "weight": 10,
-        "from_interface": "i3",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a49_Petrich",
-        "to_router": "a50_Promachonas",
-        "latency": 26,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a51_Alexandroupolis",
-        "to_router": "a55_Thessaloniki",
-        "latency": 417,
-        "weight": 10,
-        "from_interface": "i2",
         "to_interface": "i3",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a51_Alexandroupolis",
-        "to_router": "a52_Kesan",
-        "latency": 110,
-        "weight": 10,
-        "from_interface": "i3",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a54_Tel_Aviv",
-        "to_router": "a67_Catania",
-        "latency": 3155,
+        "from_router": "a16_Inst_Math",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i0",
-        "to_interface": "i0",
+        "to_interface": "i4",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a54_Tel_Aviv",
-        "to_router": "a61_Haifa",
-        "latency": 147,
+        "from_router": "a17_Inst_Mechanics",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a55_Thessaloniki",
-        "to_router": "a56_Corfu",
-        "latency": 472,
-        "weight": 10,
-        "from_interface": "i4",
+        "from_interface": "i0",
         "to_interface": "i5",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a55_Thessaloniki",
-        "to_router": "a58_Athens",
-        "latency": 510,
+        "from_router": "a18_ASHMS",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i5",
+        "from_interface": "i0",
+        "to_interface": "i6",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a19_Inst_Physiology",
+        "to_router": "a20_Yeveran_Physics_Inst",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a19_Inst_Physiology",
+        "to_router": "a44_SCS",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a19_Inst_Physiology",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i7",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a20_Yeveran_Physics_Inst",
+        "to_router": "a21_ArmESFo",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a20_Yeveran_Physics_Inst",
+        "to_router": "a22_National_Academy",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i8",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a36_None",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i9",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a37_American_Uni",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i10",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a44_SCS",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i11",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a54_ARENA",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i12",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a23_NSSPA",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i13",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a25_National_Stats_science",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i14",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a28_Museum",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i15",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a61_Gallery",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i16",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a62_Yerevan_University",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i17",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a22_National_Academy",
+        "to_router": "a63_State_Engineering_University",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i18",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a24_Min_of_Education",
+        "to_router": "a25_National_Stats_science",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
         "to_interface": "i2",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a56_Corfu",
-        "to_router": "a58_Athens",
-        "latency": 631,
+        "from_router": "a27_",
+        "to_router": "a31_",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i6",
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a29_ISTC",
+        "to_router": "a36_None",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i2",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a30_Geophys_Obser",
+        "to_router": "a36_None",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
         "to_interface": "i3",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a57_Chania",
-        "to_router": "a67_Catania",
-        "latency": 1383,
+        "from_router": "a31_",
+        "to_router": "a32_Encycloped",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i3",
-        "to_interface": "i1",
+        "from_interface": "i1",
+        "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a57_Chania",
-        "to_router": "a58_Athens",
-        "latency": 464,
+        "from_router": "a31_",
+        "to_router": "a35_Linguistic_Inst",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a31_",
+        "to_router": "a34_Economy",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a31_",
+        "to_router": "a33_Literature",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i4",
-        "to_interface": "i4",
+        "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a57_Chania",
-        "to_router": "a59_Yeroskipos",
-        "latency": 1291,
+        "from_router": "a36_None",
+        "to_router": "a38_Oriental",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a36_None",
+        "to_router": "a39_Hist",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i5",
-        "to_interface": "i1",
+        "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a57_Chania",
-        "to_router": "a61_Haifa",
-        "latency": 1757,
+        "from_router": "a36_None",
+        "to_router": "a40_Art",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i6",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a67_Catania",
-        "to_router": "a70_Malta",
-        "latency": 315,
-        "weight": 10,
-        "from_interface": "i2",
         "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a73_Bucharest",
-        "to_router": "a74_Tg_Carbunesti",
-        "latency": 359,
+        "from_router": "a36_None",
+        "to_router": "a41_Hydroecol",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i1",
+        "from_interface": "i7",
         "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a74_Tg_Carbunesti",
-        "to_router": "a80_Timisoara",
-        "latency": 337,
+        "from_router": "a36_None",
+        "to_router": "a42_Engineer_academy",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i1",
+        "from_interface": "i8",
         "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a75_Hegyeshantom",
-        "to_router": "a81_Dunaujvaros",
-        "latency": 285,
+        "from_router": "a36_None",
+        "to_router": "a43_education",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i0",
+        "from_interface": "i9",
         "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a75_Hegyeshantom",
-        "to_router": "a90_Vienna",
-        "latency": 117,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a76_Bratislava",
-        "to_router": "a90_Vienna",
-        "latency": 96,
+        "from_router": "a45_Organic_Chem",
+        "to_router": "a48_Molecular_Structure",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i0",
         "to_interface": "i1",
@@ -873,19 +653,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a76_Bratislava",
-        "to_router": "a82_Budapest",
-        "latency": 273,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a77_Norden",
-        "to_router": "a78_Katwijk",
-        "latency": 410,
+        "from_router": "a46_Astrophysical_Obs",
+        "to_router": "a47_Inst_Microbiology",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i2",
         "to_interface": "i1",
@@ -893,29 +663,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a79_Drobeta_Turnu_Sevenin",
-        "to_router": "a80_Timisoara",
-        "latency": 283,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a80_Timisoara",
-        "to_router": "a81_Dunaujvaros",
-        "latency": 376,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a80_Timisoara",
-        "to_router": "a82_Budapest",
-        "latency": 431,
+        "from_router": "a46_Astrophysical_Obs",
+        "to_router": "a53_Inst_Radiophysics",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i3",
         "to_interface": "i1",
@@ -923,9 +673,19 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a83_Stuttgart",
-        "to_router": "a84_Zurich",
-        "latency": 278,
+        "from_router": "a50_research",
+        "to_router": "a52_",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i0",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a51_engineering_center",
+        "to_router": "a52_",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i0",
         "to_interface": "i1",
@@ -933,49 +693,9 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a83_Stuttgart",
-        "to_router": "a87_Frankfurt",
-        "latency": 259,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a85_London",
-        "to_router": "a89_Lille",
-        "latency": 410,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a85_London",
-        "to_router": "a86_Amsterdam",
-        "latency": 599,
-        "weight": 10,
-        "from_interface": "i2",
-        "to_interface": "i0",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a86_Amsterdam",
-        "to_router": "a87_Frankfurt",
-        "latency": 611,
-        "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a87_Frankfurt",
-        "to_router": "a90_Vienna",
-        "latency": 1000,
+        "from_router": "a52_",
+        "to_router": "a53_Inst_Radiophysics",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i2",
         "to_interface": "i2",
@@ -983,51 +703,118 @@
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a87_Frankfurt",
-        "to_router": "a92_Nuremberg",
-        "latency": 315,
+        "from_router": "a54_ARENA",
+        "to_router": "a64_Yerevan_Medical_University",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i3",
+        "from_interface": "i1",
         "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a88_Paris",
-        "to_router": "a89_Lille",
-        "latency": 345,
+        "from_router": "a54_ARENA",
+        "to_router": "a57_Agricultural_Academy",
+        "latency": 10,
         "weight": 10,
-        "from_interface": "i1",
-        "to_interface": "i1",
-        "bidirectional": true
-      },
-      {
-        "bandwidth": 1000000,
-        "from_router": "a90_Vienna",
-        "to_router": "a91_Walserberg",
-        "latency": 435,
-        "weight": 10,
-        "from_interface": "i3",
+        "from_interface": "i2",
         "to_interface": "i0",
         "bidirectional": true
       },
       {
         "bandwidth": 1000000,
-        "from_router": "a91_Walserberg",
-        "to_router": "a92_Nuremberg",
-        "latency": 391,
+        "from_router": "a54_ARENA",
+        "to_router": "a62_Yerevan_University",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i3",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a54_ARENA",
+        "to_router": "a63_State_Engineering_University",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i4",
+        "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a55_Institute_of_Applied_Physics",
+        "to_router": "a60_Institute_of_Zoology",
+        "latency": 10,
         "weight": 10,
         "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a56_Inst_of_Molecular_Biology",
+        "to_router": "a60_Institute_of_Zoology",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i2",
         "to_interface": "i1",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a57_Agricultural_Academy",
+        "to_router": "a58_Ecological_Center",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a58_Ecological_Center",
+        "to_router": "a59_Intitute_of_Botany",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i0",
+        "bidirectional": true
+      },
+      {
+        "bandwidth": 1000000,
+        "from_router": "a59_Intitute_of_Botany",
+        "to_router": "a60_Institute_of_Zoology",
+        "latency": 10,
+        "weight": 10,
+        "from_interface": "i1",
+        "to_interface": "i2",
         "bidirectional": true
       }
     ],
-    "name": "Oteglobe",
+    "name": "AsnetAm",
     "routers": [
       {
         "interfaces": [
           {
             "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a0_"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
               "i0"
             ],
             "routing_table": {}
@@ -1037,23 +824,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a0_Dubrovnik"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a1_Durres"
+        "name": "a1_Drug_Agency"
       },
       {
         "interfaces": [
@@ -1070,7 +841,24 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a2_Russe"
+        "name": "a2_Inst_Radio_Meas"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a3_Isnt_Chemical_Physics"
       },
       {
         "interfaces": [
@@ -1086,7 +874,37 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a3_Pleven"
+        "name": "a4_Inst_Biochem"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a5_Inst_Geophysics"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a6_Inst_of_Health"
       },
       {
         "interfaces": [
@@ -1096,7 +914,15 @@
               "i1",
               "i2",
               "i3",
-              "i4"
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12"
             ],
             "routing_table": {}
           }
@@ -1105,301 +931,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a4_Sofia"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a5_Stara_Zagora"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a10_Otranto"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a11_Bitola"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a13_Bar"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a14_Edirne"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a15_Kastanies"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a16_OPTEGLOBE_TBN"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a17_Svilengrad"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a18_None"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a19_None"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a20_Genova"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a21_Marseille"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a22_Milan"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a23_Venice"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a24_Rome"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2",
-              "i3"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a25_Bari"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a26_Lyon"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a27_Bologna"
+        "name": "a7_Inst_Informatics"
       },
       {
         "interfaces": [
@@ -1420,7 +952,54 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a28_Cornwall_Stations"
+        "name": "a8_TV_station"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a9_Inst_Phylosophy"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a10_"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a11_Organic_chem"
       },
       {
         "interfaces": [
@@ -1436,7 +1015,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a29_Valery"
+        "name": "a12_Library"
       },
       {
         "interfaces": [
@@ -1451,7 +1030,289 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a30_USA"
+        "name": "a13_Lib_Net"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a14_ICT"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a15_Geological"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a16_Inst_Math"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a17_Inst_Mechanics"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a18_ASHMS"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a19_Inst_Physiology"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a20_Yeveran_Physics_Inst"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a21_ArmESFo"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9",
+              "i10",
+              "i11",
+              "i12",
+              "i13",
+              "i14",
+              "i15",
+              "i16",
+              "i17",
+              "i18"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a22_National_Academy"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a23_NSSPA"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a24_Min_of_Education"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1",
+              "i2"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a25_National_Stats_science"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a26_EEMC_MNP"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a27_"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a28_Museum"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a29_ISTC"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a30_Geophys_Obser"
       },
       {
         "interfaces": [
@@ -1470,7 +1331,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a31_None"
+        "name": "a31_"
       },
       {
         "interfaces": [
@@ -1485,7 +1346,52 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a32_Derna"
+        "name": "a32_Encycloped"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a33_Literature"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a34_Economy"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a35_Linguistic_Inst"
       },
       {
         "interfaces": [
@@ -1493,7 +1399,14 @@
             "names": [
               "i0",
               "i1",
-              "i2"
+              "i2",
+              "i3",
+              "i4",
+              "i5",
+              "i6",
+              "i7",
+              "i8",
+              "i9"
             ],
             "routing_table": {}
           }
@@ -1502,7 +1415,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a33_None"
+        "name": "a36_None"
       },
       {
         "interfaces": [
@@ -1517,7 +1430,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a34_Tirana"
+        "name": "a37_American_Uni"
       },
       {
         "interfaces": [
@@ -1532,7 +1445,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a35_Ostend"
+        "name": "a38_Oriental"
       },
       {
         "interfaces": [
@@ -1547,7 +1460,67 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a36_To_USA"
+        "name": "a39_Hist"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a40_Art"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a41_Hydroecol"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a42_Engineer_academy"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a43_education"
       },
       {
         "interfaces": [
@@ -1563,7 +1536,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a37_Blaabjerg"
+        "name": "a44_SCS"
       },
       {
         "interfaces": [
@@ -1578,122 +1551,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a39_Kilmore_Quay"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a40_Penmarch"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a41_None"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a42_None"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a43_Kilkis"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a44_None"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a45_Haskavo"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a46_Komotini"
+        "name": "a45_Organic_Chem"
       },
       {
         "interfaces": [
@@ -1711,7 +1569,39 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a47_None"
+        "name": "a46_Astrophysical_Obs"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a47_Inst_Microbiology"
+      },
+      {
+        "interfaces": [
+          {
+            "names": [
+              "i0",
+              "i1"
+            ],
+            "routing_table": {}
+          }
+        ],
+        "location": {
+          "latitude": 0.0,
+          "longitude": 0.0
+        },
+        "name": "a48_Molecular_Structure"
       },
       {
         "interfaces": [
@@ -1726,57 +1616,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a48_Gevgelija"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a49_Petrich"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a50_Promachonas"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2",
-              "i3"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a51_Alexandroupolis"
+        "name": "a49_General_Chem"
       },
       {
         "interfaces": [
@@ -1791,14 +1631,13 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a52_Kesan"
+        "name": "a50_research"
       },
       {
         "interfaces": [
           {
             "names": [
-              "i0",
-              "i1"
+              "i0"
             ],
             "routing_table": {}
           }
@@ -1807,27 +1646,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a54_Tel_Aviv"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2",
-              "i3",
-              "i4",
-              "i5"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a55_Thessaloniki"
+        "name": "a51_engineering_center"
       },
       {
         "interfaces": [
@@ -1835,11 +1654,7 @@
             "names": [
               "i0",
               "i1",
-              "i2",
-              "i3",
-              "i4",
-              "i5",
-              "i6"
+              "i2"
             ],
             "routing_table": {}
           }
@@ -1848,7 +1663,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a56_Corfu"
+        "name": "a52_"
       },
       {
         "interfaces": [
@@ -1856,11 +1671,7 @@
             "names": [
               "i0",
               "i1",
-              "i2",
-              "i3",
-              "i4",
-              "i5",
-              "i6"
+              "i2"
             ],
             "routing_table": {}
           }
@@ -1869,7 +1680,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a57_Chania"
+        "name": "a53_Inst_Radiophysics"
       },
       {
         "interfaces": [
@@ -1888,7 +1699,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a58_Athens"
+        "name": "a54_ARENA"
       },
       {
         "interfaces": [
@@ -1904,116 +1715,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a59_Yeroskipos"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a60_Marmaris"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a61_Haifa"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a62_Suez"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a63_Conil"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a64_Sesimbra"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a65_Mazara"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a66_Estepona"
+        "name": "a55_Institute_of_Applied_Physics"
       },
       {
         "interfaces": [
@@ -2030,37 +1732,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a67_Catania"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a68_Palermo"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a70_Malta"
+        "name": "a56_Inst_of_Molecular_Biology"
       },
       {
         "interfaces": [
@@ -2076,7 +1748,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a73_Bucharest"
+        "name": "a57_Agricultural_Academy"
       },
       {
         "interfaces": [
@@ -2092,7 +1764,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a74_Tg_Carbunesti"
+        "name": "a58_Ecological_Center"
       },
       {
         "interfaces": [
@@ -2108,23 +1780,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a75_Hegyeshantom"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a76_Bratislava"
+        "name": "a59_Intitute_of_Botany"
       },
       {
         "interfaces": [
@@ -2141,7 +1797,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a77_Norden"
+        "name": "a60_Institute_of_Zoology"
       },
       {
         "interfaces": [
@@ -2157,7 +1813,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a78_Katwijk"
+        "name": "a61_Gallery"
       },
       {
         "interfaces": [
@@ -2173,25 +1829,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a79_Drobeta_Turnu_Sevenin"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2",
-              "i3"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a80_Timisoara"
+        "name": "a62_Yerevan_University"
       },
       {
         "interfaces": [
@@ -2207,14 +1845,13 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a81_Dunaujvaros"
+        "name": "a63_State_Engineering_University"
       },
       {
         "interfaces": [
           {
             "names": [
-              "i0",
-              "i1"
+              "i0"
             ],
             "routing_table": {}
           }
@@ -2223,172 +1860,7 @@
           "latitude": 0.0,
           "longitude": 0.0
         },
-        "name": "a82_Budapest"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a83_Stuttgart"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a84_Zurich"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a85_London"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a86_Amsterdam"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2",
-              "i3"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a87_Frankfurt"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a88_Paris"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a89_Lille"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1",
-              "i2",
-              "i3"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a90_Vienna"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a91_Walserberg"
-      },
-      {
-        "interfaces": [
-          {
-            "names": [
-              "i0",
-              "i1"
-            ],
-            "routing_table": {}
-          }
-        ],
-        "location": {
-          "latitude": 0.0,
-          "longitude": 0.0
-        },
-        "name": "a92_Nuremberg"
+        "name": "a64_Yerevan_Medical_University"
       }
     ]
   }
