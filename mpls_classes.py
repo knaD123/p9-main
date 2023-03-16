@@ -3,6 +3,7 @@ import sys
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+import datetime
 import time
 # import jsonschema
 import json
@@ -675,7 +676,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False, package_name="inet.zoo_topology", algorithm="none"):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False, package_name="inet.zoo_topology", algorithm="none", flows_with_load=[]):
         """
         Generates all files for OMNeT++.
         """
@@ -686,7 +687,7 @@ class Network(object):
         self.build_flows_for_export()
 
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
-            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency, package_name=package_name, algorithm=algorithm)
+            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency, package_name=package_name, algorithm=algorithm, flows_with_load=flows_with_load)
 
         with open("confs/zoo_" + self.name + "/failure_chunks/0.yml", 'r') as f:
             failed_set_chunk = yaml.safe_load(f)
@@ -700,7 +701,7 @@ class Network(object):
                                          link_to_ppp=link_to_ppp_dict)
 
         with open(f'{output_dir}/omnetpp.ini', mode="w") as f:
-            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler, zero_latency=zero_latency, algorithm=algorithm)
+            self.to_omnetpp_ini(name=name, file=f, failure_scenarios_enum=range(1, len(failed_set_chunk)), packet_size=packet_size, send_interval_multiplier=scaler, zero_latency=zero_latency, algorithm=algorithm, flows_with_load=flows_with_load)
 
         if not path.exists(output_dir + "/lib_files"):
             os.makedirs(output_dir + "/lib_files")
@@ -710,7 +711,7 @@ class Network(object):
         self.to_omnetpp_lib(output_dir + "/lib_files")
         self.to_omnetpp_classification(output_dir + "/classification_files")
 
-    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False, package_name="inet.zoo_topology", algorithm="none"):
+    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False, package_name="inet.zoo_topology", algorithm="none", flows_with_load=[]):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576  # kbps = 1 Gbps
         # Values from the hosts to the routers
@@ -719,6 +720,7 @@ class Network(object):
 
         # Link -> pppgate dictionary
         link_to_ppp = dict()
+
         # from service import MPLS_Service
         file.write(f"package {package_name}.{name}.{algorithm};\n")
         file.write("import inet.common.scenario.ScenarioManager;\n")
@@ -738,7 +740,7 @@ class Network(object):
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
-            nr_flows_from_router = 1 if sum(entry['ingress'] == router_name for entry in self.export_flows) >= 1 else 0
+            nr_flows_from_router = 1 if sum(entry['ingress'][0] == router_name for entry in self.export_flows) >= 1 else 0
             nr_flows_to_router = 1 if sum(entry['egress'] == router_name for entry in self.export_flows) >= 1 else 0
 
             # Create router in NED file.
@@ -867,9 +869,9 @@ class Network(object):
         added_connections = []
         for flow in self.export_flows:
             if flow['source_host'] not in added_connections:
-                source_host_id = router_ids[flow['ingress']]
-                router_ids[flow['ingress']] += 1
-                file.write(f"""        {flow['ingress']}.pppg[{source_host_id}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['source_host']}.pppg[0];\n""")
+                source_host_id = router_ids[flow['ingress'][0]]
+                router_ids[flow['ingress'][0]] += 1
+                file.write(f"""        {flow['ingress'][0]}.pppg[{source_host_id}] <--> {{ delay = 0ms; datarate = 100Gbps; }} <--> {flow['source_host']}.pppg[0];\n""")
                 added_connections.append(flow['source_host'])
             if flow['target_host'] not in added_connections:
                 target_host_id = router_ids[flow['egress']]
@@ -880,7 +882,7 @@ class Network(object):
         file.write("}\n")
         return link_to_ppp
 
-    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1, zero_latency=False, algorithm="none"):
+    def to_omnetpp_ini(self, name, file, failure_scenarios_enum, packet_size=64, send_interval_multiplier=1, zero_latency=False, algorithm="none", flows_with_load=[]):
         UTILIZATION_SAMPLE_INTERVAL = 5 # seconds
 
         file.write("[General]\n")
@@ -909,22 +911,34 @@ class Network(object):
 
         # Create a dictionary to keep track of the app entries for each source host.
         source_apps = {}
+        source_hosts = {}
+        target_apps = {}
         flow_idx = 0
         longest_send_interval = 0 # Used to find the simulation time limit
         for flow in self.export_flows:
+            x = time.strptime((flows_with_load[flow_idx][3]).split(',')[0], '%H:%M')
+            starttime = int((datetime.timedelta(hours=x.tm_hour, minutes=x.tm_min).total_seconds()))
+            y = time.strptime((flows_with_load[flow_idx][4]).split(',')[0], '%H:%M')
+            stoptime = int((datetime.timedelta(hours=y.tm_hour, minutes=y.tm_min).total_seconds()))
             flow_idx += 1
-            ingress = flow['ingress']
+            ingress = flow['ingress'][0]
+            egress = flow['egress']
             send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
             longest_send_interval = send_interval if send_interval > longest_send_interval else longest_send_interval
             entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
                                          'messageLength': f"{packet_size - 39} bytes",
-                                         'sendInterval': f"{send_interval}s",
                                          'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
             if ingress not in source_apps:
-                source_apps[ingress] = [entry]
+                source_apps[ingress] = entry
+                source_hosts[ingress] = [(starttime, stoptime, send_interval)]
             else:
-                app_num = len(source_apps[ingress]) + 1
-                source_apps[ingress].append(entry)
+                source_hosts[ingress].append((starttime, stoptime, send_interval))
+
+            if egress not in target_apps:
+                target_apps[egress] = entry
+            #else:
+                #app_num = len(source_apps[ingress]) + 1
+                #source_apps[ingress].append(entry)
 
         if zero_latency:
             warmup_time = 0
@@ -937,16 +951,22 @@ class Network(object):
         file.write(f"sim-time-limit = {sim_time}s\n")
         file.write(f"real-time-limit = 7200s\n")
 
+        #source_hosts = list(source_hosts)
+        #temp_source_apps = {}
 
+        host_port = 1
         for ingress, apps in source_apps.items():
-            file.write(f'''**.{apps[0]['source_host']}.numApps = {len(apps)}\n''')
-            for i, app in enumerate(apps):
-                file.write(f'''**.{app['source_host']}.app[{i}].typename = "{app['typename']}"\n''')
-                file.write(f'''**.{app['source_host']}.app[{i}].localPort = {app['localPort']}\n''')
-                file.write(f'''**.{app['source_host']}.app[{i}].destPort = {app['destPort']}\n''')
-                file.write(f'''**.{app['source_host']}.app[{i}].messageLength = {app['messageLength']}\n''')
-                file.write(f'''**.{app['source_host']}.app[{i}].sendInterval = {app['sendInterval']}\n''')
-                file.write(f'''**.{app['source_host']}.app[{i}].destAddresses = "{app['destAddresses']}"\n''')
+            file.write(f'''**.{apps['source_host']}.numApps = {len(source_hosts[ingress])}\n''')
+            for (i, (starttime, stoptime, send_interval)) in enumerate(source_hosts[ingress]):
+                file.write(f'''**.{apps['source_host']}.app[{i}].typename = "{apps['typename']}"\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].localPort = {host_port}\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].destPort = {apps['destPort']}\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].messageLength = {apps['messageLength']}\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].sendInterval = {send_interval}s\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].destAddresses = "{apps['destAddresses']}"\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].startTime = {starttime}s\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].stopTime = {stoptime}s\n''')
+                host_port += 1
             file.write("\n")
 
         # Add applications at target nodes.
@@ -954,19 +974,20 @@ class Network(object):
         targets = sorted(list(targets))
         # Group export flows by egress/target host
         flows_by_target = {}
-        for source, apps in source_apps.items():
-            for app in apps:
-                target = app['destAddresses']
-                if target not in flows_by_target:
-                    flows_by_target[target] = []
-                flows_by_target[target].append(app)
+        for source, apps in target_apps.items():
+            target = apps['destAddresses']
+            if target not in flows_by_target:
+                flows_by_target[target] = []
+            flows_by_target[target].append(apps)
 
         # Add applications at target nodes
+        target_port = 1
         for target, apps in flows_by_target.items():
             file.write(f'''**.{target}.numApps = {len(apps)}\n''')
             for i, app in enumerate(apps):
                 file.write(f'''**.{target}.app[{i}].typename = "UdpSinkApp"\n''')
-                file.write(f'''**.{target}.app[{i}].io.localPort = {app['destPort']}\n''')
+                file.write(f'''**.{target}.app[{i}].io.localPort = {target_port}\n''')
+                target_port += 1
             file.write("\n")
 
         for scenario in failure_scenarios_enum:
@@ -1001,11 +1022,15 @@ class Network(object):
         source_nums = {}
         target_nums = {}
         for router_name, lbl_items in flows.items():
-            if router_name not in source_nums:
+            if router_name[0] not in source_nums:
                 j += 1
-                source_nums[router_name] = j
+                source_nums[router_name[0]] = j
             for in_label, tup in lbl_items.items():
-                good_sources, good_targets, load = tup
+                good_sources, good_targets, load, starttime, stoptime = tup
+                x = time.strptime(starttime, '%H:%M')
+                starttime = int(datetime.timedelta(hours=x.tm_hour, minutes=x.tm_min).total_seconds())
+                y = time.strptime(stoptime, '%H:%M')
+                stoptime = int(datetime.timedelta(hours=y.tm_hour, minutes=y.tm_min).total_seconds())
                 # TODO: Ask whether to add new clients for every good_targets entry
                 if load > 0:
                     for target in good_targets:
@@ -1016,11 +1041,13 @@ class Network(object):
                             'in_label': in_label,
                             'ingress': router_name,
                             'egress': target,
-                            'in_interface': f"{source_nums[router_name]}",
+                            'in_interface': f"{source_nums[router_name[0]]}",
                             'out_interface': f"{target_nums[target]}",
-                            'source_host': f"host{source_nums[router_name]}",
+                            'source_host': f"host{source_nums[router_name[0]]}",
                             'target_host': f'target{target_nums[target]}',
                             'load': load,
+                            'starttime': starttime,
+                            'stoptime': stoptime,
                         })
         self.export_flows = export_flows
         return export_flows
@@ -1051,9 +1078,9 @@ class Network(object):
 
         labeled_flows = dict()
 
-        for src_router, tgt_router, load in flows:
-            if src_router not in labeled_flows:
-                labeled_flows[src_router] = dict()
+        for src_router, tgt_router, load, starttime, stoptime in flows:
+            if src_router not in labeled_flows and starttime not in labeled_flows and stoptime not in labeled_flows:
+                labeled_flows[src_router, starttime, stoptime] = dict()
             if verbose:
                 print(f"\n processing flow {src_router} {tgt_router}")
 
@@ -1136,7 +1163,7 @@ class Network(object):
                     continue
 
                 # I have good_sources and good_targets in memory currently...
-                labeled_flows[src_router][in_label] = ([src_router], [tgt_router], load)
+                labeled_flows[src_router, starttime, stoptime][in_label] = ([src_router], [tgt_router], load, starttime, stoptime)
                 break  # Successfully found flow
             else:
                 print(f"ERROR: Could not find flow from {src_router} to {tgt_router}", file=sys.stderr)

@@ -6,10 +6,36 @@ import re
 import math
 def main(conf):
     with open(conf["demands"],"r") as file:
+<<<<<<< Updated upstream
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
         total_packets = num_packets(flows_with_load)
         flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
         flows = [flow[:2] for flow in flows_with_load]
+=======
+        flows_with_load = [[x,y, int(z),s,t] for [x,y,z,s,t] in yaml.load(file, Loader=yaml.BaseLoader)]
+        total_packets = num_packets(flows_with_load)
+        flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
+        flows = [flow[:2] for flow in flows_with_load]
+    total_packets = num_packets(flows_with_load)
+    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
+    flows = [flow[:2] for flow in flows_with_load]
+    conf["loads"] = flows_with_load
+
+    # Load link capacities
+    with open(conf["topology"]) as f:
+        topo_data = json.load(f)
+
+    link_caps = {}
+    for f in topo_data["network"]["links"]:
+        src = f["from_router"]
+        tgt = f["to_router"]
+        if src != tgt:
+            link_caps[(src, tgt)] = f.get("bandwidth", 0)
+            if f["bidirectional"]:
+                link_caps[(tgt, src)] = f.get("bandwidth", 0)
+
+    conf["link_caps"] = link_caps
+>>>>>>> Stashed changes
 
     print(f'Total number of packets over a second: {total_packets}')
 
@@ -37,9 +63,10 @@ def main(conf):
         method = "rmpls"
 
     # Omnet
+    name = re.search(r".*zoo_(.*)\.json", conf["topology"]).group(1).lower()
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=conf["topo_name"], output_dir=f"{conf['output_dir']}/{conf['topo_name']}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method)
+    network.to_omnetpp(name=conf["topo_name"], output_dir=f"{conf['output_dir']}/{conf['topo_name']}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method, flows_with_load=flows_with_load)
 
     # Add package.ned
     if conf["generate_package"]:
@@ -47,7 +74,7 @@ def main(conf):
             f.write(f"package {conf['package_name']};")
 def num_packets(flows_with_load):
     sum = 0
-    for (x,y,z) in flows_with_load:
+    for (x,y,z,s,t) in flows_with_load:
         sum += z
 
     return sum / 64
@@ -60,7 +87,7 @@ def flows_take(flows_with_load, take_percent):
 
     for flow in flows_with_load:
         current_sum += flow[2]
-        if current_sum >= target_sum:
+        if current_sum > target_sum:
             break
         result_flows.append(flow)
 
