@@ -917,7 +917,7 @@ class Network(object):
             send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
             longest_send_interval = send_interval if send_interval > longest_send_interval else longest_send_interval
             entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
-                                         'messageLength': f"{packet_size - 39} bytes",
+                                         'messageLength': f"{packet_size} bytes",
                                          'sendInterval': f"{send_interval}s",
                                          'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
             if ingress not in source_apps:
