@@ -730,11 +730,12 @@ class Network(object):
 
         # Global statistic
         file.write("    parameters:\n")
-        file.write('        int recordingSampleDuration = 500;\n')
-        file.write('        @statistic[packetsCreated](source="emitsPerDuration(packetSentUDP)"; record=count,vector);\n')
-        file.write('        @statistic[packetsDelivered](source="emitsPerDuration(packetReceivedUDP)"; record=count,vector);\n')
-        file.write('        @statistic[packetDropReasonIsQueueOverflow](source="emitsPerDuration(packetDropReasonIsQueueOverflow(packetDropped))"; record=count,vector);\n')
-        file.write('        @statistic[packetDropReasonIsNoRouteFound](source="emitsPerDuration(packetDropReasonIsNoRouteFound(packetDropped))"; record=count,vector);\n')
+        file.write("        int timeBetweenRecordings = 100;\n")
+        file.write('        int recordingSampleDuration = 5000;\n')
+        file.write('        @statistic[packetsCreated](source="emitsPerDuration(packetSentUDP)"; record=count,vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetsDelivered](source="emitsPerDuration(packetReceivedUDP)"; record=count,vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetDropReasonIsQueueOverflow](source="emitsPerDuration(packetDropReasonIsQueueOverflow(packetDropped))"; record=count,vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetDropReasonIsNoRouteFound](source="emitsPerDuration(packetDropReasonIsNoRouteFound(packetDropped))"; record=count,vector; interpolationmode="none");\n')
         file.write("\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
         for router_name, router in self.routers.items():
 
@@ -842,7 +843,7 @@ class Network(object):
 
             file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
             file.write(
-                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector); }} <--> ')
+                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector; interpolationmode="none"); }} <--> ')
             file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
