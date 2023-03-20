@@ -732,10 +732,14 @@ class Network(object):
         file.write("    parameters:\n")
         file.write("        int timeBetweenRecordings = 100;\n")
         file.write('        int recordingSampleDuration = 5000;\n')
-        file.write('        @statistic[packetsCreated](source="emitsPerDuration(packetSentUDP)"; record=count,vector; interpolationmode="none");\n')
-        file.write('        @statistic[packetsDelivered](source="emitsPerDuration(packetReceivedUDP)"; record=count,vector; interpolationmode="none");\n')
-        file.write('        @statistic[packetDropReasonIsQueueOverflow](source="emitsPerDuration(packetDropReasonIsQueueOverflow(packetDropped))"; record=count,vector; interpolationmode="none");\n')
-        file.write('        @statistic[packetDropReasonIsNoRouteFound](source="emitsPerDuration(packetDropReasonIsNoRouteFound(packetDropped))"; record=count,vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetsCreatedVector](source="emitsPerDuration(packetSentUDP)"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetsDeliveredVector](source="emitsPerDuration(packetReceivedUDP)"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetDropReasonIsQueueOverflowVector](source="emitsPerDuration(packetDropReasonIsQueueOverflow(packetDropped))"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetDropReasonIsNoRouteFoundVector](source="emitsPerDuration(packetDropReasonIsNoRouteFound(packetDropped))"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetsCreatedCount](source="packetSentUDP"; record=count;);\n')
+        file.write('        @statistic[packetsDeliveredCount](source="packetReceivedUDP"; record=count;);\n')
+        file.write('        @statistic[packetDropReasonIsQueueOverflowCount](source="packetDropReasonIsQueueOverflow(packetDropped)"; record=count;);\n')
+        file.write('        @statistic[packetDropReasonIsNoRouteFoundCount](source="packetDropReasonIsNoRouteFound(packetDropped)"; record=count;);\n')
         file.write("\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
         for router_name, router in self.routers.items():
 
@@ -843,7 +847,7 @@ class Network(object):
 
             file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
             file.write(
-                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector; interpolationmode="none"); }} <--> ')
+                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector,last; interpolationmode="none"); }} <--> ')
             file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
@@ -889,10 +893,14 @@ class Network(object):
         file.write(f"network = {name}_{algorithm}\n")
         file.write(f"**.cmdenv-log-level = OFF\n")
         file.write(f"**.utilization.statistic-recording = true\n")
-        file.write(f"**.packetsCreated.statistic-recording = true\n")
-        file.write(f"**.packetsDelivered.statistic-recording = true\n")
-        file.write(f"**.packetDropReasonIsQueueOverflow.statistic-recording = true\n")
-        file.write(f"**.packetDropReasonIsNoRouteFound.statistic-recording = true\n")
+        file.write(f"**.packetsCreatedCount.statistic-recording = true\n")
+        file.write(f"**.packetsDeliveredCount.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsQueueOverflowCount.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsNoRouteFoundCount.statistic-recording = true\n")
+        file.write(f"**.packetsCreatedVector.statistic-recording = true\n")
+        file.write(f"**.packetsDeliveredVector.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsQueueOverflowVector.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsNoRouteFoundVector.statistic-recording = true\n")
         file.write(f"**.statistic-recording = false\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
