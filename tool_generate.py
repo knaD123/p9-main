@@ -130,7 +130,7 @@ def main(conf):
                                  enable_tba=conf["tba"],
                                  enable_hd=conf["hd"],
                                  enable_cfor=conf["cfor"],
-                                 enable_inout=conf["inout-disjoint"]
+                                 enable_inout=conf["fbr"]
                           )
 
     # save config

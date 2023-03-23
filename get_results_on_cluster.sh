@@ -9,4 +9,4 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --time=06:00:00
 
-python3 latexplots.py --input_dir results --output_dir latexfiles --path_stretch --max_congestion --delivered_packet_rate --algorithms "inout-disjoint_max-mem=5_path-heuristic=semi_disjoint_paths, rmpls, rsvp-fn,  tba-simple, tba-complex_max-mem=5"
+python3 latexplots.py --input_dir results --output_dir latexfiles --path_stretch --max_congestion --delivered_packet_rate --algorithms "inout-disjoint_max-mem=5_path-heuristic=semi_disjoint_paths, rmpls, rsvp_fn,  tba-simple, tba-complex_max-mem=5"

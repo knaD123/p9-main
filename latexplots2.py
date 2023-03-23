@@ -8,11 +8,11 @@ import yaml
 from collections import defaultdict
 
 alg_to_name = dict()
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths": f"FBR({i}) SD" for i in range(50)})
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion": f"FBR({i}) GC" for i in range(50)})
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
-alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
-alg_to_name.update({f"inout-disjoint-old_max-mem={i}": f"FBR({i}) OLD" for i in range(50)})
+alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=semi_disjoint_paths": f"FBR({i}) SD" for i in range(50)})
+alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=greedy_min_congestion": f"FBR({i}) GC" for i in range(50)})
+alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=shortest_path": f"FBR({i}) SP" for i in range(50)})
+alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=nielsens_heuristic": f"FBR({i}) Nielsens" for i in range(50)})
+alg_to_name.update({f"fbr-old_max-mem={i}": f"FBR({i}) OLD" for i in range(50)})
 
 population = [100, 200]
 crossover = [0.9,0.95]
@@ -25,31 +25,31 @@ for i in range(10):
         for k in generations:
             for c in crossover:
                 for m in mutation:
-                    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
+                    alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}": f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"})
 
 for i in range(10):
     for j in population:
         for k in generations:
             for c in crossover:
                 for m in mutation:
-                    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}"] = f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"
+                    alg_to_name[f"fbr_max-mem={i}_path-heuristic=essence_p={j}_c={c}_m={m}_g={k}"] = f"FBR({i}) p:{j} g:{k} c:{c} m:{m} essence"
 
 for i in range(100):
-    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=semi_disjoint_paths"] = f"FBR({i}) SD"
-    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=greedy_min_congestion"] = f"FBR({i}) GC"
-    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=shortest_path"] = f"FBR({i}) SP"
-    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic"] = f"FBR({i}) Nielsens"
-    alg_to_name[f"inout-disjoint-old_max-mem={i}"] = f"FBR({i}) OLD"
-    alg_to_name[f"inout-disjoint_max-mem={i}_path-heuristic=nielsens_heuristic_max_s=10000"] = f"FBR({i}) Nielsens"
+    alg_to_name[f"fbr_max-mem={i}_path-heuristic=semi_disjoint_paths"] = f"FBR({i}) SD"
+    alg_to_name[f"fbr_max-mem={i}_path-heuristic=greedy_min_congestion"] = f"FBR({i}) GC"
+    alg_to_name[f"fbr_max-mem={i}_path-heuristic=shortest_path"] = f"FBR({i}) SP"
+    alg_to_name[f"fbr_max-mem={i}_path-heuristic=nielsens_heuristic"] = f"FBR({i}) Nielsens"
+    alg_to_name[f"fbr-old_max-mem={i}"] = f"FBR({i}) OLD"
+    alg_to_name[f"fbr_max-mem={i}_path-heuristic=nielsens_heuristic_max_s=10000"] = f"FBR({i}) Nielsens"
 
 
 
 
 for i in range(50):
-    alg_to_name.update({f"inout-disjoint_max-mem={i}_path-heuristic=benjamins_heuristic{j}": f"FBR({i}) Benj({j})" for j in range(50)})
+    alg_to_name.update({f"fbr_max-mem={i}_path-heuristic=benjamins_heuristic{j}": f"FBR({i}) Benj({j})" for j in range(50)})
 alg_to_name.update({f"tba-complex_max-mem={i}": f"TBA-C ({i})" for i in range(50)})
 
-alg_to_name["rsvp-fn"] = "RSVP"
+alg_to_name["rsvp_fn"] = "RSVP"
 alg_to_name["gft"] = "GFT"
 alg_to_name["tba-simple"] = "TBA-S"
 alg_to_name["rmpls"] = "RMPLS"

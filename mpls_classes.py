@@ -720,7 +720,6 @@ class Network(object):
 
         # Link -> pppgate dictionary
         link_to_ppp = dict()
-
         # from service import MPLS_Service
         file.write(f"package {package_name}.{name}.{algorithm};\n")
         file.write("import inet.common.scenario.ScenarioManager;\n")
@@ -732,10 +731,16 @@ class Network(object):
 
         # Global statistic
         file.write("    parameters:\n")
-        file.write('        @statistic[packetsCreated](source="packetSentUDP"; record=count);\n')
-        file.write('        @statistic[packetsDelivered](source="packetReceivedUDP"; record=count);\n')
-        file.write('        @statistic[packetDropReasonIsQueueOverflow](source="packetDropReasonIsQueueOverflow(packetDropped)"; record=count);\n')
-        file.write('        @statistic[packetDropReasonIsNoRouteFound](source="packetDropReasonIsNoRouteFound(packetDropped)"; record=count);\n')
+        file.write("        int timeBetweenRecordings = 100;\n")
+        file.write('        int recordingSampleDuration = 5000;\n')
+        file.write('        @statistic[packetsCreatedVector](source="emitsPerDuration(packetSentUDP)"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetsDeliveredVector](source="emitsPerDuration(packetReceivedUDP)"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetDropReasonIsQueueOverflowVector](source="emitsPerDuration(packetDropReasonIsQueueOverflow(packetDropped))"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetDropReasonIsNoRouteFoundVector](source="emitsPerDuration(packetDropReasonIsNoRouteFound(packetDropped))"; record=vector; interpolationmode="none");\n')
+        file.write('        @statistic[packetsCreatedCount](source="packetSentUDP"; record=count;);\n')
+        file.write('        @statistic[packetsDeliveredCount](source="packetReceivedUDP"; record=count;);\n')
+        file.write('        @statistic[packetDropReasonIsQueueOverflowCount](source="packetDropReasonIsQueueOverflow(packetDropped)"; record=count;);\n')
+        file.write('        @statistic[packetDropReasonIsNoRouteFoundCount](source="packetDropReasonIsNoRouteFound(packetDropped)"; record=count;);\n')
         file.write("\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
         for router_name, router in self.routers.items():
 
@@ -843,7 +848,7 @@ class Network(object):
 
             file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
             file.write(
-                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="movingAverage(channelBusy)"; record=max,last); }} <--> ')
+                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector,last; interpolationmode="none"); }} <--> ')
             file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
@@ -889,10 +894,14 @@ class Network(object):
         file.write(f"network = {name}_{algorithm}\n")
         file.write(f"**.cmdenv-log-level = OFF\n")
         file.write(f"**.utilization.statistic-recording = true\n")
-        file.write(f"**.packetsCreated.statistic-recording = true\n")
-        file.write(f"**.packetsDelivered.statistic-recording = true\n")
-        file.write(f"**.packetDropReasonIsQueueOverflow.statistic-recording = true\n")
-        file.write(f"**.packetDropReasonIsNoRouteFound.statistic-recording = true\n")
+        file.write(f"**.packetsCreatedCount.statistic-recording = true\n")
+        file.write(f"**.packetsDeliveredCount.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsQueueOverflowCount.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsNoRouteFoundCount.statistic-recording = true\n")
+        file.write(f"**.packetsCreatedVector.statistic-recording = true\n")
+        file.write(f"**.packetsDeliveredVector.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsQueueOverflowVector.statistic-recording = true\n")
+        file.write(f"**.packetDropReasonIsNoRouteFoundVector.statistic-recording = true\n")
         file.write(f"**.statistic-recording = false\n")
         for router_name, router in self.routers.items():
             # file.write(f"**.{router_name}.classifier.config = xmldoc(\"{router_name}_fec.xml\")\n")
@@ -924,7 +933,7 @@ class Network(object):
             send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
             longest_send_interval = send_interval if send_interval > longest_send_interval else longest_send_interval
             entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
-                                         'messageLength': f"{packet_size - 39} bytes",
+                                         'messageLength': f"{packet_size} bytes",
                                          'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
 
             if ingress not in source_apps:
@@ -950,8 +959,6 @@ class Network(object):
         file.write(f"sim-time-limit = {sim_time}s\n")
         file.write(f"real-time-limit = 7200s\n")
 
-        #source_hosts = list(source_hosts)
-        #temp_source_apps = {}
 
         host_port = 1
         for ingress, apps in source_apps.items():
@@ -1149,7 +1156,7 @@ class Network(object):
                     good_sources = fec.value['ingress']
                     good_targets = [fec.value['egress']]
 
-                elif fec.fec_type == "inout-disjoint":
+                elif fec.fec_type == "fbr":
                     if 'path_index' in fec.value and fec.value["path_index"] == 0:
                         good_sources = fec.value["ingress"]
                         good_targets = fec.value["egress"]

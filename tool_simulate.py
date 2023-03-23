@@ -148,11 +148,13 @@ def main(conf):
 
     results = dict()
     results["topology"] = conf["topology"]
+    results["network"] = "zoo_" + network.name
+    results["alg"] = conf["method"]
     # The algorithm used to generate the forwarding tables
     method_dict = {}
     method = conf["method"]
     method_dict["name"] = method
-    if method == "inout-disjoint":
+    if method == "fbr":
         method_dict["path_heuristic"] = conf["path_heuristic"]
         method_dict["mem_per_router_per_flow"] = conf["per_flow_memory"]
     results["method"] = method_dict
@@ -376,7 +378,7 @@ if __name__ == "__main__":
 
     gft_parser = method_parser.add_parser("gft")
 
-    inout_disjoint_parser = method_parser.add_parser("inout-disjoint")
+    inout_disjoint_parser = method_parser.add_parser("fbr")
     inout_disjoint_parser.add_argument('--epochs', default=1000, help="Epochs")
     inout_disjoint_parser.add_argument('--max_memory', default=0, help="Max memory allowed on any router")
 
