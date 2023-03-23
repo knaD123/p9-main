@@ -7,9 +7,9 @@ import math
 import json
 def main(conf):
     with open(conf["demands"],"r") as file:
-        flows_with_load = [[x,y, int(z),s,t] for [x,y,z,s,t] in yaml.load(file, Loader=yaml.BaseLoader)]
-    total_packets = num_packets(flows_with_load)
-    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
+        flows_with_load = yaml.load(file, Loader=yaml.BaseLoader)
+    #total_packets = num_packets(flows_with_load)
+    #flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
     flows = [flow[:2] for flow in flows_with_load]
     conf["loads"] = flows_with_load
 
@@ -28,7 +28,7 @@ def main(conf):
 
     conf["link_caps"] = link_caps
 
-    print(f'Total number of packets over a second: {total_packets}')
+    #print(f'Total number of packets over a second: {total_packets}')
 
     # Load topology
     G = mpls_fwd_gen.topology_from_aalwines_json(conf["topology"], visualize=False)
@@ -85,19 +85,19 @@ def num_packets(flows_with_load):
 
     return sum / 64
 
-def flows_take(flows_with_load, take_percent):
-    load_sum = sum(flow[2] for flow in flows_with_load)
-    target_sum = take_percent * load_sum
-    current_sum = 0
-    result_flows = []
-
-    for flow in flows_with_load:
-        current_sum += flow[2]
-        if current_sum > target_sum:
-            break
-        result_flows.append(flow)
-
-    return result_flows
+#def flows_take(flows_with_load, take_percent):
+#    load_sum = sum(flow[2] for flow in flows_with_load)
+#    target_sum = take_percent * load_sum
+#    current_sum = 0
+#    result_flows = []
+#
+#    for flow in flows_with_load:
+#        current_sum += flow[2]
+#        if current_sum > target_sum:
+#            break
+#        result_flows.append(flow)
+#
+#    return result_flows
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
