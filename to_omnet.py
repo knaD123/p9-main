@@ -8,8 +8,8 @@ import json
 def main(conf):
     with open(conf["demands"],"r") as file:
         flows_with_load = yaml.load(file, Loader=yaml.BaseLoader)
-    #total_packets = num_packets(flows_with_load)
-    #flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
+    total_packets = num_packets(flows_with_load)
+    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
     flows = [flow[:2] for flow in flows_with_load]
     conf["loads"] = flows_with_load
 
@@ -80,24 +80,32 @@ def main(conf):
             f.write(f"package {conf['package_name']};")
 def num_packets(flows_with_load):
     sum = 0
-    for (x,y,z,s,t) in flows_with_load:
-        sum += z
+    for (x,y,ts) in flows_with_load:
+        for t in ts:
+            sum += int(t[0])
 
     return sum / 64
 
-#def flows_take(flows_with_load, take_percent):
-#    load_sum = sum(flow[2] for flow in flows_with_load)
-#    target_sum = take_percent * load_sum
-#    current_sum = 0
-#    result_flows = []
-#
-#    for flow in flows_with_load:
-#        current_sum += flow[2]
-#        if current_sum > target_sum:
-#            break
-#        result_flows.append(flow)
-#
-#    return result_flows
+def flows_take(flows_with_load, take_percent):
+
+    load_lst = []
+    for flow in flows_with_load:
+        for t in flow[2]:
+            load_lst.append(int(t[0]))
+
+    load_sum = sum(load_lst)
+    target_sum = take_percent * load_sum
+    current_sum = 0
+    result_flows = []
+
+    for flow in flows_with_load:
+        for t in flow[2]:
+            current_sum += int(t[0])
+            if current_sum > target_sum:
+                break
+            result_flows.append(flow)
+
+    return result_flows
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()

@@ -745,7 +745,7 @@ class Network(object):
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
-            nr_flows_from_router = 1 if sum(entry['ingress'][0] == router_name for entry in self.export_flows) >= 1 else 0
+            nr_flows_from_router = 1 if sum(entry['ingress'] == router_name for entry in self.export_flows) >= 1 else 0
             nr_flows_to_router = 1 if sum(entry['egress'] == router_name for entry in self.export_flows) >= 1 else 0
 
             # Create router in NED file.
