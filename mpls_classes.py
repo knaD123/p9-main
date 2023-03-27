@@ -925,7 +925,6 @@ class Network(object):
         flow_idx = 0
         longest_send_interval = 0 # Used to find the simulation time limit
 
-        target_apps = {}
         i = 1
         for flow in self.export_flows:
             if flow['egress'] not in target_apps.keys():
