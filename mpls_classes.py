@@ -924,6 +924,14 @@ class Network(object):
         target_apps = {}
         flow_idx = 0
         longest_send_interval = 0 # Used to find the simulation time limit
+
+        target_apps = {}
+        i = 1
+        for flow in self.export_flows:
+            if flow['egress'] not in target_apps.keys():
+                target_apps[flow['egress']] = {'destAddresses': flow['target_host'], 'destPort': i}
+                i += 1
+
         for flow in self.export_flows:
             starttime = flow['starttime']
             stoptime = flow['stoptime']
@@ -932,9 +940,9 @@ class Network(object):
             egress = flow['egress']
             send_interval = (send_interval_multiplier * (1 / (flow['load'] / packet_size)))
             longest_send_interval = send_interval if send_interval > longest_send_interval else longest_send_interval
-            entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': flow_idx,
+            entry = {'typename': 'UdpBasicApp', 'localPort': flow_idx, 'destPort': target_apps[egress]['destPort'],
                                          'messageLength': f"{packet_size} bytes",
-                                         'destAddresses': flow['target_host'], 'source_host': flow['source_host']}
+                                         'destAddresses': target_apps[egress]['destAddresses'], 'source_host': flow['source_host']}
 
             if ingress not in source_apps:
                 source_apps[ingress] = entry
@@ -942,8 +950,6 @@ class Network(object):
             else:
                 source_hosts[ingress].append((starttime, stoptime, send_interval, flow))
 
-            if egress not in target_apps:
-                target_apps[egress] = entry
             #else:
                 #app_num = len(source_apps[ingress]) + 1
                 #source_apps[ingress].append(entry)
@@ -966,7 +972,7 @@ class Network(object):
             for (i, (starttime, stoptime, send_interval, flow)) in enumerate(source_hosts[ingress]):
                 file.write(f'''**.{apps['source_host']}.app[{i}].typename = "{apps['typename']}"\n''')
                 file.write(f'''**.{apps['source_host']}.app[{i}].localPort = {host_port}\n''')
-                file.write(f'''**.{apps['source_host']}.app[{i}].destPort = {apps['destPort']}\n''')
+                file.write(f'''**.{apps['source_host']}.app[{i}].destPort = {target_apps[flow['egress']]['destPort']}\n''')
                 file.write(f'''**.{apps['source_host']}.app[{i}].messageLength = {apps['messageLength']}\n''')
                 file.write(f'''**.{apps['source_host']}.app[{i}].sendInterval = {send_interval}s\n''')
                 file.write(f'''**.{apps['source_host']}.app[{i}].destAddresses = "{flow['target_host']}"\n''')
@@ -988,12 +994,10 @@ class Network(object):
 
         # Add applications at target nodes
         target_port = 1
-        for target, apps in flows_by_target.items():
-            file.write(f'''**.{target}.numApps = {len(apps)}\n''')
-            for i, app in enumerate(apps):
-                file.write(f'''**.{target}.app[{i}].typename = "UdpSinkApp"\n''')
-                file.write(f'''**.{target}.app[{i}].io.localPort = {target_port}\n''')
-                target_port += 1
+        for target, items in target_apps.items():
+            file.write(f'''**.{items['destAddresses']}.numApps = 1\n''')
+            file.write(f'''**.{items['destAddresses']}.app[0].typename = "UdpSinkApp"\n''')
+            file.write(f'''**.{items['destAddresses']}.app[0].io.localPort = {items['destPort']}\n''')
             file.write("\n")
 
         for scenario in failure_scenarios_enum:
