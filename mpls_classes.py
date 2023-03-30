@@ -725,6 +725,7 @@ class Network(object):
         file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
         file.write("import inet.node.inet.StandardHost;\n")
         file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
+        file.write("import inet.p10.MeasureWriter;\n")
         file.write("\n")
         file.write(f"network {name}_{algorithm}{{\n")
 
@@ -740,7 +741,10 @@ class Network(object):
         file.write('        @statistic[packetsDeliveredCount](source="packetReceivedUDP"; record=count;);\n')
         file.write('        @statistic[packetDropReasonIsQueueOverflowCount](source="packetDropReasonIsQueueOverflow(packetDropped)"; record=count;);\n')
         file.write('        @statistic[packetDropReasonIsNoRouteFoundCount](source="packetDropReasonIsNoRouteFound(packetDropped)"; record=count;);\n')
-        file.write("\n    submodules:\n        configurator: Ipv4NetworkConfigurator;\n")
+        file.write('\n')
+        file.write("    submodules:\n")
+        file.write('        configurator: Ipv4NetworkConfigurator;\n')
+        file.write("        measureWriter: MeasureWriter;\n")
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
@@ -847,7 +851,7 @@ class Network(object):
 
             file.write(f"        {edge[0]}.pppg[" + str(self.routers[edge[0]].interface_ids[edge[1]]) + "] <--> ")
             file.write(
-                f'{edge[0]}___{edge[1]}: {{ delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector,last; interpolationmode="none"); }} <--> ')
+                f'{edge[0]}___{edge[1]}: {{enableUtilization = true; delay = {latency}ms; datarate = {bandwidth / bandwidth_divisor}bps; @statistic[utilization](source="utilizationMovingAverage(channelBusy)"; record=max,vector,last; interpolationmode="none"); }} <--> ')
             file.write(f"{edge[1]}.pppg[" + str(self.routers[edge[1]].interface_ids[edge[0]]) + "];\n")
         # Edges to source and target nodes.
 
