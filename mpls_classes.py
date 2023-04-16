@@ -337,10 +337,11 @@ class MPLS_Client(object):
     def get_comm_count(self):
         return self.comm_count
 
-    def alloc_labels_to_known_resources(self):
+    def alloc_labels_to_known_resources(self, network = None):
         # Asks the router for allocation of labels for each known FEC (resource)
         for fec in self.known_resources():
-            self.LIB_alloc(fec)
+            label = self.LIB_alloc(fec)
+            network.demand_df.loc[network.demand_df['fec'] == fec, 'path_label'] = label
 
     def get_remote_label(self, router_name, fec, do_count=True):
         # Gets the label allocated by router <router_name> to the FEC <fec>
@@ -565,6 +566,8 @@ class Network(object):
                 self.name = rand_name()
         else:
             self.name = name
+
+        self.demand_df = None
 
         self.service_registry = dict()  # hash table with sets of PE routers for each MPLS service.
         # create and keep track of all routers in the network

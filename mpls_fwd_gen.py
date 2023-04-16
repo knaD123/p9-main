@@ -257,7 +257,7 @@ def generate_fwd_rules(G, conf, enable_PHP = True, numeric_labels = False, enabl
                 r.clients[protocol_name].add_protections(t)
 
     for n,r in network.routers.items():
-        r.clients[protocol_name].alloc_labels_to_known_resources()
+        r.clients[protocol_name].alloc_labels_to_known_resources(network=network)
 
     print(f"RSVP ready (frr variant={protection}).")
 

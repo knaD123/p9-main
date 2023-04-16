@@ -1,3 +1,5 @@
+import random
+import omnet_communicator
 import mpls_classes
 import mpls_fwd_gen
 import argparse
@@ -9,7 +11,7 @@ def main(conf):
     with open(conf["demands"],"r") as file:
         flows_with_load = [[x,y, int(z)] for [x,y,z] in yaml.load(file, Loader=yaml.BaseLoader)]
     total_packets = num_packets(flows_with_load)
-    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), take_percent=conf['take_percent'])
+    flows_with_load = flows_take(sorted(flows_with_load, key=lambda x: x[2], reverse=True), 0.5)
     flows = [flow[:2] for flow in flows_with_load]
     conf["loads"] = flows_with_load
 
@@ -77,6 +79,28 @@ def main(conf):
     if conf["generate_package"]:
         with open(f"{conf['output_dir']}/package.ned", "w") as f:
             f.write(f"package {conf['package_name']};")
+
+    omnet_communicator.communicator(network)
+
+    x = 1
+    '''for i in range(1,3):
+        convert_to_dict(flows_with_load, i)'''
+
+def convert_to_dict(lst: [[str, str, int]], num = 0):
+    result_dict = {}
+    for inner_lst in lst:
+        key1 = inner_lst[0]
+        key2 = inner_lst[1]
+        value = 1 / ((inner_lst[2] * random.random()) / 64)
+        if key1 not in result_dict:
+            result_dict[key1] = {}
+        result_dict[key1][key2] = value
+
+    with open(f'demand{num}.json', 'w') as f:
+        json.dump(result_dict, f)
+
+    return result_dict
+
 def num_packets(flows_with_load):
     sum = 0
     for (x,y,z) in flows_with_load:
@@ -92,7 +116,7 @@ def flows_take(flows_with_load, take_percent):
 
     for flow in flows_with_load:
         current_sum += flow[2]
-        if current_sum >= target_sum:
+        if current_sum > target_sum:
             break
         result_flows.append(flow)
 

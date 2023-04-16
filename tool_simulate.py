@@ -100,10 +100,6 @@ def main(conf):
                                  )
     ## Generate MPLS forwarding rules
 
-    # omnet
-    network.flows_for_omnet = network.build_flow_table(flows_with_load)
-    network.to_omnetpp()
-
     stats['fwd_gen_time'] = time.time_ns() - before_fwd_gen
 
     # save config
@@ -400,7 +396,7 @@ if __name__ == "__main__":
     p.add_argument("--result_folder", type=str, default="", help="Path to the folder of simulation result files. Defaults to print on screen.")
     p.add_argument("--print_flows", action="store_true", help="Print flows instead of running simulation. Defaults False.")
     p.add_argument("--verbose", action="store_true", help="Remove verbosity")
-    p.add_argument("--take_percent", type=float, default=0.20, help="What percentage of biggest flows to take")
+    p.add_argument("--take_percent", type=float, default=1, help="What percentage of biggest flows to take")
     p.add_argument("--print_fails", action="store_true", help="Print failed traces")
 
     args = p.parse_args()

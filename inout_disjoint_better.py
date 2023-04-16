@@ -11,6 +11,7 @@ import os
 from ortools.linear_solver import pywraplp
 import random
 #from random import *
+import pandas as pd
 
 from itertools import islice, cycle
 
@@ -567,7 +568,32 @@ class InOutDisjoint(MPLS_Client):
             # encoded_path.to_graphviz(f'ft {f[0]} -> {f[1]}', network.topology)
             ft.extend(encoded_path)
 
-        return ft
+        # Hacking :D
+        if None in flow_to_paths:
+            # HACK HACK
+            del flow_to_paths[None]
+
+        # List of dictionaries for dataframe
+        demand_dict_lst = []
+
+        # Dict for load lookup
+        load_dict = {tuple(load[:2]): load[2] for load in self.loads}
+
+        for source, target in flow_to_paths.keys():
+            for path_index, path in enumerate(flow_to_paths[source, target]):
+                demand_dict_lst.append({
+                    "source": source,
+                    "target": target,
+                    "path_index": path_index,
+                    "path": path,
+                    "path_label": None,
+                    "fec": label(source, target, path_index),
+                    "load": load_dict[(source,target)]
+                })
+
+        demand_df = pd.DataFrame(demand_dict_lst)
+
+        return ft, demand_df
 
     def LFIB_compute_entry(self, fec: oFEC, single=False):
         for priority, next_hop, swap_fec in self.partial_forwarding_table[(self.router.name, fec)]:
@@ -599,7 +625,9 @@ class InOutDisjoint(MPLS_Client):
 
         self.mem_limit_per_router = self.mem_limit_per_router_per_flow * len(self.flows)
 
-        ft = self.compute_forwarding_table()
+        ft, demand_df = self.compute_forwarding_table()
+
+        network.demand_df = demand_df
 
         for (src, fec), entries in ft.table.items():
             src_client: InOutDisjoint = self.router.network.routers[src].clients["fbr"]
