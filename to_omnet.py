@@ -71,7 +71,7 @@ def main(conf):
     # Omnet
     network.flows_for_omnet = network.build_flow_table(flows_with_load)
 
-    network.to_omnetpp(name=conf["topo_name"], output_dir=f"{conf['output_dir']}/{conf['topo_name']}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method)
+    network.to_omnetpp(name=conf["topo_name"], output_dir=f"{conf['output_dir']}/{conf['topo_name']}/{method}", scaler=conf['scaler'], packet_size=conf["packet_size"], zero_latency=conf["zero_latency"], package_name=conf["package_name"], algorithm=method, latency_scaler=conf["latency_scaler"])
 
     # Add package.ned
     if conf["generate_package"]:
@@ -119,6 +119,7 @@ if __name__ == "__main__":
     p.add_argument("--generate_package", action="store_true")
     p.add_argument("--topo_name", type=str, required=True)
     p.add_argument("--method_name", type=str, default="", help="Name of the algorithm that is used")
+    p.add_argument("--latency_scaler", type=float, default=1)
 
     conf = vars(p.parse_args())
 

@@ -675,7 +675,7 @@ class Network(object):
 
         return net_dict
 
-    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False, package_name="inet.zoo_topology", algorithm="none"):
+    def to_omnetpp(self, name='default', output_dir='./omnet_files/default', scaler=1, packet_size=64, zero_latency=False, package_name="inet.zoo_topology", algorithm="none", latency_scaler=1.0):
         """
         Generates all files for OMNeT++.
         """
@@ -686,7 +686,7 @@ class Network(object):
         self.build_flows_for_export()
 
         with open(f'{output_dir}/{name}.ned', mode='w') as f:
-            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency, package_name=package_name, algorithm=algorithm)
+            link_to_ppp_dict = self.to_omnetpp_ned(name=name, file=f, bandwidth_divisor=scaler, zero_latency=zero_latency, package_name=package_name, algorithm=algorithm, latency_scaler=latency_scaler)
 
         with open("confs/zoo_" + self.name + "/failure_chunks/0.yml", 'r') as f:
             failed_set_chunk = yaml.safe_load(f)
@@ -710,7 +710,7 @@ class Network(object):
         self.to_omnetpp_lib(output_dir + "/lib_files")
         self.to_omnetpp_classification(output_dir + "/classification_files")
 
-    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False, package_name="inet.zoo_topology", algorithm="none"):
+    def to_omnetpp_ned(self, name, file, bandwidth_divisor=1, zero_latency=False, package_name="inet.zoo_topology", algorithm="none", latency_scaler=1.0):
         # Values between the routers, if not included in the edge data
         DEFAULT_BANDWIDTH = 1048576  # kbps = 1 Gbps
         # Values from the hosts to the routers
@@ -725,7 +725,7 @@ class Network(object):
         file.write("import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;\n")
         file.write("import inet.node.inet.StandardHost;\n")
         file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
-        file.write("import inet.p10.DynamicUpdater;\n")
+        file.write("import inet.p10.TwoPhaseCommit;\n")
         file.write("\n")
         file.write(f"network {name}_{algorithm}{{\n")
 
@@ -744,7 +744,7 @@ class Network(object):
         file.write('\n')
         file.write("    submodules:\n")
         file.write('        configurator: Ipv4NetworkConfigurator;\n')
-        file.write("        DynamicUpdater: DynamicUpdater;\n")
+        file.write("        twoPhaseCommit: TwoPhaseCommit;\n")
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
@@ -837,7 +837,7 @@ class Network(object):
             data = self.topology.get_edge_data(edge[0], edge[1])
             # We multiply bandwidth by 8 to convert to bits
             bandwidth = data['bandwidth'] * 8 if 'bandwidth' in data else DEFAULT_BANDWIDTH
-            latency = data['latency'] if ('latency' in data and not zero_latency) else 0
+            latency = data['latency'] * latency_scaler if ('latency' in data and not zero_latency) else 0
 
             # Added for scenario manager
             link_to_ppp[(edge[0], edge[1])] = self.routers[edge[0]].interface_ids[edge[1]]
