@@ -726,6 +726,7 @@ class Network(object):
         file.write("import inet.node.inet.StandardHost;\n")
         file.write("import inet.node.mpls.MplsRouter;\n") # own, modified router class
         file.write("import inet.p10.TwoPhaseCommit;\n")
+        file.write("import inet.p10.MeasureWriter;\n")
         file.write("\n")
         file.write(f"network {name}_{algorithm}{{\n")
 
@@ -745,6 +746,7 @@ class Network(object):
         file.write("    submodules:\n")
         file.write('        configurator: Ipv4NetworkConfigurator;\n')
         file.write("        twoPhaseCommit: TwoPhaseCommit;\n")
+        file.write("        measureWriter: MeasureWriter;\n")
         for router_name, router in self.routers.items():
 
             # calculate number of flows at this router
